@@ -7,13 +7,19 @@
 }
 
 .background-tint {
-    background-color: #18202F55; // Tint color
+    background-color: rgba(74, 102, 86, 0.75);
     background-blend-mode: multiply;
 }
 
 body {
     font-family: "Work Sans", sans-serif;
-    background-color: var(--color-1);
+}
+
+.main-home {
+    background-image: url("../../static/img/geisel.jpg");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
 }
 
 .navbar {

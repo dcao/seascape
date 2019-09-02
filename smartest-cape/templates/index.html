@@ -2,9 +2,29 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="mh-100">
-        <h2>Search for class info by professor.</h2>
+<div class="main-home background-tint">
+    <div class="container">
+        <div class="row vh-100">
+            <div class="col-6 my-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Choose the right classes. Make informed decisions.</h5>
+                        <p class="card-text"><strong>Smartest CAPEs</strong> provides a system to search through UCSD's CAPEs dataset, grouped by class and professor, and discover insights about them. Type a class name and professor below to begin a search.</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="classIDInput">Class ID</label>
+                                <input type="text" class="form-control form-control-lg" id="classIDInput" placeholder="CSE 11">
+                            </div>
+                            <div class="form-group">
+                                <label for="professorInput">Professor</label>
+                                <input type="text" class="form-control form-control-lg" id="professorInput" placeholder="Moshiri">
+                            </div>
+                            <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
