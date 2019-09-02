@@ -1,0 +1,21 @@
+:root {
+    --color-1: #18202F;
+    --color-2: #243531;
+    --color-3: #4A6656;
+    --color-4: #C5C9A6;
+    --color-5: #E6C761;
+}
+
+.background-tint {
+    background-color: #18202F55; // Tint color
+    background-blend-mode: multiply;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    background-color: var(--color-1);
+}
+
+.navbar {
+    height: 72px !important;
+}
