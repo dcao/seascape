@@ -16,5 +16,5 @@ let
   pkgs = import <nixpkgs> { overlays = [ overlay ]; };
 in
  (pkgs.python37.withPackages (ps: with ps; [
-   flask
+   flask pandas selenium natsort statsmodels
  ])).env
