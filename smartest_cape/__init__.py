@@ -24,7 +24,6 @@ def create_app(test_config=None):
     def listing():
         class_id = request.args.get('class')
         prof = request.args.get('professor')
-        page_str = request.args.get('p')
 
         if class_id is None:
             class_id = ""
@@ -36,5 +35,9 @@ def create_app(test_config=None):
         fdf = fdf.groupby(["instr", "course"], as_index=False).mean()
         
         return render_template('listing.html', class_id=class_id, prof=prof, data=fdf)
+
+    @app.route('/course/<cid>')
+    def course(cid):
+        return render_template("course.html")
 
     return app

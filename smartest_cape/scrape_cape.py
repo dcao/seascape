@@ -131,3 +131,6 @@ def generate_and_save_sparse():
     df = generate_sparse_df()
     df = get_clean_cape_dataframe(df)
     df.to_hdf("./data/sparse.h5", key="df", mode="w")
+
+if __name__ == "__main__":
+    generate_and_save_sparse()
