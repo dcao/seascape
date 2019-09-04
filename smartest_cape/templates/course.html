@@ -2,10 +2,59 @@
 
 {% block content %}
 
+{% set rcmnd_class = "%.1f" | format(row["rcmnd_class"] | float * 100) %}
+{% set rcmnd_instr = "%.1f" | format(row["rcmnd_instr"] | float * 100) %}
+{% set rcmnd_diff = "%.1f" | format(row["rcmnd_diff"] | float * 100) %}
+
+{% set class_pctle = "%.1f" | format(rowp["rcmnd_class"] | float * 100) %}
+{% set instr_pctle = "%.1f" | format(rowp["rcmnd_instr"] | float * 100) %}
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h2><strong>Moshiri, Niema</strong></h2>
-        <h3>teaching <strong>CSE 11</strong></h3>
+        <h2><strong>{{ row["instr"] }}</strong></h2>
+        <h3>teaching <strong>{{ row["course"] }}</strong></h3>
+    </div>
+</div>
+<div class="container">
+    <div class="card-columns">
+        <div class="card {% if (class_pctle | float) > 75 %}border-success{% elif (class_pctle | float) > 50 %}{% elif (class_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (class_pctle | float) > 75 %}bg-success text-white{% elif (class_pctle | float) > 50 %}{% elif (class_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Average class approval
+            </div>
+            <div class="card-body">
+                <!--
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                -->
+                <h2 class="card-title">{{ rcmnd_class }}%</h2>
+                <p class="card-text">out of <strong>{{ row["class_weighted_evals"] }} respondents</strong> approved of this course.</p>
+                <hr />
+                <h4>{{ class_pctle }}%</h4>
+                <p class="card-text">of other course/professor combos have a lower instructor approval rating. This is <strong>{% if (class_pctle | float) < 50 %}below{% else %}above{% endif %} average.</strong></p>
+            </div>
+        </div>
+        <div class="card {% if (instr_pctle | float) > 75 %}border-success{% elif (instr_pctle | float) > 50 %}{% elif (instr_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (instr_pctle | float) > 75 %}bg-success text-white{% elif (instr_pctle | float) > 50 %}{% elif (instr_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Average instructor approval
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">{{ rcmnd_instr }}%</h2>
+                <p class="card-text">out of <strong>{{ row["instr_weighted_evals"] }} respondents</strong> approved of this instructor's teaching of the course.</p>
+                <hr />
+                <h4>{{ instr_pctle }}%</h4>
+                <p class="card-text">of other course/professor combos have a lower instructor approval rating. This is <strong>{% if (instr_pctle | float) < 50 %}below{% else %}above{% endif %} average.</strong></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Instructor-class rating differential
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">{{ rcmnd_diff }}%</h2>
+                <p class="card-text">Lorem ipsum</p>
+            </div>
+        </div>
     </div>
 </div>
 

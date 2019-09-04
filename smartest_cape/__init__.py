@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
+import numpy as np
 
 def to_int(s):
     try: 
@@ -7,6 +8,33 @@ def to_int(s):
         return x
     except ValueError:
         return None
+
+def group_df(df):
+    fdf = df[["instr", "course", "evals", "rcmnd_class", "rcmnd_instr", "rcmnd_diff", "time", "class_weighted_evals", "instr_weighted_evals", "gpa_expected", "gpa_actual"]].groupby(["instr", "course"]).agg(
+        evals=("evals", sum),
+        rcmnd_class=("rcmnd_class", np.mean),
+        rcmnd_instr=("rcmnd_instr", np.mean),
+        rcmnd_diff=("rcmnd_diff", np.mean),
+        time=("time", sum),
+        class_weighted_evals=("class_weighted_evals", sum),
+        instr_weighted_evals=("instr_weighted_evals", sum),
+        gpa_expected=("gpa_expected", np.mean),
+        gpa_actual=("gpa_actual", np.mean)).reset_index()
+
+    fdf['cid'] = np.arange(len(fdf))
+    return fdf
+
+def pctle_df(gdf):
+    gdf["evals"] = gdf["evals"].rank(pct=True)
+    gdf["rcmnd_class"] = gdf["rcmnd_class"].rank(pct=True)
+    gdf["rcmnd_instr"] = gdf["rcmnd_instr"].rank(pct=True)
+    gdf["rcmnd_diff"] = gdf["rcmnd_diff"].rank(pct=True)
+    gdf["time"] = gdf["time"].rank(pct=True)
+    gdf["class_weighted_evals"] = gdf["class_weighted_evals"].rank(pct=True)
+    gdf["instr_weighted_evals"] = gdf["instr_weighted_evals"].rank(pct=True)
+    gdf["gpa_expected"] = gdf["gpa_expected"].rank(pct=True)
+    gdf["gpa_actual"] = gdf["gpa_actual"].rank(pct=True)
+    return gdf
 
 def create_app(test_config=None):
     # create and configure the app
@@ -31,13 +59,21 @@ def create_app(test_config=None):
         if prof is None:
             prof = ""
 
-        fdf = df[(df['course'].str.contains(class_id, regex=False)) & (df['instr'].str.contains(prof, regex=False))]
-        fdf = fdf.groupby(["instr", "course"], as_index=False).mean()
+        fdf = group_df(df)
+        fdf = fdf[(fdf['course'].str.contains(class_id, regex=False)) & (fdf['instr'].str.contains(prof, regex=False))]
+
+        with pd.option_context('display.max_colwidth', -1):
+            fdf["course"] = fdf.apply(lambda x: '<a href="/course/{0}">{1}</a>'.format(x["cid"], x["course"]), axis=1)
         
         return render_template('listing.html', class_id=class_id, prof=prof, data=fdf)
 
     @app.route('/course/<cid>')
     def course(cid):
-        return render_template("course.html")
+        cid = int(cid)
+        gdf = group_df(df)
+        sz = gdf['instr'].size - 1
+        row = gdf.iloc[cid]
+        rowp = pctle_df(gdf).iloc[cid]
+        return render_template("course.html", row=row, rowp=rowp)
 
     return app

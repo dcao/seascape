@@ -10,7 +10,7 @@
 </div>
 <div class="container">
     <div class="table-responsive">
-        {{ data.to_html(classes="table table-hover", border=0, index=False) | safe }}
+        {{ data.to_html(classes="table table-hover", border=0, index=False, escape=False) | safe }}
     </div>
 </div>
 

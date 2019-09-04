@@ -90,6 +90,7 @@ def get_clean_cape_dataframe(raw_cape_dataframe, terms=None):
     df.loc[:, 'rcmnd_class'] = (df.rcmnd_class
                                   .str.rstrip(' %')
                                   .astype('float')) / 100
+    df['rcmnd_diff'] = df.rcmnd_instr - df.rcmnd_class
 
     """We create a "weighted evals" column which contains the recommendation
     percentage multiplied by the number of evals, yielding the approximate
