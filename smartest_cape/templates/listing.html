@@ -10,7 +10,7 @@
 </div>
 <div class="container">
     <div class="table-responsive">
-        {{ data.to_html(classes="table table-hover", border=0, index=False, escape=False) | safe }}
+        {{ data | safe }}
     </div>
 </div>
 
@@ -20,7 +20,9 @@
 
 <script>
     $(document).ready(function () {
-        $(".dataframe").DataTable();
+        $(".dataframe").DataTable({
+            "pageLength": 50
+        });
     });
 </script>
 
