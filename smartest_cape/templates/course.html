@@ -6,16 +6,25 @@
 {% set rcmnd_instr = "%.1f" | format(row["rcmnd_instr"] | float * 100) %}
 {% set rcmnd_diff = "%.1f" | format(row["rcmnd_diff"] | float * 100) %}
 {% set time = "%d:%02d" | format(row["time"] | int, ((row["time"] | float) - (row["time"] | int)) * 60 | int) %}
+{% set gpa = "%.2f" | format(row["gpa_actual"] | float) %}
+
+{% set reg_rcmnd_class = "%.1f" | format(regress[0][0] | float * 100) %}
+{% set reg_rcmnd_instr = "%.1f" | format(regress[0][1] | float * 100) %}
+{% set reg_rcmnd_diff = "%.1f" | format(regress[0][2] | float * 100) %}
+{% set reg_time = "%d:%02d" | format(regress[0][3] | int, ((regress[0][3] | float) - (regress[0][3] | int)) * 60 | int) %}
+{% set reg_gpa = "%.2f" | format(regress[0][4] | float) %}
 
 {% set class_pctle = "%.1f" | format(rowp["rcmnd_class"] | float * 100) %}
 {% set instr_pctle = "%.1f" | format(rowp["rcmnd_instr"] | float * 100) %}
 {% set diff_pctle = "%.1f" | format(rowp["rcmnd_diff"] | float * 100) %}
 {% set time_pctle = "%.1f" | format(rowp["time"] | float * 100) %}
+{% set gpa_pctle = "%.1f" | format(rowp["gpa_actual"] | float * 100) %}
 
 {% set class_pctot = "%.1f" | format(rowpo["rcmnd_class"] | float * 100) %}
 {% set instr_pctot = "%.1f" | format(rowpo["rcmnd_instr"] | float * 100) %}
 {% set diff_pctot = "%.1f" | format(rowpo["rcmnd_diff"] | float * 100) %}
 {% set time_pctot = "%.1f" | format(rowpo["time"] | float * 100) %}
+{% set gpa_pctot = "%.1f" | format(rowpo["gpa_actual"] | float * 100) %}
 
 {% set dept = row["course"].split(' ')[0] %}
 
@@ -26,14 +35,22 @@
     </div>
 </div>
 <div class="container">
-    <h4 style="margin-bottom: 0.75em; ">Report Card</h4>
     <div class="card-columns">
         <div class="card {% if (class_pctle | float) > 75 %}border-success{% elif (class_pctle | float) > 40 %}{% elif (class_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
             <div class="card-header {% if (class_pctle | float) > 75 %}bg-success text-white{% elif (class_pctle | float) > 40 %}{% elif (class_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
-                Average class approval
+                Class approval
             </div>
             <div class="card-body">
-                <h2 class="card-title">{{ rcmnd_class }}%</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_class }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_class }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
                 <p class="card-text">i.e. <strong>{{ row["class_weighted_evals"] }} respondents</strong> ({{ row["evals"] }} total) approved of this course.</p>
                 <hr />
                 <div class="row">
@@ -50,10 +67,19 @@
         </div>
         <div class="card {% if (instr_pctle | float) > 75 %}border-success{% elif (instr_pctle | float) > 40 %}{% elif (instr_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
             <div class="card-header {% if (instr_pctle | float) > 75 %}bg-success text-white{% elif (instr_pctle | float) > 40 %}{% elif (instr_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
-                Average instructor approval
+                Instructor approval
             </div>
             <div class="card-body">
-                <h2 class="card-title">{{ rcmnd_instr }}%</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_instr }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_instr }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
                 <p class="card-text">i.e. <strong>{{ row["instr_weighted_evals"] }} respondents</strong> ({{ row["evals"] }} total) approved of this instructor's teaching of the course.</p>
                 <hr />
                 <div class="row">
@@ -73,8 +99,17 @@
                 Instructor-class rating differential
             </div>
             <div class="card-body">
-                <h2 class="card-title">{{ rcmnd_diff }}%</h2>
-                <p class="card-text">This percentage gives the difference between the instructor and class approval ratings. A higher value indicates a professor which can compensate for the negative qualities of a class.</p>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_diff }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_diff }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">This is the difference between the instructor and class approval ratings. A higher value indicates a professor which can compensate for the negative qualities of a class.</p>
                 <hr />
                 <div class="row">
                     <div class="col-6">
@@ -88,12 +123,32 @@
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-                Projected grade
+        <div class="card {% if (gpa_pctle | float) > 75 %}border-success{% elif (gpa_pctle | float) > 40 %}{% elif (gpa_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (gpa_pctle | float) > 75 %}bg-success text-white{% elif (gpa_pctle | float) > 40 %}{% elif (gpa_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Grade (GPA)
             </div>
             <div class="card-body">
-                <p class="card-text">Todo</p>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ gpa }}</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_gpa }}</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ gpa_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ gpa_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card {% if (time_pctle | float) > 75 %}border-danger{% elif (time_pctle | float) > 60 %}border-warning{% elif (time_pctle | float) > 25 %}{% else %}border-success{% endif %}">
@@ -101,8 +156,17 @@
                 Estimated time commitment
             </div>
             <div class="card-body">
-                <h2 class="card-title">&asymp;{{ time }} / wk</h2>
-                <p class="card-text">The average amount of time outside of class needed based on <strong>{{ row["evals"] }} responses.</strong></p>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">&asymp;{{ time }}</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">&asymp;{{ reg_time }}</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">The average amount of time outside of class needed per week.</strong></p>
                 <hr />
                 <div class="row">
                     <div class="col-6">
@@ -115,34 +179,42 @@
                     </div>
                 </div>
                 <p class="card-text"></p>
-                <p class="card-text"><small class="text-muted">Higher percentiles are generally worse - higher time commitment required</small></p>
+                <p class="card-text"><small class="text-muted">Higher &asymp; worse</small></p>
             </div>
         </div>
     </div>
     <br />
-    <hr />
-    <br />
-    <h4 style="margin-bottom: 0.75em;">Visualizations</h4>
-    <div class="card card-chart">
-        <div class="card-header">
-            Class approval comparison
+    <div id="accordion">
+        <div class="card card-chart">
+            <div class="card-header" id="headingOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Class approval comparison
+                </button>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="class-comp-chart"></div>
+                    <hr />
+                    <p class="card-text">This chart shows all {{ row["course"] }} classes' instructor and class recommended percentages. The dotted lines represent averages for each axis.</p>
+                    <p class="card-text">The top right quadrant represents good classes with good professors. Bottom right represents good classes with underwhelming professors, top left represents bad classes redeemed by their professors, and bottom left represents classes with subpar professors and classes.</p>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <div id="class-comp-chart"></div>
-            <hr />
-            <p class="card-text">This chart shows all {{ row["course"] }} classes' instructor and class recommended percentages. The dotted lines represent averages for each axis.</p>
-            <p class="card-text">The top right quadrant represents good classes with good professors. Bottom right represents good classes with underwhelming professors, top left represents bad classes redeemed by their professors, and bottom left represents classes with subpar professors and classes.</p>
-        </div>
-    </div>
-    <div class="card card-chart">
-        <div class="card-header">
-            Class difficulty/time commitment comparison
-        </div>
-        <div class="card-body">
-            <div id="class-diff-chart"></div>
-            <hr />
-            <p class="card-text">This chart shows all {{ row["course"] }} time commitments and average GPAs. The dotted lines represent averages for each axis.</p>
-            <p class="card-text">A point in the top right quadrant is an easy but very busy class (i.e. lots of busywork). Bottom right is hard and busy, bottom left is hard but light on workload, and top left is easy in all respects.</p>
+        <div class="card card-chart">
+            <div class="card-header" id="headingTwo">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Class difficulty/time commitment comparison
+                </button>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="class-diff-chart"></div>
+                    <hr />
+                    <p class="card-text">This chart shows all {{ row["course"] }} time commitments and average GPAs. The dotted lines represent averages for each axis.</p>
+                    <p class="card-text">A point in the top right quadrant is an easy but time-consuming class. Bottom right is hard and time-consuming, bottom left is hard but light on workload, and top left is easy in all respects.</p>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -177,7 +249,7 @@
                 .attr("fill", "#000")
                 .attr("font-weight", "bold")
                 .attr("text-anchor", "end")
-                .text("% Rec. Class"))
+                .text("Prop. Rec. Class"))
 
         yAxis = g => g
             .attr("transform", `translate(${margin.left},0)`)
@@ -187,7 +259,7 @@
                 .attr("x", 4)
                 .attr("text-anchor", "start")
                 .attr("font-weight", "bold")
-                .text("% Rec. Instr."))
+                .text("Prop. Rec. Instr."))
 
         const svg = d3.select(chartDiv).append("svg")
             .attr("width", "100%")

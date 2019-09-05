@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split 
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import MultiTaskElasticNet
 
 # Importing the dataset
-dataset = pd.read_hdf('../data/sparse.h5')
+dataset = pd.read_hdf('./data/sparse.h5')
 
 # Builds a dictionary numbering the terms in chronological order
 term_list = dataset["term"]
@@ -36,7 +36,7 @@ def regress(input_prof, input_course, ylabels):
 	print(y)
 	
 	#Fitting Simple Linear Regression to the Training set
-	regressor = LinearRegression()
+	regressor = MultiTaskElasticNet()
 	regressor.fit(x, y)
 	return regressor.predict([[max(terms.values()) + 1]])
 

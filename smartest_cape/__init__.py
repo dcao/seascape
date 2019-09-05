@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
 import json
+from . import ml
 
 def to_int(s):
     try: 
@@ -44,7 +45,7 @@ def create_app(test_config=None):
 
     # We have to load our dataset first, so we load our premade hdf5 file which
     # contains all the data.
-    df = pd.read_hdf("./data/sparse.h5")
+    df = ml.dataset
     
     @app.route('/')
     def root():
@@ -60,6 +61,8 @@ def create_app(test_config=None):
 
         if prof is None:
             prof = ""
+
+        class_id = class_id.upper()
 
         fdf = group_df(df)
         fdf = fdf[(fdf['course'].str.contains(class_id, regex=False)) & (fdf['instr'].str.contains(prof, regex=False))]
@@ -87,7 +90,9 @@ def create_app(test_config=None):
         other_profs = json.dumps(other_profs.to_dict(orient='records'), indent=4)
         other_dept = pctle_df(gdf.loc[gdf["course"].str.contains(row["course"].split()[0], regex=False)])
         rowpo = other_dept.loc[other_dept["cid"] == cid]
+
+        regress = ml.regress(row["instr"], row["course"], ["rcmnd_class", "rcmnd_instr", "rcmnd_diff", "time", "gpa_actual"])
         
-        return render_template("course.html", row=row, rowp=rowp, other_profs=other_profs, rowpo=rowpo)
+        return render_template("course.html", row=row, rowp=rowp, other_profs=other_profs, rowpo=rowpo, regress=regress)
 
     return app
