@@ -85,9 +85,9 @@ def create_app(test_config=None):
 
         other_profs = gdf.loc[gdf["course"] == row["course"]]
         other_profs = json.dumps(other_profs.to_dict(orient='records'), indent=4)
-
-        print(other_profs)
+        other_dept = pctle_df(gdf.loc[gdf["course"].str.contains(row["course"].split()[0], regex=False)])
+        rowpo = other_dept.loc[other_dept["cid"] == cid]
         
-        return render_template("course.html", row=row, rowp=rowp, other_profs=other_profs)
+        return render_template("course.html", row=row, rowp=rowp, other_profs=other_profs, rowpo=rowpo)
 
     return app
