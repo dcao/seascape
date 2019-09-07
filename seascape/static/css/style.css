@@ -1,0 +1,24 @@
+:root {
+    --color-1: #18202F;
+    --color-2: #243531;
+    --color-3: #4A6656;
+    --color-4: #C5C9A6;
+    --color-5: #E6C761;
+}
+
+.background-tint {
+    background-color: rgba(74, 102, 86, 0.75);
+    background-blend-mode: multiply;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+}
+
+.main-home {
+    background-image: url("../../static/img/geisel.jpg");
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+

@@ -1,0 +1,467 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% set rcmnd_class = "%.1f" | format(row["rcmnd_class"] | float * 100) %}
+{% set rcmnd_instr = "%.1f" | format(row["rcmnd_instr"] | float * 100) %}
+{% set rcmnd_diff = "%.1f" | format(row["rcmnd_diff"] | float * 100) %}
+{% set time = "%d:%02d" | format(row["time"] | int, ((row["time"] | float) - (row["time"] | int)) * 60 | int) %}
+{% set gpa = "%.2f" | format(row["gpa_actual"] | float) %}
+
+{% set reg_rcmnd_class = "%.1f" | format(regress[0][0] | float * 100) %}
+{% set reg_rcmnd_instr = "%.1f" | format(regress[0][1] | float * 100) %}
+{% set reg_rcmnd_diff = "%.1f" | format(regress[0][2] | float * 100) %}
+{% set reg_time = "%d:%02d" | format(regress[0][3] | int, ((regress[0][3] | float) - (regress[0][3] | int)) * 60 | int) %}
+{% set reg_gpa = "%.2f" | format(regress[0][4] | float) %}
+
+{% set class_pctle = "%.1f" | format(rowp["rcmnd_class"] | float * 100) %}
+{% set instr_pctle = "%.1f" | format(rowp["rcmnd_instr"] | float * 100) %}
+{% set diff_pctle = "%.1f" | format(rowp["rcmnd_diff"] | float * 100) %}
+{% set time_pctle = "%.1f" | format(rowp["time"] | float * 100) %}
+{% set gpa_pctle = "%.1f" | format(rowp["gpa_actual"] | float * 100) %}
+
+{% set class_pctot = "%.1f" | format(rowpo["rcmnd_class"] | float * 100) %}
+{% set instr_pctot = "%.1f" | format(rowpo["rcmnd_instr"] | float * 100) %}
+{% set diff_pctot = "%.1f" | format(rowpo["rcmnd_diff"] | float * 100) %}
+{% set time_pctot = "%.1f" | format(rowpo["time"] | float * 100) %}
+{% set gpa_pctot = "%.1f" | format(rowpo["gpa_actual"] | float * 100) %}
+
+{% set dept = row["course"].split(' ')[0] %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h2><strong>{{ row["instr"] }}</strong></h2>
+        <h3>teaching <strong>{{ row["course"] }}</strong></h3>
+    </div>
+</div>
+<div class="container">
+    <div class="card-columns">
+        <div class="card {% if (class_pctle | float) > 75 %}border-success{% elif (class_pctle | float) > 40 %}{% elif (class_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (class_pctle | float) > 75 %}bg-success text-white{% elif (class_pctle | float) > 40 %}{% elif (class_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Class approval
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_class }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_class }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">i.e. <strong>{{ row["class_weighted_evals"] }} respondents</strong> ({{ row["evals"] }} total) approved of this course.</p>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ class_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ class_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card {% if (instr_pctle | float) > 75 %}border-success{% elif (instr_pctle | float) > 40 %}{% elif (instr_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (instr_pctle | float) > 75 %}bg-success text-white{% elif (instr_pctle | float) > 40 %}{% elif (instr_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Instructor approval
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_instr }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_instr }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">i.e. <strong>{{ row["instr_weighted_evals"] }} respondents</strong> ({{ row["evals"] }} total) approved of this instructor's teaching of the course.</p>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ instr_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ instr_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card {% if (diff_pctle | float) > 75 %}border-success{% elif (diff_pctle | float) > 40 %}{% elif (diff_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (diff_pctle | float) > 75 %}bg-success text-white{% elif (diff_pctle | float) > 40 %}{% elif (diff_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Instructor-class rating differential
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ rcmnd_diff }}%</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_rcmnd_diff }}%</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">This is the difference between the instructor and class approval ratings. A higher value indicates a professor which can compensate for the negative qualities of a class.</p>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ diff_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ diff_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card {% if (gpa_pctle | float) > 75 %}border-success{% elif (gpa_pctle | float) > 40 %}{% elif (gpa_pctle | float) > 25 %}border-warning{% else %}border-danger{% endif %}">
+            <div class="card-header {% if (gpa_pctle | float) > 75 %}bg-success text-white{% elif (gpa_pctle | float) > 40 %}{% elif (gpa_pctle | float) > 25 %}bg-warning text-white{% else %}bg-danger text-white{% endif %}">
+                Grade (GPA)
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">{{ gpa }}</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">{{ reg_gpa }}</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ gpa_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ gpa_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card {% if (time_pctle | float) > 75 %}border-danger{% elif (time_pctle | float) > 60 %}border-warning{% elif (time_pctle | float) > 25 %}{% else %}border-success{% endif %}">
+            <div class="card-header {% if (time_pctle | float) > 75 %}bg-danger text-white{% elif (time_pctle | float) > 60 %}bg-warning text-white{% elif (time_pctle | float) > 25 %}{% else %}bg-success text-white{% endif %}">
+                Estimated time commitment
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 style="margin-bottom: 0;">&asymp;{{ time }}</h2>
+                        <p><small class="text-muted">average</small></p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="text-muted" style="margin-bottom: 0;">&asymp;{{ reg_time }}</h2>
+                        <p><small class="text-muted">projected (next term)</small></p>
+                    </div>
+                </div>
+                <p class="card-text">The average amount of time outside of class needed per week.</strong></p>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <h4>{{ time_pctle }}%</h4>
+                        <p class="card-text">Percentile among all classes</p>
+                    </div>
+                    <div class="col-6">
+                        <h4>{{ time_pctot }}%</h4>
+                        <p class="card-text">Percentile among {{ dept }} classes</p>
+                    </div>
+                </div>
+                <p class="card-text"></p>
+                <p class="card-text"><small class="text-muted">Higher &asymp; worse</small></p>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div id="accordion">
+        <div class="card card-chart">
+            <div class="card-header" id="headingOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Class approval comparison
+                </button>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="class-comp-chart"></div>
+                    <hr />
+                    <p class="card-text">This chart shows all {{ row["course"] }} classes' instructor and class recommended percentages. The dotted lines represent averages for each axis.</p>
+                    <p class="card-text">The top right quadrant represents good classes with good professors. Bottom right represents good classes with underwhelming professors, top left represents bad classes redeemed by their professors, and bottom left represents classes with subpar professors and classes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card card-chart">
+            <div class="card-header" id="headingTwo">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Class difficulty/time commitment comparison
+                </button>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body">
+                    <div id="class-diff-chart"></div>
+                    <hr />
+                    <p class="card-text">This chart shows all {{ row["course"] }} time commitments and average GPAs. The dotted lines represent averages for each axis.</p>
+                    <p class="card-text">A point in the top right quadrant is an easy but time-consuming class. Bottom right is hard and time-consuming, bottom left is hard but light on workload, and top left is easy in all respects.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    function classComp() {
+        const data = {{ other_profs | safe }};
+        var chartDiv = document.getElementById("class-comp-chart");
+        var aspectRatio = 2.35;
+        var height = 320;
+        var width = height * aspectRatio;
+        const margin = {top: 10, right: 25, bottom: 40, left: 35};
+
+        xScale = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.rcmnd_class)).nice()
+            .range([margin.left, width - margin.right])
+
+        yScale = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.rcmnd_instr)).nice()
+            .range([height - margin.bottom, margin.top])
+
+        xAxis = g => g
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(xScale))
+            .call(g => g.select(".domain").remove())
+            .call(g => g.append("text")
+                .attr("x", width - margin.right)
+                .attr("y", -4)
+                .attr("fill", "#000")
+                .attr("font-weight", "bold")
+                .attr("text-anchor", "end")
+                .text("Prop. Rec. Class"))
+
+        yAxis = g => g
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(yScale))
+            .call(g => g.select(".domain").remove())
+            .call(g => g.select(".tick:last-of-type text").clone()
+                .attr("x", 4)
+                .attr("text-anchor", "start")
+                .attr("font-weight", "bold")
+                .text("Prop. Rec. Instr."))
+
+        const svg = d3.select(chartDiv).append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+
+        svg.append("g")
+            .call(xAxis);
+
+        svg.append("g")
+            .call(yAxis);
+
+        svg.append("g")
+            .attr("stroke-width", 1.5)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 10)
+            .selectAll("g")
+            .data(data)
+            .join("g")
+            .attr("transform", d => `translate(${xScale(d.rcmnd_class)},${yScale(d.rcmnd_instr)})`)
+            .attr("id", (d, i) => `comp_circle_${i}`)
+            .each((d, i) => { if (d.instr == "{{ row.instr }}") { d3.select(`#comp_circle_${i}`).raise(); } })
+            .call(g => g.append("circle")
+                .attr("stroke", d => d.instr == "{{ row.instr }}" ? "rosybrown" : "steelblue")
+                .attr("fill", d => d.instr == "{{ row.instr }}" ? "rosybrown" : "steelblue")
+                .attr("id", (d, i) => `comp_circle_in_${i}`)
+                .on("mouseover", handleOver)
+                .on("mouseout", handleOut)
+                .attr("r", d => d.instr == "{{ row.instr }}" ? 4 : 3));
+
+        function handleOver(d, i) {
+            d3.select(`#comp_circle_in_${i}`)
+                .attr("fill", "springgreen")
+                .attr("r", 4);
+
+            console.log(d)
+
+            svg.append("text")
+                .attr("id", `comp_circle_in_txt_${i}`)
+                .attr("x", margin.left + 4)
+                .attr("y", margin.top + 32)
+                .attr("font-family", "sans-serif")
+                .attr("font-size", 10)
+                .text(d.instr);
+        }
+
+        function handleOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            if (d.instr == "{{ row.instr }}") {
+                d3.select(`#comp_circle_in_${i}`)
+                    .attr("fill", "rosybrown")
+                    .attr("r", 4);
+            } else {
+                d3.select(`#comp_circle_in_${i}`)
+                    .attr("fill", "steelblue")
+                    .attr("r", 3);
+            }
+
+            // Select text by id and then remove
+            d3.select(`#comp_circle_in_txt_${i}`).remove();
+        }
+
+        svg.append('line')
+            .style("stroke", "gray")
+            .style("stroke-width", 1)
+            .style("stroke-dasharray", "2, 2")
+            .attr("x1", xScale(d3.mean(data, d => d.rcmnd_class)))
+            .attr("x2", xScale(d3.mean(data, d => d.rcmnd_class)))
+            .attr("y1", margin.top)
+            .attr("y2", height - margin.bottom);
+
+        svg.append('line')
+            .style("stroke", "gray")
+            .style("stroke-width", 1)
+            .style("stroke-dasharray", "2, 2")
+            .attr("x1", margin.left)
+            .attr("x2", width - margin.right)
+            .attr("y1", yScale(d3.mean(data, d => d.rcmnd_instr)))
+            .attr("y2", yScale(d3.mean(data, d => d.rcmnd_instr)));
+
+        return svg.node();
+    }
+
+    function classDiff() {
+        const data = {{ other_profs | safe }};
+        var chartDiv = document.getElementById("class-diff-chart");
+        var aspectRatio = 2.35;
+        var height = 320;
+        var width = height * aspectRatio;
+        const margin = {top: 10, right: 25, bottom: 40, left: 35};
+
+        xScale = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.time)).nice()
+            .range([margin.left, width - margin.right])
+
+        yScale = d3.scaleLinear()
+            .domain(d3.extent(data, d => d.gpa_actual)).nice()
+            .range([height - margin.bottom, margin.top])
+
+        xAxis = g => g
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(xScale))
+            .call(g => g.select(".domain").remove())
+            .call(g => g.append("text")
+                .attr("x", width - margin.right)
+                .attr("y", -4)
+                .attr("fill", "#000")
+                .attr("font-weight", "bold")
+                .attr("text-anchor", "end")
+                .text("Time Commitment (hrs)"))
+
+        yAxis = g => g
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(yScale))
+            .call(g => g.select(".domain").remove())
+            .call(g => g.select(".tick:last-of-type text").clone()
+                .attr("x", 4)
+                .attr("text-anchor", "start")
+                .attr("font-weight", "bold")
+                .text("Average GPA"))
+
+        const svg = d3.select(chartDiv).append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+
+        svg.append("g")
+            .call(xAxis);
+
+        svg.append("g")
+            .call(yAxis);
+
+        svg.append("g")
+            .attr("stroke-width", 1.5)
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 10)
+            .selectAll("g")
+            .data(data)
+            .join("g")
+            .attr("transform", d => `translate(${xScale(d.time)},${yScale(d.gpa_actual)})`)
+            .attr("id", (d, i) => `diff_circle_${i}`)
+            .each((d, i) => { if (d.instr == "{{ row.instr }}") { d3.select(`#diff_circle_${i}`).raise(); } })
+            .call(g => g.append("circle")
+                .attr("stroke", d => d.instr == "{{ row.instr }}" ? "rosybrown" : "steelblue")
+                .attr("fill", d => d.instr == "{{ row.instr }}" ? "rosybrown" : "steelblue")
+                .attr("id", (d, i) => `diff_circle_in_${i}`)
+                .on("mouseover", handleOver)
+                .on("mouseout", handleOut)
+                .attr("r", d => d.instr == "{{ row.instr }}" ? 4 : 3));
+
+        function handleOver(d, i) {
+            d3.select(`#diff_circle_in_${i}`)
+                .attr("fill", "springgreen")
+                .attr("r", 4);
+
+            svg.append("text")
+                .attr("id", `diff_circle_in_txt_${i}`)
+                .attr("x", margin.left + 4)
+                .attr("y", margin.top + 32)
+                .attr("font-family", "sans-serif")
+                .attr("font-size", 10)
+                .text(d.instr);
+        }
+
+        function handleOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            if (d.instr == "{{ row.instr }}") {
+                d3.select(`#diff_circle_in_${i}`)
+                    .attr("fill", "rosybrown")
+                    .attr("r", 4);
+            } else {
+                d3.select(`#diff_circle_in_${i}`)
+                    .attr("fill", "steelblue")
+                    .attr("r", 3);
+            }
+
+            // Select text by id and then remove
+            d3.select(`#diff_circle_in_txt_${i}`).remove();
+        }
+
+        svg.append('line')
+            .style("stroke", "gray")
+            .style("stroke-width", 1)
+            .style("stroke-dasharray", "2, 2")
+            .attr("x1", xScale(d3.mean(data, d => d.time)))
+            .attr("x2", xScale(d3.mean(data, d => d.time)))
+            .attr("y1", margin.top)
+            .attr("y2", height - margin.bottom);
+
+        svg.append('line')
+            .style("stroke", "gray")
+            .style("stroke-width", 1)
+            .style("stroke-dasharray", "2, 2")
+            .attr("x1", margin.left)
+            .attr("x2", width - margin.right)
+            .attr("y1", yScale(d3.mean(data, d => d.gpa_actual)))
+            .attr("y2", yScale(d3.mean(data, d => d.gpa_actual)));
+
+        return svg.node();
+    }
+
+    classComp();
+    classDiff();
+</script>
+{% endblock %}
