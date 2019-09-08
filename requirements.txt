@@ -1,0 +1,7 @@
+flask
+pandas
+selenium
+natsort
+statsmodels
+scikit-learn
+gunicorn
