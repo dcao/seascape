@@ -5,3 +5,4 @@ natsort
 statsmodels
 scikit-learn
 gunicorn
+tables

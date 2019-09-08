@@ -17,7 +17,6 @@ for i in range(len(term_list)):
         terms[curr] = incr
         incr += 1               
 
-
 def regress(input_prof, input_course, ylabels):
     global dataset 
     global terms
