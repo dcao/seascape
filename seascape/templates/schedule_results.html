@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h2><strong>Course scheduler results</strong></h2>
+        <h4><span class="badge badge-info">Quarter: {{ qtr }}</span></h4>
+    </div>
+</div>
+<div class="container">
+    <div id="loading-spinner" class="text-center">
+        <div class="spinner-border mb-2" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <p class="text">Loading... (UCSD's servers are slow, so this may take a while)</p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $(document).ready(function () {
+        // TODO
+    });
+</script>
+
+
+{% endblock %}

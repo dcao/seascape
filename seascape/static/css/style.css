@@ -22,3 +22,7 @@ body {
     background-position: center center;
 }
 
+.scheduler-sec {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

@@ -1,7 +1,9 @@
+beautifulsoup4
 flask
 pandas
 selenium
 natsort
+requests
 statsmodels
 scikit-learn
 gunicorn

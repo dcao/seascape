@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
 import pandas as pd
 import numpy as np
 import json
-from . import ml
+from . import ml, scrape_clist
+
+CURR_QTR = "WI20"
 
 def to_int(s):
     try: 
@@ -94,5 +96,23 @@ def create_app(test_config=None):
         regress = ml.regress(row["instr"], row["course"], ["rcmnd_class", "rcmnd_instr", "rcmnd_diff", "time", "gpa_actual"])
         
         return render_template("course.html", row=row, rowp=rowp, other_profs=other_profs, rowpo=rowpo, regress=regress)
+
+    @app.route('/schedule')
+    def schedule():
+        return render_template("schedule.html", qtr=CURR_QTR, err_code=request.args.get("err_code"))
+
+    @app.route('/schedule/automatic', methods = ['POST'])
+    def schedule_results():
+        sconf = json.loads(request.form["sconf"])
+        if not sconf["courses"]:
+            return redirect(url_for("schedule", err_code="no_courses"))
+
+        print(scrape_clist.retrieve_clist(sconf["courses"]))
+        return render_template("schedule_results.html", qtr=CURR_QTR, sconf=request.form["sconf"])
+
+    @app.route('/schedule/scrape', methods = ['POST'])
+    def schedule_scrape():
+        sconf = json.loads(request.form.get("sconf"))
+        scrape_clist.retrieve_clist(sconf["courses"])
 
     return app
