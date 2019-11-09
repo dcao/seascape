@@ -107,7 +107,7 @@ def create_app(test_config=None):
         if not sconf["courses"]:
             return redirect(url_for("schedule", err_code="no_courses"))
 
-        print(scrape_clist.retrieve_clist(sconf["courses"]))
+        print(scrape_clist.combinations(scrape_clist.retrieve_clist(sconf["courses"]), sconf["minUnits"], sconf["maxUnits"]))
         return render_template("schedule_results.html", qtr=CURR_QTR, sconf=request.form["sconf"])
 
     @app.route('/schedule/scrape', methods = ['POST'])
