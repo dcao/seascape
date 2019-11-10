@@ -1,1 +1,0 @@
-web: gunicorn "seascape:create_app()"

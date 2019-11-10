@@ -1,20 +1,23 @@
-with import <nixpkgs> {};
-let
-  overlay = (self: super:
-    let
-      myOverride = {};
-    in {
-      # Add an override for each required python version. 
-      # There’s currently no way to add a package that’s automatically picked up by 
-      # all python versions, besides editing python-packages.nix
-      python2 = super.python2.override myOverride;
-      python3 = super.python3.override myOverride;
-      python37 = super.python37.override myOverride;
-    }
-  );
+{ pkgs ? import <nixpkgs> {} }:
 
-  pkgs = import <nixpkgs> { overlays = [ overlay ]; };
+let
+  hsPkgs = import ./default.nix {};
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 in
- (pkgs.python37.withPackages (ps: with ps; [
-   flask pandas selenium natsort statsmodels scikitlearn gunicorn requests beautifulsoup4 ipython
- ])).env
+  hsPkgs.shellFor {
+    # Include only the *local* packages of your project.
+    packages = ps: with ps; [
+      seascape
+    ];
+
+    # Builds a Hoogle documentation index of all dependencies,
+    # and provides a "hoogle" command to search the index.
+    withHoogle = true;
+
+    # You might want some extra tools in the shell (optional).
+    buildInputs = [ pkgs.nodejs pkgs.haskellPackages.cabal-install (all-hies.selection { selector = p: { inherit (p) ghc865; }; }) ];
+
+    # Prevents cabal from choosing alternate plans, so that
+    # *all* dependencies are provided by Nix.
+    exactDeps = true;
+  }
