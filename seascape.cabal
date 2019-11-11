@@ -17,6 +17,7 @@ library
       Seascape.App
       Seascape.Model
       Seascape.Views.Partials
+      Seascape.Views.Home
   hs-source-dirs:
       src
   build-depends:

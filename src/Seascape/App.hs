@@ -7,7 +7,7 @@ import Web.Spock.Lucid (lucid)
 import Network.Wai.Middleware.Static
 
 import Seascape.Model
-import Seascape.Views.Partials
+import Seascape.Views.Home
 
 import Lucid
 
@@ -17,4 +17,4 @@ type AppAction a = SpockAction () () () a
 app :: App
 app = do
   middleware (staticPolicy (addBase "static"))
-  get root $ lucid $ defaultPartial "Seascape" $ p_ "Hello world!"
+  get root $ lucid $ homeView

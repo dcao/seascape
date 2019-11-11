@@ -4290,7 +4290,7 @@ video {
 }
 
 .font-serif {
-  font-family: Recursive Sans;
+  font-family: Recursive Sans Casual;
 }
 
 .font-mono {
@@ -15065,7 +15065,7 @@ video {
   }
 
   .sm\:font-serif {
-    font-family: Recursive Sans;
+    font-family: Recursive Sans Casual;
   }
 
   .sm\:font-mono {
@@ -25841,7 +25841,7 @@ video {
   }
 
   .md\:font-serif {
-    font-family: Recursive Sans;
+    font-family: Recursive Sans Casual;
   }
 
   .md\:font-mono {
@@ -36617,7 +36617,7 @@ video {
   }
 
   .lg\:font-serif {
-    font-family: Recursive Sans;
+    font-family: Recursive Sans Casual;
   }
 
   .lg\:font-mono {
@@ -47393,7 +47393,7 @@ video {
   }
 
   .xl\:font-serif {
-    font-family: Recursive Sans;
+    font-family: Recursive Sans Casual;
   }
 
   .xl\:font-mono {

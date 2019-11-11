@@ -3,5 +3,5 @@
 }:
   pkgs.haskell-nix.cabalProject {
     src = pkgs.haskell-nix.haskellLib.cleanGit { src = ./.; };
-    ghc = pkgs.haskell.compiler.${haskellCompiler};
+    ghc = pkgs.buildPackages.haskell-nix.compiler.${haskellCompiler};
   }
