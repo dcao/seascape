@@ -6,10 +6,7 @@ import Web.Spock
 import Web.Spock.Lucid (lucid)
 import Network.Wai.Middleware.Static
 
-import Seascape.Model
 import Seascape.Views.Home
-
-import Lucid
 
 type App = SpockM () () () ()
 type AppAction a = SpockAction () () () a

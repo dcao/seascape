@@ -22,9 +22,6 @@ library:
     - lucid
     - Spock-lucid
     - servant
-    - persistent
-    - persistent-template
-    - persistent-postgresql
     - monad-logger
     - text
     - wai-middleware-static
@@ -40,10 +37,15 @@ executables:
   scrape-sparse:
     source-dirs: app/scrape-sparse
     main: Main.hs
+    ghc-options:
+      - -O2
+      - -fprof-auto
+      - -fprof-cafs
     dependencies:
       - aeson
       - bytestring
       - cassava
+      - fast-tagsoup
       - http-client
       - http-types
       - scalpel
