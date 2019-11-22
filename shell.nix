@@ -10,7 +10,7 @@ in
     ];
 
     # You might want some extra tools in the shell (optional).
-    buildInputs = [ pkgs.nodejs ];
+    buildInputs = [ pkgs.nodejs pkgs.selenium-server-standalone ];
 
     # Prevents cabal from choosing alternate plans, so that
     # *all* dependencies are provided by Nix.
