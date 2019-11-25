@@ -31,8 +31,8 @@ data SectionQtr = SectionQtr
   , recClass :: ByteString
   , recInstr :: ByteString
   , hours :: ByteString
-  , gpaExp :: ByteString
-  , gpaAvg :: ByteString
+  , gpaExp :: Maybe ByteString
+  , gpaAvg :: Maybe ByteString
   } deriving stock (Generic, Show)
     deriving anyclass (ToRecord, FromRecord)
 
@@ -44,7 +44,7 @@ main = do
   let l = maybe [] id $ scrape sparseHTMLParser tags
   let s = S.fromList l :: SerialT IO SectionQtr
   let c = Streamly.Csv.encode Nothing s
-  withFile "data.csv" WriteMode $ \h ->
+  withFile "data/data.csv" WriteMode $ \h ->
     S.mapM_ (C.hPut h) c
 
 firefoxConfig :: IO WDConfig
@@ -83,7 +83,17 @@ sparseHTMLParser = chroots "tr" sectionQtr
     sectionQtr :: Scraper ByteString SectionQtr
     sectionQtr = do
       (instr:course:term:enrolled:evals:recClass:recInstr:hours:gpaExp:gpaAvg:rs) <- texts "td"
-      return $ SectionQtr (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (bstrip recClass) (bstrip recInstr) (bstrip hours) (bstrip gpaExp) (bstrip gpaAvg)
+      return $ SectionQtr (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (parsePct recClass) (parsePct recInstr) (bstrip hours) (parseGpa gpaExp) (parseGpa gpaAvg)
+
+    parsePct :: ByteString -> ByteString
+    parsePct = dropEnd 2 . bstrip
+
+    parseGpa :: ByteString -> Maybe ByteString
+    parseGpa = parseGpaClean . bstrip
+
+    parseGpaClean :: ByteString -> Maybe ByteString
+    parseGpaClean "N/A" = Nothing
+    parseGpaClean ps = Just . dropEnd 1 . C.drop 1 . C.dropWhile (/= '(') $ ps
 
     parseCourse :: ByteString -> ByteString
     parseCourse = bstrip . C.takeWhile (/= '-')

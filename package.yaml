@@ -18,13 +18,19 @@ library:
     src
   dependencies:
     - aeson
-    - Spock >= 0.13.0.0
+    - Frames
     - lucid
+    - microlens
+    - mtl
+    - Spock >= 0.13.0.0
     - Spock-lucid
-    - servant
     - monad-logger
+    - pipes
+    - pipes-safe
     - text
+    - vinyl
     - wai-middleware-static
+    - wai-extra
 
 executables:
   seascape-app:

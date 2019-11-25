@@ -18,5 +18,8 @@ dropWhileEnd :: (Char -> Bool) -> ByteString -> ByteString
 dropWhileEnd f ps = unsafeTake (findFromEndUntil (not . f . w2c) ps) ps
 {-# INLINE dropWhileEnd #-}
 
+dropEnd :: Int -> ByteString -> ByteString
+dropEnd n ps = C.take (C.length ps - n) ps
+
 bstrip :: ByteString -> ByteString
 bstrip = dropWhileEnd isSpace . C.dropWhile isSpace
