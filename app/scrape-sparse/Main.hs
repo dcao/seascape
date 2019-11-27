@@ -22,7 +22,7 @@ import Text.HTML.TagSoup.Fast
 import BS
 import Webdriver
 
-data SectionQtr = SectionQtr
+data SectionTerm = SectionTerm
   { instr :: ByteString
   , course :: ByteString
   , term :: ByteString
@@ -42,7 +42,7 @@ main = do
   src <- runSession conf getSparseResults
   let tags = parseTags . encodeUtf8 $ src
   let l = maybe [] id $ scrape sparseHTMLParser tags
-  let s = S.fromList l :: SerialT IO SectionQtr
+  let s = S.fromList l :: SerialT IO SectionTerm
   let c = Streamly.Csv.encode Nothing s
   withFile "data/data.csv" WriteMode $ \h ->
     S.mapM_ (C.hPut h) c
@@ -77,13 +77,13 @@ getSparseResults = do
 -- then pass this into scalpel's `scrape` fn
 -- instead of giving it a Text of the HTML
 -- source.
-sparseHTMLParser :: Scraper ByteString [SectionQtr]
-sparseHTMLParser = chroots "tr" sectionQtr
+sparseHTMLParser :: Scraper ByteString [SectionTerm]
+sparseHTMLParser = chroots "tr" sectionTerm
   where
-    sectionQtr :: Scraper ByteString SectionQtr
-    sectionQtr = do
+    sectionTerm :: Scraper ByteString SectionTerm
+    sectionTerm = do
       (instr:course:term:enrolled:evals:recClass:recInstr:hours:gpaExp:gpaAvg:rs) <- texts "td"
-      return $ SectionQtr (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (parsePct recClass) (parsePct recInstr) (bstrip hours) (parseGpa gpaExp) (parseGpa gpaAvg)
+      return $ SectionTerm (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (parsePct recClass) (parsePct recInstr) (bstrip hours) (parseGpa gpaExp) (parseGpa gpaAvg)
 
     parsePct :: ByteString -> ByteString
     parsePct = dropEnd 2 . bstrip

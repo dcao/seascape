@@ -1,20 +1,19 @@
 {-# LANGUAGE BangPatterns, DataKinds, FlexibleContexts, OverloadedStrings, QuasiQuotes, TemplateHaskell, TypeApplications, TypeOperators #-}
 module Seascape.Data.Sparse where
 
-import qualified Data.Foldable as F
-import Data.List
-import Data.Maybe
+import qualified Control.Foldl as L
+import qualified Data.Map.Strict as Map
+import Data.List (intercalate)
+import Data.Maybe (fromJust)
+import Data.Monoid (First(..))
 import Data.Text (Text)
-import Data.Traversable
-import Data.Vinyl (Rec(RNil))
+import Data.Vinyl (Rec(..), ElField(..), rapply, rmapX, ruple)
+import Data.Vinyl.Functor (Compose(..))
 import Data.Vinyl.Lens
-import Data.Vinyl.XRec (toHKD)
-import Lens.Micro
 import Lens.Micro.Extras
 import Frames
 import Frames.CSV
-import Frames.TH
-import Pipes (Producer, (>->))
+import Pipes ((>->))
 import qualified Pipes.Prelude as P
 
 declareColumn "Instr" ''Text
@@ -27,54 +26,80 @@ declareColumn "RecInstr" ''Double
 declareColumn "Hours" ''Double
 declareColumn "GpaExp" ''Double
 declareColumn "GpaAvg" ''Double
+declareColumn "CountExp" ''Int
+declareColumn "CountAvg" ''Int
 
-type SectionQtr = Record '[Instr, Course, Term, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
+type SectionTerm = Record '[Instr, Course, Term, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
 type Section = Record '[Instr, Course, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
-type SRow rc = Rec (Maybe :. ElField) (RecordColumns rc)
-type SFrame m rc = Producer (SRow rc) m ()
 
 -- Janky, for testing
-instance (Show a) => Show (Frame a) where
-  show df = show $ F.length df
+instance Show a => Show (Frame a) where
+  show f@(Frame l _) = "df of len " ++ show l ++ "\n" ++ intercalate "\n" (show <$> L.fold L.list f)
 
 defaultDataLoc :: String
 defaultDataLoc = "data/data.csv"
 
-loadRows :: MonadSafe m => String -> SFrame m SectionQtr
-loadRows = readTableMaybeOpt (defaultParser { headerOverride = Nothing })
+defaultRow :: Rec (First :. ElField) (RecordColumns SectionTerm)
+defaultRow = Compose (First (Just (Field "")))
+          :& Compose (First (Just (Field "")))
+          :& Compose (First (Just (Field "")))
+          :& Compose (First (Just (Field 0)))
+          :& Compose (First (Just (Field 0)))
+          :& Compose (First (Just (Field 0)))
+          :& Compose (First (Just (Field 0)))
+          :& Compose (First (Just (Field 0)))
+          :& Compose (First (Just (Field (-1))))
+          :& Compose (First (Just (Field (-1))))
+          :& RNil
 
-getTerms :: Monad m => SFrame m SectionQtr -> m [Text]
-getTerms df = nub <$> P.toListM (df >-> P.map (fromJust . toHKD . rget @Term))
-
-recByQtr :: Monad m => SFrame m SectionQtr -> (Text, Text) -> m Section
-recByQtr df (i, c) = do
-  enrolled' <- foldSum $ rows >-> P.map (fromJust . toHKD . rget @Enrolled)
-  evals' <- foldSum $ rows >-> P.map (fromJust . toHKD . rget @Evals)
-  recClass' <- foldAvg $ rows >-> P.map (fromJust . toHKD . rget @RecClass)
-  recInstr' <- foldAvg $ rows >-> P.map (fromJust . toHKD . rget @RecInstr)
-  hours' <- foldAvg $ rows >-> P.map (fromJust . toHKD . rget @Hours)
-  gpaExp' <- foldAvg $ rows >-> P.map (toHKD . rget @GpaExp) >-> P.filter isJust >-> P.map fromJust
-  gpaAvg' <- foldAvg $ rows >-> P.map (toHKD . rget @GpaAvg) >-> P.filter isJust >-> P.map fromJust
-  return $ i &: c &: enrolled' &: evals' &: recClass' &: recInstr' &: hours' &: gpaExp' &: gpaAvg' &: RNil
-  
+loadFrame :: String -> IO (Frame SectionTerm)
+loadFrame s = inCoreAoS sdf
   where
-    filterMatch :: SRow SectionQtr -> Bool
-    filterMatch r = ((fromJust $ toHKD $ rget @Instr r) == i) && ((fromJust $ toHKD $ rget @Course r) == c)
+    holeFiller = recMaybe . rmapX @(First :. ElField) getFirst
+               . rapply (rmapX @(First :. ElField) (flip mappend) defaultRow)
+               . rmapX @_ @(First :. ElField) First
+    sdf = (readTableMaybeOpt (defaultParser { headerOverride = Nothing }) s) >-> P.map (fromJust . holeFiller)
 
-    foldSum = P.fold (+) 0 id
-    avgTup (a, b) = a / b
-    foldAvg r = P.fold (\(!a, !n) x -> (a + x, n + 1)) (0,0) avgTup r
+getTerms :: Frame SectionTerm -> [Text]
+getTerms df = L.fold L.nub $ view term <$> df
 
-    rows = df >-> P.filter filterMatch
-
--- TODO: Convert this to streaming? P.mapM
-aggByQtr :: Monad m => SFrame m SectionQtr -> m (Frame Section)
-aggByQtr df = do
-  sections <- getSections
-  toFrame <$> mapM (recByQtr df) sections
-  
+aggByTerm :: Frame SectionTerm -> Frame Section
+aggByTerm df = toFrame $ fmap (\((i, c), v) -> i &: c &: v) $ Map.toList grouped
   where
-    getSectionRec :: SRow SectionQtr -> SRow (Record '[Instr, Course])
-    getSectionRec = rcast
-    getSectionTup r = let x = getSectionRec r in (fromJust $ toHKD $ rget @Instr x, fromJust $ toHKD $ rget @Course x)
-    getSections = nub <$> P.toListM (df >-> P.map getSectionTup)
+    section = ruple . (rcast :: SectionTerm -> Record '[Instr, Course])
+    foldf :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
+          -> SectionTerm
+          -> Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
+    foldf acc x = rgetField @Enrolled acc + rgetField @Enrolled x
+               &: rgetField @Evals acc + rgetField @Evals x
+               &: rgetField @RecClass acc + rgetField @RecClass x
+               &: rgetField @RecInstr acc + rgetField @RecInstr x
+               &: rgetField @Hours acc + rgetField @Hours x
+               &: (if a /= -1 then rgetField @GpaExp acc + rgetField @GpaExp x else rgetField @GpaExp acc)
+               &: (if b /= -1 then rgetField @GpaAvg acc + rgetField @GpaAvg x else rgetField @GpaAvg acc)
+               &: (if a /= -1 then rgetField @CountExp acc + 1 else rgetField @CountExp acc)
+               &: (if b /= -1 then rgetField @CountAvg acc + 1 else rgetField @CountAvg acc)
+               &: RNil
+      where
+        a = rgetField @GpaExp x
+        b = rgetField @GpaAvg x
+
+    convr :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
+          -> Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
+    convr acc = rgetField @Enrolled acc
+             &: rgetField @Evals acc
+             &: (rgetField @RecClass acc) / cnt
+             &: (rgetField @RecInstr acc) / cnt
+             &: (rgetField @Hours    acc) / cnt
+             &: (if cntE /= 0 then (rgetField @GpaExp   acc) / cntE else -1)
+             &: (if cntA /= 0 then (rgetField @GpaAvg   acc) / cntA else -1)
+             &: RNil
+      where
+        cnt = fromIntegral $ rgetField @Evals acc
+        cntE = fromIntegral $ rgetField @CountExp acc
+        cntA = fromIntegral $ rgetField @CountAvg acc
+
+    def :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
+    def = 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: RNil
+
+    grouped = L.fold (L.groupBy section (L.Fold foldf def convr)) df

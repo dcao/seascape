@@ -13,11 +13,16 @@ extra-source-files:
 dependencies:
   - base >= 4 && < 5
 
+ghc-options:
+  - -Wall
+
 library:
   source-dirs:
     src
   dependencies:
     - aeson
+    - containers
+    - foldl
     - Frames
     - lucid
     - microlens
@@ -31,6 +36,14 @@ library:
     - vinyl
     - wai-middleware-static
     - wai-extra
+
+benchmarks:
+  seascape-bench:
+    source-dirs: bench
+    main: Main.hs
+    dependencies:
+      - seascape
+      - criterion
 
 executables:
   seascape-app:
