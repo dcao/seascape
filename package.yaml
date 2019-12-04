@@ -24,6 +24,7 @@ library:
     - containers
     - foldl
     - Frames
+    - full-text-search
     - lucid
     - microlens
     - mtl

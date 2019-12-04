@@ -3,23 +3,18 @@ module Seascape.Views.Home where
 
 import Lucid
 import Seascape.Views.Partials
+import Text.Printf
 
--- expand top?
--- why seascape - features
--- report bugs - github link - contact?
--- about us
-
-topHero :: Html ()
-topHero =
+topHero :: Int -> Html ()
+topHero ln =
   div_ [class_ "bg-teal-100 pt-32 pb-64 px-6"] $ do
     div_ [class_ "flex flex-col justify-center max-w-2xl mx-auto text-center"] $ do
       h1_ [class_ "text-5xl font-light font-sans tracking-tight"] "Your virtual counselor."
-      p_ [class_ "text-xl font-serif mt-5 text-teal-600"] "Seascape provides utilities for members of the UCSD community to discover insights and make informed course-related decisions."
-      -- input_ [class_ "shadow-lg outline-none appearance-none border rounded-lg w-full py-4 px-6 text-xl text-gray-700 leading-tight", id_ "username", type_ "text", placeholder_ "Search for a class..."]
-      div_ [class_ "mt-12 flex items-center border shadow-lg rounded-lg w-full bg-white pl-6 text-xl leading-tight"] $ do
-        input_ [class_ "outline-none appearance-none border-none w-full text-gray-700", id_ "username", type_ "text", placeholder_ "Search for a class or instructor"]
-        button_ [class_ "flex-shrink-0 text-teal-500 hover:text-teal-700 p-6", type_ "button"] $ do
-          i_ [class_ "fas fa-search"] mempty
+      p_ [class_ "text-xl font-serif mt-5 text-teal-600"] $ do
+        "Search for information and statistics on "
+        strong_ $ (toHtml :: String -> Html ()) $ printf "%d different sections" ln
+        " of courses at UCSD."
+        with (searchBar "") [class_ " mt-12 "]
 
 seascapeFeature :: String -> String -> Html () -> Html ()
 seascapeFeature title desc btn = div_ [class_ "md:w-4/12 w-full px-4"] $ do
@@ -35,7 +30,7 @@ whySeascape =
       p_ [class_ "text-lg font-serif mt-4 text-teal-200"] "Seascape provides increased insights into classes and provides tools to make dealing with courses and course registration easier."
     div_ [class_ "flex flex-row justify-center text-center container mx-auto mt-12 flex-wrap"] $ do
       seascapeFeature "The smartest CAPE" "Seascape takes averages for course sections over all quarters and makes predictions for future quarters based on this data, making it easier to decide if a course is worth taking." $
-        a_ [href_ "/course", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"] "Course listing"
+        a_ [href_ "/listing", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"] "Course listing"
       seascapeFeature "Automated course scheduling" "Seascape can use its database of courses to automatically build a quarter schedule based on your preferences." $
         a_ [class_ "cursor-not-allowed inline-block text-sm px-4 py-2 leading-none border rounded text-gray-400 border-gray-400 cursor-not-allowed"] "Coming soon"
       seascapeFeature "College plan generator" "Seascape understands UCSD course requirements, and can automatically generate a full college course plan based on your college, major, and fulfilled prerequisites." $
@@ -53,8 +48,8 @@ contactUs =
         a_ [href_ "https://github.com/dcao/seascape/issues/new", class_ "inline-block mr-2 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black"] "File an issue"
         a_ [href_ "https://github.com/dcao/seascape", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black"] "View Seascape on GitHub"
 
-homeView :: Html ()
-homeView = defaultPartial "Seascape" $ do
-  topHero
+homeView :: Int -> Html ()
+homeView ln = defaultPartial "Seascape" $ do
+  topHero ln
   whySeascape
   contactUs

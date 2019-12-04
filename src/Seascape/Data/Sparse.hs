@@ -3,6 +3,7 @@ module Seascape.Data.Sparse where
 
 import qualified Control.Foldl as L
 import qualified Data.Map.Strict as Map
+import qualified Data.Set as Set
 import Data.List (intercalate)
 import Data.Maybe (fromJust)
 import Data.Monoid (First(..))
@@ -63,8 +64,8 @@ loadFrame s = inCoreAoS sdf
 getTerms :: Frame SectionTerm -> [Text]
 getTerms df = L.fold L.nub $ view term <$> df
 
-aggByTerm :: Frame SectionTerm -> Frame Section
-aggByTerm df = toFrame $ fmap (\((i, c), v) -> i &: c &: v) $ Map.toList grouped
+aggByTermMap :: Frame SectionTerm -> Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg])
+aggByTermMap df = grouped
   where
     section = ruple . (rcast :: SectionTerm -> Record '[Instr, Course])
     foldf :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
@@ -72,13 +73,13 @@ aggByTerm df = toFrame $ fmap (\((i, c), v) -> i &: c &: v) $ Map.toList grouped
           -> Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
     foldf acc x = rgetField @Enrolled acc + rgetField @Enrolled x
                &: rgetField @Evals acc + rgetField @Evals x
-               &: rgetField @RecClass acc + rgetField @RecClass x
-               &: rgetField @RecInstr acc + rgetField @RecInstr x
-               &: rgetField @Hours acc + rgetField @Hours x
-               &: (if a /= -1 then rgetField @GpaExp acc + rgetField @GpaExp x else rgetField @GpaExp acc)
-               &: (if b /= -1 then rgetField @GpaAvg acc + rgetField @GpaAvg x else rgetField @GpaAvg acc)
-               &: (if a /= -1 then rgetField @CountExp acc + 1 else rgetField @CountExp acc)
-               &: (if b /= -1 then rgetField @CountAvg acc + 1 else rgetField @CountAvg acc)
+               &: rgetField @RecClass acc + (rgetField @RecClass x * (fromIntegral (rgetField @Evals x)))
+               &: rgetField @RecInstr acc + (rgetField @RecInstr x * (fromIntegral (rgetField @Evals x)))
+               &: rgetField @Hours acc + (rgetField @Hours x * (fromIntegral (rgetField @Evals x)))
+               &: (if a /= -1 then rgetField @GpaExp acc + (rgetField @GpaExp x * (fromIntegral (rgetField @Evals x))) else rgetField @GpaExp acc)
+               &: (if b /= -1 then rgetField @GpaAvg acc + (rgetField @GpaAvg x * (fromIntegral (rgetField @Evals x))) else rgetField @GpaAvg acc)
+               &: (if a /= -1 then rgetField @CountExp acc + (fromIntegral (rgetField @Evals x)) else rgetField @CountExp acc)
+               &: (if b /= -1 then rgetField @CountAvg acc + (fromIntegral (rgetField @Evals x)) else rgetField @CountAvg acc)
                &: RNil
       where
         a = rgetField @GpaExp x
@@ -95,7 +96,7 @@ aggByTerm df = toFrame $ fmap (\((i, c), v) -> i &: c &: v) $ Map.toList grouped
              &: (if cntA /= 0 then (rgetField @GpaAvg   acc) / cntA else -1)
              &: RNil
       where
-        cnt = fromIntegral $ rgetField @Evals acc
+        cnt  = fromIntegral $ rgetField @Evals acc
         cntE = fromIntegral $ rgetField @CountExp acc
         cntA = fromIntegral $ rgetField @CountAvg acc
 
@@ -103,3 +104,17 @@ aggByTerm df = toFrame $ fmap (\((i, c), v) -> i &: c &: v) $ Map.toList grouped
     def = 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: RNil
 
     grouped = L.fold (L.groupBy section (L.Fold foldf def convr)) df
+  
+aggMapToFrame :: Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]) -> Frame Section
+aggMapToFrame = toFrame . fmap (\((i, c), v) -> i &: c &: v) . Map.toList
+
+aggByTerm :: Frame SectionTerm -> Frame Section
+aggByTerm = aggMapToFrame . aggByTermMap
+
+filterByICs :: [(Text, Text)] -> Frame Section -> Frame Section
+filterByICs ics df = filterFrame (\r -> Set.member (rgetField @Instr r, rgetField @Course r) icSet) df
+  where
+    icSet = Set.fromList ics
+
+frameLen :: Frame a -> Int
+frameLen df = L.fold L.length df
