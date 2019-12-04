@@ -2,6 +2,7 @@
 module Seascape.App where
 
 import Control.Monad.Trans
+import Data.Maybe (fromJust)
 import Data.Text (pack)
 import Frames
 import Web.Spock
@@ -22,26 +23,30 @@ getFrame = loadFrame defaultDataLoc
 
 -- TODO: Pagination
 -- TODO: For empty queries, show all courses
-sectionListingAction :: Frame Section -> SectionSearchEng -> Text -> AppAction ()
-sectionListingAction df e q = do
+sectionListingAction :: AggMap -> SectionSearchEng -> Text -> AppAction ()
+sectionListingAction dfm e q = do
   let results = execSearch e q
-  lucid $ searchView q $ filterByICs results df
+  lucid $ searchView q $ frameFromICs results dfm
 
 app :: App
 app = do
   middleware (staticPolicy (addBase "static"))
   middleware logStdout
   frame <- liftIO getFrame
-  let agged = aggByTerm frame
-  let sectionEng = sectionSearchEngine agged
-  let aggedLen = frameLen agged
+  let aggMap = aggByTermMap frame
+  let sectionEng = sectionSearchEngine aggMap
+  let aggedLen = length aggMap
 
   get root $ lucid $ homeView aggedLen
 
   get "listing" $ do
     query <- param "q"
-    maybe (redirect "/") (sectionListingAction agged sectionEng) query
+    maybe (redirect "/") (sectionListingAction aggMap sectionEng) query
+
+  get ("raw" <//> "search") $ do
+    query <- param "q"
+    text $ pack $ show $ execSearchExplain sectionEng (fromJust query)
 
   get ("raw" <//> "sections") $ text $ pack $ show frame
 
-  get ("raw" <//> "sections" <//> "noTerm") $ text $ pack $ show agged
+  get ("raw" <//> "sections" <//> "noTerm") $ text $ pack $ show (aggMapToFrame aggMap)

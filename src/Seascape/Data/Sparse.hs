@@ -32,6 +32,7 @@ declareColumn "CountAvg" ''Int
 
 type SectionTerm = Record '[Instr, Course, Term, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
 type Section = Record '[Instr, Course, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
+type AggMap = Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg])
 
 -- Janky, for testing
 instance Show a => Show (Frame a) where
@@ -64,7 +65,7 @@ loadFrame s = inCoreAoS sdf
 getTerms :: Frame SectionTerm -> [Text]
 getTerms df = L.fold L.nub $ view term <$> df
 
-aggByTermMap :: Frame SectionTerm -> Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg])
+aggByTermMap :: Frame SectionTerm -> AggMap
 aggByTermMap df = grouped
   where
     section = ruple . (rcast :: SectionTerm -> Record '[Instr, Course])
@@ -105,16 +106,14 @@ aggByTermMap df = grouped
 
     grouped = L.fold (L.groupBy section (L.Fold foldf def convr)) df
   
-aggMapToFrame :: Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]) -> Frame Section
-aggMapToFrame = toFrame . fmap (\((i, c), v) -> i &: c &: v) . Map.toList
+aggMapToFrame :: AggMap -> Frame Section
+aggMapToFrame = toFrame . Map.mapWithKey (\(i, c) v -> i &: c &: v)
 
 aggByTerm :: Frame SectionTerm -> Frame Section
 aggByTerm = aggMapToFrame . aggByTermMap
 
-filterByICs :: [(Text, Text)] -> Frame Section -> Frame Section
-filterByICs ics df = filterFrame (\r -> Set.member (rgetField @Instr r, rgetField @Course r) icSet) df
-  where
-    icSet = Set.fromList ics
+frameFromICs :: [(Text, Text)] -> AggMap -> Frame Section
+frameFromICs ics dfm = toFrame $ fmap (\x@(i, c) -> i &: c &: (fromJust $ Map.lookup x dfm)) ics
 
 frameLen :: Frame a -> Int
 frameLen df = L.fold L.length df

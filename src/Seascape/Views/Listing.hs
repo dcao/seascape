@@ -4,6 +4,7 @@ module Seascape.Views.Listing where
 import qualified Control.Foldl as L
 import Data.Foldable (forM_)
 import qualified Data.Map.Strict as Map
+import Data.Maybe (fromJust)
 import Data.Text (unpack, Text)
 import Frames
 import Lucid
@@ -15,7 +16,7 @@ roundToStr :: (PrintfArg a, Floating a) => Int -> a -> String
 roundToStr = printf "%0.*f"
 
 gpaToHtml :: Double -> Html ()
-gpaToHtml (-1) = h1_ [class_ "font-semibold text-lg text-gray-700"] "N/A"
+gpaToHtml (-1) = h1_ [class_ "font-semibold text-lg text-gray-500"] "N/A"
 gpaToHtml x    = h1_ [class_ "font-semibold text-lg"] $ toHtml $ roundToStr 2 x
 
 topHero :: Int -> Text -> Html ()
@@ -31,9 +32,9 @@ topHero ln query =
 searchView :: Text -> Frame Section -> Html ()
 searchView query df = defaultPartial (unpack query <> " - Seascape") $ do
   topHero (frameLen df) query
-  -- Table of results
   div_ [class_ "max-w-5xl px-4 mx-auto"] $ do
-    forM_ dfg $ \(c, rs) -> do
+    forM_ courses $ \c -> do
+      let rs = fromJust $ lookup c dfg
       div_ [class_ "mt-8"] $ do
         p_ [class_ "text-lg mb-3"] $ do
           strong_ $ toHtml c
@@ -55,8 +56,13 @@ searchView query df = defaultPartial (unpack query <> " - Seascape") $ do
               h1_ [class_ "font-semibold text-lg"] $ toHtml $ (roundToStr 2 $ rgetField @Hours r) <> " hrs"
               p_ [class_ "text-sm text-gray-600"] $ "time/wk"
             div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-              h1_ [class_ "font-semibold text-lg"] $ toHtml $ roundToStr 2 $ rgetField @GpaAvg r
+              gpaToHtml $ rgetField @GpaAvg r
               p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
 
   where
-    dfg = Map.toList $ L.fold (L.groupBy (\r -> rgetField @Course r) L.list) df
+    -- This list exists because we want to present the courses in order of match,
+    -- not in order of the Ord instance of Text (as Map would do if we just forM_'d
+    -- over that)
+    courses = L.fold L.nub $ L.fold L.list $ fmap (\r -> rgetField @Course r) df
+    dfg = Map.toList $ L.fold (L.groupBy (\x -> rgetField @Course x) L.list) df
+
