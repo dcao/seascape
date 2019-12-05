@@ -23,10 +23,11 @@ getFrame = loadFrame defaultDataLoc
 
 -- TODO: Pagination
 -- TODO: For empty queries, show all courses
-sectionListingAction :: AggMap -> SectionSearchEng -> Text -> AppAction ()
-sectionListingAction dfm e q = do
+sectionListingAction :: AggMap -> SectionSearchEng -> Maybe Text -> AppAction ()
+sectionListingAction dfm e Nothing = lucid $ searchView Nothing $ aggMapToFrame dfm
+sectionListingAction dfm e (Just q) = do
   let results = execSearch e q
-  lucid $ searchView q $ frameFromICs results dfm
+  lucid $ searchView (Just q) $ frameFromICs results dfm
 
 app :: App
 app = do
@@ -41,7 +42,7 @@ app = do
 
   get "listing" $ do
     query <- param "q"
-    maybe (redirect "/") (sectionListingAction aggMap sectionEng) query
+    sectionListingAction aggMap sectionEng query
 
   get ("raw" <//> "search") $ do
     query <- param "q"

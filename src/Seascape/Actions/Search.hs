@@ -2,13 +2,10 @@
 module Seascape.Actions.Search where
 
 import Control.Monad (join)
-import Data.Foldable (toList)
 import Data.Ix
 import qualified Data.Map.Strict as Map
-import Data.Ord
 import Data.SearchEngine
 import Data.Text (intercalate, splitOn, Text, toLower)
-import Frames (Frame, rgetField)
 import Seascape.Data.Sparse
 
 data SectionField = FInstr | FCourse

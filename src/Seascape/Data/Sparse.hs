@@ -3,7 +3,6 @@ module Seascape.Data.Sparse where
 
 import qualified Control.Foldl as L
 import qualified Data.Map.Strict as Map
-import qualified Data.Set as Set
 import Data.List (intercalate)
 import Data.Maybe (fromJust)
 import Data.Monoid (First(..))
