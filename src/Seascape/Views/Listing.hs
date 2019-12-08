@@ -1,11 +1,13 @@
 {-# LANGUAGE OverloadedStrings, TypeApplications #-}
 module Seascape.Views.Listing where
 
+import qualified Codec.Base64Url as B64
 import qualified Control.Foldl as L
 import Data.Foldable (forM_)
 import qualified Data.Map.Strict as Map
 import Data.Maybe (fromJust, maybe)
 import Data.Text (unpack, Text)
+import Data.Text.Encoding (encodeUtf8)
 import Frames
 import Lucid
 import Seascape.Data.Sparse
@@ -38,7 +40,6 @@ gpaToHtml x =
 hrsToHM :: Double -> (Int, Int)
 hrsToHM x = floor . (*) 60 <$> properFraction x
 
-
 topHero :: Int -> Maybe Text -> Html ()
 topHero ln query =
   div_ [class_ "bg-teal-100 pt-12 pb-8 px-6"] $ do
@@ -62,7 +63,10 @@ searchView query df = defaultPartial (maybe "Listing - Seascape" (\q -> unpack q
         forM_ rs $ \r -> do
           div_ [class_ "items-center mb-1 border rounded-lg px-4 py-4 flex"] $ do
             div_ [class_ "w-2/3 flex flex-col"] $ do
-              h1_ [class_ "text-lg font-bold mb-1"] $ toHtml $ unpack $ rgetField @Instr r
+              h1_ [class_ "text-lg font-bold mb-1"] $ do
+                let cs = B64.encode $ encodeUtf8 $ rgetField @Course r :: Text
+                let is = B64.encode $ encodeUtf8 $ rgetField @Instr r :: Text
+                a_ [href_ ("/section/" <> cs <> "/" <> is), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ unpack $ rgetField @Instr r
               p_ [class_ "text-gray-600"] $ do
                 strong_ $ toHtml $ show $ rgetField @Evals r
                 " evaluations"

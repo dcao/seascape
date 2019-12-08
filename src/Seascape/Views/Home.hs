@@ -5,8 +5,8 @@ import Lucid
 import Seascape.Views.Partials
 import Text.Printf
 
-topHero :: Int -> Html ()
-topHero ln =
+topHero :: Int -> Html () -> Html ()
+topHero ln extra =
   div_ [class_ "bg-teal-100 pt-32 pb-64 px-6"] $ do
     div_ [class_ "flex flex-col justify-center max-w-2xl mx-auto text-center"] $ do
       h1_ [class_ "text-5xl font-light font-sans tracking-tight"] "Your virtual counselor."
@@ -15,6 +15,7 @@ topHero ln =
         strong_ $ (toHtml :: String -> Html ()) $ printf "%d different sections" ln
         " of courses at UCSD."
         with (searchBar "") [class_ " mt-12 "]
+      extra
 
 seascapeFeature :: String -> String -> Html () -> Html ()
 seascapeFeature title desc btn = div_ [class_ "md:w-4/12 w-full px-4"] $ do
@@ -48,8 +49,8 @@ contactUs =
         a_ [href_ "https://github.com/dcao/seascape/issues/new", class_ "inline-block mr-2 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black"] "File an issue"
         a_ [href_ "https://github.com/dcao/seascape", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black"] "View Seascape on GitHub"
 
-homeView :: Int -> Html ()
-homeView ln = defaultPartial "Seascape" $ do
-  topHero ln
+homeView :: Int -> Html () -> Html ()
+homeView ln extra = defaultPartial "Seascape" $ do
+  topHero ln extra
   whySeascape
   contactUs

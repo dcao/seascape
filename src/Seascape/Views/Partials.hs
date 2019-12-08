@@ -5,14 +5,73 @@ import Data.Text
 import Lucid
 import Lucid.Base
 
+path_ :: Term arg result => arg -> result
+path_ = term "path"
+
+circle_ :: Term arg result => arg -> result
+circle_ = term "circle"
+
+g_ :: Term arg result => arg -> result
+g_ = term "g"
+
+text_ :: Term arg result => arg -> result
+text_ = term "text"
+
 d_ :: Text -> Attribute
 d_ = makeAttribute "d"
+
+r_ :: Text -> Attribute
+r_ = makeAttribute "r"
+
+cx_ :: Text -> Attribute
+cx_ = makeAttribute "cx"
+
+x_ :: Text -> Attribute
+x_ = makeAttribute "x"
+
+y_ :: Text -> Attribute
+y_ = makeAttribute "y"
+
+textAnchor_ :: Text -> Attribute
+textAnchor_ = makeAttribute "text-anchor"
+
+dominantBaseline_ :: Text -> Attribute
+dominantBaseline_ = makeAttribute "dominant-baseline"
+
+fontSize_ :: Text -> Attribute
+fontSize_ = makeAttribute "font-size"
+
+cy_ :: Text -> Attribute
+cy_ = makeAttribute "cy"
 
 viewBox_ :: Text -> Attribute
 viewBox_ = makeAttribute "viewBox"
 
-path_ :: Term arg result => arg -> result
-path_ = term "path"
+transform_ :: Text -> Attribute
+transform_ = makeAttribute "transform"
+
+gauge :: (Ord a, Show a, Fractional a) => a -> a -> Html ()
+gauge val maxv = div_ [class_ "px-2 w-32"] $ do
+  svg_ [viewBox_ "0 0 120 120"] $ do
+    g_ $ do
+      circle_ [class_ ("stroke-current " <> col), r_ "56", cx_ "60", cy_ "60", transform_ "rotate(-90 60 60)", style_ ("fill: transparent; stroke-width: 2; stroke-dasharray: " <> pack (show $ frac * 352) <> ", 352;")] ""
+      text_ [class_ ("text-2xl fill-current " <> col), x_ "50%", y_ "50%", dominantBaseline_ "middle", textAnchor_ "middle"] $ toHtml $ show val
+
+  where
+    frac = val / maxv
+    col' f
+      | f >= 0.85 = "text-teal-700"
+      | f >= 0.70 = "text-orange-700"
+      | otherwise = "text-red-700"
+    col :: Text
+    col = col' frac
+
+errAlert :: Text -> Html ()
+errAlert t =
+  div_ [class_ "bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4", role_ "alert"] $ do
+    p_ $ do
+      strong_ "Error! "
+      toHtml t
 
 navbarPartial :: Html ()
 navbarPartial = nav_ [class_ "flex items-center justify-between flex-wrap bg-teal-500 py-5 shadow-lg z-100 px-6 relative"] $ do

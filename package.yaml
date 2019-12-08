@@ -21,6 +21,7 @@ library:
     src
   dependencies:
     - aeson
+    - base-encoding
     - containers
     - foldl
     - Frames
