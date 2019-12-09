@@ -2,8 +2,10 @@
 module Seascape.App where
 
 import qualified Codec.Base64Url as B64
+import qualified Control.Foldl as L
 import Control.Monad.Trans
 import Data.Either (either)
+import Data.List (sortBy, findIndex)
 import qualified Data.Map.Strict as Map
 import Data.Maybe (fromJust)
 import Data.Text (pack)
@@ -24,8 +26,8 @@ import Seascape.Views.Section
 type App = SpockM () () () ()
 type AppAction = SpockAction () () ()
 
-getFrame :: IO (Frame SectionTerm)
-getFrame = loadFrame defaultDataLoc
+getFrame :: IO (Frame SectionTermIx)
+getFrame = loadFrameIx defaultDataLoc
 
 -- TODO: Pagination
 -- TODO: For empty queries, show all courses
@@ -52,6 +54,7 @@ app = do
   middleware logStdout
   frame <- liftIO getFrame
   let aggMap = aggByTermMap frame
+  let frameAgg = genSectionAgg $ aggMapToFrame aggMap
   let sectionEng = sectionSearchEngine aggMap
   let aggedLen = length aggMap
 
@@ -65,7 +68,17 @@ app = do
     let ci = decodeUtf8 <$> B64.decode c
     let ins = decodeUtf8 <$> B64.decode i
     let sec = ciToSection ci ins aggMap
-    lucid $ either (\a -> homeView aggedLen (errAlert $ pack a)) (\b -> sectionView b) sec
+    let f b = (do
+                let x = filterFrame (\r -> rgetField @Course r == rgetField @Course b) frameAgg
+                let rnks = sortBy (\a a' -> compare (rgetField @RecInstrRank a) (rgetField @RecInstrRank a'))
+                         $ L.fold L.list x
+                let rnk = fromJust
+                        $ findIndex (\r -> rgetField @Instr r == rgetField @Instr b)
+                        $ rnks
+                let df = filterFrame (\r -> (rgetField @Course r == rgetField @Course b) && (rgetField @Instr r == rgetField @Instr b)) frame
+                sectionView (rnk + 1) (rgetField @RecInstrRank $ rnks !! rnk) (length rnks) aggedLen df b
+              )
+    lucid $ either (\a -> homeView aggedLen (errAlert $ pack a)) f sec
 
   get ("raw" <//> "search") $ do
     query <- param "q"
@@ -74,3 +87,5 @@ app = do
   get ("raw" <//> "sections") $ text $ pack $ show frame
 
   get ("raw" <//> "sections" <//> "noTerm") $ text $ pack $ show (aggMapToFrame aggMap)
+
+  get ("raw" <//> "sections" <//> "sectionAgg") $ text $ pack $ show frameAgg

@@ -4,6 +4,7 @@ module Seascape.Views.Partials where
 import Data.Text
 import Lucid
 import Lucid.Base
+import Text.Printf
 
 path_ :: Term arg result => arg -> result
 path_ = term "path"
@@ -13,6 +14,9 @@ circle_ = term "circle"
 
 g_ :: Term arg result => arg -> result
 g_ = term "g"
+
+js_ :: Monad m => Text -> HtmlT m ()
+js_ t = termWith "script" [src_ t] $ ""
 
 text_ :: Term arg result => arg -> result
 text_ = term "text"
@@ -50,15 +54,15 @@ viewBox_ = makeAttribute "viewBox"
 transform_ :: Text -> Attribute
 transform_ = makeAttribute "transform"
 
-gauge :: (Ord a, Show a, Fractional a) => a -> a -> Html ()
-gauge val maxv = div_ [class_ "px-2 w-32"] $ do
+gauge :: (Ord a, Show a, Fractional a) => a -> (a -> a) -> (a -> Text) -> Html ()
+gauge val frf shf = div_ [class_ "w-24"] $ do
   svg_ [viewBox_ "0 0 120 120"] $ do
     g_ $ do
-      circle_ [class_ ("stroke-current " <> col), r_ "56", cx_ "60", cy_ "60", transform_ "rotate(-90 60 60)", style_ ("fill: transparent; stroke-width: 2; stroke-dasharray: " <> pack (show $ frac * 352) <> ", 352;")] ""
-      text_ [class_ ("text-2xl fill-current " <> col), x_ "50%", y_ "50%", dominantBaseline_ "middle", textAnchor_ "middle"] $ toHtml $ show val
+      circle_ [class_ ("stroke-current " <> col), r_ "56", cx_ "60", cy_ "60", transform_ "rotate(-90 60 60)", style_ ("fill: transparent; stroke-width: 3; stroke-dasharray: " <> pack (show $ frac * 352) <> ", 352;")] ""
+      text_ [class_ ("text-2xl fill-current " <> col), x_ "50%", y_ "50%", dominantBaseline_ "middle", textAnchor_ "middle"] $ toHtml $ shf val
 
   where
-    frac = val / maxv
+    frac = frf val
     col' f
       | f >= 0.85 = "text-teal-700"
       | f >= 0.70 = "text-orange-700"
@@ -90,7 +94,7 @@ navbarPartial = nav_ [class_ "flex items-center justify-between flex-wrap bg-tea
       div_ $ do
         a_ [href_ "https://github.com/dcao/seascape", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"] "Github"
 
-defaultPartial :: String -> Html () -> Html ()
+defaultPartial :: Text -> Html () -> Html ()
 defaultPartial t body =
   html_ $ do
     head_ $ do
@@ -107,7 +111,39 @@ defaultPartial t body =
 
 searchBar :: Text -> Html ()
 searchBar t = form_ [action_ "/listing"] $ do
-  div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white pl-6 text-xl leading-tight"] $ do
-    input_ [type_ "text", name_ "q", class_ "outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Search for a class or instructor"]
+  div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white text-xl leading-tight"] $ do
+    input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Search for a class or instructor"]
     button_ [class_ "flex-shrink-0 text-teal-500 hover:text-teal-700 p-6", type_ "submit"] $ do
       i_ [class_ "fas fa-search"] mempty
+
+roundToStr :: (PrintfArg a, Floating a) => Int -> a -> String
+roundToStr = printf "%0.*f"
+
+hrsToHM :: Double -> (Int, Int)
+hrsToHM x = floor . (*) 60 <$> properFraction x
+
+timeFmt :: Double -> String
+timeFmt d =
+  let (h, m) = hrsToHM d in
+  (printf "%d:%02d" h m :: String)
+
+gpaToLetter :: Double -> String
+gpaToLetter x
+  | x >= 4.0  = "A"
+  | x >= 3.7  = "A-"
+  | x >= 3.3  = "B+"
+  | x >= 3.0  = "B"
+  | x >= 2.7  = "B-"
+  | x >= 2.3  = "C+"
+  | x >= 2.0  = "C"
+  | x >= 1.7  = "C-"
+  | x >= 1.0  = "D"
+  | otherwise = "F"
+
+gpaToHtml :: Double -> Html ()
+gpaToHtml (-1) = h1_ [class_ "font-medium text-lg font-mono text-gray-500"] "N/A"
+gpaToHtml x =
+  h1_ [class_ "font-medium text-lg font-mono"] $ do
+    toHtml $ gpaToLetter x
+    span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 x <> ")"
+

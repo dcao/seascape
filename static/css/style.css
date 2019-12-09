@@ -646,7 +646,7 @@ video {
 
   src: url('/fonts/RecursiveSans-CasualBoldItalic.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: italic;
 }
@@ -836,7 +836,7 @@ video {
 
   src: url('/fonts/RecursiveSans-LinearBold.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: normal;
 }
@@ -976,7 +976,7 @@ video {
 
   src: url('/fonts/RecursiveSans-CasualBold.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: normal;
 }
@@ -1016,7 +1016,7 @@ video {
 
   src: url('/fonts/RecursiveMono-LinearBoldItalic.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: italic;
 }
@@ -1026,7 +1026,7 @@ video {
 
   src: url('/fonts/RecursiveMono-LinearBold.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: normal;
 }
@@ -1036,7 +1036,7 @@ video {
 
   src: url('/fonts/RecursiveMono-CasualBold.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: normal;
 }
@@ -1086,7 +1086,7 @@ video {
 
   src: url('/fonts/RecursiveSans-LinearBoldItalic.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: italic;
 }
@@ -1226,7 +1226,7 @@ video {
 
   src: url('/fonts/RecursiveMono-CasualBoldItalic.woff2') format('woff2');
 
-  font-weight: bold;
+  font-weight: 700;
 
   font-style: italic;
 }
