@@ -6,3 +6,9 @@ extra-deps:
   - full-text-search-0.2.1.4
   - Spock-0.13.0.0
   - Spock-lucid-0.4.0.1
+  - Spock-core-0.13.0.0
+  - discrimination-0.4
+  - fast-tagsoup-1.0.14
+  - reroute-0.5.0.0
+  - stm-containers-0.2.16
+  - streamly-cassava-0.1.1.0
