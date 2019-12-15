@@ -12,3 +12,4 @@ extra-deps:
   - reroute-0.5.0.0
   - stm-containers-0.2.16
   - streamly-cassava-0.1.1.0
+  - focus-0.1.5.2
