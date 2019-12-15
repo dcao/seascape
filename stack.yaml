@@ -1,0 +1,6 @@
+resolver: lts-14.17
+
+extra-deps:
+  - base-encoding
+  - Spock-0.13.0.0
+  - Spock-lucid

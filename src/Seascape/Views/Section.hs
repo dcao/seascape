@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings, TypeApplications #-}
 module Seascape.Views.Section where
 
+import Data.Foldable (forM_)
 import Data.Text (pack)
 import Frames
 import Lucid
@@ -43,20 +44,43 @@ topHero rnki rnko cnti cnto s =
 
 midNav :: Html ()
 midNav = do
-  div_ [class_ "bg-gray-800 py-3 px-2 sticky"] $ do
+  div_ [class_ "bg-gray-800 py-3 px-2 sticky mb-6"] $ do
     div_ [class_ "flex flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
-      link "#" "Ayy"
-      link "#" "Yuh"
-      link "#" "Yeet"
-      link "#" "Yas"
+      link "#raw-data" "Raw Data"
+      p_ [class_ "text-sm px-2 mx-1 py-1 font-medium text-gray-500 bg-gray-700 rounded"] "More coming soon"
 
   where
     link href x = with (a_ x) [class_ "px-2 mx-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
+
+rawData :: Frame SectionTermIx -> Html ()
+rawData df = do
+  div_ [id_ "raw-data", class_ "flex flex-col max-w-5xl mx-auto"] $ do
+    span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] "Raw data"
+    forM_ df $ \r -> do
+      div_ [class_ "items-center mb-1 border rounded-lg px-4 py-4 flex"] $ do
+        div_ [class_ "w-2/3 flex flex-col"] $ do
+          h1_ [class_ "text-lg font-bold mb-1"] $ toHtml $ rgetField @Seascape.Data.Sparse.Term r
+          p_ [class_ "text-gray-600"] $ do
+            strong_ $ toHtml $ show $ rgetField @Evals r
+            " evaluations"
+        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
+          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecClass r) <> "%"
+          p_ [class_ "text-sm text-gray-600 text-right"] $ "rec. class"
+        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
+          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecInstr r) <> "%"
+          p_ [class_ "text-sm text-gray-600"] $ "rec. instructor"
+        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
+          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ timeFmt $ rgetField @Hours r
+          p_ [class_ "text-sm text-gray-600"] $ "time/wk"
+        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
+          gpaToHtml $ rgetField @GpaAvg r
+          p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
 
 sectionView :: Int -> Int -> Int -> Int -> Frame SectionTermIx -> Section -> Html ()
 sectionView rnki rnko cnti cnto df s = defaultPartial (rgetField @Instr s <> " - " <> rgetField @Course s <> " - Seascape") $ do
   topHero rnki rnko cnti cnto s
   midNav
+  rawData df
   js_ "/js/d3.v5.min.js"
   js_ "/js/section.js"
   script_ $
