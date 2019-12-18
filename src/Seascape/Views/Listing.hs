@@ -34,27 +34,28 @@ searchView query df = defaultPartial (maybe "Listing - Seascape" (\q -> q <> " -
           strong_ $ toHtml c
           " instructors"
         forM_ rs $ \r -> do
-          div_ [class_ "items-center mb-1 border rounded-lg px-4 py-4 flex"] $ do
-            div_ [class_ "w-2/3 flex flex-col"] $ do
-              h1_ [class_ "text-lg font-bold mb-1"] $ do
+          div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
+            div_ [class_ "w-full sm:w-1/3 text-left flex flex-row sm:flex-col items-end sm:items-start"] $ do
+              h1_ [class_ "text-lg font-bold sm:mb-1 flex-grow"] $ do
                 let cs = B64.encode $ encodeUtf8 $ rgetField @Course r :: Text
                 let is = B64.encode $ encodeUtf8 $ rgetField @Instr r :: Text
                 a_ [href_ ("/section/" <> cs <> "/" <> is), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ unpack $ rgetField @Instr r
               p_ [class_ "text-gray-600"] $ do
                 strong_ $ toHtml $ show $ rgetField @Evals r
                 " evaluations"
-            div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-              h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecClass r) <> "%"
-              p_ [class_ "text-sm text-gray-600 text-right"] $ "rec. class"
-            div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-              h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecInstr r) <> "%"
-              p_ [class_ "text-sm text-gray-600"] $ "rec. instructor"
-            div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-              h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ timeFmt $ rgetField @Hours r
-              p_ [class_ "text-sm text-gray-600"] $ "time/wk"
-            div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-              gpaToHtml $ rgetField @GpaAvg r
-              p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
+            div_ [class_ "w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0"] $ do
+              div_ [class_ "w-1/3 flex flex-col"] $ do
+                h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecClass r) <> "%"
+                p_ [class_ "text-sm text-gray-600"] $ "rec. class"
+              div_ [class_ "w-1/3 flex flex-col"] $ do
+                h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecInstr r) <> "%"
+                p_ [class_ "text-sm text-gray-600"] $ "rec. prof."
+              div_ [class_ "w-1/3 flex flex-col"] $ do
+                h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ timeFmt $ rgetField @Hours r
+                p_ [class_ "text-sm text-gray-600"] $ "time/wk"
+              div_ [class_ "w-1/3 flex flex-col"] $ do
+                gpaToHtml $ rgetField @GpaAvg r
+                p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
 
   where
     -- This list exists because we want to present the courses in order of match,

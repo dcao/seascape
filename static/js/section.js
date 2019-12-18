@@ -23,8 +23,7 @@ function sparkline(elem, data, avg) {
           .y(d => y(d.y));
     svg.append('path').datum(data)
         .attr('fill', 'none')
-        .attr('class', 'stroke-current text-gray-500')
-        .attr('stroke-width', 1)
+        .attr('class', 'stroke-width-4 sm:stroke-width-2 stroke-current text-gray-500')
         .attr('d', line);
 
     const prev = d3.line()
@@ -32,8 +31,7 @@ function sparkline(elem, data, avg) {
           .y(d => y(data[0].y));
     svg.append('path').datum(data)
         .attr('fill', 'none')
-        .attr('class', 'stroke-current text-gray-400')
-        .attr('stroke-width', 1)
+        .attr('class', 'stroke-width-2 sm:stroke-width-1 stroke-current text-gray-400')
         .attr('d', prev);
 
     const avgl = d3.line()
@@ -41,20 +39,17 @@ function sparkline(elem, data, avg) {
           .y(d => y(avg));
     svg.append('path').datum(data)
         .attr('fill', 'none')
-        .attr('class', 'stroke-current text-teal-500')
-        .attr('stroke-width', 1)
+        .attr('class', 'stroke-width-2 sm:stroke-width-1 stroke-current text-teal-500')
         .attr('stroke-dasharray', '2 3')
         .attr('d', avgl);
 
     svg.append('circle')
-        .attr('r', 2)
         .attr('cx', x(0))
         .attr('cy', y(data[0].y))
-        .attr('class', 'fill-current text-gray-500');
+        .attr('class', 'r-4 sm:r-2 fill-current text-gray-500');
     svg.append('circle')
-        .attr('r', 2)
         .attr('cx', x(DATA_COUNT - 1))
         .attr('cy', y(data[DATA_COUNT - 1].y))
-        .attr('class', 'fill-current text-teal-500');
+        .attr('class', 'r-4 sm:r-2 fill-current text-teal-500');
 }
 

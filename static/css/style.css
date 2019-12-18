@@ -17895,6 +17895,46 @@ readers do not read off random characters that represent icons */
   z-index: auto;
 }
 
+.stroke-width-1 {
+  stroke-width: 1;
+}
+
+.stroke-width-2 {
+  stroke-width: 2;
+}
+
+.stroke-width-4 {
+  stroke-width: 4;
+}
+
+.r-2 {
+  r: 2px;
+}
+
+.r-4 {
+  r: 4px;
+}
+
+.hover\:stroke-width-1:hover {
+  stroke-width: 1;
+}
+
+.hover\:stroke-width-2:hover {
+  stroke-width: 2;
+}
+
+.hover\:stroke-width-4:hover {
+  stroke-width: 4;
+}
+
+.hover\:r-2:hover {
+  r: 2px;
+}
+
+.hover\:r-4:hover {
+  r: 4px;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -28668,6 +28708,46 @@ readers do not read off random characters that represent icons */
 
   .sm\:z-auto {
     z-index: auto;
+  }
+
+  .sm\:stroke-width-1 {
+    stroke-width: 1;
+  }
+
+  .sm\:stroke-width-2 {
+    stroke-width: 2;
+  }
+
+  .sm\:stroke-width-4 {
+    stroke-width: 4;
+  }
+
+  .sm\:r-2 {
+    r: 2px;
+  }
+
+  .sm\:r-4 {
+    r: 4px;
+  }
+
+  .sm\:hover\:stroke-width-1:hover {
+    stroke-width: 1;
+  }
+
+  .sm\:hover\:stroke-width-2:hover {
+    stroke-width: 2;
+  }
+
+  .sm\:hover\:stroke-width-4:hover {
+    stroke-width: 4;
+  }
+
+  .sm\:hover\:r-2:hover {
+    r: 2px;
+  }
+
+  .sm\:hover\:r-4:hover {
+    r: 4px;
   }
 }
 
@@ -39445,6 +39525,46 @@ readers do not read off random characters that represent icons */
   .md\:z-auto {
     z-index: auto;
   }
+
+  .md\:stroke-width-1 {
+    stroke-width: 1;
+  }
+
+  .md\:stroke-width-2 {
+    stroke-width: 2;
+  }
+
+  .md\:stroke-width-4 {
+    stroke-width: 4;
+  }
+
+  .md\:r-2 {
+    r: 2px;
+  }
+
+  .md\:r-4 {
+    r: 4px;
+  }
+
+  .md\:hover\:stroke-width-1:hover {
+    stroke-width: 1;
+  }
+
+  .md\:hover\:stroke-width-2:hover {
+    stroke-width: 2;
+  }
+
+  .md\:hover\:stroke-width-4:hover {
+    stroke-width: 4;
+  }
+
+  .md\:hover\:r-2:hover {
+    r: 2px;
+  }
+
+  .md\:hover\:r-4:hover {
+    r: 4px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -50221,6 +50341,46 @@ readers do not read off random characters that represent icons */
   .lg\:z-auto {
     z-index: auto;
   }
+
+  .lg\:stroke-width-1 {
+    stroke-width: 1;
+  }
+
+  .lg\:stroke-width-2 {
+    stroke-width: 2;
+  }
+
+  .lg\:stroke-width-4 {
+    stroke-width: 4;
+  }
+
+  .lg\:r-2 {
+    r: 2px;
+  }
+
+  .lg\:r-4 {
+    r: 4px;
+  }
+
+  .lg\:hover\:stroke-width-1:hover {
+    stroke-width: 1;
+  }
+
+  .lg\:hover\:stroke-width-2:hover {
+    stroke-width: 2;
+  }
+
+  .lg\:hover\:stroke-width-4:hover {
+    stroke-width: 4;
+  }
+
+  .lg\:hover\:r-2:hover {
+    r: 2px;
+  }
+
+  .lg\:hover\:r-4:hover {
+    r: 4px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -60996,5 +61156,45 @@ readers do not read off random characters that represent icons */
 
   .xl\:z-auto {
     z-index: auto;
+  }
+
+  .xl\:stroke-width-1 {
+    stroke-width: 1;
+  }
+
+  .xl\:stroke-width-2 {
+    stroke-width: 2;
+  }
+
+  .xl\:stroke-width-4 {
+    stroke-width: 4;
+  }
+
+  .xl\:r-2 {
+    r: 2px;
+  }
+
+  .xl\:r-4 {
+    r: 4px;
+  }
+
+  .xl\:hover\:stroke-width-1:hover {
+    stroke-width: 1;
+  }
+
+  .xl\:hover\:stroke-width-2:hover {
+    stroke-width: 2;
+  }
+
+  .xl\:hover\:stroke-width-4:hover {
+    stroke-width: 4;
+  }
+
+  .xl\:hover\:r-2:hover {
+    r: 2px;
+  }
+
+  .xl\:hover\:r-4:hover {
+    r: 4px;
   }
 }

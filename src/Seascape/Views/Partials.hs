@@ -143,7 +143,7 @@ gpaToLetter x
 gpaToHtml :: Double -> Html ()
 gpaToHtml (-1) = h1_ [class_ "font-medium text-lg font-mono text-gray-500"] "N/A"
 gpaToHtml x =
-  h1_ [class_ "font-medium text-lg font-mono"] $ do
+  h1_ [class_ "font-medium sm:text-lg font-mono"] $ do
     toHtml $ gpaToLetter x
     span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 x <> ")"
 

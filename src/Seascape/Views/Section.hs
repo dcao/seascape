@@ -11,17 +11,18 @@ import Seascape.Views.Partials
 topHero :: Int -> Int -> Int -> Int -> Section -> Html ()
 topHero rnki rnko cnti cnto s =
   div_ [class_ "bg-teal-100 pt-12 pb-8 px-6"] $ do
-    div_ [id_ "summary", class_ "mb-6"] $ do
-      div_ [class_ "flex flex-row max-w-5xl mx-auto"] $ do
-        div_ [class_ "flex flex-col flex-grow text-left"] $ do
-          h1_ [class_ "text-3xl font-semibold font-sans"] $ toHtml $ rgetField @Instr s
-          h1_ [class_ "text-2xl font-medium font-sans"] $ toHtml $ rgetField @Course s
-        div_ [class_ "flex flex-col text-right mr-2 p-4 border rounded border-gray-800"] $ do
-          h1_ [class_ "text-2xl font-bold font-sans"] $ toHtml $ "#" <> show rnki <> " of " <> show cnti
-          p_ [class_ "text-sm text-gray-600"] $ toHtml $ rgetField @Course s <> " prof. ranking"
-        div_ [class_ "flex flex-col text-right p-4 border rounded border-gray-800"] $ do
-          h1_ [class_ "text-2xl font-bold font-sans"] $ toHtml $ "#" <> show rnko <> " of " <> show cnto
-          p_ [class_ "text-sm text-gray-600"] "Overall section ranking"
+    div_ [id_ "summary", class_ "mb-8 sm:mb-6"] $ do
+      div_ [class_ "flex flex-col sm:flex-row max-w-5xl mx-auto"] $ do
+        div_ [class_ "flex flex-row sm:flex-col flex-grow text-left items-end sm:items-start"] $ do
+          h1_ [class_ "text-2xl sm:text-3xl font-semibold font-sans flex-grow sm:flex-grow-0"] $ toHtml $ rgetField @Instr s
+          h1_ [class_ "text-xl sm:text-2xl font-medium font-sans"] $ toHtml $ rgetField @Course s
+        div_ [class_ "flex flex-row mt-3 sm:mt-0"] $ do
+          div_ [class_ "flex flex-col sm:text-right mr-2 py-3 px-4 sm:py-4 border flex-grow rounded border-gray-800"] $ do
+            h1_ [class_ "text-lg sm:text-xl font-bold font-sans"] $ toHtml $ "#" <> show rnki <> " of " <> show cnti
+            p_ [class_ "text-sm text-gray-600"] $ toHtml $ rgetField @Course s <> " prof. ranking"
+          div_ [class_ "flex flex-col sm:text-right py-3 px-4 sm:py-4 border flex-grow rounded border-gray-800"] $ do
+            h1_ [class_ "text-lg sm:text-xl font-bold font-sans"] $ toHtml $ "#" <> show rnko <> " of " <> show cnto
+            p_ [class_ "text-sm text-gray-600"] "Overall section ranking"
     div_ [id_ "report-card"] $ do
       div_ [class_ "flex max-w-5xl mx-auto"] $ do
         p_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-teal-300 mr-auto mb-4 rounded"] "Report card"
@@ -39,7 +40,7 @@ topHero rnki rnko cnti cnto s =
         div_ [class_ "ml-3 w-1/3"] $ do
           p_ [class_ "text-gray-600 text-sm mb-1"] "Average grade"
           div_ [class_ "flex flex-row"] $ do
-            with (gpaToHtml $ rgetField @GpaAvg s) [class_ " font-semibold mb-3 "]
+            with (gpaToHtml $ rgetField @GpaAvg s) [class_ " font-semibold mb-3 text-xl "]
           div_ [class_ "gpa-spark"] $ return ()
 
 midNav :: Html ()
@@ -52,35 +53,41 @@ midNav = do
   where
     link href x = with (a_ x) [class_ "px-2 mx-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
 
+body :: Frame SectionTermIx -> Html ()
+body df =
+  div_ [class_ "max-w-5xl px-4 mx-auto"] $ do
+    rawData df
+
 rawData :: Frame SectionTermIx -> Html ()
-rawData df = do
-  div_ [id_ "raw-data", class_ "flex flex-col max-w-5xl mx-auto"] $ do
+rawData df =
+  div_ [id_ "raw-data", class_ "flex flex-col"] $ do
     span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] "Raw data"
     forM_ df $ \r -> do
-      div_ [class_ "items-center mb-1 border rounded-lg px-4 py-4 flex"] $ do
-        div_ [class_ "w-2/3 flex flex-col"] $ do
-          h1_ [class_ "text-lg font-bold mb-1"] $ toHtml $ rgetField @Seascape.Data.Sparse.Term r
+      div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
+        div_ [class_ "w-full sm:w-1/3 text-left flex flex-row sm:flex-col items-end sm:items-start"] $ do
+          h1_ [class_ "text-lg font-bold sm:mb-1 flex-grow"] $ toHtml $ rgetField @Seascape.Data.Sparse.Term r
           p_ [class_ "text-gray-600"] $ do
             strong_ $ toHtml $ show $ rgetField @Evals r
             " evaluations"
-        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecClass r) <> "%"
-          p_ [class_ "text-sm text-gray-600 text-right"] $ "rec. class"
-        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecInstr r) <> "%"
-          p_ [class_ "text-sm text-gray-600"] $ "rec. instructor"
-        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-          h1_ [class_ "font-medium text-lg font-mono"] $ toHtml $ timeFmt $ rgetField @Hours r
-          p_ [class_ "text-sm text-gray-600"] $ "time/wk"
-        div_ [class_ "w-1/3 flex flex-col text-right"] $ do
-          gpaToHtml $ rgetField @GpaAvg r
-          p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
+        div_ [class_ "w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0"] $ do
+          div_ [class_ "w-1/3 flex flex-col"] $ do
+            h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecClass r) <> "%"
+            p_ [class_ "text-sm text-gray-600"] $ "rec. class"
+          div_ [class_ "w-1/3 flex flex-col"] $ do
+            h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ rgetField @RecInstr r) <> "%"
+            p_ [class_ "text-sm text-gray-600"] $ "rec. prof."
+          div_ [class_ "w-1/3 flex flex-col"] $ do
+            h1_ [class_ "font-medium sm:text-lg font-mono"] $ toHtml $ timeFmt $ rgetField @Hours r
+            p_ [class_ "text-sm text-gray-600"] $ "time/wk"
+          div_ [class_ "w-1/3 flex flex-col"] $ do
+            gpaToHtml $ rgetField @GpaAvg r
+            p_ [class_ "text-sm text-gray-600"] $ "avg. GPA"
 
 sectionView :: Int -> Int -> Int -> Int -> Frame SectionTermIx -> Section -> Html ()
 sectionView rnki rnko cnti cnto df s = defaultPartial (rgetField @Instr s <> " - " <> rgetField @Course s <> " - Seascape") $ do
   topHero rnki rnko cnti cnto s
   midNav
-  rawData df
+  body df
   js_ "/js/d3.v5.min.js"
   js_ "/js/section.js"
   script_ $
