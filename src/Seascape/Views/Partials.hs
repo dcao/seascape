@@ -105,9 +105,10 @@ defaultPartial t body =
     body_ [class_ "font-sans"] $ do
       navbarPartial
       body
-    p_ [class_ "text-center text-gray-500 text-xs mt-8 mb-8"] $ do
-      toHtmlRaw ("&copy; 2019 David Cao, Tung Doan. Born at " :: Text)
-      a_ [href_ "https://sites.google.com/a/eng.ucsd.edu/spis/", class_ "text-teal-600"] "SPIS 2019."
+      p_ [class_ "text-center text-gray-500 text-xs mt-8 mb-8"] $ do
+        toHtmlRaw ("&copy; 2019 David Cao, Tung Doan. Born at " :: Text)
+        a_ [href_ "https://sites.google.com/a/eng.ucsd.edu/spis/", class_ "text-teal-600"] "SPIS 2019."
+      script_ "(function() {var script = document.createElement('script'); window.counter = 'https://seascape.goatcounter.com/count'; script.async = 1; script.src = '//gc.zgo.at/count.js'; var ins = document.getElementsByTagName('script')[0]; ins.parentNode.insertBefore(script, ins);})();"
 
 searchBar :: Text -> Html ()
 searchBar t = form_ [action_ "/listing"] $ do
