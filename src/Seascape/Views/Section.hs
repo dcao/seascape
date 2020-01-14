@@ -97,5 +97,5 @@ sectionView rnki rnko cnti cnto df (sid, sinfo) = defaultPartial (instr sid <> "
     "const sectionTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode df) <> ";" <>
     "sparkline('.rec-instr-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_recInstr }; }), " <> (pack $ show $ instr sid) <> ");" <>
     "sparkline('.time-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_hours }; }), " <> (pack $ show $ hours sinfo) <> ");" <>
-    if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ gpaAvg sinfo) <> ");" else ""
+    if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ lossyGpa $ gpaAvg sinfo) <> ");" else ""
 

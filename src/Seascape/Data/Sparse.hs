@@ -36,6 +36,10 @@ newtype Gpa = Gpa (Maybe (Int, Double))
 gpaExists :: Gpa -> Bool
 gpaExists (Gpa x) = isJust x
 
+lossyGpa :: Gpa -> Double
+lossyGpa (Gpa Nothing)       = ((-1) :: Double)
+lossyGpa (Gpa (Just (_, x))) = x
+
 instance Show Gpa where
   show (Gpa x) = show x
 
@@ -85,8 +89,7 @@ instance FromNamedRecord (Section () ()) where
         <*> (getGpa =<< m .: "gpaAvg")
 
 instance ToJSON Gpa where
-  toJSON (Gpa Nothing) = toJSON (-1 :: Int)
-  toJSON (Gpa (Just (_, x))) = toJSON x
+  toJSON = toJSON . lossyGpa
 
 -- Aeson stuff
 instance ToJSON (Section Int ()) where
