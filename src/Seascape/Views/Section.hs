@@ -74,7 +74,7 @@ rawData df =
             " evaluations"
         div_ [class_ "w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0"] $ do
           div_ [class_ "w-1/3 flex flex-col"] $ do
-            h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ recClass rinfo)
+            h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ recClass rinfo) <> "%"
             p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "rec. class"
           div_ [class_ "w-1/3 flex flex-col"] $ do
             h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ recInstr rinfo) <> "%"
