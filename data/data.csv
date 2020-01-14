@@ -1,10 +1,11 @@
+instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Hill, Seth J",AIP 197DC,FA19,24,3,0.0,0.0,4.50,,
 "Wienhausen, Gabriele",AIP 197T,FA19,11,4,100.0,100.0,2.00,,
-"Shtienberg, Gilad",ANAR 116,FA19,24,13,100.0,100.0,3.59,3.70,3.32
+"Shtienberg, Gilad",ANAR 116,FA19,24,13,100.0,100.0,3.59,3.70,3.35
 "Jones, Ian William Nasser",ANAR 121,FA19,14,5,100.0,100.0,1.70,3.60,
 "Hanson, Kari Lynne",ANBI 112,FA19,9,7,100.0,100.0,3.93,3.86,
 "Non, Amy L",ANBI 131,FA19,54,46,91.3,97.8,4.50,3.72,3.55
-"Gagneux, Pascal",ANBI 141,FA19,136,63,98.4,98.3,4.40,3.56,2.74
+"Gagneux, Pascal",ANBI 141,FA19,136,63,98.4,98.3,4.40,3.56,2.77
 "Hrvoj Mihic, Branka",ANBI 143,FA19,20,13,92.3,100.0,6.81,3.42,3.36
 "Yeh, Rihan Wen Xin",ANSC 104,FA19,17,12,100.0,100.0,5.33,3.50,
 "Olivas Hernandez, Olga Lid",ANSC 105,FA19,34,15,100.0,100.0,3.36,3.57,3.68
@@ -18,11 +19,11 @@
 "Fortier, Jana",ANSC 169,FA19,8,4,100.0,100.0,4.50,4.00,
 "Goldstein, Paul S",ANTH 101,FA19,140,53,78.0,84.0,4.18,3.52,3.56
 "Non, Amy L",ANTH 196A,FA19,8,6,100.0,100.0,6.50,3.83,
-"Hrvoj Mihic, Branka",ANTH 2,FA19,206,105,89.0,91.8,3.47,3.15,3.18
+"Hrvoj Mihic, Branka",ANTH 2,FA19,206,105,89.0,91.8,3.47,3.15,3.21
 "Dalla Dea, Ariane Lumena",ANTH 21,FA19,128,55,72.5,64.0,2.89,3.85,3.62
-"Jones, Ian William Nasser",ANTH 21,FA19,370,301,95.9,97.2,3.91,3.85,3.86
-"Stewart, Alexander B",ANTH 23,FA19,248,199,91.5,96.4,3.35,3.54,3.40
-"Borrero, Mario Ricardo",ANTH 23,FA19,94,73,89.9,94.1,3.54,3.51,3.25
+"Jones, Ian William Nasser",ANTH 21,FA19,370,301,95.9,97.2,3.91,3.85,3.87
+"Stewart, Alexander B",ANTH 23,FA19,248,199,91.5,96.4,3.35,3.54,3.41
+"Borrero, Mario Ricardo",ANTH 23,FA19,94,73,89.9,94.1,3.54,3.51,3.24
 "Non, Amy L",ANTH 87,FA19,13,8,100.0,100.0,0.79,,
 "Christie, Veronica Ann",AWP 1,FA19,39,35,88.6,100.0,6.10,3.50,2.70
 "Coulter, Jane Elisabeth",AWP 1,FA19,12,12,100.0,100.0,7.33,2.83,
@@ -36,7 +37,7 @@
 "Powers, Sarah Elizabeth",AWP 1,FA19,38,36,88.6,100.0,6.56,3.40,2.84
 "Risvold, Ward Jay",AWP 1,FA19,36,27,92.0,100.0,6.72,3.43,2.68
 "Sheredos, Benjamin C",AWP 1,FA19,38,38,89.5,97.4,7.50,2.93,2.57
-"Steinberg, Stacy A",AWP 1,FA19,37,35,97.0,100.0,5.70,3.24,2.69
+"Steinberg, Stacy A",AWP 1,FA19,37,35,97.0,100.0,5.70,3.24,2.67
 "Tessier, Jillian Marie",AWP 1,FA19,39,38,78.9,97.4,5.64,3.19,2.53
 "Tiernan, Christa Michelle",AWP 1,FA19,38,31,77.4,100.0,8.31,3.13,2.60
 "Tsurska Svetina, Olena",AWP 1,FA19,38,32,80.0,100.0,6.75,3.38,2.53
@@ -53,42 +54,42 @@
 "Sartor, Alexandra",AWP 2A,FA19,27,24,100.0,100.0,6.17,3.65,
 "Setoda, Kayleigh Kumiko",AWP 2A,FA19,39,37,97.3,100.0,5.31,3.56,
 "Wilson, Natalie Ann",AWP 2A,FA19,40,37,89.2,97.3,5.96,3.34,
-"Mc Culloch, Andrew Douglas",BENG 110,FA19,47,44,83.7,83.7,6.73,3.19,2.99
+"Mc Culloch, Andrew Douglas",BENG 110,FA19,47,44,83.7,83.7,6.73,3.19,3.00
 "Mc Culloch, Andrew Douglas",BENG 110,FA19,49,43,90.7,93.0,6.31,3.42,3.10
 "Wheeler, Bruce Christopher",BENG 119A,FA19,17,6,100.0,100.0,8.50,3.80,
-"Gough, David A.",BENG 122A,FA19,49,18,35.3,12.5,5.06,3.44,
-"Gough, David A.",BENG 122A,FA19,37,10,22.2,11.1,3.83,3.56,
-"Wheeler, Bruce Christopher",BENG 126A,FA19,24,8,50.0,100.0,3.83,3.67,
-"Wheeler, Bruce Christopher",BENG 129A,FA19,22,3,66.7,100.0,5.83,4.00,
+"Gough, David A.",BENG 122A,FA19,49,18,35.3,12.5,5.06,3.44,3.51
+"Gough, David A.",BENG 122A,FA19,37,10,22.2,11.1,3.83,3.56,3.56
+"Wheeler, Bruce Christopher",BENG 126A,FA19,24,8,50.0,100.0,3.83,3.67,3.85
+"Wheeler, Bruce Christopher",BENG 129A,FA19,22,3,66.7,100.0,5.83,4.00,3.95
 "Coleman, Todd Prentice",BENG 134,FA19,23,12,75.0,91.7,11.33,2.67,3.30
 "Wheeler, Bruce Christopher",BENG 135,FA19,33,6,100.0,100.0,5.50,4.00,3.62
 "Lal, Ratnesh",BENG 141,FA19,20,17,94.1,88.2,5.44,3.59,3.76
 "Fraley, Stephanie I.",BENG 161A,FA19,52,36,97.2,94.4,8.67,3.40,3.30
 "Mali, Prashant Gulab Ram",BENG 162,FA19,50,42,81.0,82.9,7.77,3.73,3.53
-"Sah, Robert Lie-Yuan",BENG 166A,FA19,61,47,11.1,13.6,8.95,3.29,
-"Wheeler, Bruce Christopher",BENG 179A,FA19,44,6,80.0,100.0,4.50,4.00,
+"Sah, Robert Lie-Yuan",BENG 166A,FA19,61,47,11.1,13.6,8.95,3.29,3.47
+"Wheeler, Bruce Christopher",BENG 179A,FA19,44,6,80.0,100.0,4.50,4.00,3.68
 "Zhong, Sheng",BENG 183,FA19,83,37,88.9,88.9,5.28,3.72,3.55
 "Wheeler, Bruce Christopher",BENG 187B,FA19,151,33,77.4,96.8,5.43,3.90,
 "Wheeler, Bruce Christopher",BENG 2,FA19,11,3,100.0,100.0,8.50,3.33,
 "Mc Culloch, Andrew Douglas",BENG 87,FA19,18,9,100.0,100.0,0.50,4.00,
 "Huffaker, Alisa",BIBC 100,FA19,283,156,90.6,96.0,7.63,3.50,3.42
-"Schmelz, Eric Alexander",BIBC 102,FA19,279,152,87.6,83.2,7.40,3.29,3.03
-"Hampton, Randolph Y.",BIBC 102,FA19,403,373,86.1,94.9,7.60,3.17,3.00
+"Schmelz, Eric Alexander",BIBC 102,FA19,279,152,87.6,83.2,7.40,3.29,3.04
+"Hampton, Randolph Y.",BIBC 102,FA19,403,373,86.1,94.9,7.60,3.17,3.01
 "Bozinovic, Goran",BIBC 103,FA19,38,16,87.5,93.8,7.75,3.31,3.04
 "Coleman, Aaron B.",BIBC 103,FA19,44,23,77.3,86.4,8.32,3.18,2.84
 "Burg, Michael",BIBC 103,FA19,48,45,97.8,93.3,5.74,3.38,3.50
 "Coleman, Aaron B.",BIBC 120,FA19,158,69,92.4,97.0,5.80,3.33,2.78
 "Hui, Enfu",BIBC 194,FA19,31,17,100.0,100.0,2.13,3.94,3.94
 "Bozinovic, Goran",BICD 100,FA19,261,126,85.2,77.0,5.40,3.09,2.94
-"Grossman, Emily N",BICD 100,FA19,384,337,97.3,91.3,4.94,3.48,2.92
+"Grossman, Emily N",BICD 100,FA19,384,337,97.3,91.3,4.94,3.48,2.93
 "McDonnell, Lisa Marie",BICD 100,FA19,47,28,96.4,96.4,4.86,3.46,3.09
-"Kiger, Amy",BICD 110,FA19,35,17,82.4,76.5,8.03,2.88,3.01
+"Kiger, Amy",BICD 110,FA19,35,17,82.4,76.5,8.03,2.88,3.11
 "Wilhelm, James E.",BICD 110,FA19,151,84,90.2,97.6,6.38,3.14,2.93
-"Zuniga, Elina I",BICD 140,FA19,124,80,92.4,97.5,7.06,3.41,2.77
+"Zuniga, Elina I",BICD 140,FA19,124,80,92.4,97.5,7.06,3.41,2.78
 "Kryazhimskiy, Sergey A",BICD 156,FA19,28,26,96.2,96.2,7.12,3.31,3.69
 "Kohn, Joshua R",BIEB 126,FA19,84,43,83.3,83.3,4.88,2.85,2.77
 "Shurin, Jonathan",BIEB 135,FA19,36,24,91.7,100.0,3.42,3.67,3.72
-"Petrie, Katherine Lynn",BIEB 146,FA19,170,144,96.5,98.6,4.46,3.65,3.38
+"Petrie, Katherine Lynn",BIEB 146,FA19,170,144,96.5,98.6,4.46,3.65,3.39
 "Barton, Andrew David",BIEB 174,FA19,149,58,98.2,94.5,5.00,3.61,3.25
 "Cleland, Elsa Eleanor",BIEB 174,FA19,149,60,98.3,93.1,5.09,3.63,3.25
 "Ryan, Elizabeth Mary",BIEB 194,FA19,12,7,85.7,85.7,4.50,3.71,
@@ -97,14 +98,14 @@
 "Cooper, Andrew Michael",BILD 1,FA19,376,312,92.6,94.2,4.78,3.31,2.91
 "Glasgow, Stacey Marie",BILD 2,FA19,371,320,93.0,72.0,6.22,3.51,2.97
 "Owens, Melinda Tsao-Ying",BILD 2,FA19,371,320,93.0,89.1,6.22,3.51,2.97
-"Rana, Brinda Kanti",BILD 20,FA19,132,115,83.3,83.2,3.17,3.39,3.45
-"Stockwell, Sarah R",BILD 3,FA19,190,135,89.5,97.7,5.73,3.13,2.61
+"Rana, Brinda Kanti",BILD 20,FA19,132,115,83.3,83.2,3.17,3.39,3.49
+"Stockwell, Sarah R",BILD 3,FA19,190,135,89.5,97.7,5.73,3.13,2.64
 "Stockwell, Sarah R",BILD 3,FA19,384,283,93.2,94.6,4.79,3.23,2.62
-"Reuther, Keefe",BILD 3,FA19,376,331,95.4,97.0,4.60,3.27,2.97
+"Reuther, Keefe",BILD 3,FA19,376,331,95.4,97.0,4.60,3.27,2.98
 "Hedrick, Stephen M",BILD 30,FA19,119,69,95.7,95.5,3.40,3.21,2.98
 "Lo, Stanley Malvin Ming-Hi",BILD 4,FA19,378,323,95.3,97.5,2.76,3.61,3.69
 "Mel, Stephanie",BILD 4,FA19,191,112,94.4,99.1,2.74,3.54,3.61
-"Reuther, Keefe",BILD 4,FA19,190,143,92.1,97.1,3.30,3.55,3.73
+"Reuther, Keefe",BILD 4,FA19,190,143,92.1,97.1,3.30,3.55,3.74
 "Macagno, Eduardo R.",BILD 60,FA19,44,23,87.0,86.4,3.20,3.61,3.77
 "Pogliano, Joseph",BILD 70,FA19,28,20,100.0,100.0,2.18,3.89,3.96
 "Saier, Milton H.",BILD 87,FA19,15,8,100.0,100.0,0.79,4.00,
@@ -112,7 +113,7 @@
 "Butler, Madeline",BILD 96,FA19,45,27,88.5,96.2,0.81,4.00,
 "Burg, Michael",BIMM 100,FA19,280,254,94.4,94.8,5.92,3.41,3.06
 "Pasquinelli, Amy",BIMM 100,FA19,161,127,87.3,92.1,6.24,3.15,2.37
-"Cook-Andersen, Heidi Leigh",BIMM 100,FA19,43,37,78.4,66.7,6.07,3.14,2.52
+"Cook-Andersen, Heidi Leigh",BIMM 100,FA19,43,37,78.4,66.7,6.07,3.14,2.72
 "McDonnell, Lisa Marie",BIMM 101,FA19,32,19,94.4,100.0,6.28,3.17,3.12
 "McGinnis, William James",BIMM 101,FA19,32,19,94.4,83.3,6.28,3.17,3.12
 "Gustafson-Brown, Cindy",BIMM 101,FA19,22,22,90.9,86.4,5.41,3.00,2.80
@@ -125,34 +126,34 @@
 "Petrie, Katherine Lynn",BIMM 121,FA19,50,45,95.6,100.0,6.46,3.30,3.41
 "Pirino, Giorgia",BIMM 121,FA19,45,39,89.5,89.5,5.73,3.32,3.32
 "O'Rourke, Aubrie Elise",BIMM 121,FA19,45,42,59.5,69.0,7.45,3.02,3.08
-"Pirino, Giorgia",BIMM 122,FA19,116,98,85.7,84.7,4.62,3.55,3.34
+"Pirino, Giorgia",BIMM 122,FA19,116,98,85.7,84.7,4.62,3.55,3.35
 "Gustafson-Brown, Cindy",BIMM 124,FA19,117,93,97.8,97.8,8.39,3.22,2.97
-"Hao, Nan",BIMM 140,FA19,121,107,97.2,95.3,4.31,3.63,3.73
-"Suel, Gurol Mehmet",BIMM 140,FA19,121,108,97.2,96.3,4.29,3.63,3.73
+"Hao, Nan",BIMM 140,FA19,121,107,97.2,95.3,4.31,3.63,3.75
+"Suel, Gurol Mehmet",BIMM 140,FA19,121,108,97.2,96.3,4.29,3.63,3.75
 "Grant, Barry J",BIMM 143,FA19,40,37,100.0,100.0,4.93,3.57,3.64
 "Mayfield, Stephen P.",BIMM 194,FA19,19,10,100.0,100.0,2.28,4.00,
 "Golden, James W",BIMM 194,FA19,28,12,100.0,91.7,2.00,4.00,3.98
 "Karlseder, Jan",BIMM 194,FA19,33,14,100.0,100.0,1.41,3.82,4.00
 "Saghatelian, Alan",BIMM 194,FA19,33,14,100.0,100.0,1.41,3.82,4.00
-"Bloodgood, Brenda Laurie",BIPN 100,FA19,339,317,95.6,95.9,8.31,3.23,2.72
+"Bloodgood, Brenda Laurie",BIPN 100,FA19,339,317,95.6,95.9,8.31,3.23,2.81
 "Cooke, James Edward",BIPN 100,FA19,47,29,96.4,89.3,7.57,3.07,2.79
 "Leutgeb, Stefan",BIPN 100,FA19,156,131,85.3,68.8,8.42,3.36,2.88
-"Vijapurkar, Ulka",BIPN 102,FA19,115,69,86.4,81.3,7.66,3.27,2.93
+"Vijapurkar, Ulka",BIPN 102,FA19,115,69,86.4,81.3,7.66,3.27,2.90
 "Armour, Jon Christopher",BIPN 105,FA19,72,31,90.3,93.5,12.56,3.26,2.84
 "Reyes Gonzalez, Catalina",BIPN 105,FA19,40,39,84.6,100.0,15.01,3.13,2.96
-"Spitzer, Nicholas",BIPN 140,FA19,91,41,71.1,73.7,8.08,2.83,2.73
-"Su, Chih-Ying",BIPN 140,FA19,91,40,70.3,94.6,8.12,2.83,2.73
+"Spitzer, Nicholas",BIPN 140,FA19,91,41,71.1,73.7,8.08,2.83,2.75
+"Su, Chih-Ying",BIPN 140,FA19,91,40,70.3,94.6,8.12,2.83,2.75
 "Juavinett, Ashley Lauren",BIPN 145,FA19,30,27,100.0,100.0,6.20,3.58,3.33
-"Leutgeb, Jill K.",BIPN 148,FA19,190,157,83.3,72.9,6.55,3.25,2.93
+"Leutgeb, Jill K.",BIPN 148,FA19,190,157,83.3,72.9,6.55,3.25,2.95
 "Banghart, Matthew Ryan",BIPN 194,FA19,11,6,100.0,100.0,1.83,4.00,
 "Pekkurnaz Banghart, Gulcin",BIPN 194,FA19,19,13,100.0,100.0,4.28,4.00,
 "Leutgeb, Jill K.",BIPN 194,FA19,15,7,100.0,100.0,3.36,4.00,
 "Wertheim, Joel Okrent",BISP 194,FA19,29,21,95.2,100.0,2.31,4.00,3.91
 "Cooke, James Edward",BISP 195,FA19,90,47,100.0,100.0,1.45,4.00,
 "Chodorow, Stanley A.",CAT 1,FA19,112,69,76.1,80.3,3.54,3.10,2.98
-"Algaze, Guillermo",CAT 1,FA19,237,125,67.2,63.9,2.97,3.47,3.32
+"Algaze, Guillermo",CAT 1,FA19,237,125,67.2,63.9,2.97,3.47,3.42
 "Bigham, David Joseph",CAT 1,FA19,166,115,73.4,96.2,5.39,3.08,3.18
-"Tronzo, William",CAT 1,FA19,238,159,84.3,86.8,2.41,3.85,3.86
+"Tronzo, William",CAT 1,FA19,238,159,84.3,86.8,2.41,3.85,3.88
 "Kasem, Yasmine Kasem",CAT 1,FA19,217,149,63.0,80.1,3.43,3.49,3.40
 "Bigham, David Joseph",CAT 125,FA19,153,62,74.5,92.7,3.34,3.73,3.50
 "Gumm, Elizabeth Ashley",CAT 125,FA19,133,57,87.0,94.3,3.83,3.75,3.52
@@ -165,8 +166,8 @@
 "Miller, David R.",CENG 101A,FA19,149,90,74.7,69.0,12.22,3.25,2.93
 "Bae, Jinhye",CENG 101A,FA19,38,34,76.5,91.2,11.26,3.09,3.02
 "Opatkiewicz, Justin Paul",CENG 120,FA19,69,65,92.3,98.5,8.65,3.13,3.07
-"Russ, Benjamin Edward",CENG 120,FA19,36,34,73.5,72.7,7.32,3.12,3.14
-"Opatkiewicz, Justin Paul",CENG 122,FA19,66,63,95.2,98.4,8.12,3.25,3.06
+"Russ, Benjamin Edward",CENG 120,FA19,36,34,73.5,72.7,7.32,3.12,3.16
+"Opatkiewicz, Justin Paul",CENG 122,FA19,66,63,95.2,98.4,8.12,3.25,3.09
 "Powell, Alyssa",CENG 122,FA19,38,29,92.9,100.0,9.81,3.17,3.04
 "Yang, Kesong",CENG 15,FA19,36,32,96.9,90.3,4.38,3.41,2.84
 "Yang, Kesong",CENG 15,FA19,60,53,83.0,83.0,4.95,3.55,3.05
@@ -176,47 +177,47 @@
 "Shelby, Karen Lee",CGS 100A,FA19,26,12,100.0,100.0,5.83,3.42,3.38
 "Dorr, Kirstie A.",CGS 112,FA19,25,14,92.3,92.3,4.81,3.58,3.60
 "Whitley, Leila Marie",CGS 114,FA19,20,14,100.0,100.0,5.21,3.36,3.57
-"Whitley, Leila Marie",CGS 2A,FA19,114,68,90.5,93.1,3.98,3.73,3.70
-"Pomeroy, Robert S.",CHEM 100A,FA19,140,62,96.4,94.4,7.94,3.27,2.93
-"Crowell, John E",CHEM 105A,FA19,39,19,66.7,88.9,8.17,3.39,
-"Crowell, John E",CHEM 105A,FA19,36,18,52.9,70.6,11.09,3.06,
+"Whitley, Leila Marie",CGS 2A,FA19,114,68,90.5,93.1,3.98,3.73,3.71
+"Pomeroy, Robert S.",CHEM 100A,FA19,140,62,96.4,94.4,7.94,3.27,3.04
+"Crowell, John E",CHEM 105A,FA19,39,19,66.7,88.9,8.17,3.39,3.22
+"Crowell, John E",CHEM 105A,FA19,36,18,52.9,70.6,11.09,3.06,2.92
 "Ghosh, Gourisankar",CHEM 108,FA19,48,30,69.0,44.8,5.33,3.38,3.39
 "Ghosh, Gourisankar",CHEM 108,FA19,48,23,86.4,54.5,5.20,3.48,3.36
 "Mishanina, Tatiana V",CHEM 109,FA19,35,15,100.0,92.9,7.79,3.36,3.42
-"Mrse, Anthony Adrian",CHEM 11,FA19,297,141,86.2,93.1,3.83,3.02,2.83
-"Herzik, Mark Anthony",CHEM 114A,FA19,223,104,75.8,78.9,8.44,2.89,2.99
+"Mrse, Anthony Adrian",CHEM 11,FA19,297,141,86.2,93.1,3.83,3.02,2.84
+"Herzik, Mark Anthony",CHEM 114A,FA19,223,104,75.8,78.9,8.44,2.89,3.00
 "Rinehart, Jeffrey Dennis",CHEM 120A,FA19,299,139,87.6,97.7,7.28,3.17,2.92
 "Yuen Zhou, Joel",CHEM 126A,FA19,201,144,65.7,88.7,8.60,2.88,2.88
 "Sinha, Amitabha",CHEM 130,FA19,104,38,52.6,60.5,9.71,2.92,2.49
-"Esko, Jeffrey D.",CHEM 142,FA19,21,8,100.0,100.0,4.00,3.38,
-"Godula, Kamil",CHEM 142,FA19,21,8,100.0,100.0,4.00,3.38,
+"Esko, Jeffrey D.",CHEM 142,FA19,21,8,100.0,100.0,4.00,3.38,3.89
+"Godula, Kamil",CHEM 142,FA19,21,8,100.0,100.0,4.00,3.38,3.89
 "Ternansky, Robert J.",CHEM 143C,FA19,60,28,100.0,96.2,5.35,3.60,3.29
 "Theodorakis, Emmanuel",CHEM 152,FA19,35,17,100.0,100.0,4.97,3.27,3.25
 "Tor, Yitzhak",CHEM 154,FA19,52,21,95.0,100.0,6.71,3.11,3.23
-"Slade, Jonathan",CHEM 171,FA19,113,62,81.0,76.8,3.33,3.38,3.25
+"Slade, Jonathan",CHEM 171,FA19,113,62,81.0,76.8,3.33,3.38,3.27
 "Hoeger, Carl",CHEM 4,FA19,343,183,75.3,74.9,6.29,2.55,2.83
-"Oconnor, Joseph M.",CHEM 40A,FA19,300,159,71.8,71.6,8.69,2.98,2.50
+"Oconnor, Joseph M.",CHEM 40A,FA19,300,159,71.8,71.6,8.69,2.98,2.49
 "Oconnor, Joseph M.",CHEM 40A,FA19,112,51,79.2,81.3,8.20,2.85,2.44
 "Yang, Jerry",CHEM 40A,FA19,144,79,76.6,79.2,8.71,2.96,2.66
-"Albizati, Kim F.",CHEM 40A,FA19,404,210,85.8,96.4,7.94,3.09,2.63
-"Perrin, Charles L.",CHEM 40A,FA19,294,140,70.7,68.9,8.03,2.88,2.41
-"Weizman, Haim",CHEM 40B,FA19,307,163,80.1,92.9,8.15,2.83,2.77
+"Albizati, Kim F.",CHEM 40A,FA19,404,210,85.8,96.4,7.94,3.09,2.66
+"Perrin, Charles L.",CHEM 40A,FA19,294,140,70.7,68.9,8.03,2.88,2.46
+"Weizman, Haim",CHEM 40B,FA19,307,163,80.1,92.9,8.15,2.83,2.72
 "Ternansky, Robert J.",CHEM 40C,FA19,135,59,76.4,87.3,7.98,2.94,2.70
-"Lam, Tin Yiu",CHEM 43A,FA19,306,159,57.2,70.0,7.93,3.24,3.06
+"Lam, Tin Yiu",CHEM 43A,FA19,306,159,57.2,70.0,7.93,3.24,3.07
 "Lam, Tin Yiu",CHEM 43A,FA19,283,126,69.4,77.5,7.87,3.32,3.12
 "Pomeroy, Robert S.",CHEM 6A,FA19,180,87,87.5,80.5,6.80,2.95,2.66
 "Schnoebelen, Carly Lynn",CHEM 6A,FA19,363,210,96.5,93.3,5.19,3.23,2.88
-"Brydges, Stacey",CHEM 6A,FA19,411,250,84.5,89.4,6.45,3.10,
-"Young, Mark",CHEM 6A,FA19,150,78,75.3,62.5,6.50,2.82,2.76
-"Brydges, Stacey",CHEM 6A,FA19,411,235,87.2,85.6,6.65,2.98,
+"Brydges, Stacey",CHEM 6A,FA19,411,250,84.5,89.4,6.45,3.10,2.98
+"Young, Mark",CHEM 6A,FA19,150,78,75.3,62.5,6.50,2.82,2.77
+"Brydges, Stacey",CHEM 6A,FA19,411,235,87.2,85.6,6.65,2.98,2.92
 "Bussey, Thomas J",CHEM 6A,FA19,410,215,95.0,96.5,5.90,3.16,2.84
 "Young, Mark",CHEM 6A,FA19,85,46,56.8,55.8,5.64,2.65,2.75
 "Hoeger, Carl",CHEM 6A,FA19,389,211,87.2,83.2,6.14,2.98,3.01
-"Albizati, Kim F.",CHEM 6A,FA19,123,78,98.6,98.6,4.94,3.54,3.00
+"Albizati, Kim F.",CHEM 6A,FA19,123,78,98.6,98.6,4.94,3.54,3.10
 "Tauber, Michael",CHEM 6AH,FA19,106,67,61.5,83.1,7.85,3.09,3.13
 "Crowell, John E",CHEM 6B,FA19,193,105,58.6,51.5,7.35,2.74,2.75
 "Bussey, Thomas J",CHEM 6C,FA19,392,220,85.6,94.5,7.23,2.92,2.42
-"Leigh, Brian",CHEM 7L,FA19,354,204,87.2,98.9,6.74,3.20,3.01
+"Leigh, Brian",CHEM 7L,FA19,354,204,87.2,98.9,6.74,3.20,3.00
 "Leigh, Brian",CHEM 7L,FA19,347,182,88.3,98.2,6.14,3.21,3.01
 "Bussey, Thomas J",CHEM 87,FA19,6,3,100.0,100.0,1.83,,
 "Bussey, Thomas J",CHEM 96,FA19,8,5,100.0,100.0,3.30,3.33,
@@ -231,54 +232,54 @@
 "Xu, Li",CHIN 186A,FA19,10,5,100.0,100.0,4.00,3.75,
 "Wang, Xiao",CHIN 20AD,FA19,30,13,100.0,90.9,4.50,3.80,3.84
 "Wang, Xiao",CHIN 20AD,FA19,28,16,93.8,87.5,3.38,3.77,3.71
-"Wang, Xiao",CHIN 20AM,FA19,37,15,100.0,92.3,4.81,3.80,3.78
+"Wang, Xiao",CHIN 20AM,FA19,37,15,100.0,92.3,4.81,3.80,3.79
 "Anderson, Qin-Hong",CHIN 20AN,FA19,24,23,100.0,100.0,4.93,3.80,3.72
 "Anderson, Qin-Hong",CHIN 20AN,FA19,31,31,100.0,100.0,4.56,3.60,3.65
 "Yu, Angela J.",COGS 1,FA19,489,407,89.3,88.0,3.56,3.57,3.34
 "Scott, Taylor Jackson",COGS 10,FA19,295,257,95.3,98.8,3.80,3.76,3.80
-"Kirsh, David Joel",COGS 100,FA19,229,161,68.8,72.6,4.91,3.31,3.32
-"Hoffman, Drew Ellen",COGS 101A,FA19,272,208,94.1,96.1,4.15,3.51,3.32
+"Kirsh, David Joel",COGS 100,FA19,229,161,68.8,72.6,4.91,3.31,3.33
+"Hoffman, Drew Ellen",COGS 101A,FA19,272,208,94.1,96.1,4.15,3.51,3.33
 "Barrera, Steven James",COGS 101B,FA19,197,100,96.8,98.9,4.71,3.37,3.01
 "Scott, Taylor Jackson",COGS 102A,FA19,139,120,87.5,98.3,4.58,3.54,3.63
-"Rangel, Lara M",COGS 107A,FA19,504,235,87.6,96.0,6.33,3.42,3.43
-"Voytek, Bradley Thomas",COGS 108,FA19,434,170,93.8,95.7,4.84,3.74,3.69
-"Mukamel, Eran A",COGS 109,FA19,108,81,91.3,92.3,6.83,3.42,3.34
-"Deak, Gedeon O.",COGS 110,FA19,54,25,81.8,81.8,5.64,3.21,2.99
-"De Sa, Virginia",COGS 118B,FA19,170,52,90.4,90.4,7.05,3.31,
-"Saygin, Ayse P",COGS 119,FA19,22,11,90.9,72.7,4.14,3.91,
+"Rangel, Lara M",COGS 107A,FA19,504,235,87.6,96.0,6.33,3.42,3.44
+"Voytek, Bradley Thomas",COGS 108,FA19,434,170,93.8,95.7,4.84,3.74,3.73
+"Mukamel, Eran A",COGS 109,FA19,108,81,91.3,92.3,6.83,3.42,3.35
+"Deak, Gedeon O.",COGS 110,FA19,54,25,81.8,81.8,5.64,3.21,3.00
+"De Sa, Virginia",COGS 118B,FA19,170,52,90.4,90.4,7.05,3.31,3.64
+"Saygin, Ayse P",COGS 119,FA19,22,11,90.9,72.7,4.14,3.91,3.86
 "Dow, Steven P",COGS 123,FA19,57,34,90.9,90.6,4.85,3.68,3.58
 "Guo, Philip J",COGS 124,FA19,14,11,100.0,100.0,3.10,3.90,
 "Hollan, James D.",COGS 126,FA19,26,4,66.7,66.7,6.00,2.75,3.10
 "Guo, Philip J",COGS 127,FA19,82,36,97.1,100.0,6.27,3.83,3.83
 "Johnson, Christine M.",COGS 13,FA19,194,92,39.3,40.4,5.56,2.95,3.15
 "Rossano, Federico",COGS 144,FA19,50,17,92.9,92.9,4.19,3.54,3.33
-"Davis, Joshua Daniel",COGS 14A,FA19,288,230,85.7,89.6,4.36,3.38,3.18
-"Hoffman, Drew Ellen",COGS 14B,FA19,97,63,87.1,90.3,4.63,3.32,3.36
+"Davis, Joshua Daniel",COGS 14A,FA19,288,230,85.7,89.6,4.36,3.38,3.17
+"Hoffman, Drew Ellen",COGS 14B,FA19,97,63,87.1,90.3,4.63,3.32,3.39
 "Bergen, Benjamin",COGS 15,FA19,111,74,95.5,98.5,2.24,3.49,3.28
 "Davis, Joshua Daniel",COGS 153,FA19,54,20,94.7,100.0,4.20,3.25,3.33
 "Kirsh, David Joel",COGS 160,FA19,30,14,100.0,100.0,6.21,3.50,3.44
-"Johnson, Christine M.",COGS 17,FA19,270,138,84.6,90.7,6.42,3.10,2.66
+"Johnson, Christine M.",COGS 17,FA19,270,138,84.6,90.7,6.42,3.10,2.67
 "Coulson, Seana M",COGS 179,FA19,39,12,72.7,81.8,5.41,3.40,3.15
-"Ellis, Shannon Elizabeth",COGS 18,FA19,301,230,96.5,97.8,5.23,3.66,3.61
-"Kirsh, David Joel",COGS 187A,FA19,151,48,89.4,80.9,4.59,3.70,3.59
-"Bardolph, Megan Dalene",COGS 3,FA19,176,89,88.5,85.7,4.91,3.81,3.56
+"Ellis, Shannon Elizabeth",COGS 18,FA19,301,230,96.5,97.8,5.23,3.66,3.62
+"Kirsh, David Joel",COGS 187A,FA19,151,48,89.4,80.9,4.59,3.70,3.62
+"Bardolph, Megan Dalene",COGS 3,FA19,176,89,88.5,85.7,4.91,3.81,3.57
 "Deak, Gedeon O.",COGS 87,FA19,20,15,91.7,91.7,0.93,3.75,
 "Scott, Taylor Jackson",COGS 87,FA19,22,14,100.0,100.0,0.79,4.00,
 "Ellis, Shannon Elizabeth",COGS 9,FA19,292,248,93.5,97.2,3.23,3.71,3.72
 "Anderson, Patrick W.",COMM 10,FA19,255,117,91.7,94.3,4.28,3.62,3.26
 "Anderson, Patrick W.",COMM 10,FA19,156,71,87.9,90.6,4.32,3.63,3.19
-"Irani, Lilly C",COMM 100A,FA19,284,115,79.4,71.2,5.07,3.44,
+"Irani, Lilly C",COMM 100A,FA19,284,115,79.4,71.2,5.07,3.44,3.37
 "Dewey, Matthew D",COMM 101,FA19,67,32,96.2,92.0,5.46,3.71,3.43
 "Martinico, Daniel J",COMM 101D,FA19,18,7,100.0,100.0,7.17,3.57,
 "Martinico, Daniel J",COMM 101N,FA19,21,14,100.0,100.0,6.64,3.71,3.59
 "Campion, Camille E",COMM 102C,FA19,22,5,100.0,100.0,5.00,4.00,3.82
 "Iatarola, Briana Marie",COMM 103E,FA19,27,11,87.5,100.0,6.94,3.78,3.81
 "Kidman, Shawna F",COMM 106A,FA19,39,31,100.0,100.0,4.05,3.34,3.15
-"Cordoba Azcarate, Matilde",COMM 106G,FA19,57,32,96.9,100.0,4.44,3.69,
-"Hill, Erin Truesdell",COMM 106T,FA19,34,13,100.0,100.0,5.77,3.45,3.40
-"Serlin, David",COMM 107,FA19,64,23,76.2,76.2,5.83,3.24,2.86
+"Cordoba Azcarate, Matilde",COMM 106G,FA19,57,32,96.9,100.0,4.44,3.69,3.38
+"Hill, Erin Truesdell",COMM 106T,FA19,34,13,100.0,100.0,5.77,3.45,3.42
+"Serlin, David",COMM 107,FA19,64,23,76.2,76.2,5.83,3.24,2.92
 "Jack, Caroline Sarah",COMM 109D,FA19,74,37,100.0,100.0,4.69,3.53,3.33
-"Hallin, Daniel C",COMM 109N,FA19,36,8,75.0,87.5,4.25,3.14,3.04
+"Hallin, Daniel C",COMM 109N,FA19,36,8,75.0,87.5,4.25,3.14,3.06
 "Tanaka, Stefan A.",COMM 113T,FA19,20,5,60.0,100.0,3.30,3.40,3.33
 "Peacher, Amanda M",COMM 120I,FA19,19,8,85.7,83.3,6.50,3.71,
 "Sims, Christopher O",COMM 124A,FA19,58,17,92.9,92.9,5.13,3.88,3.46
@@ -288,53 +289,53 @@
 "Burg, Suzanne M.M.",COMM 151,FA19,9,4,100.0,100.0,4.50,3.25,
 "Serlin, David",COMM 153,FA19,17,5,80.0,80.0,4.50,3.40,
 "Alac, Morana",COMM 173,FA19,37,26,100.0,100.0,5.30,3.93,3.69
-"Alac, Morana",COMM 174,FA19,29,20,100.0,100.0,4.83,3.89,3.60
+"Alac, Morana",COMM 174,FA19,29,20,100.0,100.0,4.83,3.89,3.64
 "Sims, Christopher O",COMM 190,FA19,23,7,100.0,100.0,3.93,3.86,3.42
-"Cordoba Azcarate, Matilde",COMM 190,FA19,27,12,90.9,90.0,4.86,3.55,
+"Cordoba Azcarate, Matilde",COMM 190,FA19,27,12,90.9,90.0,4.86,3.55,3.66
 "Jack, Caroline Sarah",COMM 190,FA19,21,12,100.0,100.0,5.50,3.50,3.22
 "Hill, Erin Truesdell",COMM 190,FA19,22,9,100.0,100.0,4.72,3.78,3.46
 "Hickman, Louise",COMM 190,FA19,19,6,100.0,100.0,5.83,3.83,
-"Sahoo, Debashis",CSE 100,FA19,179,101,93.8,46.9,15.01,3.20,2.42
+"Sahoo, Debashis",CSE 100,FA19,179,101,93.8,46.9,15.01,3.20,2.43
 "Cao, Yingjun",CSE 100,FA19,135,92,95.6,92.2,15.30,3.17,2.85
 "Cao, Yingjun",CSE 100,FA19,135,89,97.7,97.7,13.51,3.50,3.13
 "Jones, Miles E",CSE 101,FA19,85,21,90.0,95.0,10.30,3.05,2.80
 "Jones, Miles E",CSE 101,FA19,169,59,94.7,98.2,9.34,3.39,2.91
 "Kane, Daniel Mertz",CSE 101,FA19,127,63,93.4,98.4,12.99,3.20,3.11
 "Freund, Yoav",CSE 103,FA19,132,49,48.9,35.6,6.50,3.28,3.41
-"Lovett, Shachar",CSE 105,FA19,297,278,83.0,90.6,8.67,3.25,2.79
+"Lovett, Shachar",CSE 105,FA19,297,278,83.0,90.6,8.67,3.25,2.87
 "Micciancio, Daniele",CSE 107,FA19,43,12,90.9,100.0,6.32,3.45,3.30
 "Soosai Raj, Adalbert Geral",CSE 11,FA19,190,172,90.6,83.4,7.10,3.60,3.67
 "Moshiri, Alexander Niema",CSE 11,FA19,183,111,96.3,99.1,6.02,3.65,3.77
 "Moshiri, Alexander Niema",CSE 11,FA19,147,105,99.0,99.0,6.34,3.67,3.86
 "Gillespie, Gary N",CSE 110,FA19,200,54,76.9,65.4,10.54,3.35,3.30
-"Gillespie, Gary N",CSE 12,FA19,147,93,86.7,83.0,14.10,3.30,3.11
+"Gillespie, Gary N",CSE 12,FA19,147,93,86.7,83.0,14.10,3.30,3.13
 "Gillespie, Gary N",CSE 12,FA19,131,78,90.9,77.9,14.47,3.43,2.97
 "Voelker, Geoffrey M.",CSE 120,FA19,181,52,94.0,100.0,11.22,3.20,2.89
 "Snoeren, Alex C.",CSE 123,FA19,98,20,89.5,100.0,9.13,3.00,2.87
-"Heninger, Nadia A",CSE 127,FA19,41,10,100.0,85.7,9.64,3.57,3.59
-"Stefan, Deian",CSE 127,FA19,51,21,95.2,85.7,9.45,3.11,3.01
+"Heninger, Nadia A",CSE 127,FA19,41,10,100.0,85.7,9.64,3.57,3.68
+"Stefan, Deian",CSE 127,FA19,51,21,95.2,85.7,9.45,3.11,3.07
 "Polikarpova, Nadezhda",CSE 130,FA19,152,50,63.8,81.3,8.67,3.40,3.44
-"Politz, Joseph Gibbs",CSE 131,FA19,88,63,93.5,93.5,11.82,3.55,3.53
-"Deutsch, Alin Bernard",CSE 132A,FA19,156,38,86.1,83.3,5.17,3.45,
+"Politz, Joseph Gibbs",CSE 131,FA19,88,63,93.5,93.5,11.82,3.55,3.55
+"Deutsch, Alin Bernard",CSE 132A,FA19,156,38,86.1,83.3,5.17,3.45,2.96
 "Powell, Thomas Allan",CSE 134B,FA19,107,39,86.8,89.5,8.76,3.39,3.10
 "Eldon, John",CSE 140,FA19,144,48,68.1,78.7,4.93,3.45,3.21
 "Eldon, John",CSE 140L,FA19,129,41,56.1,80.5,7.91,3.78,3.70
-"Zhao, Jishen",CSE 141,FA19,142,115,66.7,86.0,7.16,3.25,3.51
+"Zhao, Jishen",CSE 141,FA19,142,115,66.7,86.0,7.16,3.25,3.53
 "Eldon, John",CSE 141L,FA19,160,58,63.5,86.5,7.74,3.26,3.18
-"Berg-Kirkpatrick, Taylor D",CSE 151,FA19,137,36,97.1,94.1,7.56,3.55,3.28
-"Su, Hao",CSE 152,FA19,99,25,70.8,54.2,12.75,3.33,
+"Berg-Kirkpatrick, Taylor D",CSE 151,FA19,137,36,97.1,94.1,7.56,3.55,3.32
+"Su, Hao",CSE 152,FA19,99,25,70.8,54.2,12.75,3.33,3.19
 "Cottrell, Garrison W",CSE 154,FA19,93,38,89.5,78.9,14.76,3.32,3.47
-"Nakashole, Ndapandula",CSE 156,FA19,27,6,100.0,100.0,11.30,2.80,2.67
+"Nakashole, Ndapandula",CSE 156,FA19,27,6,100.0,100.0,11.30,2.80,2.91
 "McAuley, Julian John",CSE 158,FA19,384,102,91.5,96.8,6.61,3.46,3.50
-"Gillespie, Gary N",CSE 15L,FA19,136,73,98.5,80.6,5.59,3.64,3.15
-"Ostertag, Michael Henry",CSE 15L,FA19,125,64,88.1,94.9,5.10,3.68,3.19
-"Ostertag, Michael Henry",CSE 15L,FA19,118,62,90.0,96.7,5.78,3.70,3.23
-"Schulze, Jurgen P.",CSE 167,FA19,99,29,96.3,96.3,13.39,3.54,3.36
+"Gillespie, Gary N",CSE 15L,FA19,136,73,98.5,80.6,5.59,3.64,3.16
+"Ostertag, Michael Henry",CSE 15L,FA19,125,64,88.1,94.9,5.10,3.68,3.21
+"Ostertag, Michael Henry",CSE 15L,FA19,118,62,90.0,96.7,5.78,3.70,3.27
+"Schulze, Jurgen P.",CSE 167,FA19,99,29,96.3,96.3,13.39,3.54,3.40
 "Alvarado, Christine J.",CSE 193,FA19,49,28,92.9,96.4,7.43,3.79,3.86
 "Gillespie, Gary N",CSE 198,FA19,17,12,100.0,100.0,4.68,,
 "Minnes Kemp, Mor Mia",CSE 20,FA19,104,88,93.2,98.9,9.53,3.51,2.89
-"Minnes Kemp, Mor Mia",CSE 20,FA19,120,106,85.8,93.3,9.10,3.33,2.76
-"Impagliazzo, Russell",CSE 21,FA19,188,97,72.6,42.1,8.29,3.10,3.04
+"Minnes Kemp, Mor Mia",CSE 20,FA19,120,106,85.8,93.3,9.10,3.33,2.73
+"Impagliazzo, Russell",CSE 21,FA19,188,97,72.6,42.1,8.29,3.10,3.07
 "Jones, Miles E",CSE 21,FA19,194,120,89.6,89.4,8.83,3.26,3.11
 "Porter, Leonard Emerson",CSE 30,FA19,176,158,94.2,96.2,8.94,3.28,2.98
 "Porter, Leonard Emerson",CSE 30,FA19,175,157,95.5,97.4,9.84,3.32,3.10
@@ -343,21 +344,21 @@
 "Merrill, Devon James",CSE 42,FA19,10,4,100.0,100.0,1.50,3.00,
 "Miranda, Gregory Joseph",CSE 5A,FA19,99,48,73.3,81.8,8.10,3.09,3.18
 "Cottrell, Garrison W",CSE 87,FA19,16,9,85.7,57.1,0.50,4.00,
-"Alvarado, Christine J.",CSE 8A,FA19,136,106,99.0,99.0,8.63,3.57,3.38
-"Alvarado, Christine J.",CSE 8A,FA19,162,131,97.7,99.2,8.45,3.50,3.48
-"Lerner, Sorin",CSE 8A,FA19,157,118,93.9,95.6,8.74,3.58,3.26
-"Lerner, Sorin",CSE 8A,FA19,156,114,89.1,96.4,9.00,3.53,3.19
-"Cao, Yingjun",CSE 8B,FA19,106,76,81.6,89.5,14.13,3.20,2.89
+"Alvarado, Christine J.",CSE 8A,FA19,136,106,99.0,99.0,8.63,3.57,3.39
+"Alvarado, Christine J.",CSE 8A,FA19,162,131,97.7,99.2,8.45,3.50,3.49
+"Lerner, Sorin",CSE 8A,FA19,157,118,93.9,95.6,8.74,3.58,3.24
+"Lerner, Sorin",CSE 8A,FA19,156,114,89.1,96.4,9.00,3.53,3.13
+"Cao, Yingjun",CSE 8B,FA19,106,76,81.6,89.5,14.13,3.20,2.93
 "Politz, Joseph Gibbs",CSE 95,FA19,41,29,86.2,100.0,1.74,4.00,
 "Politz, Joseph Gibbs",CSE 95,FA19,34,30,80.0,100.0,1.77,4.00,
-"Johnston, Emily Ronay",DOC 1,FA19,250,240,74.6,95.3,4.35,3.45,
-"Deavenport, James Cary",DOC 1,FA19,252,236,74.8,85.4,4.41,3.56,
+"Johnston, Emily Ronay",DOC 1,FA19,250,240,74.6,95.3,4.35,3.45,3.55
+"Deavenport, James Cary",DOC 1,FA19,252,236,74.8,85.4,4.41,3.56,3.64
 "Strom, Megan C.",DOC 1,FA19,254,232,71.6,82.3,4.32,3.34,3.47
 "Strom, Megan C.",DOC 1,FA19,229,210,71.2,82.6,4.00,3.45,3.37
 "Pass, Natalye Joann",DOC 100D,FA19,21,10,100.0,90.0,11.70,3.90,3.33
 "Pass, Natalye Joann",DOC 100D,FA19,21,10,100.0,100.0,6.50,3.71,3.30
-"Tiefenbruck, Janine LoBue",DSC 10,FA19,120,72,89.7,82.4,7.31,3.33,2.92
-"Tiefenbruck, Janine LoBue",DSC 10,FA19,113,65,95.0,88.1,7.85,3.37,2.89
+"Tiefenbruck, Janine LoBue",DSC 10,FA19,120,72,89.7,82.4,7.31,3.33,2.94
+"Tiefenbruck, Janine LoBue",DSC 10,FA19,113,65,95.0,88.1,7.85,3.37,2.91
 "Rajasekar, Arcot Kuppuswam",DSC 100,FA19,144,39,81.6,78.9,6.08,3.44,3.71
 "Powell, Thomas Allan",DSC 106,FA19,118,40,52.5,52.5,10.90,3.21,3.14
 "Langlois, Marina",DSC 20,FA19,111,56,86.8,78.4,11.50,3.17,2.96
@@ -370,45 +371,45 @@
 "Jemmott, Colin William",DSC 96,FA19,12,6,83.3,100.0,1.17,4.00,
 "Meyer, Michael Wayne",DSGN 1,FA19,157,65,83.9,91.8,4.63,3.52,3.43
 "Dow, Steven P",DSGN 119,FA19,60,16,100.0,100.0,0.64,4.00,
-"Sievenpiper, Daniel F.",ECE 100,FA19,144,62,96.7,93.2,8.03,3.25,
+"Sievenpiper, Daniel F.",ECE 100,FA19,144,62,96.7,93.2,8.03,3.25,2.95
 "Siegel, Paul H.",ECE 101,FA19,154,113,83.9,91.1,8.19,2.90,2.96
 "Hsueh, Tzu-Chien",ECE 102,FA19,44,35,94.3,97.1,7.47,3.09,3.20
 "Ng, Tse Nga",ECE 103,FA19,35,17,100.0,100.0,6.03,3.07,3.16
-"Lomakin, Vitaliy",ECE 107,FA19,69,28,78.6,82.1,7.21,3.18,
+"Lomakin, Vitaliy",ECE 107,FA19,69,28,78.6,82.1,7.21,3.18,2.78
 "Zeger, Kenneth A.",ECE 109,FA19,132,53,81.6,87.5,6.70,2.84,2.49
 "Karna, Vishal",ECE 111,FA19,65,25,78.3,81.8,5.46,3.65,3.90
 "Esmaili, Gholamreza",ECE 121A,FA19,53,14,92.3,92.3,8.19,3.08,3.23
 "Abi Samra, Nicholas Camill",ECE 128A,FA19,29,10,87.5,87.5,3.93,3.43,3.80
-"Kuzum, Duygu",ECE 135A,FA19,27,13,91.7,100.0,4.67,3.50,
+"Kuzum, Duygu",ECE 135A,FA19,27,13,91.7,100.0,4.67,3.50,3.33
 "Unpingco, Jose H.",ECE 143,FA19,101,81,91.3,92.5,7.64,3.84,3.88
-"Phan, Alex Minh Giang",ECE 144,FA19,24,21,95.2,90.5,13.74,3.43,
+"Phan, Alex Minh Giang",ECE 144,FA19,24,21,95.2,90.5,13.74,3.43,3.53
 "Silberman, Jack",ECE 148,FA19,10,3,100.0,100.0,10.50,4.00,
 "Schurgers, Curt",ECE 15,FA19,197,144,87.8,94.3,8.33,3.20,3.05
 "Milstein, Laurence B.",ECE 155,FA19,9,5,75.0,100.0,8.50,2.75,
-"Franceschetti, Massimo",ECE 158A,FA19,38,17,92.9,100.0,4.50,3.36,
+"Franceschetti, Massimo",ECE 158A,FA19,38,17,92.9,100.0,4.50,3.36,3.09
 "Khoshabeh, Ramsin",ECE 16,FA19,12,7,85.7,100.0,10.50,3.43,
 "Javidi, Tara",ECE 161A,FA19,56,33,72.4,58.6,7.40,2.87,2.72
 "Hall, Drew A.",ECE 164,FA19,71,26,92.0,92.0,12.10,3.29,3.21
 "Rebeiz, Gabriel",ECE 166,FA19,73,21,95.0,90.0,13.20,3.00,3.06
 "Gessner, Richard K.",ECE 17,FA19,27,12,90.9,100.0,10.50,3.67,3.14
-"Sworder, David D.",ECE 171B,FA19,22,9,100.0,71.4,7.75,3.13,2.95
+"Sworder, David D.",ECE 171B,FA19,22,9,100.0,71.4,7.75,3.13,3.10
 "Pal, Piya",ECE 174,FA19,80,47,89.1,93.2,9.88,3.13,2.81
 "Lomakin, Vitaliy",ECE 182,FA19,11,6,100.0,83.3,6.83,3.67,
 "Twomey, Robert Daniel",ECE 188,FA19,16,5,100.0,100.0,8.10,4.00,
 "Zhang, Xinyu",ECE 191,FA19,26,4,75.0,100.0,11.50,4.00,3.42
 "Quest, Kevin B",ECE 25,FA19,77,34,86.7,86.7,7.08,2.93,2.78
-"Schurgers, Curt",ECE 35,FA19,166,97,91.1,97.8,9.95,2.95,2.47
+"Schurgers, Curt",ECE 35,FA19,166,97,91.1,97.8,9.95,2.95,2.46
 "Schurgers, Curt",ECE 35,FA19,144,95,91.5,98.9,9.36,2.98,2.86
-"Lugannani, Robert",ECE 45,FA19,98,39,79.5,64.1,5.73,3.28,3.13
-"Eldon, John",ECE 5,FA19,163,81,97.1,96.9,6.76,3.72,3.56
-"Gilja, Vikash",ECE 5,FA19,163,81,97.1,100.0,6.76,3.72,3.56
-"Hall, Drew A.",ECE 5,FA19,163,81,97.1,98.4,6.76,3.72,3.56
-"Nguyen, Truong Quang",ECE 5,FA19,163,81,97.1,100.0,6.76,3.72,3.56
-"Baghdadchi, Saharnaz",ECE 65,FA19,76,57,92.9,98.2,7.54,3.61,2.99
+"Lugannani, Robert",ECE 45,FA19,98,39,79.5,64.1,5.73,3.28,3.17
+"Eldon, John",ECE 5,FA19,163,81,97.1,96.9,6.76,3.72,3.58
+"Gilja, Vikash",ECE 5,FA19,163,81,97.1,100.0,6.76,3.72,3.58
+"Hall, Drew A.",ECE 5,FA19,163,81,97.1,98.4,6.76,3.72,3.58
+"Nguyen, Truong Quang",ECE 5,FA19,163,81,97.1,100.0,6.76,3.72,3.58
+"Baghdadchi, Saharnaz",ECE 65,FA19,76,57,92.9,98.2,7.54,3.61,3.00
 "Tocoian, Oana",ECON 1,FA19,259,143,75.9,71.7,4.97,3.16,2.83
 "Tocoian, Oana",ECON 1,FA19,276,147,79.7,63.5,4.70,3.18,2.71
 "Levkoff, Steven B.",ECON 1,FA19,184,120,94.0,96.6,3.88,3.30,2.89
-"Gibson, Christopher Daniel",ECON 1,FA19,37,13,66.7,54.5,4.83,3.17,
+"Gibson, Christopher Daniel",ECON 1,FA19,37,13,66.7,54.5,4.83,3.17,2.70
 "Famulari, Melissa",ECON 100A,FA19,226,171,82.7,86.3,7.64,3.24,2.77
 "Famulari, Melissa",ECON 100A,FA19,189,143,84.6,90.8,6.46,3.26,2.86
 "Machina, Mark Joseph",ECON 100AH,FA19,8,4,100.0,100.0,1.83,4.00,
@@ -416,26 +417,26 @@
 "Sinitsyn, Maxim",ECON 100B,FA19,141,57,83.6,83.6,6.39,3.29,2.70
 "Du, Songzi",ECON 100C,FA19,120,64,70.0,56.7,8.73,3.05,2.61
 "Du, Songzi",ECON 100C,FA19,128,74,79.7,71.6,6.23,3.16,2.73
-"Watson, Joel Christopher",ECON 109,FA19,68,21,81.0,95.2,6.12,3.15,2.84
+"Watson, Joel Christopher",ECON 109,FA19,68,21,81.0,95.2,6.12,3.15,2.83
 "Watson, Joel Christopher",ECON 109,FA19,65,29,92.9,92.6,7.50,3.15,2.94
 "Watson, Joel Christopher",ECON 109T,FA19,15,5,100.0,100.0,2.50,3.80,
 "Alon, Titan Michael",ECON 110A,FA19,89,44,94.6,86.1,5.85,3.50,3.06
-"Alon, Titan Michael",ECON 110A,FA19,94,34,100.0,96.9,5.35,3.34,2.89
+"Alon, Titan Michael",ECON 110A,FA19,94,34,100.0,96.9,5.35,3.34,2.92
 "Candido, Maria Teresa",ECON 110B,FA19,141,50,97.7,95.5,5.71,3.44,2.91
 "Rondina, Giacomo",ECON 112,FA19,13,10,90.0,100.0,6.70,3.60,
 "Rondina, Giacomo",ECON 112,FA19,17,12,100.0,100.0,7.95,3.64,
 "Toda, Alexis Akira",ECON 113,FA19,34,22,81.0,90.5,5.36,3.45,3.50
-"Candido, Maria Teresa",ECON 120A,FA19,191,91,93.0,92.9,5.05,3.40,2.88
+"Candido, Maria Teresa",ECON 120A,FA19,191,91,93.0,92.9,5.05,3.40,2.91
 "Candido, Maria Teresa",ECON 120A,FA19,192,88,95.9,98.6,5.94,3.41,2.85
 "O, Mun Pyung",ECON 120B,FA19,90,54,90.2,86.0,6.12,3.22,2.78
 "O, Mun Pyung",ECON 120C,FA19,106,54,90.4,96.1,7.71,3.34,2.93
 "O, Mun Pyung",ECON 120C,FA19,68,39,86.1,94.4,5.58,3.24,2.85
 "Jacobsen, Mark",ECON 131,FA19,41,26,92.0,96.0,5.06,3.44,3.24
-"Jacobsen, Mark",ECON 131,FA19,245,140,94.9,92.7,5.39,3.42,2.98
-"Bharadwaj, Prashant",ECON 138,FA19,281,205,88.8,92.3,5.12,3.39,2.91
+"Jacobsen, Mark",ECON 131,FA19,245,140,94.9,92.7,5.39,3.42,2.99
+"Bharadwaj, Prashant",ECON 138,FA19,281,205,88.8,92.3,5.12,3.39,2.92
 "Trevino, Isabel",ECON 142,FA19,18,16,93.8,93.8,4.00,3.33,
 "Trevino, Isabel",ECON 142,FA19,20,18,94.4,88.9,3.39,3.71,3.20
-"Hendrickson, Gerald M.",ECON 159,FA19,68,46,93.3,95.6,4.86,3.43,3.21
+"Hendrickson, Gerald M.",ECON 159,FA19,68,46,93.3,95.6,4.86,3.43,3.22
 "Newhouse, Herbert S",ECON 171,FA19,135,46,86.4,88.6,7.09,3.27,2.72
 "Newhouse, Herbert S",ECON 171,FA19,42,15,100.0,100.0,7.27,3.31,2.67
 "Newhouse, Herbert S",ECON 172A,FA19,135,40,86.5,80.0,4.88,3.32,2.67
@@ -444,16 +445,16 @@
 "Sinitsyn, Maxim",ECON 176,FA19,36,12,83.3,91.7,8.33,3.58,2.79
 "Cullen, Julie",ECON 191A,FA19,12,4,100.0,100.0,11.17,4.00,
 "Levkoff, Steven B.",ECON 2,FA19,175,122,88.2,94.1,4.03,3.20,2.97
-"Gibson, Christopher Daniel",ECON 3,FA19,139,65,77.0,58.3,4.43,3.37,
-"Levkoff, Steven B.",ECON 4,FA19,171,104,96.1,98.0,4.42,3.17,2.83
+"Gibson, Christopher Daniel",ECON 3,FA19,139,65,77.0,58.3,4.43,3.37,2.77
+"Levkoff, Steven B.",ECON 4,FA19,171,104,96.1,98.0,4.42,3.17,2.85
 "Wishard Guerra, Alison G.",EDS 110R,FA19,16,7,100.0,100.0,6.83,3.83,
-"Eguchi, Emi",EDS 114,FA19,27,12,100.0,100.0,3.41,4.00,3.69
-"Jones, Gabrielle Anastasia",EDS 115,FA19,58,29,92.9,96.4,3.07,3.86,3.47
+"Eguchi, Emi",EDS 114,FA19,27,12,100.0,100.0,3.41,4.00,3.74
+"Jones, Gabrielle Anastasia",EDS 115,FA19,58,29,92.9,96.4,3.07,3.86,3.48
 "Dean, Dallawrence Edward",EDS 116,FA19,53,28,96.4,92.9,2.50,3.96,3.97
 "Gallagher-Geurtsen, Tricia Meghan",EDS 117,FA19,70,65,93.7,98.4,3.69,3.72,3.83
 "Chung, Luz Marina",EDS 117,FA19,64,27,95.8,100.0,5.50,3.96,3.93
 "Jones, Makeba",EDS 120,FA19,11,6,100.0,100.0,2.50,4.00,
-"Simon, Elizabeth A",EDS 124BR,FA19,159,42,89.7,97.4,7.47,3.67,3.73
+"Simon, Elizabeth A",EDS 124BR,FA19,159,42,89.7,97.4,7.47,3.67,3.72
 "Allen, Bobbie M",EDS 125,FA19,59,51,96.0,96.0,3.83,3.84,3.86
 "Davis, Daniel Brent",EDS 126,FA19,35,16,100.0,100.0,5.25,3.87,3.84
 "Millstone, Rachel Diana",EDS 129A,FA19,42,40,100.0,100.0,3.95,3.97,3.94
@@ -473,7 +474,7 @@
 "Ridley, Robyn Elizabeth",ENG 10,FA19,22,20,65.0,90.0,3.40,3.67,3.63
 "Campbell, Jordan Alexander",ENG 10,FA19,17,9,77.8,88.9,2.50,3.71,
 "Mancinelli, Ryan Mark",ENG 100D,FA19,58,22,90.9,100.0,7.14,3.76,3.83
-"Ngo, Anh-Thu T.",ENG 100D,FA19,39,22,54.5,59.1,6.23,3.27,3.37
+"Ngo, Anh-Thu T.",ENG 100D,FA19,39,22,54.5,59.1,6.23,3.27,3.39
 "Ngo, Anh-Thu T.",ENG 100D,FA19,18,9,100.0,100.0,4.28,4.00,
 "Bratton, Maryann",ENG 100L,FA19,7,3,100.0,100.0,5.50,4.00,
 "Evdokimenko, Ekaterina",ENG 20,FA19,31,18,77.8,88.9,4.06,3.83,3.92
@@ -489,10 +490,10 @@
 "Allen, Eric",ESYS 101,FA19,130,57,89.1,90.7,4.25,3.22,3.05
 "Taylor, Jennifer Rebecca",ESYS 101,FA19,130,57,89.1,92.6,4.25,3.22,3.05
 "Teranes, Jane",ESYS 90,FA19,23,14,100.0,100.0,0.50,4.00,
-"Kaplan, Sara Clarke",ETHN 1,FA19,401,196,88.4,87.2,3.80,3.59,3.81
+"Kaplan, Sara Clarke",ETHN 1,FA19,401,196,88.4,87.2,3.80,3.59,3.82
 "Frank, Ross H.",ETHN 100A,FA19,32,7,100.0,57.1,5.17,3.20,3.40
-"Huezo, Alexander D",ETHN 103,FA19,43,30,96.7,100.0,3.63,3.86,3.66
-"Fuste, Jose Ignacio",ETHN 104,FA19,68,41,100.0,100.0,5.09,3.74,3.56
+"Huezo, Alexander D",ETHN 103,FA19,43,30,96.7,100.0,3.63,3.86,3.68
+"Fuste, Jose Ignacio",ETHN 104,FA19,68,41,100.0,100.0,5.09,3.74,3.59
 "Hankins, Sarah E.",ETHN 108,FA19,18,15,100.0,93.3,3.30,3.53,
 "Boston, Martin Luther",ETHN 109,FA19,42,14,100.0,100.0,5.88,3.08,3.20
 "Jolivette, Andrew J",ETHN 112B,FA19,21,10,100.0,100.0,3.75,4.00,3.82
@@ -501,11 +502,11 @@
 "Blanco, John D",ETHN 124,FA19,40,20,78.9,83.3,3.34,3.60,3.94
 "Sasaki, Christen T",ETHN 125,FA19,25,10,100.0,100.0,3.10,3.75,3.67
 "Dorr, Kirstie A.",ETHN 127,FA19,25,9,100.0,88.9,3.17,3.78,3.87
-"Tanaka, Elaine Gale-armon",ETHN 142,FA19,31,12,100.0,100.0,7.70,3.60,3.39
+"Tanaka, Elaine Gale-armon",ETHN 142,FA19,31,12,100.0,100.0,7.70,3.60,3.31
 "Boston, Martin Luther",ETHN 161,FA19,15,6,100.0,100.0,4.83,3.60,
 "Borgo, David Garcia",ETHN 178,FA19,27,23,100.0,95.5,2.85,3.73,3.77
 "Whitley, Leila Marie",ETHN 183,FA19,17,11,100.0,100.0,4.68,3.36,
-"Fuste, Jose Ignacio",ETHN 189,FA19,29,20,100.0,94.7,4.71,3.71,3.33
+"Fuste, Jose Ignacio",ETHN 189,FA19,29,20,100.0,94.7,4.71,3.71,3.41
 "Espiritu, Yen",ETHN 20,FA19,98,55,92.6,92.6,4.35,3.60,3.61
 "Havis, Allan",FILM 87,FA19,21,12,91.7,90.9,1.00,4.00,
 "Havis, Allan",FILM 87,FA19,13,6,100.0,100.0,0.50,3.50,
@@ -520,18 +521,18 @@
 "Servin, Argentina Elisa No",FMPH 191,FA19,14,7,83.3,80.0,3.07,4.00,
 "Zoumas-Morse, Christine E.",FMPH 191,FA19,61,53,100.0,100.0,3.48,3.77,3.81
 "Binkin, Nancy Jeanne",FMPH 196A,FA19,16,12,100.0,100.0,8.68,3.82,
-"Anderson, Cheryl",FMPH 40,FA19,95,78,93.5,98.7,3.93,3.30,
+"Anderson, Cheryl",FMPH 40,FA19,95,78,93.5,98.7,3.93,3.30,2.65
 "Dominick, Sally A",FMPH 40,FA19,136,120,95.8,91.6,3.92,3.63,3.58
 "Kayser, Georgia Lyn",GLBH 100,FA19,32,26,88.0,80.0,3.38,3.63,3.42
-"Olivas Hernandez, Olga Lid",GLBH 105,FA19,33,11,81.8,54.5,4.32,3.45,3.68
+"Olivas Hernandez, Olga Lid",GLBH 105,FA19,33,11,81.8,54.5,4.32,3.45,3.74
 "Burgos, Jose L.",GLBH 111,FA19,29,18,100.0,100.0,4.03,3.82,3.87
 "Ojeda, Victoria D.",GLBH 111,FA19,29,18,100.0,88.2,4.03,3.82,3.87
 "Kaiser, Bronwyn Nicole",GLBH 148,FA19,124,118,92.4,90.7,4.38,3.58,3.48
-"Card, Alan",GLBH 181,FA19,142,80,100.0,100.0,3.58,3.74,3.77
-"Saravia, Paula F",GLBH 20,FA19,122,114,86.0,74.6,4.90,3.59,3.53
+"Card, Alan",GLBH 181,FA19,142,80,100.0,100.0,3.58,3.74,3.78
+"Saravia, Paula F",GLBH 20,FA19,122,114,86.0,74.6,4.90,3.59,3.56
 "Ackerman, Farrell",HDS 1,FA19,184,89,100.0,97.7,3.33,3.57,3.22
 "Wilder, Linnea Lorene",HDS 111,FA19,63,27,100.0,100.0,2.94,3.63,3.12
-"Deak, Gedeon O.",HDS 121,FA19,29,8,75.0,75.0,6.75,2.63,3.04
+"Deak, Gedeon O.",HDS 121,FA19,29,8,75.0,75.0,6.75,2.63,3.06
 "Blaise, Jean G",HDS 171,FA19,37,16,100.0,100.0,3.88,4.00,3.87
 "Blaise, Jean G",HDS 175,FA19,39,14,100.0,100.0,4.07,3.86,3.72
 "Ark, Wendy S",HDS 181,FA19,36,20,5.3,26.3,18.70,1.60,2.63
@@ -542,25 +543,25 @@
 "Matsumura, Wendy Y",HIEA 190M,FA19,7,3,100.0,100.0,3.83,3.67,
 "Nathan, Geoffrey Stephen",HIEU 102,FA19,22,9,87.5,100.0,5.75,3.13,2.65
 "Hertz, Deborah",HIEU 109,FA19,46,36,83.3,88.9,4.00,3.39,3.31
-"Caciola, Nancy A",HIEU 111,FA19,95,43,95.0,97.5,4.90,3.33,3.27
+"Caciola, Nancy A",HIEU 111,FA19,95,43,95.0,97.5,4.90,3.33,3.31
 "Gallant, Thomas W.",HIEU 116B,FA19,38,16,100.0,100.0,3.83,3.36,3.27
 "Demetriou, Denise",HIEU 122,FA19,77,63,77.0,75.4,5.56,2.98,3.13
-"Edelman, Robert S.",HIEU 127,FA19,113,39,74.4,78.9,4.86,3.45,3.31
+"Edelman, Robert S.",HIEU 127,FA19,113,39,74.4,78.9,4.86,3.45,3.33
 "Devereux, Andrew W",HIEU 138,FA19,42,19,94.7,100.0,5.34,3.50,3.38
-"Neuheiser, Joerg",HIEU 154,FA19,66,58,93.1,96.6,5.33,3.27,3.05
+"Neuheiser, Joerg",HIEU 154,FA19,66,58,93.1,96.6,5.33,3.27,3.04
 "Demetriou, Denise",HIEU 160,FA19,8,4,100.0,100.0,11.50,3.50,
 "Cowan, Benjamin A",HILA 121A,FA19,50,16,93.3,93.3,4.23,3.71,3.71
-"Hunefeldt, Christine",HILA 123,FA19,45,17,76.5,88.2,4.85,3.12,3.02
+"Hunefeldt, Christine",HILA 123,FA19,45,17,76.5,88.2,4.85,3.12,3.05
 "Vitz, Matthew",HILA 131,FA19,75,30,100.0,100.0,3.35,3.67,3.63
-"Schneewind, Sarah",HILD 10,FA19,163,83,61.5,71.1,5.94,3.02,2.92
+"Schneewind, Sarah",HILD 10,FA19,163,83,61.5,71.1,5.94,3.02,2.93
 "Wishon, Mark T",HILD 2A,FA19,182,141,87.7,90.5,3.03,3.40,3.49
 "Graham, Jessica Lynn",HILD 7A,FA19,364,154,84.0,93.8,3.36,3.50,3.38
 "Shafir, Nir",HINE 111,FA19,53,24,82.6,87.0,3.20,3.25,3.17
-"Provence, Michael",HINE 119,FA19,63,30,96.7,86.7,3.77,3.52,
-"Golan, Tal",HISC 107,FA19,55,27,80.0,91.7,3.50,3.25,
-"Gere, Catherina M.",HISC 115,FA19,134,66,97.0,100.0,4.20,3.65,3.38
+"Provence, Michael",HINE 119,FA19,63,30,96.7,86.7,3.77,3.52,3.44
+"Golan, Tal",HISC 107,FA19,55,27,80.0,91.7,3.50,3.25,3.40
+"Gere, Catherina M.",HISC 115,FA19,134,66,97.0,100.0,4.20,3.65,3.43
 "Patterson, Patrick H.",HITO 87,FA19,17,10,100.0,100.0,1.70,4.00,
-"Man, Simeon S",HIUS 103,FA19,55,40,97.4,97.4,3.27,3.66,3.73
+"Man, Simeon S",HIUS 103,FA19,55,40,97.4,97.4,3.27,3.66,3.74
 "Jolivette, Andrew J",HIUS 108B,FA19,21,8,100.0,100.0,2.25,4.00,4.00
 "Sasaki, Christen T",HIUS 124,FA19,10,5,100.0,100.0,4.50,3.67,
 "Klein, Rachel",HIUS 131,FA19,51,21,90.5,90.5,4.30,3.44,3.23
@@ -574,13 +575,13 @@
 "Patterson, Patrick H.",HUM 3,FA19,214,174,70.9,86.4,5.49,3.14,3.11
 "Markman, Kristina",HUM 3,FA19,278,243,64.8,95.2,4.81,3.09,3.25
 "Smarr, Janet L.",HUM 3,FA19,145,82,69.0,64.7,4.98,3.11,3.08
-"Lamey, Andy M.",INTL 101,FA19,263,110,91.5,93.4,5.35,3.42,3.07
+"Lamey, Andy M.",INTL 101,FA19,263,110,91.5,93.4,5.35,3.42,3.12
 "Haggard, Stephan M.",INTL 102,FA19,253,115,92.2,96.9,5.40,3.37,3.22
 "Shelby, Karen Lee",INTL 190,FA19,20,12,83.3,100.0,7.00,3.50,3.05
 "Shetreet, Shimon",INTL 190,FA19,18,8,75.0,75.0,5.75,4.00,
 "Samstad, James G.",INTL 190,FA19,20,9,100.0,100.0,5.83,3.33,3.35
 "Nadkarni, Vidya",INTL 190,FA19,20,9,100.0,100.0,5.50,3.75,3.21
-"Auerbach, Bradford C",INTL 190,FA19,20,9,88.9,77.8,4.28,3.67,3.24
+"Auerbach, Bradford C",INTL 190,FA19,20,9,88.9,77.8,4.28,3.67,3.26
 "Kshatriya, Krista C",INTL 190,FA19,19,7,85.7,100.0,10.50,3.57,
 "Ravanilla, Nico",INTL 190,FA19,19,9,87.5,100.0,4.25,3.88,
 "Lettieri, Michael Joseph",INTL 190,FA19,19,10,90.0,100.0,4.70,3.30,
@@ -619,16 +620,16 @@
 "Shuster, Alana",JWSP 104,FA19,9,4,100.0,100.0,5.83,4.00,
 "Simon Salazar, Harry Love",LATI 10,FA19,32,29,96.6,100.0,3.40,3.74,3.59
 "Kokinis, Troy Andreas",LATI 50,FA19,91,81,88.8,93.8,4.10,3.26,3.31
-"Wittenberg, Eva H",LIGN 101,FA19,92,49,77.6,75.0,3.36,3.15,2.28
+"Wittenberg, Eva H",LIGN 101,FA19,92,49,77.6,75.0,3.36,3.15,2.29
 "Garellek, Marc",LIGN 110,FA19,93,71,98.6,98.5,4.39,3.37,3.38
 "Bakovic, Eric John",LIGN 143,FA19,52,42,95.2,100.0,3.28,3.51,3.62
 "Lott, Margaret S.",LIGN 144,FA19,19,10,100.0,100.0,5.10,3.56,
 "Caballero, Gabriela Hernandez",LIGN 152,FA19,15,9,100.0,100.0,5.17,3.44,
 "Kluender, Robert",LIGN 155,FA19,35,31,87.1,90.3,6.05,3.14,2.98
-"Bergen, Leon",LIGN 167,FA19,99,34,87.9,90.9,6.50,3.33,3.13
-"Wittenberg, Eva H",LIGN 170,FA19,33,26,84.6,92.3,4.96,3.42,3.28
+"Bergen, Leon",LIGN 167,FA19,99,34,87.9,90.9,6.50,3.33,3.15
+"Wittenberg, Eva H",LIGN 170,FA19,33,26,84.6,92.3,4.96,3.42,3.35
 "Goodall, Grant Todd",LIGN 5,FA19,63,28,85.2,96.3,3.31,3.50,2.68
-"Mayberry, Rachel",LIGN 7,FA19,141,122,78.7,86.9,3.29,3.08,3.09
+"Mayberry, Rachel",LIGN 7,FA19,141,122,78.7,86.9,3.29,3.08,3.11
 "Caballero, Gabriela Hernandez",LIGN 8,FA19,188,97,92.4,97.8,2.76,3.57,3.49
 "Alicio, Atilio",LIHL 112F,FA19,22,11,100.0,100.0,3.23,3.33,3.45
 "Hill, Kimloan T.V.",LIHL 114F,FA19,22,7,100.0,100.0,4.21,3.60,3.41
@@ -641,12 +642,12 @@
 "Munoz Sanchez, Alicia",LISP 18,FA19,9,6,100.0,100.0,4.17,4.00,
 "Parra, Max",LTAM 110,FA19,40,21,85.0,75.0,5.70,3.50,3.35
 "Liao, Ping H",LTCH 101,FA19,80,24,95.7,100.0,5.54,3.86,3.52
-"Nguyen, Hoang Tan",LTCS 110,FA19,40,17,86.7,86.7,4.50,3.57,
+"Nguyen, Hoang Tan",LTCS 110,FA19,40,17,86.7,86.7,4.50,3.57,3.46
 "Lopez, Felipe",LTCS 150,FA19,8,4,100.0,100.0,9.00,3.75,
 "Heinrich, Larissa",LTCS 170,FA19,19,10,100.0,100.0,4.50,3.90,
 "Nguyen, Hoang Tan",LTCS 87,FA19,9,7,100.0,100.0,2.21,4.00,
 "Liao, Ping H",LTEA 110C,FA19,78,22,81.0,76.2,4.60,3.74,3.39
-"Heinrich, Larissa",LTEA 120C,FA19,265,117,69.2,70.8,6.44,3.73,3.55
+"Heinrich, Larissa",LTEA 120C,FA19,265,117,69.2,70.8,6.44,3.73,3.60
 "Nicolazzo, Sarah E.",LTEN 140,FA19,33,16,93.8,87.5,5.38,3.44,3.47
 "Walkiewicz, Kathryn A",LTEN 148,FA19,40,13,100.0,100.0,4.35,3.75,3.77
 "Lampert-Weissig, Lisa",LTEN 149,FA19,13,5,80.0,80.0,4.90,3.60,
@@ -663,7 +664,7 @@
 "Zhiri, Oumelbanine",LTFR 115,FA19,8,3,100.0,100.0,3.17,3.67,
 "Ploye, Catherine",LTFR 2B,FA19,11,9,100.0,100.0,5.39,3.57,
 "Ploye, Catherine",LTFR 50,FA19,11,7,100.0,100.0,3.93,3.86,
-"Myerston Santana, Jacobo",LTGK 1,FA19,22,12,91.7,91.7,7.50,3.30,3.55
+"Myerston Santana, Jacobo",LTGK 1,FA19,22,12,91.7,91.7,7.50,3.30,3.57
 "duBois, Page Ann",LTGK 104,FA19,14,6,100.0,100.0,8.90,3.67,
 "Kontje, Todd Curtis",LTGM 100,FA19,7,6,100.0,100.0,3.17,3.80,
 "Fischer-Grunski, Eva K",LTGM 2A,FA19,20,11,100.0,90.0,4.90,3.60,3.55
@@ -679,37 +680,37 @@
 "Parra, Max",LTSP 130B,FA19,16,9,100.0,100.0,9.00,3.13,
 "Kokotovic, Milos",LTSP 136,FA19,10,4,100.0,100.0,5.50,3.50,
 "Kokotovic, Milos",LTSP 142,FA19,27,17,100.0,100.0,4.63,3.67,3.54
-"Nguyen, Hoang Tan",LTWL 116,FA19,57,30,89.7,96.4,4.09,3.82,
+"Nguyen, Hoang Tan",LTWL 116,FA19,57,30,89.7,96.4,4.09,3.82,3.61
 "Lee, Jin-Kyung",LTWL 150,FA19,9,3,100.0,100.0,5.17,4.00,
 "Johnson, Sara E.",LTWL 176,FA19,11,10,100.0,100.0,4.10,3.50,
 "Cohen, Alain J. J.",LTWL 183,FA19,29,9,88.9,88.9,4.94,3.63,3.43
 "Kontje, Todd Curtis",LTWL 194,FA19,10,4,100.0,100.0,7.00,3.75,
 "Lampert-Weissig, Lisa",LTWL 87,FA19,18,10,88.9,88.9,0.94,4.00,
-"Wilkinson, Marco",LTWR 100,FA19,24,18,87.5,93.3,3.21,3.71,3.99
+"Wilkinson, Marco",LTWR 100,FA19,24,18,87.5,93.3,3.21,3.71,3.82
 "Wilkinson, Marco",LTWR 113,FA19,19,11,100.0,100.0,3.70,3.70,
 "Banales, Melissa",LTWR 115,FA19,17,5,100.0,100.0,5.30,4.00,
 "Banales, Melissa",LTWR 119,FA19,22,9,100.0,100.0,4.06,3.78,3.95
 "Wilkinson, Marco",LTWR 120,FA19,23,19,100.0,100.0,2.92,3.74,3.96
 "Darini, Bruna Maria",LTWR 129,FA19,18,6,100.0,100.0,2.83,4.00,
 "Banales, Melissa",LTWR 143,FA19,25,11,100.0,100.0,3.05,3.91,3.80
-"Hoang, Lily Kim",LTWR 194,FA19,24,9,100.0,100.0,7.61,4.00,3.59
+"Hoang, Lily Kim",LTWR 194,FA19,24,9,100.0,100.0,7.61,4.00,3.61
 "Hoang, Lily Kim",LTWR 8A,FA19,101,43,92.9,85.7,3.79,3.88,3.79
 "Ali, Mohammad Kazim",LTWR 8B,FA19,74,22,100.0,95.2,3.36,3.90,3.87
 "Bahadori, Mohammad Yousef",MAE 101A,FA19,47,42,95.2,95.2,7.31,3.17,3.03
-"Schmidt, Oliver",MAE 101A,FA19,69,30,100.0,100.0,6.36,3.07,
+"Schmidt, Oliver",MAE 101A,FA19,69,30,100.0,100.0,6.36,3.07,3.61
 "Chen, Renkun",MAE 101C,FA19,146,42,90.0,90.0,7.10,3.35,2.99
 "Bahadori, Mohammad Yousef",MAE 101C,FA19,49,37,94.6,100.0,7.96,3.03,3.02
 "Seshadri, Kalyanasundaram",MAE 101C,FA19,35,15,100.0,100.0,5.93,3.21,3.25
 "Lasheras, Juan C.",MAE 104,FA19,72,20,100.0,100.0,8.29,3.21,2.95
 "Bandaru, Prabhakar",MAE 105,FA19,170,64,89.8,91.5,6.73,3.05,2.75
-"McEneaney, William Michael",MAE 107,FA19,218,83,73.7,66.2,7.26,3.39,
+"McEneaney, William Michael",MAE 107,FA19,218,83,73.7,66.2,7.26,3.39,3.26
 "Pham, Hieu Tan",MAE 107,FA19,48,24,91.3,91.3,8.76,3.17,3.31
-"Nomura, Keiko K.",MAE 11,FA19,209,156,86.5,86.3,8.68,2.83,
+"Nomura, Keiko K.",MAE 11,FA19,209,156,86.5,86.3,8.68,2.83,2.53
 "Pawlak, Geno Ronald",MAE 122,FA19,37,16,43.8,50.0,8.13,2.43,2.83
 "Ghazinejad, Maziar",MAE 131A,FA19,92,79,100.0,100.0,6.50,3.34,3.02
 "de Oliveira, Mauricio",MAE 140,FA19,194,73,70.8,66.7,6.67,2.78,2.90
-"de Oliveira, Mauricio",MAE 143A,FA19,104,33,59.4,65.6,7.81,2.70,2.87
-"Bewley, Thomas R",MAE 144,FA19,55,20,73.7,63.2,9.60,2.89,
+"de Oliveira, Mauricio",MAE 143A,FA19,104,33,59.4,65.6,7.81,2.70,2.89
+"Bewley, Thomas R",MAE 144,FA19,55,20,73.7,63.2,9.60,2.89,3.15
 "de Oliveira, Mauricio",MAE 148,FA19,12,6,80.0,100.0,8.50,3.50,
 "Tolley, Michael Thomas",MAE 150,FA19,117,47,78.3,78.3,8.33,3.37,3.01
 "Ghazinejad, Maziar",MAE 150,FA19,66,47,93.6,100.0,7.27,3.40,3.00
@@ -717,50 +718,50 @@
 "Gravish, Nicholas G",MAE 156A,FA19,30,21,90.0,100.0,8.90,3.45,3.36
 "Xu, Sheng",MAE 166,FA19,32,27,77.8,88.9,3.73,3.15,3.37
 "Lal, Ratnesh",MAE 170,FA19,130,113,58.0,58.0,10.14,3.15,3.09
-"Lal, Ratnesh",MAE 170,FA19,121,96,61.5,59.4,9.48,3.34,3.18
-"McEneaney, William Michael",MAE 180A,FA19,185,63,94.6,69.6,5.79,3.43,
+"Lal, Ratnesh",MAE 170,FA19,121,96,61.5,59.4,9.48,3.34,3.20
+"McEneaney, William Michael",MAE 180A,FA19,185,63,94.6,69.6,5.79,3.43,3.26
 "Graeve, Olivia A",MAE 190,FA19,6,4,100.0,100.0,2.50,3.33,
 "Anderson, Mark Ronald",MAE 2,FA19,159,72,97.1,97.1,3.83,3.66,3.43
 "Graeve, Olivia A",MAE 20,FA19,120,75,76.4,62.5,5.58,3.35,2.69
 "Cai, Shengqiang",MAE 21,FA19,82,34,100.0,96.9,3.44,3.91,3.73
-"Morimoto, Tania",MAE 3,FA19,114,104,90.3,95.1,13.44,3.42,3.24
+"Morimoto, Tania",MAE 3,FA19,114,104,90.3,95.1,13.44,3.42,3.25
 "Delson, Nathan Joseph",MAE 30A,FA19,10,5,100.0,100.0,7.00,2.75,
-"Gibson, Carl H.",MAE 5,FA19,95,44,90.2,87.8,3.96,3.89,
-"Pham, Hieu Tan",MAE 8,FA19,115,60,89.3,82.1,8.04,3.30,3.19
+"Gibson, Carl H.",MAE 5,FA19,95,44,90.2,87.8,3.96,3.89,3.87
+"Pham, Hieu Tan",MAE 8,FA19,115,60,89.3,82.1,8.04,3.30,3.20
 "Salehi Golsefidy, Alireza",MATH 100A,FA19,54,37,97.3,97.2,8.39,3.10,2.75
 "Oprea, Dragos N.",MATH 100A,FA19,42,16,93.8,100.0,9.75,3.31,2.88
 "Savvas, Michail",MATH 102,FA19,246,105,99.0,99.0,7.09,3.73,3.60
 "Green, Nathan E",MATH 102,FA19,63,23,87.0,95.7,6.85,3.33,2.93
 "Pelayo, Alvaro",MATH 103A,FA19,52,35,84.8,90.9,6.92,3.00,2.99
 "Sorensen, Claus M",MATH 103A,FA19,36,30,82.8,96.6,7.90,3.10,3.42
-"Zelmanov, Efim I",MATH 103A,FA19,56,19,88.9,94.4,4.61,3.22,2.84
+"Zelmanov, Efim I",MATH 103A,FA19,56,19,88.9,94.4,4.61,3.22,2.86
 "Popescu, Cristian D.",MATH 104A,FA19,17,9,87.5,87.5,6.75,3.13,
 "Popescu, Cristian D.",MATH 105,FA19,24,9,77.8,55.6,6.06,2.56,2.80
 "Izadi, Elham",MATH 106,FA19,9,5,100.0,100.0,9.50,3.25,
 "Spolaor, Luca",MATH 109,FA19,66,34,93.9,93.9,8.68,3.36,2.93
 "Seward, Brandon M.",MATH 109,FA19,81,38,87.5,100.0,7.38,2.85,2.80
 "Dressler, Mareike",MATH 109,FA19,66,60,90.0,78.3,6.93,3.14,2.69
-"Novak, Jonathan I",MATH 109,FA19,96,90,96.6,93.3,6.66,3.51,3.44
+"Novak, Jonathan I",MATH 109,FA19,96,90,96.6,93.3,6.66,3.51,3.43
 "Anzaldo, Leesa B",MATH 109,FA19,107,50,85.1,95.7,8.80,3.09,2.80
-"Eggers, John Dietrich",MATH 10A,FA19,390,185,81.3,77.2,5.62,3.16,2.54
-"Savvas, Michail",MATH 10A,FA19,188,98,93.2,96.6,5.84,3.39,2.53
+"Eggers, John Dietrich",MATH 10A,FA19,390,185,81.3,77.2,5.62,3.16,2.55
+"Savvas, Michail",MATH 10A,FA19,188,98,93.2,96.6,5.84,3.39,2.56
 "Deng, Yanxia",MATH 10A,FA19,194,99,86.2,77.7,5.06,3.22,2.70
-"Hammock, Frances H",MATH 10B,FA19,288,146,75.0,78.8,6.09,3.02,2.52
-"Perkins, Rudolph Bronson",MATH 10B,FA19,297,146,60.9,65.2,6.62,2.67,2.63
-"Dressler, Mareike",MATH 10C,FA19,175,80,74.3,47.8,7.27,3.29,2.73
+"Hammock, Frances H",MATH 10B,FA19,288,146,75.0,78.8,6.09,3.02,2.53
+"Perkins, Rudolph Bronson",MATH 10B,FA19,297,146,60.9,65.2,6.62,2.67,2.64
+"Dressler, Mareike",MATH 10C,FA19,175,80,74.3,47.8,7.27,3.29,2.74
 "Au, Benson C",MATH 10C,FA19,175,80,84.5,85.9,6.56,3.40,2.99
 "Hammock, Frances H",MATH 11,FA19,371,179,79.2,81.4,7.50,3.31,2.85
 "Huang, Rong",MATH 11,FA19,134,60,66.7,50.9,7.83,3.18,2.94
-"Sterbenz, Jacob",MATH 110,FA19,42,15,92.3,66.7,6.04,3.25,2.45
+"Sterbenz, Jacob",MATH 110,FA19,42,15,92.3,66.7,6.04,3.25,2.52
 "Meyer, David A.",MATH 111A,FA19,32,10,100.0,100.0,4.94,3.56,3.86
 "Meyer, David A.",MATH 111A,FA19,32,11,100.0,100.0,4.70,3.70,3.73
 "Xiao, Ming",MATH 120A,FA19,68,21,100.0,100.0,7.94,3.61,2.90
 "Rabin, Jeffrey Mark",MATH 130,FA19,56,28,92.0,96.0,7.86,3.21,2.79
-"Elgindi, Tarek M",MATH 140A,FA19,45,20,93.8,93.8,10.63,3.44,3.14
-"Zlatos, Andrej",MATH 140A,FA19,39,16,78.6,85.7,14.64,3.00,2.61
+"Elgindi, Tarek M",MATH 140A,FA19,45,20,93.8,93.8,10.63,3.44,3.15
+"Zlatos, Andrej",MATH 140A,FA19,39,16,78.6,85.7,14.64,3.00,2.62
 "Ioana, Adrian",MATH 142A,FA19,68,26,80.0,84.0,7.54,3.20,2.45
 "Xiao, Ming",MATH 142A,FA19,114,52,92.0,98.0,7.72,3.65,3.35
-"Wiersma, Matthew T.",MATH 142A,FA19,61,15,66.7,69.2,7.83,2.13,2.18
+"Wiersma, Matthew T.",MATH 142A,FA19,61,15,66.7,69.2,7.83,2.13,2.19
 "Bejenaru, Ioan",MATH 144,FA19,9,8,100.0,100.0,12.00,3.57,
 "Sterbenz, Jacob",MATH 150A,FA19,23,8,50.0,62.5,11.25,2.25,1.87
 "Harel, Guershon",MATH 153,FA19,21,6,80.0,60.0,6.90,3.20,2.80
@@ -768,43 +769,43 @@
 "Verstraete, Jacques Allan",MATH 158,FA19,20,10,100.0,100.0,7.10,3.67,2.35
 "Knop, Aleksandr",MATH 160A,FA19,26,13,53.8,53.8,6.00,3.00,2.70
 "Cloninger, Alexander",MATH 170A,FA19,170,57,90.4,92.2,7.42,3.37,2.82
-"Cloninger, Alexander",MATH 170A,FA19,139,58,82.5,89.3,7.97,3.09,2.28
+"Cloninger, Alexander",MATH 170A,FA19,139,58,82.5,89.3,7.97,3.09,2.66
 "Saab, Rayan",MATH 173A,FA19,117,61,75.4,87.7,8.08,3.11,2.96
 "Behzadan, Ali",MATH 174,FA19,88,38,92.1,92.1,8.29,3.34,2.83
 "De Vleming, Kristin Elizab",MATH 18,FA19,143,78,89.0,94.4,6.53,3.23,3.10
 "Anzaldo, Leesa B",MATH 18,FA19,221,112,89.5,97.1,6.56,3.25,2.84
 "Harel, Guershon",MATH 18,FA19,180,97,76.1,65.9,7.13,3.01,2.49
-"Tamam, Nattalie",MATH 18,FA19,272,127,82.6,61.7,6.40,3.23,3.11
-"Ciotti, Benjamin",MATH 18,FA19,139,65,82.3,77.4,6.89,3.21,2.96
-"Nemish, Yuriy",MATH 180A,FA19,122,61,73.3,51.7,8.77,3.00,
+"Tamam, Nattalie",MATH 18,FA19,272,127,82.6,61.7,6.40,3.23,3.12
+"Ciotti, Benjamin",MATH 18,FA19,139,65,82.3,77.4,6.89,3.21,2.97
+"Nemish, Yuriy",MATH 180A,FA19,122,61,73.3,51.7,8.77,3.00,2.88
 "Kemp, Todd Aahron",MATH 180A,FA19,167,99,92.9,95.9,8.46,3.27,2.99
 "Au, Benson C",MATH 180A,FA19,139,59,84.9,72.5,7.33,3.22,2.83
 "Zheng, Tianyi",MATH 180C,FA19,32,14,71.4,78.6,8.93,3.00,3.21
 "Das, Srinjoy",MATH 181B,FA19,75,19,100.0,88.9,7.87,3.61,3.33
-"Novak, Jonathan I",MATH 183,FA19,297,267,89.1,89.8,6.01,3.56,3.70
+"Novak, Jonathan I",MATH 183,FA19,297,267,89.1,89.8,6.01,3.56,3.71
 "Sam, Steven V",MATH 184,FA19,69,56,78.6,85.7,8.32,3.11,2.62
-"Zhou, Wenxin",MATH 185,FA19,166,43,65.0,57.5,7.85,3.29,3.32
+"Zhou, Wenxin",MATH 185,FA19,166,43,65.0,57.5,7.85,3.29,3.34
 "Pelayo, Alvaro",MATH 190A,FA19,8,6,100.0,100.0,6.90,3.60,
 "Quarfoot, David James",MATH 2,FA19,30,17,80.0,100.0,3.83,3.13,2.49
 "Quarfoot, David James",MATH 2,FA19,34,16,100.0,86.7,5.38,2.88,2.52
 "Moosmueller, Caroline",MATH 20A,FA19,214,113,96.2,89.2,5.69,3.30,3.06
 "Bowers, Adam R.",MATH 20A,FA19,158,76,98.6,97.0,6.13,3.57,3.17
-"Zhang, Yuming",MATH 20A,FA19,136,80,78.2,33.8,5.63,3.46,3.03
+"Zhang, Yuming",MATH 20A,FA19,136,80,78.2,33.8,5.63,3.46,3.13
 "Suk, Andrew Hoon",MATH 20A,FA19,115,83,96.3,92.5,4.93,3.62,3.60
 "Tang, Xindong",MATH 20B,FA19,132,78,73.3,30.0,7.89,3.15,2.67
-"Tamam, Nattalie",MATH 20B,FA19,299,145,81.5,61.4,5.20,3.33,2.67
+"Tamam, Nattalie",MATH 20B,FA19,299,145,81.5,61.4,5.20,3.33,2.68
 "Green, Nathan E",MATH 20B,FA19,308,204,90.0,92.3,6.20,3.20,2.96
 "Ben-Ezra, David El-Chai",MATH 20B,FA19,155,74,84.1,88.2,6.56,2.98,2.88
 "Kitsela, Roman",MATH 20C,FA19,213,95,97.7,95.3,5.22,3.67,3.17
 "Eggers, John Dietrich",MATH 20C,FA19,409,195,94.6,83.7,7.07,3.52,2.96
-"Bach, Quang Tran",MATH 20C,FA19,214,97,95.6,98.9,7.14,3.37,3.05
-"Stapleton, David John",MATH 20C,FA19,209,121,96.4,92.8,5.36,3.66,3.20
+"Bach, Quang Tran",MATH 20C,FA19,214,97,95.6,98.9,7.14,3.37,3.06
+"Stapleton, David John",MATH 20C,FA19,209,121,96.4,92.8,5.36,3.66,3.24
 "Swanson, Joshua P",MATH 20C,FA19,370,239,73.6,56.8,6.47,3.03,2.80
 "Xu, Hang",MATH 20C,FA19,148,86,90.1,77.8,6.84,3.52,3.12
 "Bowers, Adam R.",MATH 20D,FA19,233,191,93.2,95.2,7.58,3.37,2.95
-"Ciotti, Benjamin",MATH 20D,FA19,130,58,90.4,84.3,7.90,3.16,2.40
+"Ciotti, Benjamin",MATH 20D,FA19,130,58,90.4,84.3,7.90,3.16,2.39
 "Deng, Yanxia",MATH 20D,FA19,154,57,85.2,87.0,6.99,3.47,2.74
-"Perkins, Rudolph Bronson",MATH 20D,FA19,177,79,81.1,81.1,7.67,3.13,2.83
+"Perkins, Rudolph Bronson",MATH 20D,FA19,177,79,81.1,81.1,7.67,3.13,2.71
 "Roberts, Justin Deritter",MATH 20E,FA19,216,86,79.2,81.8,7.29,3.28,2.74
 "Kitsela, Roman",MATH 20E,FA19,284,137,78.0,82.6,6.33,3.02,2.66
 "Ferrara, Joseph William",MATH 20E,FA19,134,62,85.5,83.9,6.24,3.30,2.72
@@ -817,18 +818,18 @@
 "Bunch, James R.",MATH 87,FA19,8,7,100.0,100.0,0.50,,
 "Kane, Daniel Mertz",MATH 96,FA19,26,14,100.0,100.0,3.93,4.00,
 "Eberhard, Craig A",MGT 103,FA19,73,71,97.2,94.4,4.19,3.42,2.85
-"Eberhard, Craig A",MGT 103,FA19,73,66,97.0,95.5,4.11,3.45,2.93
+"Eberhard, Craig A",MGT 103,FA19,73,66,97.0,95.5,4.11,3.45,2.95
 "Ehrich, Kristine R",MGT 103,FA19,75,70,98.6,94.2,4.64,3.40,3.25
 "Ehrich, Kristine R",MGT 103,FA19,72,72,97.2,98.6,4.56,3.29,3.36
 "Ehrich, Kristine R",MGT 103,FA19,73,71,98.6,100.0,4.53,3.37,3.23
 "Bates, Kenneth Walter",MGT 103,FA19,69,62,91.9,90.3,5.24,3.32,3.09
 "Bates, Kenneth Walter",MGT 103,FA19,74,63,91.9,90.3,4.44,3.40,2.98
 "Campbell, Robert Harold",MGT 105,FA19,120,110,99.1,93.6,3.62,3.90,3.58
-"Eberhard, Craig A",MGT 106,FA19,75,67,93.9,95.5,3.50,3.45,3.19
+"Eberhard, Craig A",MGT 106,FA19,75,67,93.9,95.5,3.50,3.45,3.20
 "Sanders, Robert Evan",MGT 109,FA19,39,37,70.3,73.0,11.53,3.37,3.30
 "Fuller, Robert L.",MGT 112,FA19,82,42,57.5,61.5,7.05,3.28,3.62
-"Fuller, Robert L.",MGT 112,FA19,85,43,63.4,61.0,6.79,3.45,3.64
-"Fuller, Robert L.",MGT 112,FA19,66,34,82.4,76.5,6.15,3.65,3.63
+"Fuller, Robert L.",MGT 112,FA19,85,43,63.4,61.0,6.79,3.45,3.71
+"Fuller, Robert L.",MGT 112,FA19,66,34,82.4,76.5,6.15,3.65,3.67
 "Zimmermann, Carsten",MGT 112,FA19,86,79,88.6,94.9,5.04,3.54,3.49
 "Kim, Nancy Sun Kyung",MGT 117,FA19,63,58,93.1,93.1,4.43,3.61,3.58
 "Moran, Cathleen L.",MGT 119,FA19,31,22,61.9,70.0,5.17,3.35,3.35
@@ -836,7 +837,7 @@
 "Pecore, Joseph P.",MGT 12,FA19,113,97,99.0,97.9,2.83,3.70,3.35
 "Klaas, Jeffrey David",MGT 121A,FA19,73,68,92.6,97.1,4.98,3.69,3.44
 "Greco, Frank James",MGT 129,FA19,15,12,83.3,100.0,2.67,3.80,
-"Houskeeper, Robert",MGT 131A,FA19,79,65,90.6,88.9,5.38,3.31,2.78
+"Houskeeper, Robert",MGT 131A,FA19,79,65,90.6,88.9,5.38,3.31,2.82
 "Blakley, Bruce",MGT 132,FA19,73,64,87.5,85.7,5.87,3.41,3.33
 "Houskeeper, Robert",MGT 134,FA19,22,18,94.4,100.0,4.50,3.67,3.41
 "Anderson, John Charles",MGT 135,FA19,54,48,91.7,97.9,5.56,3.49,3.21
@@ -846,11 +847,11 @@
 "Campbell, Robert Harold",MGT 16,FA19,111,98,99.0,97.9,3.72,3.59,3.24
 "Lindenberger, Wade Douglas",MGT 16,FA19,101,95,93.7,95.8,2.73,3.87,3.71
 "Lindenberger, Wade Douglas",MGT 16,FA19,99,96,92.7,97.9,2.85,3.75,3.63
-"Demill, Burritt",MGT 162,FA19,62,61,98.3,100.0,2.53,3.76,3.80
-"Meyer, Alison Bloomfield",MGT 164,FA19,79,76,97.4,97.4,4.92,3.66,3.45
+"Demill, Burritt",MGT 162,FA19,62,61,98.3,100.0,2.53,3.76,3.82
+"Meyer, Alison Bloomfield",MGT 164,FA19,79,76,97.4,97.4,4.92,3.66,3.47
 "McKay, Mary A",MGT 164,FA19,75,72,76.4,81.9,5.90,3.20,2.64
 "Moran, Cathleen L.",MGT 166,FA19,74,74,87.8,89.2,4.58,3.31,3.21
-"Moran, Cathleen L.",MGT 166,FA19,77,73,90.4,88.9,4.97,3.32,3.15
+"Moran, Cathleen L.",MGT 166,FA19,77,73,90.4,88.9,4.97,3.32,3.16
 "Demill, Burritt",MGT 166,FA19,87,87,93.1,93.1,4.87,3.62,3.63
 "Jacob, Jo Dee C",MGT 167,FA19,77,68,98.5,100.0,4.00,3.69,3.47
 "Phiroz, Zal Navroze",MGT 171,FA19,63,35,66.7,81.3,3.53,3.12,3.25
@@ -860,21 +861,21 @@
 "Zimmermann, Carsten",MGT 172,FA19,74,52,92.3,90.2,3.50,3.52,3.37
 "Hayes, Sherry Lorine",MGT 173,FA19,87,85,98.8,97.6,4.12,3.66,3.30
 "Kim, Byung Cho",MGT 177,FA19,14,8,100.0,100.0,5.07,3.57,
-"McKay, Michael J",MGT 18,FA19,75,72,83.1,94.4,4.16,3.44,2.93
-"McKay, Michael J",MGT 18,FA19,74,62,82.3,93.5,4.21,3.26,2.66
+"McKay, Michael J",MGT 18,FA19,75,72,83.1,94.4,4.16,3.44,2.97
+"McKay, Michael J",MGT 18,FA19,74,62,82.3,93.5,4.21,3.26,2.67
 "McKay, Michael J",MGT 18,FA19,70,60,83.3,91.7,4.23,3.33,3.05
 "McKay, Mary A",MGT 18,FA19,64,59,83.1,81.4,3.69,2.98,2.74
 "McKay, Mary A",MGT 18,FA19,66,63,82.5,84.1,3.80,3.09,2.83
 "Buchanan, Harold G",MGT 181,FA19,86,81,93.8,93.8,6.00,3.35,3.04
 "Buchanan, Harold G",MGT 181,FA19,88,82,92.7,95.1,5.40,3.23,2.98
 "Bliss, Barbara Ann",MGT 181,FA19,76,69,100.0,100.0,5.25,3.41,3.16
-"Brown, Aaron C",MGT 183,FA19,47,18,88.2,88.2,6.38,2.94,2.99
+"Brown, Aaron C",MGT 183,FA19,47,18,88.2,88.2,6.38,2.94,3.05
 "Dunn, Louis Jean",MGT 185,FA19,30,29,93.1,86.2,7.81,3.50,3.08
-"Dunn, Louis Jean",MGT 187,FA19,114,100,88.0,91.0,4.94,3.56,3.08
+"Dunn, Louis Jean",MGT 187,FA19,114,100,88.0,91.0,4.94,3.56,3.09
 "Wagner, Timothy Ryan",MGT 3,FA19,63,26,70.8,87.0,6.50,3.09,2.71
 "Levkoff, Steven B.",MGT 4,FA19,10,6,83.3,83.3,3.83,3.50,
 "Pecore, Joseph P.",MGT 45,FA19,120,109,96.3,98.1,5.15,3.44,2.97
-"Pecore, Joseph P.",MGT 45,FA19,122,116,98.3,99.1,5.42,3.40,2.94
+"Pecore, Joseph P.",MGT 45,FA19,122,116,98.3,99.1,5.42,3.40,2.93
 "Houskeeper, Robert",MGT 5,FA19,173,127,96.8,95.2,4.39,3.32,2.57
 "Deal, Jennifer Jean",MGT 52,FA19,52,50,84.0,96.0,4.38,3.36,3.39
 "Myerston Santana, Jacobo",MMW 11,FA19,143,83,76.0,77.0,5.46,3.28,3.60
@@ -889,28 +890,28 @@
 "Burr, Anthony I",MUS 101A,FA19,18,13,100.0,100.0,4.19,3.42,
 "Davis, Anthony Curtis",MUS 103A,FA19,11,3,33.3,0.0,3.17,3.67,
 "Cimini, Amy Marie",MUS 120A,FA19,21,9,37.5,37.5,4.00,3.25,3.68
-"Borgo, David Garcia",MUS 126,FA19,105,66,89.1,90.6,3.52,3.69,3.44
+"Borgo, David Garcia",MUS 126,FA19,105,66,89.1,90.6,3.52,3.69,3.43
 "Rubio, Juan David",MUS 13,FA19,132,111,93.6,97.2,3.14,3.53,3.41
 "Ohnishi, Takae",MUS 130,FA19,30,10,100.0,100.0,4.30,4.00,4.00
-"Kenyatta, Kamau",MUS 137A,FA19,27,8,100.0,100.0,5.64,4.00,
+"Kenyatta, Kamau",MUS 137A,FA19,27,8,100.0,100.0,5.64,4.00,3.81
 "Bain, Landon Lee",MUS 15,FA19,187,89,94.9,96.2,2.90,3.71,3.47
 "Digney, Fiona Ruth",MUS 15,FA19,148,130,91.4,95.3,2.80,3.75,3.77
 "Hankins, Sarah E.",MUS 151,FA19,33,22,90.9,95.5,2.59,3.68,3.66
-"Burr, Anthony I",MUS 17,FA19,380,144,89.7,87.4,2.76,3.50,3.35
+"Burr, Anthony I",MUS 17,FA19,380,144,89.7,87.4,2.76,3.50,3.36
 "Smyth, Tamara R.",MUS 171,FA19,62,24,75.0,87.5,4.08,3.17,3.08
 "Britt, King James",MUS 173,FA19,26,14,92.9,92.9,5.64,3.79,3.93
 "Britt, King James",MUS 174A,FA19,25,6,100.0,100.0,4.17,3.80,3.87
 "Tiruviluamala, Nakul Venkat",MUS 1A,FA19,129,66,100.0,100.0,2.79,3.84,3.93
-"Oram, Celeste Alice",MUS 1A,FA19,135,70,77.6,86.4,3.97,3.73,3.84
+"Oram, Celeste Alice",MUS 1A,FA19,135,70,77.6,86.4,3.97,3.73,3.81
 "Carlson, Erik Norman",MUS 2A,FA19,35,23,95.7,100.0,2.76,3.96,3.91
 "Ohnishi, Takae",MUS 2AK,FA19,12,5,80.0,100.0,2.90,3.80,
 "Ohnishi, Takae",MUS 2AK,FA19,12,3,100.0,100.0,2.50,3.50,
 "Ohnishi, Takae",MUS 2AK,FA19,13,5,100.0,100.0,2.90,4.00,
 "Liang, Lei",MUS 33A,FA19,15,12,91.7,91.7,5.67,3.91,
-"Allen, Rachel Elizabeth",MUS 4,FA19,263,231,85.1,90.8,2.67,3.55,3.47
+"Allen, Rachel Elizabeth",MUS 4,FA19,263,231,85.1,90.8,2.67,3.55,3.49
 "Borgo, David Garcia",MUS 43,FA19,113,44,75.0,89.7,0.90,3.90,
-"Dresser, Mark Stuart",MUS 5,FA19,130,82,76.5,84.8,2.65,3.77,3.70
-"Thorpe, Suzanne",MUS 7,FA19,132,47,72.7,75.0,2.37,3.59,3.08
+"Dresser, Mark Stuart",MUS 5,FA19,130,82,76.5,84.8,2.65,3.77,3.71
+"Thorpe, Suzanne",MUS 7,FA19,132,47,72.7,75.0,2.37,3.59,3.09
 "Kenyatta, Kamau",MUS 8,FA19,135,69,93.8,100.0,2.22,3.82,3.46
 "Guy, Nancy",MUS 87,FA19,8,4,100.0,100.0,1.50,,
 "Larson, Philip Clarion",MUS 95C,FA19,28,9,100.0,100.0,3.00,4.00,3.99
@@ -919,7 +920,7 @@
 "Kline, Matthew John",MUS 95E,FA19,46,28,100.0,100.0,3.69,3.95,3.99
 "Anderson, Kenneth",MUS 95G,FA19,255,99,98.9,98.9,1.22,3.90,
 "Anderson, Kenneth",MUS 95G,FA19,76,33,96.6,100.0,0.71,4.00,
-"Kenyatta, Kamau",MUS 95JC,FA19,22,9,100.0,100.0,3.64,4.00,
+"Kenyatta, Kamau",MUS 95JC,FA19,22,9,100.0,100.0,3.64,4.00,4.00
 "Larson, Philip Clarion",MUS 95K,FA19,21,11,100.0,100.0,1.10,4.00,3.94
 "Beauton, James Alan",MUS 95L,FA19,32,15,100.0,100.0,2.37,4.00,4.00
 "Seshadri, Kartik",MUS 95W,FA19,56,23,100.0,100.0,3.11,3.91,3.96
@@ -933,23 +934,23 @@
 "Xu, Sheng",NANO 156,FA19,63,44,86.0,81.0,4.73,3.21,3.52
 "Drews, Aaron",NANO 15R,FA19,14,10,80.0,90.0,7.10,3.50,
 "Meng, Y.Shirley",NANO 164,FA19,44,34,94.1,94.1,5.59,3.62,3.65
-"Koepke, Cami Esther",PHIL 10,FA19,276,130,83.1,89.3,4.61,3.29,2.86
+"Koepke, Cami Esther",PHIL 10,FA19,276,130,83.1,89.3,4.61,3.29,2.87
 "Brink, David O.",PHIL 100,FA19,38,13,100.0,100.0,7.12,3.50,3.34
 "Hardimon, Michael O.",PHIL 108,FA19,31,11,100.0,100.0,4.68,3.43,3.06
 "Anagnostopoulos, G. H.",PHIL 110,FA19,56,25,77.3,66.7,4.33,3.48,2.96
 "Bechtel, William",PHIL 12,FA19,73,30,82.1,81.5,3.19,3.33,2.98
-"Rickless, Samuel Charles",PHIL 120,FA19,58,27,96.2,100.0,5.30,3.80,3.36
-"Arneson, Richard J.",PHIL 13,FA19,109,51,51.1,56.8,4.04,3.03,2.63
+"Rickless, Samuel Charles",PHIL 120,FA19,58,27,96.2,100.0,5.30,3.80,3.37
+"Arneson, Richard J.",PHIL 13,FA19,109,51,51.1,56.8,4.04,3.03,2.66
 "Davia, Cory Michael",PHIL 132,FA19,35,12,91.7,91.7,5.67,3.33,2.95
-"Brink, David O.",PHIL 138,FA19,35,12,100.0,91.7,5.17,3.50,3.32
+"Brink, David O.",PHIL 138,FA19,35,12,100.0,91.7,5.17,3.50,3.43
 "Chen, Keming",PHIL 146,FA19,41,18,94.1,100.0,5.17,3.86,3.86
-"Fulkerson, Matthew Todd",PHIL 149,FA19,34,10,100.0,90.0,6.50,3.13,3.25
+"Fulkerson, Matthew Todd",PHIL 149,FA19,34,10,100.0,90.0,6.50,3.13,3.35
 "Lamey, Andy M.",PHIL 167,FA19,43,18,100.0,100.0,4.61,3.61,3.32
 "Tolley, Clinton",PHIL 169,FA19,40,16,93.3,93.3,5.43,3.46,3.50
 "Hardimon, Michael O.",PHIL 170,FA19,48,12,66.7,75.0,6.17,3.22,3.43
-"Brandt, Reuven A",PHIL 173,FA19,42,18,100.0,100.0,4.85,3.40,3.22
-"Vargas, Manuel Rogelio",PHIL 27,FA19,287,135,72.4,89.7,3.99,3.18,2.96
-"Bazargan-Forward, Saba",PHIL 28,FA19,293,121,79.1,92.1,3.83,3.39,3.25
+"Brandt, Reuven A",PHIL 173,FA19,42,18,100.0,100.0,4.85,3.40,3.24
+"Vargas, Manuel Rogelio",PHIL 27,FA19,287,135,72.4,89.7,3.99,3.18,2.98
+"Bazargan-Forward, Saba",PHIL 28,FA19,293,121,79.1,92.1,3.83,3.39,3.26
 "Anagnostopoulos, G. H.",PHIL 31,FA19,65,32,69.0,75.0,3.74,3.16,3.10
 "Nelkin, Dana Kay",PHIL 50,FA19,39,11,81.8,90.9,5.23,3.33,2.98
 "Tolley, Clinton",PHIL 87,FA19,17,12,81.8,81.8,1.95,,
@@ -959,16 +960,16 @@
 "Konopacky, Quinn Morgan",PHYS 13,FA19,187,132,93.9,93.8,3.45,3.53,3.25
 "Meyertholen, Andrew D.",PHYS 130B,FA19,67,35,91.4,97.1,7.13,3.20,3.03
 "Palacci, Jeremie",PHYS 140A,FA19,72,24,78.3,78.3,5.89,3.17,2.78
-"Green, Daniel Richard",PHYS 161,FA19,29,9,100.0,88.9,8.06,2.56,2.56
+"Green, Daniel Richard",PHYS 161,FA19,29,9,100.0,88.9,8.06,2.56,2.41
 "Wright, Shelley Adams",PHYS 164,FA19,13,9,100.0,100.0,12.50,2.89,
 "Dudko, Olga",PHYS 175,FA19,13,5,60.0,80.0,4.50,3.20,
 "Lin, Tongyan",PHYS 191,FA19,23,11,100.0,100.0,0.50,4.00,
 "Koslover, Elena F",PHYS 1A,FA19,355,183,74.4,84.2,6.37,3.07,3.20
 "Koslover, Elena F",PHYS 1A,FA19,264,127,84.6,88.3,6.95,3.12,3.17
-"Tsai, Philbert S",PHYS 1A,FA19,352,182,79.3,91.9,6.35,3.22,3.18
-"Tsai, Philbert S",PHYS 1AL,FA19,993,448,66.5,83.3,3.76,3.29,3.42
-"Yagil, Avi",PHYS 1AL,FA19,993,448,66.5,73.0,3.76,3.29,3.42
-"Paddock, Mark",PHYS 1B,FA19,179,70,72.1,77.9,5.28,3.19,2.97
+"Tsai, Philbert S",PHYS 1A,FA19,352,182,79.3,91.9,6.35,3.22,3.19
+"Tsai, Philbert S",PHYS 1AL,FA19,993,448,66.5,83.3,3.76,3.29,3.43
+"Yagil, Avi",PHYS 1AL,FA19,993,448,66.5,73.0,3.76,3.29,3.43
+"Paddock, Mark",PHYS 1B,FA19,179,70,72.1,77.9,5.28,3.19,2.98
 "Tsai, Philbert S",PHYS 1BL,FA19,184,65,63.3,71.2,3.04,3.22,3.15
 "Yagil, Avi",PHYS 1BL,FA19,184,65,63.3,66.7,3.04,3.22,3.15
 "Paddock, Mark",PHYS 1C,FA19,202,86,61.0,62.2,6.33,3.02,2.83
@@ -986,56 +987,56 @@
 "Murphy, Thomas",PHYS 87,FA19,19,9,100.0,100.0,0.72,4.00,
 "Fuller, George Michael",PHYS 87,FA19,21,11,100.0,100.0,0.50,4.00,
 "Fletcher, Nathan",POLI 100G,FA19,154,53,94.0,87.8,5.10,3.52,3.21
-"Abrajano, Marisa",POLI 100H,FA19,159,62,83.6,86.8,3.69,3.29,2.75
+"Abrajano, Marisa",POLI 100H,FA19,159,62,83.6,86.8,3.69,3.29,2.79
 "Gause, LaGina",POLI 100V,FA19,44,33,93.9,100.0,5.05,3.12,3.03
 "Galderisi, Peter",POLI 102C,FA19,74,28,92.3,100.0,2.88,3.75,3.32
 "Smith, Glenn Chatmas",POLI 104A,FA19,167,61,77.8,83.0,5.81,3.06,3.04
 "Smith, Glenn Chatmas",POLI 104F,FA19,18,6,100.0,100.0,5.83,3.50,
 "Galderisi, Peter",POLI 104G,FA19,70,25,100.0,100.0,4.33,3.45,3.46
-"Hill, Seth J",POLI 10D,FA19,193,119,93.0,96.4,3.68,3.39,3.32
+"Hill, Seth J",POLI 10D,FA19,193,119,93.0,96.4,3.68,3.39,3.34
 "Wiens, David Abram",POLI 110A,FA19,41,11,90.0,100.0,5.23,3.70,3.31
 "Izzo, Federica",POLI 112A,FA19,55,23,72.7,81.8,5.63,3.23,3.23
 "Magagna, Victor Valentine",POLI 113A,FA19,464,150,97.8,97.8,3.10,3.93,3.78
 "Magagna, Victor Valentine",POLI 113A,FA19,462,142,99.2,98.4,3.69,3.92,3.78
-"Strom, Kaare",POLI 120G,FA19,62,20,78.9,94.4,4.92,3.82,
-"Strom, Kaare",POLI 122D,FA19,63,19,88.9,77.8,4.83,3.65,
+"Strom, Kaare",POLI 120G,FA19,62,20,78.9,94.4,4.92,3.82,3.19
+"Strom, Kaare",POLI 122D,FA19,63,19,88.9,77.8,4.83,3.65,3.13
 "Roeder, Philip G",POLI 12D,FA19,231,115,91.6,98.1,4.56,3.49,3.49
 "Cooper, Jasper Jack",POLI 130,FA19,40,15,86.7,93.3,5.43,3.40,3.84
 "Nellis, Gareth Hb",POLI 130G,FA19,44,17,82.4,88.2,5.44,3.06,3.53
 "Saiegh, Sebastian",POLI 134D,FA19,47,18,100.0,100.0,4.62,3.53,2.96
 "Fisk, David Lee",POLI 135,FA19,81,22,94.7,89.5,2.90,3.50,2.89
-"Mackie, Gerald",POLI 13D,FA19,133,58,81.8,79.2,5.55,3.48,3.24
+"Mackie, Gerald",POLI 13D,FA19,133,58,81.8,79.2,5.55,3.48,3.36
 "Slantchev, Branislav",POLI 142J,FA19,57,48,85.4,87.5,5.92,3.07,3.13
 "Slantchev, Branislav",POLI 142M,FA19,64,55,100.0,96.2,5.28,3.31,3.61
-"Bergman, Matthew Edward",POLI 144D,FA19,64,15,76.9,81.8,6.90,3.33,2.67
+"Bergman, Matthew Edward",POLI 144D,FA19,64,15,76.9,81.8,6.90,3.33,2.68
 "Fisk, David Lee",POLI 145C,FA19,113,39,100.0,97.3,5.58,3.78,3.54
-"Fisk, David Lee",POLI 153,FA19,88,22,95.5,95.5,5.50,3.62,3.29
-"Hajnal, Zoltan Lloyd",POLI 160AA,FA19,122,44,76.2,95.1,4.55,3.05,3.12
-"Wachob, William",POLI 165,FA19,27,13,75.0,75.0,1.83,3.64,3.56
+"Fisk, David Lee",POLI 153,FA19,88,22,95.5,95.5,5.50,3.62,3.30
+"Hajnal, Zoltan Lloyd",POLI 160AA,FA19,122,44,76.2,95.1,4.55,3.05,3.13
+"Wachob, William",POLI 165,FA19,27,13,75.0,75.0,1.83,3.64,3.59
 "Butler, Daniel",POLI 191A,FA19,15,6,100.0,100.0,10.10,3.80,
 "Strom, Kaare",POLI 191A,FA19,15,6,100.0,100.0,10.10,3.80,
 "Mackie, Gerald",POLI 27,FA19,264,116,53.1,52.2,3.29,3.41,3.37
-"Desposato, Scott",POLI 30D,FA19,206,84,72.7,82.4,7.23,3.04,2.95
+"Desposato, Scott",POLI 30D,FA19,206,84,72.7,82.4,7.23,3.04,2.96
 "Roeder, Philip G",POLI 87,FA19,18,9,88.9,100.0,0.72,4.00,
 "Ferreira, Victor",PSYC 1,FA19,370,248,96.8,98.3,3.95,3.43,3.13
 "Rose, Fred E.",PSYC 100,FA19,362,182,94.9,94.9,5.64,3.29,2.96
 "Heyman, Gail D.",PSYC 101,FA19,276,218,89.8,86.9,5.48,3.40,3.13
-"Serences, John Thomas",PSYC 102,FA19,316,162,94.2,99.4,5.15,3.45,3.29
+"Serences, John Thomas",PSYC 102,FA19,316,162,94.2,99.4,5.15,3.45,3.30
 "Belding, Jennifer",PSYC 104,FA19,268,165,97.5,98.7,4.86,3.41,2.92
-"Lowe, Angela Beth",PSYC 105,FA19,258,203,90.5,94.5,5.48,3.24,2.94
+"Lowe, Angela Beth",PSYC 105,FA19,258,203,90.5,94.5,5.48,3.24,2.95
 "Stoermer, Viola Sophie",PSYC 113,FA19,19,11,81.8,90.9,4.14,3.55,
-"Lang, Ariel",PSYC 116A,FA19,22,13,91.7,91.7,4.33,3.75,3.90
+"Lang, Ariel",PSYC 116A,FA19,22,13,91.7,91.7,4.33,3.75,3.92
 "Lacefield, Katharine I",PSYC 124,FA19,146,134,98.5,99.2,4.08,3.77,3.66
 "Golden, Susan S.",PSYC 133,FA19,60,46,78.3,78.3,6.59,3.07,2.69
 "Gorman, Michael R.",PSYC 133,FA19,60,46,78.3,87.0,6.59,3.07,2.69
 "Kaye, Walter H.",PSYC 134,FA19,287,142,86.8,76.4,3.06,3.57,3.37
 "Breit, Kristen Rian",PSYC 141,FA19,67,32,90.0,100.0,4.98,3.83,3.92
-"Ahn, Danbi",PSYC 145,FA19,73,57,96.5,96.5,3.97,3.55,3.19
+"Ahn, Danbi",PSYC 145,FA19,73,57,96.5,96.5,3.97,3.55,3.23
 "Willis, Jarryd Thomas",PSYC 155,FA19,187,134,100.0,97.7,4.41,3.74,3.70
 "Geiss, Elisa G",PSYC 156,FA19,102,52,93.8,89.4,5.28,3.26,3.03
-"Kaplan, Paul",PSYC 164,FA19,249,112,85.8,86.8,3.13,3.44,3.04
+"Kaplan, Paul",PSYC 164,FA19,249,112,85.8,86.8,3.13,3.44,3.05
 "Fletcher, Laura Michelle",PSYC 166,FA19,31,13,92.3,92.3,3.73,3.69,3.12
-"Lacefield, Katharine I",PSYC 168,FA19,285,259,93.4,94.6,5.03,3.41,3.24
+"Lacefield, Katharine I",PSYC 168,FA19,285,259,93.4,94.6,5.03,3.41,3.26
 "Brady, Timothy Francis",PSYC 174,FA19,108,61,98.3,98.3,5.18,3.60,3.11
 "Glaser, Dale",PSYC 178,FA19,115,53,78.4,88.2,3.48,3.29,3.12
 "Breit, Kristen Rian",PSYC 179,FA19,201,95,100.0,98.9,3.96,3.88,3.64
@@ -1057,12 +1058,12 @@
 "Leigh, Brian",REV 1,FA19,79,40,89.2,100.0,0.60,3.90,
 "Rana, Brinda Kanti",REV 2,FA19,22,16,86.7,93.3,1.70,4.00,
 "Van Den Einde, Yael Dahlia",SE 1,FA19,105,88,92.0,93.1,6.80,3.18,2.85
-"Chadha, Mayank",SE 101A,FA19,46,37,100.0,91.9,8.82,3.14,
-"Carreno Vallejos, Rodrigo Patricio",SE 101A,FA19,47,23,95.7,91.3,8.59,3.43,
+"Chadha, Mayank",SE 101A,FA19,46,37,100.0,91.9,8.82,3.14,3.28
+"Carreno Vallejos, Rodrigo Patricio",SE 101A,FA19,47,23,95.7,91.3,8.59,3.43,3.12
 "Zhu, Qiang",SE 101C,FA19,49,16,85.7,78.6,6.36,2.93,3.04
 "Zhu, Qiang",SE 101C,FA19,77,30,75.0,69.0,7.43,2.93,3.08
-"Jandaghi Semnani, Shabnam",SE 121A,FA19,107,43,51.2,51.2,10.22,2.88,
-"Conte, Joel P",SE 125,FA19,89,18,80.0,100.0,10.37,2.73,
+"Jandaghi Semnani, Shabnam",SE 121A,FA19,107,43,51.2,51.2,10.22,2.88,3.20
+"Conte, Joel P",SE 125,FA19,89,18,80.0,100.0,10.37,2.73,3.06
 "Mosqueda, Gilberto",SE 130A,FA19,79,50,86.0,85.7,10.38,3.02,2.67
 "Kosmatka, John B",SE 142,FA19,34,7,83.3,83.3,17.50,3.00,3.27
 "Loh, Kenneth J. H.",SE 164,FA19,17,12,83.3,100.0,8.00,2.82,
@@ -1076,7 +1077,7 @@
 "Willenbring, Jane Kathryn",SIO 106,FA19,23,14,78.6,100.0,5.64,3.29,3.30
 "Teranes, Jane",SIO 108,FA19,18,14,92.9,100.0,4.93,3.33,
 "Batchelor, Heidi Ann",SIO 110,FA19,22,10,100.0,100.0,3.50,3.90,3.95
-"Keeling, Ralph F.",SIO 117,FA19,34,17,70.6,68.8,4.26,3.47,3.22
+"Keeling, Ralph F.",SIO 117,FA19,34,17,70.6,68.8,4.26,3.47,3.20
 "Durkin, Kathryn Elaine",SIO 12,FA19,116,48,73.3,67.4,4.15,3.21,3.25
 "Peach, Cheryl",SIO 12,FA19,116,50,74.5,97.8,4.08,3.23,3.25
 "Hechinger, Ryan F.",SIO 132,FA19,181,97,96.6,94.3,4.87,3.23,2.70
@@ -1105,26 +1106,26 @@
 "Ricke, Katharine L",SIO 60,FA19,25,21,95.2,100.0,6.98,3.40,3.48
 "Cook, Geoffrey W",SIO 87,FA19,17,9,88.9,100.0,0.50,4.00,
 "Kwan, Garfield Tsz Fung",SIO 90,FA19,52,26,100.0,100.0,0.73,3.75,
-"Skrentny, John David",SOCI 1,FA19,320,148,99.3,100.0,3.23,3.69,3.54
-"Goldman, Harvey Stern",SOCI 100,FA19,101,52,71.4,89.8,5.68,3.32,2.92
+"Skrentny, John David",SOCI 1,FA19,320,148,99.3,100.0,3.23,3.69,3.55
+"Goldman, Harvey Stern",SOCI 100,FA19,101,52,71.4,89.8,5.68,3.32,2.93
 "Jules-Rosette, Bennetta W.",SOCI 105,FA19,17,8,75.0,75.0,11.50,3.86,
-"Navon, Daniel",SOCI 106,FA19,23,7,100.0,100.0,5.36,3.71,3.28
-"Tirshfield, Jeffrey T",SOCI 109,FA19,20,8,87.5,75.0,7.25,3.13,3.18
+"Navon, Daniel",SOCI 106,FA19,23,7,100.0,100.0,5.36,3.71,3.32
+"Tirshfield, Jeffrey T",SOCI 109,FA19,20,8,87.5,75.0,7.25,3.13,3.34
 "Nunn, Lisa M.",SOCI 110,FA19,23,4,100.0,100.0,9.83,4.00,3.06
-"Lampland, Martha",SOCI 114,FA19,97,29,72.4,75.0,4.22,3.50,2.72
-"Gallagher-Geurtsen, Tricia Meghan",SOCI 117,FA19,72,66,98.4,100.0,4.19,3.76,3.83
+"Lampland, Martha",SOCI 114,FA19,97,29,72.4,75.0,4.22,3.50,2.77
+"Gallagher-Geurtsen, Tricia Meghan",SOCI 117,FA19,72,66,98.4,100.0,4.19,3.76,3.84
 "Chung, Luz Marina",SOCI 117,FA19,60,24,100.0,100.0,6.75,3.79,3.66
-"Placek, Karolina Liba",SOCI 119,FA19,32,11,90.9,80.0,4.50,3.00,3.31
+"Placek, Karolina Liba",SOCI 119,FA19,32,11,90.9,80.0,4.50,3.00,3.41
 "Lewis, Kevin Michael",SOCI 122,FA19,51,38,97.4,97.4,5.24,3.16,3.18
-"Tirshfield, Jeffrey T",SOCI 123,FA19,67,22,100.0,95.2,3.36,3.85,3.14
+"Tirshfield, Jeffrey T",SOCI 123,FA19,67,22,100.0,95.2,3.36,3.85,3.16
 "Thornton, Abigail",SOCI 125,FA19,81,37,80.0,71.4,4.73,3.73,3.66
 "Davis, Daniel Brent",SOCI 126,FA19,56,16,93.8,100.0,4.88,3.69,3.81
-"Haydu, Jeffrey Miles",SOCI 137,FA19,75,26,96.2,100.0,4.42,3.73,3.36
+"Haydu, Jeffrey Miles",SOCI 137,FA19,75,26,96.2,100.0,4.42,3.73,3.38
 "Ng, Kwai",SOCI 140,FA19,74,25,100.0,100.0,4.58,3.48,3.18
-"Summers, Valerie R.",SOCI 141,FA19,110,34,93.5,87.1,5.92,3.42,3.02
-"Martinez, Cid Gregory",SOCI 144,FA19,71,22,90.9,90.9,5.14,3.48,
+"Summers, Valerie R.",SOCI 141,FA19,110,34,93.5,87.1,5.92,3.42,3.05
+"Martinez, Cid Gregory",SOCI 144,FA19,71,22,90.9,90.9,5.14,3.48,3.10
 "Goldman, Harvey Stern",SOCI 151,FA19,66,25,91.7,91.7,3.75,3.64,3.36
-"Rona-Tas, Akos",SOCI 165,FA19,39,9,88.9,87.5,3.83,3.67,3.43
+"Rona-Tas, Akos",SOCI 165,FA19,39,9,88.9,87.5,3.83,3.67,3.53
 "Hallin, Daniel C",SOCI 165A,FA19,20,5,100.0,100.0,4.10,3.20,3.11
 "Navon, Daniel",SOCI 173,FA19,36,16,93.8,100.0,6.63,3.50,3.31
 "Biernacki, Richard",SOCI 178,FA19,96,35,77.1,82.4,4.44,2.97,3.40
@@ -1147,11 +1148,11 @@
 "Walsh, Kim C.",TDAC 1,FA19,20,16,100.0,100.0,2.36,3.86,3.90
 "Walsh, Kim C.",TDAC 1,FA19,20,10,100.0,87.5,3.61,4.00,3.84
 "Walsh, Kim C.",TDAC 1,FA19,20,10,100.0,100.0,1.61,4.00,3.85
-"Harting, Carla Kelso",TDAC 101,FA19,23,12,100.0,100.0,3.50,3.92,3.68
+"Harting, Carla Kelso",TDAC 101,FA19,23,12,100.0,100.0,3.50,3.92,3.93
 "Robichaux, Natalie Griffith",TDAC 101,FA19,21,11,100.0,88.9,2.90,3.89,3.83
 "Castro, Robert Jess",TDAC 102,FA19,17,4,100.0,100.0,7.00,4.00,
 "Castro, Robert Jess",TDAC 108,FA19,18,3,100.0,100.0,4.50,4.00,
-"Guirguis, Mark C",TDDE 1,FA19,94,43,87.5,97.5,6.11,3.69,3.44
+"Guirguis, Mark C",TDDE 1,FA19,94,43,87.5,97.5,6.11,3.69,3.45
 "Guirguis, Mark C",TDDE 131,FA19,17,8,100.0,100.0,4.50,3.60,
 "Clancy, Liam",TDDM 1,FA19,30,30,100.0,100.0,1.23,3.93,4.00
 "Powell, Lora",TDDR 101,FA19,31,22,90.9,100.0,3.05,3.82,3.58
@@ -1181,14 +1182,14 @@
 "Gehman, Anne Douglas",TDMV 122,FA19,9,5,100.0,100.0,1.70,3.80,
 "Geiger, Eric",TDMV 123,FA19,31,28,100.0,100.0,2.02,3.92,3.99
 "Jun, Grace Shin Hae",TDMV 138,FA19,38,10,100.0,100.0,1.70,3.71,3.98
-"Caligagan, Tony",TDMV 142,FA19,55,15,100.0,100.0,2.93,4.00,
+"Caligagan, Tony",TDMV 142,FA19,55,15,100.0,100.0,2.93,4.00,3.95
 "Foster-King, Sandra",TDMV 143,FA19,54,13,92.3,92.3,2.35,4.00,3.98
 "Caligagan, Tony",TDMV 146,FA19,17,3,100.0,100.0,3.17,4.00,
 "Jun, Grace Shin Hae",TDMV 148,FA19,29,11,100.0,100.0,1.77,4.00,3.92
 "Geiger, Eric",TDMV 2,FA19,31,28,92.3,96.2,2.28,3.83,3.78
 "Sammartano, Tonnie",TDMV 2,FA19,29,15,92.9,92.9,1.36,3.92,3.95
 "Geiger, Eric",TDMV 2,FA19,29,21,95.0,100.0,1.70,3.95,3.96
-"Clancy, Liam",TDMV 2,FA19,31,13,100.0,90.0,1.90,4.00,3.66
+"Clancy, Liam",TDMV 2,FA19,31,13,100.0,90.0,1.90,4.00,3.70
 "Rincon, Alicia",TDMV 3,FA19,24,14,100.0,100.0,1.27,4.00,4.00
 "Arcidiacono, Kristin",TDMV 3,FA19,32,16,100.0,93.8,1.38,3.94,3.78
 "Guirguis, Mark C",TDPR 6,FA19,30,12,91.7,100.0,6.00,4.00,3.86
@@ -1204,23 +1205,23 @@
 "Carver, Leslie J.",TMC 20,FA19,18,9,100.0,100.0,0.94,4.00,
 "Rahimi, Babak",TWS 20,FA19,72,45,95.2,100.0,2.92,3.81,3.61
 "Kwak, Nancy",USP 1,FA19,117,51,93.8,93.6,3.96,3.34,2.93
-"Bussell, Mirle Rabinowitz",USP 124,FA19,133,53,98.1,94.2,5.18,3.27,3.02
+"Bussell, Mirle Rabinowitz",USP 124,FA19,133,53,98.1,94.2,5.18,3.27,3.03
 "Lewis, Leslie R",USP 144,FA19,69,31,93.5,96.8,4.76,3.48,3.18
 "Edwards, Gregory S",USP 151,FA19,43,36,91.7,91.7,5.33,3.58,3.21
 "Bajaj, Ravi Siddharth",USP 169,FA19,19,10,90.0,90.0,1.70,3.60,
 "Peerson, Susan",USP 177,FA19,21,7,85.7,85.7,7.36,3.71,3.70
 "Norr, Alex Vaughn",USP 185A,FA19,20,11,77.8,87.5,13.70,3.33,2.72
 "Peerson, Susan",USP 185A,FA19,20,11,77.8,88.9,13.70,3.33,2.72
-"Pezzoli, Keith",USP 186,FA19,46,23,71.4,76.2,4.86,3.45,3.29
+"Pezzoli, Keith",USP 186,FA19,46,23,71.4,76.2,4.86,3.45,3.42
 "Shtern, Mark",USP 189,FA19,7,4,100.0,100.0,2.50,3.75,
-"Bussell, Mirle Rabinowitz",USP 189,FA19,26,16,100.0,100.0,6.79,3.86,3.96
-"Lewis, Leslie R",USP 189,FA19,26,15,100.0,100.0,6.79,3.86,3.96
-"Polat, Soydan Alihan",USP 191,FA19,20,11,100.0,77.8,4.72,3.67,3.93
+"Bussell, Mirle Rabinowitz",USP 189,FA19,26,16,100.0,100.0,6.79,3.86,3.95
+"Lewis, Leslie R",USP 189,FA19,26,15,100.0,100.0,6.79,3.86,3.95
+"Polat, Soydan Alihan",USP 191,FA19,20,11,100.0,77.8,4.72,3.67,3.71
 "Edwards, Gregory S",USP 25,FA19,55,43,95.3,100.0,4.92,3.43,3.15
 "Wartell, Julie Dara",USP 4,FA19,24,9,88.9,88.9,3.25,3.86,3.47
 "Huddleston, Grace Mae",VIS 1,FA19,334,227,84.3,70.6,6.67,3.90,3.84
-"Cruz, Edwin Teddy",VIS 101,FA19,56,24,95.8,100.0,3.17,3.90,3.63
-"Cruz, Edwin Teddy",VIS 103,FA19,62,28,85.2,85.2,2.72,3.84,3.79
+"Cruz, Edwin Teddy",VIS 101,FA19,56,24,95.8,100.0,3.17,3.90,3.64
+"Cruz, Edwin Teddy",VIS 103,FA19,62,28,85.2,85.2,2.72,3.84,3.89
 "Herc-Balaszek, Malgorzata",VIS 105A,FA19,20,16,100.0,100.0,5.88,3.75,3.69
 "Humphrey, Malisa N.",VIS 105B,FA19,15,11,100.0,100.0,9.39,3.63,
 "Ortiz-Torres, Ruben",VIS 106B,FA19,18,10,66.7,44.4,4.72,3.78,
@@ -1229,18 +1230,18 @@
 "Vangenderen, Monique Luise",VIS 110C,FA19,13,9,85.7,100.0,9.25,3.38,
 "Iglesias, Janelle Ann",VIS 110D,FA19,14,12,91.7,91.7,7.17,3.55,
 "Greenstein, Jack M",VIS 122CN,FA19,46,17,93.3,86.7,4.38,3.21,3.02
-"Kester, Grant",VIS 125G,FA19,43,21,88.9,88.9,4.61,3.06,3.04
+"Kester, Grant",VIS 125G,FA19,43,21,88.9,88.9,4.61,3.06,3.03
 "Shen, Kuiyi",VIS 127C,FA19,135,43,69.4,80.0,4.39,3.38,3.37
-"Tronzo, William",VIS 128A,FA19,78,30,92.0,96.2,4.94,3.73,3.41
+"Tronzo, William",VIS 128A,FA19,78,30,92.0,96.2,4.94,3.73,3.43
 "Bryson, William N",VIS 129B,FA19,12,3,100.0,100.0,7.17,3.33,
 "Welchman, John C.",VIS 129C,FA19,10,5,100.0,100.0,4.90,3.75,
 "Cho, Erica",VIS 131,FA19,10,3,50.0,0.0,9.50,4.00,
 "Stalbaum, Brett",VIS 142,FA19,89,71,86.8,92.6,4.91,3.50,3.58
-"Paden, Jonathon Dean",VIS 143,FA19,21,10,88.9,100.0,10.06,3.33,3.73
+"Paden, Jonathon Dean",VIS 143,FA19,21,10,88.9,100.0,10.06,3.33,3.74
 "Yoldas, Pinar",VIS 147A,FA19,42,21,85.7,71.4,7.07,3.48,3.46
 "Bratton, Benjamin H.",VIS 149,FA19,14,8,87.5,100.0,7.25,3.57,
 "Cartwright, Lisa",VIS 152,FA19,62,22,81.0,81.0,3.64,3.70,3.64
-"Kester, Grant",VIS 158,FA19,135,66,96.8,98.4,3.25,3.63,3.32
+"Kester, Grant",VIS 158,FA19,135,66,96.8,98.4,3.25,3.63,3.33
 "Yoldas, Pinar",VIS 162,FA19,15,15,46.7,40.0,5.43,3.53,
 "Cross, Brian R",VIS 164,FA19,25,17,100.0,100.0,4.74,3.71,3.68
 "Porter, Ava Hermine",VIS 165,FA19,21,6,100.0,100.0,6.17,3.67,4.00
@@ -1249,19 +1250,19 @@
 "Dinco, Dino",VIS 174,FA19,14,8,87.5,100.0,11.00,3.50,
 "Tonies, Joshua Vanjaymes",VIS 174,FA19,20,6,100.0,100.0,5.17,3.83,3.78
 "Kapur, Seema Chanda",VIS 174,FA19,10,6,100.0,83.3,6.83,3.67,
-"Ruperto, Miljohn Fama",VIS 175,FA19,22,3,50.0,0.0,1.50,3.00,
+"Ruperto, Miljohn Fama",VIS 175,FA19,22,3,50.0,0.0,1.50,3.00,4.00
 "Dinco, Dino",VIS 177,FA19,19,9,100.0,100.0,4.94,3.67,
 "Trigilio, Michael",VIS 178,FA19,24,24,95.8,95.5,7.50,3.54,3.62
-"Cross, Brian R",VIS 180A,FA19,26,12,100.0,100.0,7.00,3.75,3.83
+"Cross, Brian R",VIS 180A,FA19,26,12,100.0,100.0,7.00,3.75,3.84
 "Miller, Nicole L",VIS 180B,FA19,20,15,86.7,92.9,7.97,3.67,3.45
 "Kapur, Seema Chanda",VIS 183A,FA19,20,19,78.9,68.4,5.76,3.63,3.51
 "Woods, Ann",VIS 20,FA19,335,174,93.9,93.8,3.55,3.53,3.30
 "Greenstein, Jack M",VIS 23,FA19,10,5,100.0,100.0,2.90,3.50,
 "Dominguez, Ricardo",VIS 30,FA19,67,41,76.3,84.2,3.01,3.69,3.91
-"D'Elena-Tweed, Jessica Erin",VIS 41,FA19,165,86,90.2,84.1,6.33,3.71,3.52
-"Porter, Ava Hermine",VIS 60,FA19,166,101,76.5,83.5,5.53,3.57,3.50
+"D'Elena-Tweed, Jessica Erin",VIS 41,FA19,165,86,90.2,84.1,6.33,3.71,3.53
+"Porter, Ava Hermine",VIS 60,FA19,166,101,76.5,83.5,5.53,3.57,3.48
 "Cho, Erica",VIS 70N,FA19,127,78,81.6,70.7,6.47,3.64,3.59
-"Tonies, Joshua Vanjaymes",VIS 80,FA19,115,96,97.9,98.9,9.43,3.67,3.64
+"Tonies, Joshua Vanjaymes",VIS 80,FA19,115,96,97.9,98.9,9.43,3.67,3.65
 "Roxworthy, Emily",WARR 1,FA19,72,44,92.9,97.6,0.74,4.00,
 "Tanaka, Stefan A.",WARR 2,FA19,19,6,50.0,83.3,0.50,,
 "Radic, Zoran",WARR 87,FA19,13,7,100.0,100.0,0.50,,
@@ -1274,7 +1275,7 @@
 "Twohig, Niall Ivan",WCWP 100,FA19,19,12,90.9,100.0,6.32,3.73,
 "Twohig, Niall Ivan",WCWP 100,FA19,19,14,100.0,100.0,5.27,3.62,
 "Twohig, Niall Ivan",WCWP 100,FA19,18,13,100.0,100.0,5.50,3.83,
-"Gagnon, Jeffrey C",WCWP 10A,FA19,697,398,74.3,86.9,4.77,3.39,3.27
+"Gagnon, Jeffrey C",WCWP 10A,FA19,697,398,74.3,86.9,4.77,3.39,3.28
 "Gagnon, Jeffrey C",WCWP 10B,FA19,87,52,81.6,97.4,5.70,3.15,3.10
 "Blomstedt, Elizabeth Ann",WCWP 160,FA19,14,10,100.0,100.0,4.94,3.88,
 "Wienhausen, Gabriele",AIP 197T,S319,31,3,66.7,50.0,7.83,,
@@ -30361,8 +30362,8 @@
 "Pasler, Jann Corinne",MUS 115,WI12,64,29,85.7,92.9,2.64,3.88,3.57
 "Jung, Eun-Young",MUS 116,WI12,19,15,86.7,86.7,4.77,3.79,
 "Guy, Nancy",MUS 120B,WI12,27,16,75.0,75.0,6.38,3.31,2.92
-"Power, Benjamin",MUS 127A,WI12,15,4,100.0,100.0,5.00,3.67,
 "Power, Benjamin",MUS 127A,WI12,155,63,93.5,75.8,2.92,3.68,3.35
+"Power, Benjamin",MUS 127A,WI12,15,4,100.0,100.0,5.00,3.67,
 "Negyesy, Janos",MUS 130,WI12,32,17,100.0,87.5,3.03,4.00,4.00
 "Negyesy, Janos",MUS 133,WI12,14,6,100.0,100.0,6.83,4.00,
 "Kenyatta, Kamau",MUS 137B,WI12,17,9,100.0,100.0,3.83,3.78,
@@ -44735,7 +44736,7 @@
 "Callender, Craig Adam",ENVR 102,WI08,45,32,77.4,84.4,3.47,2.96,2.72
 "Oreskes, Naomi",ENVR 102,WI08,45,32,77.4,84.4,3.47,2.96,2.72
 "Clemencon, Raymond",ENVR 130,WI08,63,35,91.2,91.2,3.56,3.71,3.26
-"Herbst, Matthew",ERC 192,WI08,14,13,92.3,100.0,N/A,,
+"Herbst, Matthew",ERC 192,WI08,14,13,92.3,100.0,0,,
 "Craig, Ann L.",ERC 20,WI08,24,22,95.5,95.5,0.59,,
 "Charles, Christopher D.",ESYS 10,WI08,45,26,68.0,76.0,2.27,3.20,3.14
 "Blackman, Donna K.",ESYS 102,WI08,64,39,78.4,75.7,3.69,3.35,3.34

@@ -2,15 +2,12 @@
 module Seascape.App where
 
 import qualified Codec.Base64Url as B64
-import qualified Control.Foldl as L
 import Control.Monad.Trans
-import Data.Either (either)
-import Data.List (sortBy, findIndex)
+import Data.Either (either, fromRight)
 import qualified Data.Map.Strict as Map
 import Data.Maybe (fromJust)
-import Data.Text (pack)
+import Data.Text (Text, pack)
 import Data.Text.Encoding (decodeUtf8)
-import Frames
 import Web.Spock
 import Web.Spock.Lucid (lucid)
 import Network.Wai.Middleware.Static
@@ -26,66 +23,65 @@ import Seascape.Views.Section
 type App = SpockM () () () ()
 type AppAction = SpockAction () () ()
 
-getFrame :: IO (Frame SectionTermIx)
-getFrame = loadFrameIx defaultDataLoc
-
--- TODO: Pagination
--- TODO: For empty queries, show all courses
-sectionListingAction :: AggMap -> SectionSearchEng -> Maybe Text -> AppAction ()
-sectionListingAction dfm _ Nothing = lucid $ searchView Nothing $ aggMapToFrame dfm
-sectionListingAction dfm e (Just q) = do
+sectionListingAction :: SectionMap -> SectionSearchEng -> Maybe Text -> AppAction ()
+sectionListingAction sm _ Nothing = lucid $ searchView Nothing sm
+sectionListingAction sm e (Just q) = do
   let results = execSearch e q
-  lucid $ searchView (Just q) $ frameFromICs results dfm
+  -- TODO: Putting genSectionAgg here generates ranks based only on the matched
+  -- results; we need to have ranks based on everyone
+  -- This will prolly necessitate a refactoring of Data.Sparse
+  -- Maybe just use AggMap? No need for frames. AggMap should include rank data, etc.
+  -- See https://www.stackbuilders.com/tutorials/haskell/csv-encoding-decoding/ for how to
+  -- convert csv to a custom type. We should convert each row to a tuple, then turn the
+  -- overall list of tuples to a map.
+  lucid $ searchView (Just q) $ Map.fromList $ (\x -> (x, fromJust $ Map.lookup x sm)) <$> results
 
-ciToSection :: Either String Text -> Either String Text -> AggMap -> Either String Section
-ciToSection c i m = do
+maybeToEither :: b -> Maybe a -> Either b a
+maybeToEither _ (Just x) = Right x
+maybeToEither y Nothing  = Left y
+
+ciToSection :: Either String Text
+            -> Either String Text
+            -> SectionMap
+            -> Either String (SectionID, SectionInfo Int Int)
+ciToSection i c m = do
   cs <- c
   is <- i
-  section <- getsec $ Map.lookup (is, cs) m
-  return (is &: cs &: section)
-
-  where
-    getsec (Just q) = Right q
-    getsec Nothing  = Left "Course/instr not found in database"
+  section <- maybeToEither "Course/instr not found in database" $ Map.lookup (SectionID is cs) m
+  return ((SectionID is cs), section)
 
 app :: App
 app = do
   middleware (staticPolicy (addBase "static"))
   middleware logStdout
-  frame <- liftIO getFrame
-  let aggMap = aggByTermMap frame
-  let frameAgg = genSectionAgg $ aggMapToFrame aggMap
-  let sectionEng = sectionSearchEngine aggMap
-  let aggedLen = length aggMap
+  sections <- liftIO $ (fromRight undefined) <$> readSections "data/data.csv"
+  let sectionMap = genSectionMap sections
+  let sectionEng = sectionSearchEngine sectionMap
 
-  get root $ lucid $ homeView aggedLen (return ())
+  get root $ lucid $ homeView (length sectionMap) (return ())
 
   get "listing" $ do
     query <- param "q"
-    sectionListingAction aggMap sectionEng query
+    sectionListingAction sectionMap sectionEng query
 
   get ("section" <//> (var :: Var Text) <//> (var :: Var Text)) $ \c i -> do
-    let ci = decodeUtf8 <$> B64.decode c
     let ins = decodeUtf8 <$> B64.decode i
-    let sec = ciToSection ci ins aggMap
-    let f b = (do
-                let x = filterFrame (\r -> rgetField @Course r == rgetField @Course b) frameAgg
-                let rnks = sortBy (\a a' -> compare (rgetField @RecInstrRank a) (rgetField @RecInstrRank a'))
-                         $ L.fold L.list x
-                let rnk = fromJust
-                        $ findIndex (\r -> rgetField @Instr r == rgetField @Instr b)
-                        $ rnks
-                let df = filterFrame (\r -> (rgetField @Course r == rgetField @Course b) && (rgetField @Instr r == rgetField @Instr b)) frame
-                sectionView (rnk + 1) (rgetField @RecInstrRank $ rnks !! rnk) (length rnks) aggedLen df b
+    let ci = decodeUtf8 <$> B64.decode c
+    let sec = ciToSection ins ci sectionMap
+    let f (sid, sinfo) = (do
+                let x = Map.filterWithKey (\k _ -> course k == course sid) sectionMap
+                let ranks = rankBy (\_ info -> recInstr info) x
+                let raw = filter (\(Section (k, _)) -> k == sid) sections
+                sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (sid, sinfo)
               )
-    lucid $ either (\a -> homeView aggedLen (errAlert $ pack a)) f sec
+    lucid $ either (\a -> homeView (length sectionMap) (errAlert $ pack a)) f sec
 
-  get ("raw" <//> "search") $ do
-    query <- param "q"
-    text $ pack $ show $ execSearchExplain sectionEng (fromJust query)
+  -- get ("raw" <//> "search") $ do
+  --   query <- param "q"
+  --   text $ pack $ show $ execSearchExplain sectionEng (fromJust query)
 
-  get ("raw" <//> "sections") $ text $ pack $ show frame
+  -- get ("raw" <//> "sections") $ text $ pack $ show frame
 
-  get ("raw" <//> "sections" <//> "noTerm") $ text $ pack $ show (aggMapToFrame aggMap)
+  -- get ("raw" <//> "sections" <//> "noTerm") $ text $ pack $ show (aggMapToFrame aggMap)
 
-  get ("raw" <//> "sections" <//> "sectionAgg") $ text $ pack $ show frameAgg
+  -- get ("raw" <//> "sections" <//> "sectionAgg") $ text $ pack $ show frameAgg

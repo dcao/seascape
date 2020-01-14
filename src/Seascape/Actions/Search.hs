@@ -11,17 +11,17 @@ import Seascape.Data.Sparse
 data SectionField = FInstr | FCourse
   deriving (Eq, Ord, Enum, Bounded, Ix, Show)
 
-type SectionSearchEng = SearchEngine (Text, Text) (Text, Text) SectionField NoFeatures
+type SectionSearchEng = SearchEngine SectionID SectionID SectionField NoFeatures
 
-sectionSearchEngine :: AggMap -> SectionSearchEng
+sectionSearchEngine :: SectionMap -> SectionSearchEng
 sectionSearchEngine dfm = insertDocs (Map.keys dfm) initialEngine
   where
     initialEngine = initSearchEngine sectionSearchCfg searchRankParams
 
-execSearch :: SectionSearchEng -> Text -> [(Text, Text)]
+execSearch :: SectionSearchEng -> Text -> [SectionID]
 execSearch e t = query e $ splitOn " " t
 
-execSearchExplain :: SectionSearchEng -> Text -> [(Explanation SectionField NoFeatures Text, (Text, Text))]
+execSearchExplain :: SectionSearchEng -> Text -> [(Explanation SectionField NoFeatures Text, SectionID)]
 execSearchExplain e t = queryExplain e $ splitOn " " t
 
 extractInstr :: Text -> [Text]
@@ -35,7 +35,7 @@ extractCourse x = [lx] ++ splitOn " " lx
   where
     lx = toLower x
 
-sectionSearchCfg :: SearchConfig (Text, Text) (Text, Text) SectionField NoFeatures
+sectionSearchCfg :: SearchConfig SectionID SectionID SectionField NoFeatures
 sectionSearchCfg = SearchConfig
   { documentKey = id
   , extractDocumentTerms = extractTerms
@@ -43,8 +43,8 @@ sectionSearchCfg = SearchConfig
   , documentFeatureValue = const noFeatures
   }
   where
-    extractTerms (i, _) FInstr  = extractInstr i
-    extractTerms (_, c) FCourse = extractCourse c
+    extractTerms (SectionID i _) FInstr  = extractInstr i
+    extractTerms (SectionID _ c) FCourse = extractCourse c
 
 searchRankParams :: SearchRankParameters SectionField NoFeatures
 searchRankParams = SearchRankParameters

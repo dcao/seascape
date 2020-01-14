@@ -1,197 +1,137 @@
-{-# LANGUAGE BangPatterns, DataKinds, DeriveGeneric, FlexibleContexts, OverloadedStrings, QuasiQuotes, RecordWildCards, TemplateHaskell, TypeApplications, TypeOperators #-}
+{-# LANGUAGE BangPatterns, FlexibleInstances, OverloadedStrings #-}
 module Seascape.Data.Sparse where
 
-import Data.Aeson
-import Data.ByteString.Lazy (toStrict)
-import qualified Control.Foldl as L
+import Data.Aeson hiding ((.:))
+import qualified Data.ByteString.Lazy as BS
+import Data.Csv hiding ((.=))
 import qualified Data.Map.Strict as Map
-import Data.List (intercalate, sortBy, elemIndex)
-import Data.Maybe (fromJust)
-import Data.Monoid (First(..))
+import Data.List (nub, elemIndex, sortBy)
+import Data.Maybe (fromJust, isJust)
 import Data.Text (Text)
-import Data.Text.Encoding (decodeUtf8)
-import Data.Vinyl (Rec(..), ElField(..), rapply, rmapX, ruple)
-import Data.Vinyl.Functor (Compose(..))
-import Data.Vinyl.Lens
-import Lens.Micro.Extras
-import Frames
-import Frames.CSV
-import GHC.Generics
-import Pipes ((>->))
-import qualified Pipes.Prelude as P
+import qualified Data.Vector as V
 
-declareColumn "Instr" ''Text
-declareColumn "Course" ''Text
-declareColumn "Term" ''Text
-declareColumn "TermIx" ''Int
-declareColumn "Enrolled" ''Int
-declareColumn "Evals" ''Int
-declareColumn "RecClass" ''Double
-declareColumn "RecInstr" ''Double
-declareColumn "RecInstrRank" ''Int
-declareColumn "Hours" ''Double
-declareColumn "GpaExp" ''Double
-declareColumn "GpaAvg" ''Double
-declareColumn "CountExp" ''Int
-declareColumn "CountAvg" ''Int
+data SectionID = SectionID
+  { instr :: Text
+  , course :: Text
+  } deriving (Show, Eq, Ord)
 
-type SectionTerm = Record '[Instr, Course, Term, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
-type SectionTermIx = Record '[Instr, Course, Term, TermIx, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
-type Section = Record '[Instr, Course, Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
-type SectionAgg = Record '[Instr, Course, Enrolled, Evals, RecClass, RecInstr, RecInstrRank, Hours, GpaExp, GpaAvg]
-type AggMap = Map.Map (Text, Text) (Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg])
+data SectionInfo ix rank = SectionInfo
+  { term :: !Text
+  , termIx :: !ix
+  , enrolled :: !Int
+  , evals :: !Int
+  , recClass :: !Double
+  , recInstr :: !Double
+  , recInstrRank :: !rank
+  , hours :: !Double
+  , gpaExp :: !Gpa
+  , gpaAvg :: !Gpa
+  } deriving (Show)
 
--- Janky, for testing
-instance Show a => Show (Frame a) where
-  show f@(Frame l _) = "df of len " ++ show l ++ "\n" ++ intercalate "\n" (show <$> L.fold L.list f)
-
-defaultDataLoc :: String
-defaultDataLoc = "data/data.csv"
-
-defaultRow :: Rec (First :. ElField) (RecordColumns SectionTerm)
-defaultRow = Compose (First (Just (Field "")))
-          :& Compose (First (Just (Field "")))
-          :& Compose (First (Just (Field "")))
-          :& Compose (First (Just (Field 0)))
-          :& Compose (First (Just (Field 0)))
-          :& Compose (First (Just (Field 0)))
-          :& Compose (First (Just (Field 0)))
-          :& Compose (First (Just (Field 0)))
-          :& Compose (First (Just (Field (-1))))
-          :& Compose (First (Just (Field (-1))))
-          :& RNil
-
-loadFrame :: String -> IO (Frame SectionTerm)
-loadFrame s = inCoreAoS sdf
-  where
-    holeFiller = recMaybe . rmapX @(First :. ElField) getFirst
-               . rapply (rmapX @(First :. ElField) (flip mappend) defaultRow)
-               . rmapX @_ @(First :. ElField) First
-    sdf = (readTableMaybeOpt (defaultParser { headerOverride = Nothing }) s) >-> P.map (fromJust . holeFiller)
-
-getTerms :: Frame SectionTerm -> [Text]
-getTerms df = reverse $ L.fold L.nub $ view term <$> df
-
-loadFrameIx :: String -> IO (Frame SectionTermIx)
-loadFrameIx f = do
-  df <- loadFrame f
-  let terms = getTerms df
-  let m r = rgetField @Instr r
-         &: rgetField @Course r
-         &: rgetField @Term r
-         &: fromJust (elemIndex (rgetField @Term r) terms)
-         &: rgetField @Enrolled r
-         &: rgetField @Evals r
-         &: rgetField @RecClass r
-         &: rgetField @RecInstr r
-         &: rgetField @Hours r
-         &: rgetField @GpaExp r
-         &: rgetField @GpaAvg r
-         &: RNil
-  return $ m <$> df
-
-aggByTermMap :: Frame SectionTermIx -> AggMap
-aggByTermMap df = grouped
-  where
-    section = ruple . (rcast :: SectionTermIx -> Record '[Instr, Course])
-    foldf :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
-          -> SectionTermIx
-          -> Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
-    foldf acc x = rgetField @Enrolled acc + rgetField @Enrolled x
-               &: rgetField @Evals acc + rgetField @Evals x
-               &: rgetField @RecClass acc + (rgetField @RecClass x * (fromIntegral (rgetField @Evals x)))
-               &: rgetField @RecInstr acc + (rgetField @RecInstr x * (fromIntegral (rgetField @Evals x)))
-               &: rgetField @Hours acc + (rgetField @Hours x * (fromIntegral (rgetField @Evals x)))
-               &: (if a /= -1 then rgetField @GpaExp acc + (rgetField @GpaExp x * (fromIntegral (rgetField @Evals x))) else rgetField @GpaExp acc)
-               &: (if b /= -1 then rgetField @GpaAvg acc + (rgetField @GpaAvg x * (fromIntegral (rgetField @Evals x))) else rgetField @GpaAvg acc)
-               &: (if a /= -1 then rgetField @CountExp acc + (fromIntegral (rgetField @Evals x)) else rgetField @CountExp acc)
-               &: (if b /= -1 then rgetField @CountAvg acc + (fromIntegral (rgetField @Evals x)) else rgetField @CountAvg acc)
-               &: RNil
-      where
-        a = rgetField @GpaExp x
-        b = rgetField @GpaAvg x
-
-    convr :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
-          -> Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg]
-    convr acc = rgetField @Enrolled acc
-             &: rgetField @Evals acc
-             &: (rgetField @RecClass acc) / cnt
-             &: (rgetField @RecInstr acc) / cnt
-             &: (rgetField @Hours    acc) / cnt
-             &: (if cntE /= 0 then (rgetField @GpaExp   acc) / cntE else -1)
-             &: (if cntA /= 0 then (rgetField @GpaAvg   acc) / cntA else -1)
-             &: RNil
-      where
-        cnt  = fromIntegral $ rgetField @Evals acc
-        cntE = fromIntegral $ rgetField @CountExp acc
-        cntA = fromIntegral $ rgetField @CountAvg acc
-
-    def :: Record '[Enrolled, Evals, RecClass, RecInstr, Hours, GpaExp, GpaAvg, CountExp, CountAvg]
-    def = 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: 0 &: RNil
-
-    grouped = L.fold (L.groupBy section (L.Fold foldf def convr)) df
+newtype Section ix rank = Section { unSection :: (SectionID, SectionInfo ix rank) }
+  deriving (Show)
   
-aggMapToFrame :: AggMap -> Frame Section
-aggMapToFrame = toFrame . Map.mapWithKey (\(i, c) v -> i &: c &: v)
+newtype Gpa = Gpa (Maybe (Int, Double))
 
-aggByTerm :: Frame SectionTermIx -> Frame Section
-aggByTerm = aggMapToFrame . aggByTermMap
+gpaExists :: Gpa -> Bool
+gpaExists (Gpa x) = isJust x
 
-frameFromICs :: [(Text, Text)] -> AggMap -> Frame Section
-frameFromICs ics dfm = toFrame $ fmap (\x@(i, c) -> i &: c &: (fromJust $ Map.lookup x dfm)) ics
+instance Show Gpa where
+  show (Gpa x) = show x
 
-frameLen :: Frame a -> Int
-frameLen df = L.fold L.length df
+instance Semigroup Gpa where
+  Gpa (Just (ca, a)) <> Gpa (Just (cb, b)) = Gpa $ Just $ (ca + cb, (a * fromIntegral ca + b * fromIntegral cb) / fromIntegral (ca + cb))
+  Gpa (Just (ca, a)) <> Gpa Nothing        = Gpa $ Just (ca, a)
+  Gpa Nothing        <> Gpa (Just (cb, b)) = Gpa $ Just (cb, b)
+  Gpa Nothing        <> Gpa Nothing        = Gpa Nothing
 
-genSectionAgg :: Frame Section -> Frame SectionAgg
-genSectionAgg df = f <$> df
+-- This Semigroup intance is used for aggregating classes with the same SectionID.
+instance Semigroup a => Semigroup (SectionInfo Int a) where
+  a <> b = SectionInfo
+    { term = getTerm $ compare (termIx a) (termIx b)
+    , termIx = max (termIx a) (termIx b)
+    , enrolled = (enrolled a) + (enrolled b)
+    , evals = (evals a) + (evals b)
+    , recClass = ((fromIntegral (evals a) * recClass a) + (fromIntegral (evals b) * recClass b)) / fromIntegral (evals a + evals b)
+    , recInstr = ((fromIntegral (evals a) * recInstr a) + (fromIntegral (evals b) * recInstr b)) / fromIntegral (evals a + evals b)
+    , recInstrRank = (recInstrRank a) <> (recInstrRank b)
+    , hours = ((fromIntegral (evals a) * hours a) + (fromIntegral (evals b) * hours b)) / fromIntegral (evals a + evals b)
+    , gpaExp = (gpaExp a) <> (gpaExp b)
+    , gpaAvg = (gpaAvg a) <> (gpaAvg b)
+    }
+    where
+      getTerm LT = term a
+      getTerm _  = term b
+
+type SectionMap = Map.Map SectionID (SectionInfo Int Int)
+
+-- Cassava stuff
+instance FromNamedRecord (Section () ()) where
+  parseNamedRecord m = fmap Section $ (,) <$> secid <*> secinfo
+    where
+      secid = SectionID <$> m .: "instr" <*> m .: "course"
+      getGpa (Just x) = fmap (Gpa . Just) $ (,) <$> m .: "evals" <*> return x
+      getGpa Nothing  = return $ Gpa Nothing
+      secinfo = SectionInfo
+        <$> m .: "term"
+        <*> return ()
+        <*> m .: "enrolled"
+        <*> m .: "evals"
+        <*> m .: "recClass"
+        <*> m .: "recInstr"
+        <*> return ()
+        <*> m .: "hours"
+        <*> (getGpa =<< m .: "gpaExp")
+        <*> (getGpa =<< m .: "gpaAvg")
+
+instance ToJSON Gpa where
+  toJSON (Gpa Nothing) = toJSON (-1 :: Int)
+  toJSON (Gpa (Just (_, x))) = toJSON x
+
+-- Aeson stuff
+instance ToJSON (Section Int ()) where
+  toJSON (Section (i, c)) =
+    object [ "st_instr" .= instr i
+           , "st_course" .= course i
+           , "st_term" .= term c
+           , "st_termIx" .= termIx c
+           , "st_enrolled" .= enrolled c
+           , "st_evals" .= evals c
+           , "st_recClass" .= recClass c
+           , "st_recInstr" .= recInstr c
+           , "st_hours" .= hours c
+           , "st_gpaExp" .= gpaExp c
+           , "st_gpaAvg" .= gpaAvg c
+           ]
+
+rankBy :: (Ord a, Ord k) => (k -> v -> a) -> Map.Map k v -> Map.Map k Int
+rankBy f m = Map.fromList $ zip (fst <$> sorted) [(1 :: Int)..]
   where
-    dfl = sortBy (\a b -> compare (rgetField @RecInstr b) (rgetField @RecInstr a)) $ L.fold L.list df
-    dfm = Map.fromList $ (\(i, x) -> ((rgetField @Instr x, rgetField @Course x), i + 1)) <$> zip [0..] dfl
-    f r = rgetField @Instr r
-       &: rgetField @Course r
-       &: rgetField @Enrolled r
-       &: rgetField @Evals r
-       &: rgetField @RecClass r
-       &: rgetField @RecInstr r
-       &: (fromJust $ Map.lookup (rgetField @Instr r, rgetField @Course r) dfm)
-       &: rgetField @Hours r
-       &: rgetField @GpaExp r
-       &: rgetField @GpaAvg r
-       &: RNil
-    
--- For JSON
-data SectionTermIxT = SectionTermIxT
-  { st_instr :: Text
-  , st_course :: Text
-  , st_term :: Text
-  , st_termIx :: Int
-  , st_enrolled :: Int
-  , st_evals :: Int
-  , st_recClass :: Double
-  , st_recInstr :: Double
-  , st_hours :: Double
-  , st_gpaExp :: Double
-  , st_gpaAvg :: Double
-  } deriving (Generic, Show)
-   
-instance FromJSON SectionTermIxT
-instance ToJSON SectionTermIxT
+    sorted = sortBy (\a b -> compare ((uncurry f) b) ((uncurry f) a)) $ Map.toList m
 
-structifySec :: SectionTermIx -> SectionTermIxT
-structifySec r = SectionTermIxT { .. }
+genTermIx :: [Section () ()] -> [Section Int ()]
+genTermIx entries = fmap (Section . (addTermIx <$>) . unSection) entries
   where
-    st_instr = rgetField @Instr r
-    st_course = rgetField @Course r
-    st_term = rgetField @Term r
-    st_termIx = rgetField @TermIx r
-    st_enrolled = rgetField @Enrolled r
-    st_evals = rgetField @Evals r
-    st_recClass = rgetField @RecClass r
-    st_recInstr = rgetField @RecInstr r
-    st_hours = rgetField @Hours r
-    st_gpaExp = rgetField @GpaExp r
-    st_gpaAvg = rgetField @GpaAvg r
+    terms = nub $ (term . snd . unSection) <$> entries
 
-jsonifyFrame :: Frame SectionTermIx -> Text
-jsonifyFrame df = decodeUtf8 $ toStrict $ encode $ toJSON $ L.fold L.list $ fmap structifySec df
+    addTermIx :: SectionInfo () () -> SectionInfo Int ()
+    addTermIx info = info { termIx = fromJust (elemIndex (term info) terms) }
+
+genSectionMap :: [Section Int ()] -> SectionMap
+genSectionMap entries = pass2 . pass1 $ entries
+  where
+    -- First pass: aggregate by SectionID.
+    pass1 :: [Section Int ()] -> Map.Map SectionID (SectionInfo Int ())
+    pass1 = Map.fromListWith (<>) . fmap unSection
+
+    -- Second pass: add recInstrRank.
+    pass2 :: Map.Map SectionID (SectionInfo Int ()) -> Map.Map SectionID (SectionInfo Int Int)
+    pass2 xs = mpRecInstr
+      where
+        recInstrRankMap = rankBy (\_ i -> recInstr i) xs
+        mpRecInstr = Map.mapWithKey (\k x -> x { recInstrRank = fromJust $ Map.lookup k recInstrRankMap }) xs
+
+readSections :: String -> IO (Either String [Section Int ()])
+readSections loc = do
+  f <- BS.readFile loc
+  return $ (genTermIx . V.toList . snd) <$> decodeByName f

@@ -6,9 +6,9 @@ module Main where
 import qualified Data.ByteString.Char8 as C
 import Data.ByteString (ByteString)
 import Data.Csv
-import Data.Functor.Identity
 import Data.Text (Text, isInfixOf)
 import Data.Text.Encoding (encodeUtf8)
+import qualified Data.Vector as V
 import GHC.Generics (Generic)
 import Streamly
 import qualified Streamly.Prelude as S
@@ -43,7 +43,8 @@ main = do
   let tags = parseTags . encodeUtf8 $ src
   let l = maybe [] id $ scrape sparseHTMLParser tags
   let s = S.fromList l :: SerialT IO SectionTerm
-  let c = Streamly.Csv.encode Nothing s
+  let hdr = V.fromList ["instr", "course", "term", "enrolled", "evals", "recClass", "recInstr", "hours", "gpaExp", "gpaAvg"]
+  let c = Streamly.Csv.encode (Just hdr) s
   withFile "data/data.csv" WriteMode $ \h ->
     S.mapM_ (C.hPut h) c
 
@@ -83,7 +84,7 @@ sparseHTMLParser = chroots "tr" sectionTerm
     sectionTerm :: Scraper ByteString SectionTerm
     sectionTerm = do
       (instr:course:term:enrolled:evals:recClass:recInstr:hours:gpaExp:gpaAvg:rs) <- texts "td"
-      return $ SectionTerm (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (parsePct recClass) (parsePct recInstr) (bstrip hours) (parseGpa gpaExp) (parseGpa gpaAvg)
+      return $ SectionTerm (bstrip instr) (parseCourse course) term (bstrip enrolled) (bstrip evals) (parsePct recClass) (parsePct recInstr) (parseHours hours) (parseGpa gpaExp) (parseGpa gpaAvg)
 
     parsePct :: ByteString -> ByteString
     parsePct = dropEnd 2 . bstrip
@@ -93,7 +94,16 @@ sparseHTMLParser = chroots "tr" sectionTerm
 
     parseGpaClean :: ByteString -> Maybe ByteString
     parseGpaClean "N/A" = Nothing
-    parseGpaClean ps = Just . dropEnd 1 . C.drop 1 . C.dropWhile (/= '(') $ ps
+    parseGpaClean ps    = Just . dropEnd 1 . C.drop 1 . C.dropWhile (/= '(') $ ps
+
+    -- There's literally ONE class with an N/A for hours which requires us to
+    -- do this
+    parseHours :: ByteString -> ByteString
+    parseHours = parseHoursClean . bstrip
+
+    parseHoursClean :: ByteString -> ByteString
+    parseHoursClean "N/A" = "0"
+    parseHoursClean x     = x
 
     parseCourse :: ByteString -> ByteString
     parseCourse = bstrip . C.takeWhile (/= '-')

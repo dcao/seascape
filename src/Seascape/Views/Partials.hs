@@ -5,21 +5,22 @@ import Data.Text
 import Lucid
 import Lucid.Base
 import Text.Printf
+import Seascape.Data.Sparse
 
 path_ :: Term arg result => arg -> result
-path_ = term "path"
+path_ = Lucid.Base.term "path"
 
 circle_ :: Term arg result => arg -> result
-circle_ = term "circle"
+circle_ = Lucid.Base.term "circle"
 
 g_ :: Term arg result => arg -> result
-g_ = term "g"
+g_ = Lucid.Base.term "g"
 
 js_ :: Monad m => Text -> HtmlT m ()
 js_ t = termWith "script" [src_ t] $ ""
 
 text_ :: Term arg result => arg -> result
-text_ = term "text"
+text_ = Lucid.Base.term "text"
 
 d_ :: Text -> Attribute
 d_ = makeAttribute "d"
@@ -141,9 +142,9 @@ gpaToLetter x
   | x >= 1.0  = "D"
   | otherwise = "F"
 
-gpaToHtml :: Double -> Html ()
-gpaToHtml (-1) = h1_ [class_ "font-medium sm:text-lg font-mono text-gray-500"] "N/A"
-gpaToHtml x =
+gpaToHtml :: Gpa -> Html ()
+gpaToHtml (Gpa Nothing) = h1_ [class_ "font-medium sm:text-lg font-mono text-gray-500"] "N/A"
+gpaToHtml (Gpa (Just (_, x))) =
   h1_ [class_ "font-medium sm:text-lg font-mono"] $ do
     toHtml $ gpaToLetter x
     span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 x <> ")"

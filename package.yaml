@@ -24,19 +24,16 @@ library:
     - bytestring
     - base-encoding
     - containers
+    - cassava
     - foldl
-    - Frames
     - full-text-search
     - lucid
-    - microlens
     - mtl
     - Spock >= 0.13.0.0
     - Spock-lucid
     - monad-logger
-    - pipes
-    - pipes-safe
     - text
-    - vinyl
+    - vector
     - wai-middleware-static
     - wai-extra
 
@@ -74,5 +71,6 @@ executables:
       - streamly
       - streamly-cassava
       - text
+      - vector
       - webdriver
     
