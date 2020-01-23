@@ -14,7 +14,7 @@ topHero ln extra =
         "Search for information and statistics on "
         strong_ $ (toHtml :: String -> Html ()) $ printf "%d different sections" ln
         " of courses at UCSD."
-        with (searchBar "") [class_ " mt-12 "]
+        with defaultSearchBar [class_ " mt-12 "]
       extra
 
 seascapeFeature :: String -> String -> Html () -> Html ()

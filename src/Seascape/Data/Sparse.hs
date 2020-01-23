@@ -26,12 +26,13 @@ data SectionInfo ix rank = SectionInfo
   , hours :: !Double
   , gpaExp :: !Gpa
   , gpaAvg :: !Gpa
-  } deriving (Show)
+  } deriving (Show, Eq, Ord)
 
 newtype Section ix rank = Section { unSection :: (SectionID, SectionInfo ix rank) }
-  deriving (Show)
+  deriving (Show, Eq, Ord)
   
 newtype Gpa = Gpa (Maybe (Int, Double))
+  deriving (Eq, Ord)
 
 gpaExists :: Gpa -> Bool
 gpaExists (Gpa x) = isJust x
@@ -138,3 +139,29 @@ readSections :: String -> IO (Either String [Section Int ()])
 readSections loc = do
   f <- BS.readFile loc
   return $ (genTermIx . V.toList . snd) <$> decodeByName f
+
+data SearchOrdering = Relevance | Ranking
+  deriving (Eq)
+
+defaultOrdering :: SearchOrdering
+defaultOrdering = Relevance
+
+getOrdering :: Maybe Text -> SearchOrdering
+getOrdering (Just "ranking") = Ranking
+getOrdering _                = Relevance
+
+ordf :: SearchOrdering -> (Int, Section Int Int) -> Int
+ordf Relevance (ord, _)                = ord
+ordf Ranking   (_, Section (_, sinfo)) = recInstrRank sinfo
+
+addCourseKey :: [Text] -> (Int, Section Int Int) -> ((Int, Text), (Int, Section Int Int))
+addCourseKey cs a@(_, Section (sid, _)) = ((fromJust $ elemIndex c cs, c), a)
+  where
+    c = course sid
+
+addSectionOrder :: SectionMap
+                -> ((Int, Section Int Int) -> Int)
+                -> (Int, SectionID)
+                -> (Int, Section Int Int)
+addSectionOrder sm orf (ord, x) =
+  let sec = Section (x, fromJust $ Map.lookup x sm) in (orf (ord, sec), sec)

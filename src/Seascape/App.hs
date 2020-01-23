@@ -3,8 +3,10 @@ module Seascape.App where
 
 import qualified Codec.Base64Url as B64
 import Control.Monad.Trans
+import Control.Arrow ((&&&))
 import Data.Either (either, fromRight)
 import qualified Data.Map.Strict as Map
+import Data.List (nub, sort)
 import Data.Maybe (fromJust)
 import Data.Text (Text, pack)
 import Data.Text.Encoding (decodeUtf8)
@@ -23,18 +25,24 @@ import Seascape.Views.Section
 type App = SpockM () () () ()
 type AppAction = SpockAction () () ()
 
-sectionListingAction :: SectionMap -> SectionSearchEng -> Maybe Text -> AppAction ()
-sectionListingAction sm _ Nothing = lucid $ searchView Nothing sm
-sectionListingAction sm e (Just q) = do
-  let results = execSearch e q
-  -- TODO: Putting genSectionAgg here generates ranks based only on the matched
-  -- results; we need to have ranks based on everyone
-  -- This will prolly necessitate a refactoring of Data.Sparse
-  -- Maybe just use AggMap? No need for frames. AggMap should include rank data, etc.
-  -- See https://www.stackbuilders.com/tutorials/haskell/csv-encoding-decoding/ for how to
-  -- convert csv to a custom type. We should convert each row to a tuple, then turn the
-  -- overall list of tuples to a map.
-  lucid $ searchView (Just q) $ Map.fromList $ (\x -> (x, fromJust $ Map.lookup x sm)) <$> results
+groupBy' :: Ord k => (v -> k) -> [v] -> Map.Map k [v]
+groupBy' key = Map.fromListWith (++) . map (key &&& pure)
+
+sectionListingAction :: SearchOrdering -> SectionMap -> SectionSearchEng -> Maybe Text -> AppAction ()
+sectionListingAction so sm e mt = lucid $ searchView mt so cotosec
+  where
+    results :: Maybe Text -> [(Int, SectionID)]
+    results Nothing  = zip [0..] $ Map.keys sm
+    results (Just q) = zip [0..] $ execSearch e q
+
+    courses :: Maybe Text -> [Text]
+    courses Nothing    = nub $ course <$> Map.keys sm
+    courses j@(Just _) = nub $ course . snd <$> (results j)
+
+    cotosec = fmap (fmap snd . sort)
+            $ groupBy' fst
+            $ fmap (addCourseKey (courses mt) . addSectionOrder sm (ordf so))
+            $ results mt
 
 maybeToEither :: b -> Maybe a -> Either b a
 maybeToEither _ (Just x) = Right x
@@ -62,7 +70,8 @@ app = do
 
   get "listing" $ do
     query <- param "q"
-    sectionListingAction sectionMap sectionEng query
+    sortBy <- param "sortBy"
+    sectionListingAction (getOrdering sortBy) sectionMap sectionEng query
 
   get ("section" <//> (var :: Var Text) <//> (var :: Var Text)) $ \c i -> do
     let ins = decodeUtf8 <$> B64.decode i

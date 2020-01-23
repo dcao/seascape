@@ -64,3 +64,4 @@ searchRankParams = SearchRankParameters
 
     paramFieldWeights FInstr = 3
     paramFieldWeights FCourse = 5
+

@@ -67,6 +67,7 @@ gauge val frf shf = div_ [class_ "w-24"] $ do
     col' f
       | f >= 0.85 = "text-teal-700"
       | f >= 0.70 = "text-orange-700"
+
       | otherwise = "text-red-700"
     col :: Text
     col = col' frac
@@ -111,12 +112,25 @@ defaultPartial t body =
         a_ [href_ "https://sites.google.com/a/eng.ucsd.edu/spis/", class_ "text-teal-600"] "SPIS 2019."
       script_ "(function() {var script = document.createElement('script'); window.counter = 'https://seascape.goatcounter.com/count'; script.async = 1; script.src = '//gc.zgo.at/count.js'; var ins = document.getElementsByTagName('script')[0]; ins.parentNode.insertBefore(script, ins);})();"
 
-searchBar :: Text -> Html ()
-searchBar t = form_ [action_ "/listing"] $ do
+searchBar :: Text -> SearchOrdering -> Html ()
+searchBar t r = form_ [action_ "/listing"] $ do
   div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white text-xl leading-tight"] $ do
     input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Search for a class or instructor"]
+    select_ [name_ "sortBy", class_ "appearance-none block bg-white px-2 text-lg text-teal-500 focus:outline-none text-underline"] $ do
+      option_ (optSel Relevance "relevance") "Sort by relevance"
+      option_ (optSel Ranking "ranking") "Sort by ranking"
+    div_ [class_ "pointer-events-none flex items-center text-teal-600"] $
+      svg_ [class_ "fill-current h-4 w-4", viewBox_ "0 0 20 20"] $
+        path_ [d_ "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"] $ mempty
     button_ [class_ "flex-shrink-0 text-teal-500 hover:text-teal-700 p-6", type_ "submit"] $ do
       i_ [class_ "fas fa-search"] mempty
+  where
+    optSel od v
+      | od == r    = [value_ v, selected_ "selected"]
+      | otherwise = [value_ v]
+
+defaultSearchBar :: Html ()
+defaultSearchBar = searchBar "" Relevance
 
 roundToStr :: (PrintfArg a, Floating a) => Int -> a -> String
 roundToStr = printf "%0.*f"
