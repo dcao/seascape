@@ -66,7 +66,7 @@ body df sid =
 
 sectionSec :: Html () -> Html () -> Html ()
 sectionSec title rest =
-  div_ [id_ "raw-data", class_ "flex flex-col pb-6"] $ do
+  div_ [id_ "raw-data", class_ "flex flex-col pb-6 px-6"] $ do
     span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] title
     rest
 
@@ -82,14 +82,14 @@ classDiff df sid =
       span_ [class_ "border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ course sid
       " professor."
     div_ [class_ "flex flex-col sm:flex-row mt-5"] $ do
-      div_ [class_ "sm:mr-3 mb-6 w-1/2"] $ do
+      div_ [class_ "sm:mr-3 mb-6 w-full sm:w-1/2"] $ do
         p_ [class_ "text-gray-600 text-sm mb-1"] "Time commitment"
         h1_ [class_ "text-lg font-medium flex-grow mb-2"] $ toHtml $ show'
           " smallest time commitment of "
           (length rankedHours)
           (hourRank)
         div_ [class_ "hours-bnw"] mempty
-      div_ [class_ "sm:ml-3 mb-6 w-1/2"] $ do
+      div_ [class_ "sm:ml-3 mb-6 w-full sm:w-1/2"] $ do
         p_ [class_ "text-gray-600 text-sm mb-1"] "Average grade"
         h1_ [class_ "text-lg font-medium flex-grow mb-2"] $ toHtml $ show'
           " highest grade of "
@@ -172,8 +172,8 @@ sectionView rnki rnko cnti cnto df (sid, sinfo) = defaultPartial (instr sid <> "
     "sparkline('.rec-instr-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_recInstr }; }), " <> (pack $ show $ recInstr sinfo) <> ");" <>
     "sparkline('.time-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_hours }; }), " <> (pack $ show $ hours sinfo) <> ");" <>
     (if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ lossyGpa $ gpaAvg sinfo) <> ");" else "") <>
-    "boxnwhisk('.hours-bnw', allTerms.map(function(r) { return { x: r.st_hours, y: r.st_instr }; }), '" <> instr sid <> "', false);" <>
-    "boxnwhisk('.gpa-bnw', allTerms.map(function(r) { return { x: r.st_gpaAvg, y: r.st_instr }; }), '" <> instr sid <> "', true);"
+    "boxnwhisk('.hours-bnw', allTerms.map(function(r) { return { x: r.st_hours, y: r.st_instr }; }), '" <> instr sid <> "', false, 'hours spent per week');" <>
+    "boxnwhisk('.gpa-bnw', allTerms.map(function(r) { return { x: r.st_gpaAvg, y: r.st_instr }; }), '" <> instr sid <> "', true, 'average GPA');"
 
 filterDf :: [Section a b] -> SectionID -> [Section a b]
 filterDf df sid = filter (\(Section (sid', _)) -> sid == sid') df

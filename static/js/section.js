@@ -53,7 +53,7 @@ function sparkline(elem, data, avg) {
         .attr('class', 'r-2 fill-current text-teal-500');
 }
 
-function boxnwhisk(elem, data, thisKey, rev) {
+function boxnwhisk(elem, data, thisKey, rev, lbl) {
     var data = data.filter(r => r.x != -1);
     var mult = rev ? -1 : 1;
     
@@ -81,7 +81,7 @@ function boxnwhisk(elem, data, thisKey, rev) {
     const WIDTH        = 300;
     const BOX_HEIGHT   = 15;
     const BOX_INNER_HEIGHT = BOX_HEIGHT * 0.65;
-    const AXIS_HEIGHT  = 20;
+    const AXIS_HEIGHT  = 30;
     const MARGIN       = { top: 4, right: 4, bottom: 4, left: 4 };
     const INNER_WIDTH  = WIDTH - MARGIN.left - MARGIN.right;
 
@@ -104,10 +104,18 @@ function boxnwhisk(elem, data, thisKey, rev) {
     svg
         .append("g")
         .attr("transform", `translate(0, ${INNER_HEIGHT + 5})`)
-        .style("stroke-width", "0.5px")
-        .style("font-size", "0.55em")
+        .style("stroke-width", "0.35px")
+        .style("font-size", "0.35em")
         .style("font-family", "Recursive Mono")
         .call(d3.axisBottom(x));
+
+    svg.append("text")
+        .attr("transform", `translate(${WIDTH / 2}, ${INNER_HEIGHT + 30})`)
+        .style("stroke-width", "0.35px")
+        .style("font-size", "0.40em")
+        .style("font-family", "Recursive Mono")
+        .style("text-anchor", "middle")
+        .text(lbl);
 
     svg
         .selectAll("bgRects")
