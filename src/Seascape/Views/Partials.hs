@@ -109,14 +109,14 @@ defaultPartial t body =
       navbarPartial
       body
       p_ [class_ "text-center text-gray-500 text-xs mt-8 mb-8"] $ do
-        toHtmlRaw ("&copy; 2019 David Cao, Tung Doan. Born at " :: Text)
+        toHtmlRaw ("&copy; 2020 David Cao, Tung Doan. Created at " :: Text)
         a_ [href_ "https://sites.google.com/a/eng.ucsd.edu/spis/", class_ "text-teal-600"] "SPIS 2019."
       script_ "(function() {var script = document.createElement('script'); window.counter = 'https://seascape.goatcounter.com/count'; script.async = 1; script.src = '//gc.zgo.at/count.js'; var ins = document.getElementsByTagName('script')[0]; ins.parentNode.insertBefore(script, ins);})();"
 
 searchBar :: Text -> SearchOrdering -> Html ()
 searchBar t r = form_ [action_ "/listing"] $ do
   div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white text-xl leading-tight"] $ do
-    input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Search for a class or instructor"]
+    input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Type a class or instructor here!"]
     select_ [name_ "sortBy", class_ "appearance-none block bg-white px-2 text-lg text-teal-500 focus:outline-none text-underline"] $ do
       option_ (optSel Relevance "relevance") "Sort by relevance"
       option_ (optSel Ranking "ranking") "Sort by ranking"
@@ -169,3 +169,8 @@ gpaToHtml (Gpa (Just (_, x))) =
     toHtml $ gpaToLetter x
     span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 x <> ")"
 
+sectionSec :: Text -> Html () -> Html () -> Html ()
+sectionSec tid title rest =
+  div_ [id_ tid, class_ "flex flex-col pb-6 mx-auto max-w-5xl"] $ do
+    span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] title
+    rest

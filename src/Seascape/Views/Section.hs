@@ -6,7 +6,7 @@ import Data.Aeson (encode)
 import Data.Foldable (forM_)
 import Data.List (filter)
 import qualified Data.Map as Map
-import Data.Text (pack)
+import Data.Text (Text, pack)
 import Data.Text.Encoding
 import Lucid hiding (term)
 import Seascape.Data.Sparse
@@ -50,7 +50,7 @@ topHero rnki rnko cnti cnto (sid, sinfo) =
 
 midNav :: Html ()
 midNav = do
-  div_ [class_ "bg-gray-800 py-3 px-2 sticky mb-6"] $ do
+  div_ [class_ "bg-gray-800 py-3 px-2 sticky"] $ do
     div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
       link "#difficulty" "Class Difficulty"
       link "#raw-data" "Raw Data"
@@ -60,19 +60,13 @@ midNav = do
 
 body :: [Section Int ()] -> SectionID -> Html ()
 body df sid =
-  div_ [class_ "max-w-5xl px-4 sm:px-0 mx-auto"] $ do
+  div_ [class_ "px-6 mt-6"] $ do
     classDiff df sid
     rawData $ filterDf df sid
 
-sectionSec :: Html () -> Html () -> Html ()
-sectionSec title rest =
-  div_ [id_ "raw-data", class_ "flex flex-col pb-6 px-6"] $ do
-    span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] title
-    rest
-
 classDiff :: [Section Int ()] -> SectionID -> Html ()
 classDiff df sid =
-  sectionSec "Class Difficulty" $ do
+  sectionSec "#difficulty" "Class Difficulty" $ do
     p_ [class_ "text-xl tracking-tight"] $ do
       "This professor takes "
       span_ [class_ "font-semibold border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ hoursStr hourRank
@@ -135,7 +129,7 @@ classDiff df sid =
 
 rawData :: [Section Int ()] -> Html ()
 rawData df =
-  sectionSec "Raw Data" $ do
+  sectionSec "#raw-data" "Raw Data" $ do
     forM_ df $ \r -> do
       let (_, rinfo) = unSection r
       div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
