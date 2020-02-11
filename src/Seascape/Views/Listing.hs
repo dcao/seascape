@@ -12,13 +12,12 @@ import Seascape.Views.Partials
 
 topHero :: Int -> Maybe Text -> SearchOrdering -> Html ()
 topHero ln query od =
-  div_ [class_ "bg-teal-100 pt-12 pb-8 px-6"] $ do
-    div_ [class_ "flex flex-col justify-center max-w-2xl mx-auto text-center"] $ do
-      h1_ [class_ "text-3xl font-medium font-sans"] "Course listing"
-      p_ [class_ "text-lg font-serif mt-3 text-teal-600"] $ do
-        strong_ $ toHtml $ show ln <> " results"
-        toHtml $ maybe " total" (\q -> " found for \"" <> q <> "\"") query
-      with (searchBar (maybe "" id query) od) [class_ " mt-8 "]
+  sectionHero $ do
+    h1_ [class_ "text-3xl font-medium font-sans"] "Course listing"
+    p_ [class_ "text-lg font-serif mt-3 text-teal-600"] $ do
+      strong_ $ toHtml $ show ln <> " results"
+      toHtml $ maybe " total" (\q -> " found for \"" <> q <> "\"") query
+    with (searchBar (maybe "" id query) od) [class_ " mt-8 "]
 
 searchView :: (Ord a, Ord b)
            => Maybe Text

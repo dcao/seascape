@@ -7,14 +7,15 @@ import Text.Printf
 
 topHero :: Int -> Html () -> Html ()
 topHero ln extra =
-  div_ [class_ "bg-teal-100 pt-32 pb-64 px-6"] $ do
+  div_ [class_ "bg-teal-100 md:pt-32 md:pb-64 pt-16 pb-16 px-6"] $ do
     div_ [class_ "flex flex-col justify-center max-w-2xl mx-auto text-center"] $ do
-      h1_ [class_ "text-5xl font-light font-sans tracking-tight"] "Your virtual counselor."
-      p_ [class_ "text-xl font-serif mt-5 text-teal-600"] $ do
+      h1_ [class_ "text-4xl md:text-5xl font-light font-sans tracking-tight"] "Your virtual counselor."
+      p_ [class_ "text-lg md:text-xl font-serif mt-5 text-teal-600"] $ do
         "Search for information and statistics on "
         strong_ $ (toHtml :: String -> Html ()) $ printf "%d different sections" ln
         " of courses at UCSD."
         with defaultSearchBar [class_ " mt-12 "]
+        p_ [class_ "mt-2 text-teal-600"] "Tip! Search multiple professor names (separated by spaces) to quickly compare them."
       extra
 
 seascapeFeature :: String -> String -> Html () -> Html ()
@@ -34,7 +35,8 @@ whySeascape =
         a_ [href_ "/listing", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"] "Course listing"
       seascapeFeature "Automated course scheduling" "Seascape can use its database of courses to automatically build a quarter schedule based on your preferences." $
         a_ [class_ "cursor-not-allowed inline-block text-sm px-4 py-2 leading-none border rounded text-gray-400 border-gray-400 cursor-not-allowed"] "Coming soon"
-      seascapeFeature "College plan generator" "Seascape understands UCSD course requirements, and can automatically generate a full college course plan based on your college, major, and fulfilled prerequisites." $
+      seascapeFeature "Course plan generator" "Seascape understands UCSD course requirements, and can automatically generate a full college course plan based on your college, major, and fulfilled prerequisites." $
+        -- a_ [href_ "/plan", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white"] "Course planner"
         a_ [class_ "cursor-not-allowed inline-block text-sm px-4 py-2 leading-none border rounded text-gray-400 border-gray-400 cursor-not-allowed"] "Coming soon"
 
 contactUs :: Html ()

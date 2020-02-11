@@ -3,7 +3,6 @@ module Seascape.App where
 
 import qualified Codec.Base64Url as B64
 import Control.Monad.Trans
-import Control.Arrow ((&&&))
 import Data.Either (either, fromRight)
 import qualified Data.Map.Strict as Map
 import Data.List (nub, sort)
@@ -21,12 +20,11 @@ import Seascape.Views.Home
 import Seascape.Views.Listing
 import Seascape.Views.Partials
 import Seascape.Views.Section
+import Seascape.Views.Plan
+import Seascape.Utils
 
 type App = SpockM () () () ()
 type AppAction = SpockAction () () ()
-
-groupBy' :: Ord k => (v -> k) -> [v] -> Map.Map k [v]
-groupBy' key = Map.fromListWith (++) . map (key &&& pure)
 
 sectionListingAction :: SearchOrdering -> SectionMap -> SectionSearchEng -> Maybe Text -> AppAction ()
 sectionListingAction so sm e mt = lucid $ searchView mt so cotosec
@@ -80,10 +78,13 @@ app = do
     let f (sid, sinfo) = (do
                 let x = Map.filterWithKey (\k _ -> course k == course sid) sectionMap
                 let ranks = rankBy (\_ info -> recInstr info) x
-                let raw = filter (\(Section (k, _)) -> k == sid) sections
+                let raw = filter (\(Section (SectionID _ crs, _)) -> crs == course sid) sections
                 sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (sid, sinfo)
               )
     lucid $ either (\a -> homeView (length sectionMap) (errAlert $ pack a)) f sec
+
+  get "plan" $ do
+    lucid planView
 
   -- get ("raw" <//> "search") $ do
   --   query <- param "q"

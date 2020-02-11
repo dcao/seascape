@@ -37,6 +37,10 @@ newtype Gpa = Gpa (Maybe (Int, Double))
 gpaExists :: Gpa -> Bool
 gpaExists (Gpa x) = isJust x
 
+fromGpa :: Gpa -> Double
+fromGpa (Gpa Nothing)       = error "Gpa.fromGpa: Nothing"
+fromGpa (Gpa (Just (_, x))) = x
+
 lossyGpa :: Gpa -> Double
 lossyGpa (Gpa Nothing)       = ((-1) :: Double)
 lossyGpa (Gpa (Just (_, x))) = x

@@ -93,6 +93,7 @@ navbarPartial = nav_ [class_ "flex items-center justify-between flex-wrap bg-tea
       div_ [class_ "text-md lg:mx-auto"] $ do
         a_ [href_ "/", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Home"
         a_ [href_ "/listing", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Course Listing"
+        -- a_ [href_ "/plan", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Course Planner"
       div_ $ do
         a_ [href_ "https://github.com/dcao/seascape", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"] "Github"
 
@@ -131,6 +132,11 @@ searchBar t r = form_ [action_ "/listing"] $ do
 
 defaultSearchBar :: Html ()
 defaultSearchBar = searchBar "" Relevance
+
+sectionHero :: Html () -> Html ()
+sectionHero body =
+  div_ [class_ "bg-teal-100 pt-12 pb-8 px-6"] $ do
+    div_ [class_ "flex flex-col justify-center max-w-2xl mx-auto text-center"] body
 
 roundToStr :: (PrintfArg a, Floating a) => Int -> a -> String
 roundToStr = printf "%0.*f"

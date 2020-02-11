@@ -1,5 +1,5 @@
 function sparkline(elem, data, avg) {
-    var data = data.sort((a, b) => (a.x == b.x) ? 0 : (a.x > b.x) ? 1 : -1).filter(d => d.y != -1);
+    var data = data.sort((a, b) => (a.x == b.x) ? 0 : (a.x < b.x) ? 1 : -1).filter(d => d.y != -1);
     
     const WIDTH        = 200;
     const HEIGHT       = 60;
@@ -53,3 +53,142 @@ function sparkline(elem, data, avg) {
         .attr('class', 'r-2 fill-current text-teal-500');
 }
 
+function boxnwhisk(elem, data, thisKey, rev) {
+    var data = data.filter(r => r.x != -1);
+    var mult = rev ? -1 : 1;
+    
+    var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+        .key(function(d) { return d.y; })
+        .rollup(function(d) {
+            var q1 = d3.quantile(d.map(function(g) { return g.x; }).sort(d3.ascending), .25);
+            var median = d3.quantile(d.map(function(g) { return g.x; }).sort(d3.ascending), .5);
+            var q3 = d3.quantile(d.map(function(g) { return g.x; }).sort(d3.ascending), .75);
+            var iqr = q3 - q1;
+            var max = d3.max(d.map(function(g) { return g.x; }));
+            var min = d3.min(d.map(function(g) { return g.x; }));
+            return {
+                q1: q1,
+                median: median,
+                q3: q3,
+                iqr: iqr,
+                min: Math.max(min, q1 - 1.5 * iqr),
+                max: Math.min(max, q3 + 1.5 * iqr)
+            };
+        })
+        .entries(data)
+        .sort((a, b) => (a.value.median == b.value.median) ? 0 : (a.value.median < b.value.median) ? mult * 1 : mult * -1);
+
+    const WIDTH        = 300;
+    const BOX_HEIGHT   = 15;
+    const BOX_INNER_HEIGHT = BOX_HEIGHT * 0.65;
+    const AXIS_HEIGHT  = 20;
+    const MARGIN       = { top: 4, right: 4, bottom: 4, left: 4 };
+    const INNER_WIDTH  = WIDTH - MARGIN.left - MARGIN.right;
+
+    const xmin = Math.min(...sumstat.map(r => r.value.min));
+    const xmax = Math.max(...sumstat.map(r => r.value.max));
+
+    const x   = d3.scaleLinear().domain([xmin, xmax]).range([0, INNER_WIDTH]);
+    const y   = d3.scaleBand().domain(sumstat.map(function(d) { return d.key; })).paddingInner(1).paddingOuter(0.5);
+
+    const HEIGHT       = BOX_HEIGHT * y.domain().length + AXIS_HEIGHT;
+    const INNER_HEIGHT = HEIGHT - MARGIN.top - MARGIN.bottom - AXIS_HEIGHT;
+
+    y.range([INNER_HEIGHT, 0]);
+
+    const svg = d3.select(elem).append('svg')
+          .attr('viewBox', `0 0 ${WIDTH} ${HEIGHT}`)
+          .append('g')
+          .attr('transform', 'translate(' + MARGIN.left + ',' + MARGIN.top + ')');
+
+    svg
+        .append("g")
+        .attr("transform", `translate(0, ${INNER_HEIGHT + 5})`)
+        .style("stroke-width", "0.5px")
+        .style("font-size", "0.55em")
+        .style("font-family", "Recursive Mono")
+        .call(d3.axisBottom(x));
+
+    svg
+        .selectAll("bgRects")
+        .data(sumstat)
+        .enter()
+        .append("rect")
+            .attr("x", 0)
+            .attr("y", function(d) { return y(d.key) - BOX_HEIGHT / 2; })
+            .attr("height", BOX_HEIGHT)
+            .attr("width", WIDTH)
+            .attr("class", function(d) { return (d.key === thisKey) ? "fill-current text-teal-100" : "fill-current text-white"; });
+
+    svg
+        .selectAll("texts")
+        .data(sumstat)
+        .enter()
+        .append("text")
+        .attr("x", function(d) { return (x(d.value.max) / INNER_WIDTH <= 0.85) ? x(d.value.max) + 6 : x(d.value.min) - 6; })
+        .attr("y", function(d) { return y(d.key); })
+        .style("font-size", "0.5em")
+        .style("alignment-baseline", "middle")
+        .style("text-anchor", function(d) { return (x(d.value.max) / INNER_WIDTH <= 0.85) ? "start" : "end"; })
+        .attr("class", function(d) { return (d.key == thisKey) ? "fill-current text-teal-600" : "fill-current text-gray-500"; })
+        .style("font-weight", function(d) { return (d.key == thisKey) ? "600" : "500"; })
+        .style("white-space", "pre")
+        .text(function(d) { return d.key.substr(0, d.key.indexOf(',')); });
+
+    // Show the main vertical line
+    svg
+        .selectAll("horizLines")
+        .data(sumstat)
+        .enter()
+        .append("line")
+            .attr("x1", function(d) { return x(d.value.min); })
+            .attr("x2", function(d) { return x(d.value.max); })
+            .attr("y1", function(d) { return y(d.key); })
+            .attr("y2", function(d) { return y(d.key); })
+            .attr("stroke", "gray");
+
+    // rectangle for the main box
+    svg
+        .selectAll("boxes")
+        .data(sumstat)
+        .enter()
+        .append("rect")
+            .attr("x", function(d) { return x(d.value.q1); })
+            .attr("y", function(d) { return y(d.key) - BOX_INNER_HEIGHT / 2; })
+            .attr("height", BOX_HEIGHT * 0.65)
+            .attr("width", function(d) { return x(d.value.q3) - x(d.value.q1); })
+            .attr("stroke", "gray")
+        .attr("class", function(d) { return (d.key === thisKey) ? "fill-current text-teal-300" : "fill-current text-gray-300"; });
+
+    svg
+        .selectAll("minLines")
+        .data(sumstat)
+        .enter()
+        .append("line")
+            .attr("x1", function(d) { return x(d.value.min); })
+            .attr("x2", function(d) { return x(d.value.min); })
+            .attr("y1", function(d) { return y(d.key) - BOX_INNER_HEIGHT / 2; })
+            .attr("y2", function(d) { return y(d.key) + BOX_INNER_HEIGHT / 2; })
+            .attr("stroke", "gray");
+    
+    svg
+        .selectAll("minLines")
+        .data(sumstat)
+        .enter()
+        .append("line")
+            .attr("x1", function(d) { return x(d.value.max); })
+            .attr("x2", function(d) { return x(d.value.max); })
+            .attr("y1", function(d) { return y(d.key) - BOX_INNER_HEIGHT / 2; })
+            .attr("y2", function(d) { return y(d.key) + BOX_INNER_HEIGHT / 2; })
+            .attr("stroke", "gray");
+    svg
+        .selectAll("medLines")
+        .data(sumstat)
+        .enter()
+        .append("line")
+            .attr("x1", function(d) { return x(d.value.median); })
+            .attr("x2", function(d) { return x(d.value.median); })
+            .attr("y1", function(d) { return y(d.key) - BOX_INNER_HEIGHT / 2; })
+            .attr("y2", function(d) { return y(d.key) + BOX_INNER_HEIGHT / 2; })
+            .attr("stroke", "gray");
+}

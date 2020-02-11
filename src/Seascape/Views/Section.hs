@@ -4,11 +4,14 @@ module Seascape.Views.Section where
 import qualified Data.ByteString.Lazy as LBS
 import Data.Aeson (encode)
 import Data.Foldable (forM_)
+import Data.List (filter)
+import qualified Data.Map as Map
 import Data.Text (pack)
 import Data.Text.Encoding
 import Lucid hiding (term)
 import Seascape.Data.Sparse
 import Seascape.Views.Partials
+import Seascape.Utils
 
 topHero :: Int -> Int -> Int -> Int -> (SectionID, SectionInfo Int Int) -> Html ()
 topHero rnki rnko cnti cnto (sid, sinfo) =
@@ -49,21 +52,90 @@ midNav :: Html ()
 midNav = do
   div_ [class_ "bg-gray-800 py-3 px-2 sticky mb-6"] $ do
     div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
+      link "#difficulty" "Class Difficulty"
       link "#raw-data" "Raw Data"
-      p_ [class_ "text-sm px-2 m-1 py-1 font-medium text-gray-500 bg-gray-700 rounded"] "More coming soon"
 
   where
-    link href x = with (a_ x) [class_ "px-2 m-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
+    link href x = with (a_ x) [class_ "px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
 
-body :: [Section Int ()] -> Html ()
-body df =
+body :: [Section Int ()] -> SectionID -> Html ()
+body df sid =
   div_ [class_ "max-w-5xl px-4 sm:px-0 mx-auto"] $ do
-    rawData df
+    classDiff df sid
+    rawData $ filterDf df sid
+
+sectionSec :: Html () -> Html () -> Html ()
+sectionSec title rest =
+  div_ [id_ "raw-data", class_ "flex flex-col pb-6"] $ do
+    span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] title
+    rest
+
+classDiff :: [Section Int ()] -> SectionID -> Html ()
+classDiff df sid =
+  sectionSec "Class Difficulty" $ do
+    p_ [class_ "text-xl tracking-tight"] $ do
+      "This professor takes "
+      span_ [class_ "font-semibold border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ hoursStr hourRank
+      " and is "
+      span_ [class_ "font-semibold border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ gpaStr gpaRank
+      " compared to the average "
+      span_ [class_ "border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ course sid
+      " professor."
+    div_ [class_ "flex flex-col sm:flex-row mt-5"] $ do
+      div_ [class_ "sm:mr-3 mb-6 w-1/2"] $ do
+        p_ [class_ "text-gray-600 text-sm mb-1"] "Time commitment"
+        h1_ [class_ "text-lg font-medium flex-grow mb-2"] $ toHtml $ show'
+          " smallest time commitment of "
+          (length rankedHours)
+          (hourRank)
+        div_ [class_ "hours-bnw"] mempty
+      div_ [class_ "sm:ml-3 mb-6 w-1/2"] $ do
+        p_ [class_ "text-gray-600 text-sm mb-1"] "Average grade"
+        h1_ [class_ "text-lg font-medium flex-grow mb-2"] $ toHtml $ show'
+          " highest grade of "
+          (length rankedGpa)
+          (gpaRank)
+        div_ [class_ "gpa-bnw"] mempty
+
+  where
+    grouped = groupBy' (\(Section (tid, _)) -> tid) df
+    getMedians xs = ( median $ fmap (\(Section (_, x)) -> hours x) xs
+                    , median $ fmap fromGpa $ filter gpaExists $ fmap (\(Section (_, x)) -> gpaAvg x) xs
+                    )
+    grouped' = fmap getMedians grouped
+
+    rankedHours = rankBy (\_ v -> negate <$> fst v) grouped'
+    rankedGpa = rankBy (\_ v -> snd v) grouped'
+
+    show' str l (Just x) = "#" <> show x <> str <> show l
+    show' _ _ Nothing = "N/A"
+
+    hourRank = Map.lookup sid rankedHours
+    gpaRank = Map.lookup sid rankedGpa
+
+    hoursStr :: Maybe Int -> String
+    hoursStr (Just x)
+      | length rankedHours <= 2 = "an average amount of time"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.8 = "way more time"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.6 = "more time"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.4 = "an average amount of time"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.2 = "less time"
+      | otherwise = "a lot less time"
+    hoursStr Nothing = "an unknown amount of time"
+
+    gpaStr :: Maybe Int -> String
+    gpaStr (Just x)
+      | length rankedHours <= 2 = "of average difficulty"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.8 = "way harder"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.6 = "harder"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.4 = "of average difficulty"
+      | (fromIntegral x) / (fromIntegral $ length rankedHours) >= 0.2 = "easier"
+      | otherwise = "way easier"
+    gpaStr Nothing = "of unknown difficulty"
 
 rawData :: [Section Int ()] -> Html ()
 rawData df =
-  div_ [id_ "raw-data", class_ "flex flex-col"] $ do
-    span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] "Raw data"
+  sectionSec "Raw Data" $ do
     forM_ df $ \r -> do
       let (_, rinfo) = unSection r
       div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
@@ -90,12 +162,18 @@ sectionView :: Int -> Int -> Int -> Int -> [Section Int ()] -> (SectionID, Secti
 sectionView rnki rnko cnti cnto df (sid, sinfo) = defaultPartial (instr sid <> " - " <> course sid <> " - Seascape") $ do
   topHero rnki rnko cnti cnto (sid, sinfo)
   midNav
-  body df
+  body df sid
   js_ "/js/d3.v5.min.js"
   js_ "/js/section.js"
   script_ $
-    "const sectionTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode df) <> ";" <>
-    "sparkline('.rec-instr-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_recInstr }; }), " <> (pack $ show $ instr sid) <> ");" <>
+    "const allTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode df) <> ";" <>
+    "const sectionTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode $ filterDf df sid) <> ";"
+  script_ $
+    "sparkline('.rec-instr-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_recInstr }; }), " <> (pack $ show $ recInstr sinfo) <> ");" <>
     "sparkline('.time-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_hours }; }), " <> (pack $ show $ hours sinfo) <> ");" <>
-    if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ lossyGpa $ gpaAvg sinfo) <> ");" else ""
+    (if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ lossyGpa $ gpaAvg sinfo) <> ");" else "") <>
+    "boxnwhisk('.hours-bnw', allTerms.map(function(r) { return { x: r.st_hours, y: r.st_instr }; }), '" <> instr sid <> "', false);" <>
+    "boxnwhisk('.gpa-bnw', allTerms.map(function(r) { return { x: r.st_gpaAvg, y: r.st_instr }; }), '" <> instr sid <> "', true);"
 
+filterDf :: [Section a b] -> SectionID -> [Section a b]
+filterDf df sid = filter (\(Section (sid', _)) -> sid == sid') df
