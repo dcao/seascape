@@ -5,7 +5,9 @@ import Control.Monad (join)
 import Data.Ix
 import qualified Data.Map.Strict as Map
 import Data.SearchEngine
-import Data.Text (intercalate, splitOn, Text, toLower)
+import Data.Char (isDigit)
+import Data.Text (intercalate, splitOn, Text, toLower, filter, inits)
+import Data.Monoid (mconcat)
 import Seascape.Data.Sparse
 
 data SectionField = FInstr | FCourse
@@ -28,12 +30,13 @@ extractInstr :: Text -> [Text]
 extractInstr x = [lx, intercalate " " (reverse sx)] ++ sx
   where
     lx = toLower x
-    sx = join $ splitOn " " <$> splitOn ", " lx
+    sx = join $ fmap inits $ join $ splitOn " " <$> splitOn ", " lx
 
 extractCourse :: Text -> [Text]
-extractCourse x = [lx] ++ splitOn " " lx
+extractCourse x = [lx, mconcat spl, Data.Text.filter isDigit x] ++ spl ++ [mconcat spl]
   where
     lx = toLower x
+    spl = splitOn " " lx
 
 sectionSearchCfg :: SearchConfig SectionID SectionID SectionField NoFeatures
 sectionSearchCfg = SearchConfig
