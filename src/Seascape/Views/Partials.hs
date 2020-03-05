@@ -83,19 +83,20 @@ navbarPartial :: Html ()
 navbarPartial = nav_ [class_ "flex items-center justify-between flex-wrap bg-teal-500 py-5 shadow-lg z-100 px-6 relative"] $ do
   div_ [class_ "mx-auto container w-full justify-between flex-wrap flex items-center"] $ do
     div_ [class_ "flex items-center flex-shrink-0 text-white"] $ do
-      span_ [class_ "font-semibold text-xl tracking-tight"] "Seascape"
+      a_ [href_ "/", class_ "font-semibold text-xl tracking-tight"] "Seascape"
     div_ [class_ "block lg:hidden"] $ do
-      button_ [class_ "flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"] $ do
+      button_ [id_ "navbutt", class_ "flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"] $ do
         svg_ [class_ "fill-current h-3 w-3", viewBox_ "0 0 20 20", xmlns_ "http://www.w3.org/2000/svg"] $ do
           title_ "Menu"
           path_ [d_ "M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"] mempty
-    div_ [class_ "w-full block flex-grow lg:flex lg:items-center lg:w-auto"] $ do
+    div_ [id_ "navstuff", class_ "w-full hidden flex-grow lg:flex lg:items-center lg:w-auto"] $ do
       div_ [class_ "text-md lg:mx-auto"] $ do
         a_ [href_ "/", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Home"
         a_ [href_ "/listing", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Course Listing"
         -- a_ [href_ "/plan", class_"block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"] "Course Planner"
       div_ $ do
         a_ [href_ "https://github.com/dcao/seascape", class_ "inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"] "Github"
+  script_ "var nb = document.getElementById('navbutt'); var ns = document.getElementById('navstuff'); nb.onclick = function() { ns.classList.toggle('block'); ns.classList.toggle('hidden'); }"
 
 defaultPartial :: Text -> Html () -> Html ()
 defaultPartial t body =
@@ -115,16 +116,20 @@ defaultPartial t body =
 
 searchBar :: Text -> SearchOrdering -> Html ()
 searchBar t r = form_ [action_ "/listing"] $ do
-  div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white text-xl leading-tight"] $ do
-    input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Type a class or instructor here!"]
-    select_ [name_ "sortBy", class_ "appearance-none block bg-white px-2 text-lg text-teal-500 focus:outline-none text-underline"] $ do
+  input_ [type_ "submit", style_ "display: none;"]
+  div_ [class_ "flex items-center border shadow-lg rounded-lg w-full bg-white md:text-xl leading-tight"] $ do
+    input_ [type_ "text", name_ "q", class_ "pl-6 outline-none appearance-none border-none w-full text-gray-700", value_ t, id_ "username", type_ "text", placeholder_ "Type a class or instructor..."]
+    button_ [class_ "flex-shrink-0 text-teal-500 hover:text-teal-700 p-6", type_ "submit"] $ do
+      i_ [class_ "fas fa-search"] mempty
+  div_ [class_ "flex justify-center mt-4 md:text-lg leading-tight"] $ do
+    select_ [name_ "sortBy", class_ "appearance-none block bg-teal-100 px-2 text-lg text-teal-500 focus:outline-none text-underline font-semibold"] $ do
       option_ (optSel Relevance "relevance") "Sort by relevance"
       option_ (optSel Ranking "ranking") "Sort by ranking"
+      option_ (optSel Time "time") "Sort by time"
+      option_ (optSel AvgGPA "gpa") "Sort by GPA"
     div_ [class_ "pointer-events-none flex items-center text-teal-600"] $
       svg_ [class_ "fill-current h-4 w-4", viewBox_ "0 0 20 20"] $
         path_ [d_ "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"] $ mempty
-    button_ [class_ "flex-shrink-0 text-teal-500 hover:text-teal-700 p-6", type_ "submit"] $ do
-      i_ [class_ "fas fa-search"] mempty
   where
     optSel od v
       | od == r    = [value_ v, selected_ "selected"]

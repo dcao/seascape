@@ -32,17 +32,17 @@ topHero rnki rnko cnti cnto (sid, sinfo) =
       div_ [class_ "flex max-w-5xl mx-auto"] $ do
         p_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-teal-300 mr-auto mb-4 rounded"] "Report card"
       div_ [class_ "flex flex-col sm:flex-row max-w-5xl mx-auto"] $ do
-        div_ [class_ "sm:mr-3 mb-6 flex-grow"] $ do
+        div_ [class_ "sm:mr-3 mb-6 w-full sm:w-1/3 flex-grow"] $ do
           p_ [class_ "text-gray-600 text-sm mb-1"] "Instructor approval"
           h1_ [class_ "text-xl font-semibold font-mono flex-grow mb-2"] $ do
             toHtml $ (roundToStr 1 $ recInstr sinfo) <> "%"
           div_ [class_ "rec-instr-spark"] $ return ()
-        div_ [class_ "sm:mx-3 mb-6 flex-grow"] $ do
+        div_ [class_ "sm:mx-3 mb-6 w-full sm:w-1/3 flex-grow"] $ do
           p_ [class_ "text-gray-600 text-sm mb-1"] "Hours committed"
           h1_ [class_ "text-xl font-semibold font-mono mb-2"] $ do
             toHtml $ (timeFmt $ hours sinfo) <> " / wk"
           div_ [class_ "time-spark"] $ return ()
-        div_ [class_ "sm:ml-3 mb-6 flex-grow"] $ do
+        div_ [class_ "sm:ml-3 mb-6 w-full sm:w-1/3 flex-grow"] $ do
           p_ [class_ "text-gray-600 text-sm mb-1"] "Average grade"
           div_ [class_ "flex flex-row"] $ do
             with (gpaToHtml $ gpaAvg sinfo) [class_ " font-semibold mb-2 text-xl "]
@@ -50,8 +50,9 @@ topHero rnki rnko cnti cnto (sid, sinfo) =
 
 midNav :: Html ()
 midNav = do
-  div_ [class_ "bg-gray-800 py-3 px-2 sticky"] $ do
+  div_ [class_ "bg-gray-800 py-3 px-2 sticky top-0"] $ do
     div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
+      link "#" "Overview"
       link "#difficulty" "Class Difficulty"
       link "#raw-data" "Raw Data"
 
@@ -66,7 +67,7 @@ body df sid =
 
 classDiff :: [Section Int ()] -> SectionID -> Html ()
 classDiff df sid =
-  sectionSec "#difficulty" "Class Difficulty" $ do
+  sectionSec "difficulty" "Class Difficulty" $ do
     p_ [class_ "text-xl tracking-tight"] $ do
       "This professor takes "
       span_ [class_ "font-semibold border-gray-800 border-bottom border-dotted border-b"] $ toHtml $ hoursStr hourRank
@@ -129,7 +130,7 @@ classDiff df sid =
 
 rawData :: [Section Int ()] -> Html ()
 rawData df =
-  sectionSec "#raw-data" "Raw Data" $ do
+  sectionSec "raw-data" "Raw Data" $ do
     forM_ df $ \r -> do
       let (_, rinfo) = unSection r
       div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do

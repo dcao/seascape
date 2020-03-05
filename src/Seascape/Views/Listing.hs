@@ -38,16 +38,14 @@ searchView query od sm = defaultPartial (maybe "Listing - Seascape" (\q -> q <> 
               h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $ do
                 let cs = B64.encode $ encodeUtf8 $ course sid
                 let is = B64.encode $ encodeUtf8 $ instr sid
-                let rank = "#" <> (show $ recInstrRank sinfo) <> " "
-                span_ [class_ "text-gray-600"] $ toHtml rank
                 a_ [href_ ("/section/" <> cs <> "/" <> is), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ unpack $ instr sid
               p_ [class_ "text-sm sm:text-base text-gray-600 text-right sm:text-left"] $ do
                 strong_ $ toHtml $ show $ evals sinfo
                 " evaluations"
             div_ [class_ "w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0"] $ do
               div_ [class_ "w-1/3 flex flex-col"] $ do
-                h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ recClass sinfo) <> "%"
-                p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "rec. class"
+                h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml ("#" <> (show $ recInstrRank sinfo))
+                p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "overall rank"
               div_ [class_ "w-1/3 flex flex-col"] $ do
                 h1_ [class_ "font-medium text-sm sm:text-lg font-mono"] $ toHtml $ (roundToStr 1 $ recInstr sinfo) <> "%"
                 p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "rec. prof."

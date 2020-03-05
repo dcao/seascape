@@ -144,7 +144,11 @@ readSections loc = do
   f <- BS.readFile loc
   return $ (genTermIx . V.toList . snd) <$> decodeByName f
 
-data SearchOrdering = Relevance | Ranking
+data SearchOrdering
+  = Relevance
+  | Ranking
+  | Time
+  | AvgGPA
   deriving (Eq)
 
 defaultOrdering :: SearchOrdering
@@ -152,11 +156,15 @@ defaultOrdering = Relevance
 
 getOrdering :: Maybe Text -> SearchOrdering
 getOrdering (Just "ranking") = Ranking
+getOrdering (Just "time")    = Time
+getOrdering (Just "gpa")     = AvgGPA
 getOrdering _                = Relevance
 
 ordf :: SearchOrdering -> (Int, Section Int Int) -> Int
 ordf Relevance (ord, _)                = ord
 ordf Ranking   (_, Section (_, sinfo)) = recInstrRank sinfo
+ordf Time      (_, Section (_, sinfo)) = round $ 1000 * hours sinfo
+ordf AvgGPA    (_, Section (_, sinfo)) = negate $ round $ 1000 * (lossyGpa $ gpaAvg sinfo)
 
 addCourseKey :: [Text] -> (Int, Section Int Int) -> ((Int, Text), (Int, Section Int Int))
 addCourseKey cs a@(_, Section (sid, _)) = ((fromJust $ elemIndex c cs, c), a)

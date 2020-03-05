@@ -18,6 +18,18 @@ function sparkline(elem, data, avg) {
           .append('g')
           .attr('transform', 'translate(' + MARGIN.left + ',' + MARGIN.top + ')');
 
+    if (data.length <= 1) {
+        svg.append("text")
+            .attr("transform", `translate(-3, ${HEIGHT / 2})`)
+            .attr('class', 'stroke-width-1 stroke-current text-gray-500')
+            .style("stroke-width", "0.35px")
+            .style("font-size", "0.45em")
+            .style("font-family", "Recursive Mono")
+            .style("text-anchor", "start")
+            .text("(not enough data for graph)");
+        return;
+    }
+
     const line = d3.line()
           .x((d, i) => x(i))
           .y(d => y(d.y));
