@@ -125,6 +125,17 @@ genTermIx entries = fmap (Section . (addTermIx <$>) . unSection) entries
     addTermIx :: SectionInfo () () -> SectionInfo Int ()
     addTermIx info = info { termIx = fromJust (elemIndex (term info) terms) }
 
+-- To generate our ranks, we use the lower bound of a Wilson score 95% confidence interval.
+-- See https://www.evanmiller.org/how-not-to-sort-by-average-rating.html.
+wilsonBotRank :: Double -> Int -> Double
+wilsonBotRank avg es = let
+    evals' = fromIntegral es
+    z = 1.96
+    a = avg + z * z / (2 * evals');
+    b = z * sqrt ((avg * (1 - avg) + z * z / (4 * evals')) / evals');
+    c = 1 + z * z / evals';
+  in (a - b) / c
+
 genSectionMap :: [Section Int ()] -> SectionMap
 genSectionMap entries = pass2 . pass1 $ entries
   where
@@ -136,7 +147,7 @@ genSectionMap entries = pass2 . pass1 $ entries
     pass2 :: Map.Map SectionID (SectionInfo Int ()) -> Map.Map SectionID (SectionInfo Int Int)
     pass2 xs = mpRecInstr
       where
-        recInstrRankMap = rankBy (\_ i -> recInstr i) xs
+        recInstrRankMap = rankBy (\_ i -> wilsonBotRank ((recInstr i) / 100) (evals i)) xs
         mpRecInstr = Map.mapWithKey (\k x -> x { recInstrRank = fromJust $ Map.lookup k recInstrRankMap }) xs
 
 readSections :: String -> IO (Either String [Section Int ()])

@@ -77,7 +77,7 @@ app = do
     let sec = ciToSection ins ci sectionMap
     let f (sid, sinfo) = (do
                 let x = Map.filterWithKey (\k _ -> course k == course sid) sectionMap
-                let ranks = rankBy (\_ info -> recInstr info) x
+                let ranks = rankBy (\_ info -> negate $ recInstrRank info) x
                 let raw = filter (\(Section (SectionID _ crs, _)) -> crs == course sid) sections
                 sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (sid, sinfo)
               )
