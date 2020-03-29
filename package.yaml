@@ -71,6 +71,7 @@ executables:
       - streamly
       - streamly-cassava
       - text
+      - unordered-containers
       - vector
       - webdriver
     

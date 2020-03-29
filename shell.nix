@@ -18,7 +18,7 @@ in
     ];
 
     # You might want some extra tools in the shell (optional).
-    buildInputs = [ pkgs.nodejs pkgs.selenium-server-standalone pkgs.cabal-install ];
+    buildInputs = [ pkgs.nodejs pkgs.selenium-server-standalone pkgs.cabal-install pkgs.geckodriver ];
 
     # Prevents cabal from choosing alternate plans, so that
     # *all* dependencies are provided by Nix.

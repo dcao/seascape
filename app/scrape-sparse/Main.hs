@@ -3,21 +3,27 @@
 {-# LANGUAGE DeriveGeneric, DerivingStrategies, DeriveAnyClass #-}
 module Main where
 
+import Data.Aeson
 import qualified Data.ByteString.Char8 as C
 import Data.ByteString (ByteString)
 import Data.Csv
+import Data.Maybe (listToMaybe)
 import Data.Text (Text, isInfixOf)
 import Data.Text.Encoding (encodeUtf8)
+import qualified Data.Text.IO as TIO
 import qualified Data.Vector as V
 import GHC.Generics (Generic)
 import Streamly
 import qualified Streamly.Prelude as S
 import Streamly.Csv (encode)
+import System.Environment (getArgs)
 import System.IO
 import Test.WebDriver
 import Test.WebDriver.Commands.Wait
 import Text.HTML.Scalpel
 import Text.HTML.TagSoup.Fast
+
+import qualified Data.HashMap.Strict as HM
 
 import BS
 import Webdriver
@@ -38,8 +44,7 @@ data SectionTerm = SectionTerm
 
 main :: IO ()
 main = do
-  conf <- firefoxConfig
-  src <- runSession conf getSparseResults
+  src <- getSrc
   let tags = parseTags . encodeUtf8 $ src
   let l = maybe [] id $ scrape sparseHTMLParser tags
   let s = S.fromList l :: SerialT IO SectionTerm
@@ -47,6 +52,21 @@ main = do
   let c = Streamly.Csv.encode (Just hdr) s
   withFile "data/data.csv" WriteMode $ \h ->
     S.mapM_ (C.hPut h) c
+
+getSrc :: IO Text
+getSrc = do
+  conf <- firefoxConfig
+  fname <- fmap listToMaybe getArgs
+  dlText conf fname
+  where
+    dlText conf Nothing  = runSession conf getSparseResults
+    dlText _    (Just f) = TIO.readFile f
+
+chromeConfig :: IO WDConfig
+chromeConfig = do
+  m <- mgr
+  let b = chrome { chromeExperimentalOptions = HM.fromList [("w3c", Bool False)] }
+  return $ useBrowser b $ defaultConfig { wdHTTPManager = Just m }
 
 firefoxConfig :: IO WDConfig
 firefoxConfig = do
@@ -56,7 +76,7 @@ firefoxConfig = do
 getSparseResults :: WD Text
 getSparseResults = do
   -- Set Selenium timeout; not strictly necessary? Idk
-  setTimeout 1200000
+  setTimeout 120000000
   openPage "https://cape.ucsd.edu/responses/Results.aspx?Name=whatever"
   waitUntil 60 $ expect =<< (isInfixOf "CAPE Results") <$> getTitle 
   openPage "https://cape.ucsd.edu/responses/Results.aspx?Name=%2C"
