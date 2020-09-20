@@ -1,4 +1,333 @@
 instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
+"Goldstein, Paul S",ANAR 100,S220,13,3,100.0,100.0,5.83,3.33,
+"Braswell, Geoffrey E.",ANAR 144,S220,16,4,100.0,100.0,4.00,3.25,
+"Saravia, Paula F",ANSC 105,S220,18,16,81.3,93.8,7.75,3.60,
+"Azarova, Mayya",ANSC 138,S220,6,6,100.0,100.0,5.17,3.83,
+"Streuli, Samantha Aubrey",ANSC 144,S220,18,6,100.0,100.0,3.50,3.83,
+"Kozelka, Ellen Elizabeth",ANSC 148,S220,15,13,100.0,100.0,3.58,3.75,
+"Parish, Steven Martin",ANSC 166,S220,164,39,100.0,100.0,4.34,3.87,3.98
+"Clausing, Elizabeth Sarah Frances",ANTH 102,S220,31,5,80.0,80.0,4.50,4.00,3.69
+"Hanson, Kari Lynne",ANTH 2,S220,36,13,76.9,75.0,4.81,3.64,3.70
+"Kennemore, Amy Michelle",ANTH 21,S220,28,13,83.3,100.0,6.33,3.89,3.90
+"Villavicencio, Marianinna",ANTH 23,S220,21,4,100.0,100.0,6.50,3.75,3.60
+"Gonzales, Paulina Margarita",AWP 1,S220,15,12,91.7,100.0,11.83,3.00,
+"Eastin, Schuyler E.",AWP 10,S220,7,7,100.0,100.0,5.07,3.67,
+"Gocsik, Karen Marie",AWP 10,S220,14,14,100.0,100.0,4.79,3.54,
+"Wilson, Natalie Ann",AWP 10,S220,14,12,91.7,100.0,8.17,3.42,
+"Chandler, Bailee Daniele",AWP 10,S220,15,14,85.7,85.7,5.50,3.38,
+"Falcon, Jennifer A",AWP 10,S220,15,11,100.0,100.0,3.59,3.60,
+"Coulter, Jane Elisabeth",AWP 10,S220,16,16,100.0,100.0,6.88,3.60,
+"Heiser, Jerrod A",AWP 10,S220,15,15,86.7,93.3,6.63,3.27,
+"Flint, Stephanie M",AWP 10,S220,15,14,92.9,100.0,5.36,3.38,
+"Given, William Allan",AWP 10,S220,14,14,100.0,100.0,4.65,3.31,
+"Haugh, Megan Nicole",AWP 10,S220,14,13,100.0,100.0,6.35,3.54,
+"Gocsik, Karen Marie",AWP 10,S220,15,15,100.0,100.0,5.83,3.50,
+"Christie, Veronica Ann",AWP 10,S220,14,9,100.0,100.0,6.50,3.56,
+"Setoda, Kayleigh Kumiko",AWP 10,S220,14,13,100.0,100.0,5.73,3.62,
+"Gonzales, Paulina Margarita",AWP 10,S220,15,15,100.0,100.0,5.17,3.79,
+"Falcon, Jennifer A",AWP 10,S220,14,14,100.0,100.0,5.36,3.85,
+"Chandler, Bailee Daniele",AWP 10,S220,14,14,100.0,100.0,6.21,3.43,
+"Powers, Sarah Elizabeth",AWP 10,S220,16,16,100.0,100.0,5.13,3.69,
+"Flagg, Matthew Paul",BIBC 102,S220,125,102,96.0,100.0,8.18,3.44,3.19
+"Bozinovic, Goran",BIBC 103,S220,33,6,60.0,100.0,10.50,2.60,3.19
+"Day, Christopher D",BICD 100,S220,136,58,94.6,91.1,7.41,3.58,3.33
+"Petty, Emily L",BICD 110,S220,42,33,93.8,96.9,9.81,3.47,3.57
+"Gustafson-Brown, Cindy",BICD 136,S220,44,16,93.8,87.5,9.25,3.13,3.08
+"Butler, Shannon Rhey",BIEB 102,S220,93,74,93.1,95.8,5.35,3.49,3.71
+"Pagniello, Camille",BIEB 134,S220,7,7,85.7,71.4,9.36,3.29,
+"Wills, Christopher",BIEB 150,S220,52,19,78.9,84.2,6.50,3.11,3.38
+"Pagliuso, Delaney Catherine",BILD 1,S220,105,76,94.7,92.0,6.77,3.38,3.04
+"Gustafson-Brown, Cindy",BILD 10,S220,43,33,84.8,87.9,6.92,3.31,3.11
+"Kuret, Thomas Joseph",BILD 2,S220,95,79,92.4,94.9,7.99,3.62,3.26
+"Park, Ji Young",BILD 2,S220,87,58,96.6,96.6,6.64,3.67,3.57
+"Butler, Shannon Rhey",BILD 3,S220,135,90,88.8,91.0,6.79,3.67,3.73
+"Mudla, Anusorn",BIMM 100,S220,128,107,89.7,86.9,9.29,3.12,3.18
+"Grossman, Emily N",BIMM 101,S220,54,44,93.2,95.5,8.59,3.63,3.82
+"Tat, John",BIMM 110,S220,76,70,98.6,100.0,7.32,3.47,3.16
+"Burg, Michael",BIMM 134,S220,299,259,97.3,98.5,7.71,3.45,3.71
+"Vijapurkar, Ulka",BIPN 100,S220,56,19,88.9,81.3,10.06,3.17,3.21
+"Reyes Gonzalez, Catalina",BIPN 106,S220,23,8,71.4,66.7,6.50,3.50,2.72
+"Alfonso, Stephanie Isabel",BIPN 150,S220,52,17,82.4,70.6,8.26,3.18,2.76
+"Bigham, David Joseph",CAT 1,S220,53,16,93.3,100.0,6.21,3.40,3.65
+"Marchisotto, Jennifer Anne",CAT 125R,S220,181,122,94.2,95.9,4.93,3.83,3.79
+"Martin Sandino, Amanda Maria Yoland",CGS 101,S220,7,3,100.0,100.0,3.83,3.67,
+"Rassooli, Nima",CGS 114,S220,11,5,80.0,60.0,2.90,4.00,
+"Bussey, Thomas J",CHEM 114A,S220,100,34,100.0,100.0,10.14,3.55,3.44
+"Schurmeier, Kimberly",CHEM 120A,S220,104,76,89.5,90.8,7.32,3.29,2.83
+"Ternansky, Robert J.",CHEM 40A,S220,52,18,64.7,70.6,14.85,2.47,2.63
+"Klosterman, Jeremy K",CHEM 40B,S220,80,72,80.3,87.3,10.30,2.93,2.74
+"Klosterman, Jeremy K",CHEM 40C,S220,75,57,78.9,91.2,11.55,2.76,2.80
+"Bussey, Thomas J",CHEM 6A,S220,98,37,97.2,100.0,7.72,3.63,3.42
+"Crocker, Daniel Robert",CHEM 6B,S220,49,11,77.8,55.6,11.50,3.33,2.79
+"Mantanona, Alex Jason",CHEM 6C,S220,118,42,95.2,85.4,7.36,3.45,3.10
+"Allen, Michael Gordon",COGS 100,S220,47,41,82.9,92.7,6.50,3.29,3.53
+"Allen, Michael Gordon",COGS 101B,S220,80,23,100.0,95.7,5.46,3.67,3.51
+"Johnson, Christine M.",COGS 102A,S220,34,8,75.0,75.0,7.50,3.25,3.25
+"Barrera, Steven James",COGS 14A,S220,120,40,100.0,100.0,6.45,3.66,3.42
+"Hoffman, Drew Ellen",COGS 14B,S220,54,30,86.2,93.1,5.88,3.55,3.59
+"Lee, Brittany Alexandra",COGS 154,S220,51,20,100.0,89.5,6.40,3.89,3.79
+"Coulson, Seana M",COGS 179,S220,18,8,87.5,87.5,8.00,3.00,
+"Boyle, Mary E. T.",COGS 187A,S220,76,20,94.4,83.3,7.61,3.72,3.76
+"Gupta, Anjum",COGS 188,S220,49,41,80.5,85.0,7.10,3.19,3.27
+"Bardolph, Megan Dalene",COGS 2,S220,39,21,100.0,95.0,5.80,3.87,3.79
+"Matsuno, Michael Kento",COGS 20,S220,8,6,100.0,100.0,5.17,2.67,
+"Boyle, Mary E. T.",COGS 3,S220,45,11,60.0,60.0,10.30,3.40,3.69
+"Shannon, Kyle Michael",COGS 9,S220,63,55,89.1,89.1,5.48,3.87,3.77
+"Leuning, Grant Maurstad",COMM 100B,S220,33,9,88.9,100.0,10.50,3.67,3.39
+"Whitworth-Smith, Andrew C",COMM 100C,S220,25,17,100.0,100.0,8.15,3.53,3.18
+"Collins, Caroline Imani",COMM 103F,S220,24,15,91.7,91.7,6.81,3.77,3.56
+"Aushana, Christina",COMM 107,S220,21,13,84.6,84.6,6.50,3.69,3.36
+"Whitworth-Smith, Andrew C",COMM 109D,S220,38,26,100.0,100.0,5.73,3.80,3.55
+"Hill, Erin Truesdell",COMM 132,S220,22,3,100.0,100.0,7.83,4.00,3.57
+"Gluzman, Ellen Yelena",COMM 164,S220,28,27,96.3,96.3,7.46,3.70,3.52
+"Braun, Oliver",CSE 101,S220,32,11,100.0,100.0,11.77,3.09,3.04
+"Jaiswal, Ragesh",CSE 101,S220,15,5,100.0,100.0,11.30,3.20,
+"Miranda, Gregory Joseph",CSE 11,S220,40,35,94.3,94.1,10.56,3.88,3.56
+"Powell, Thomas Allan",CSE 135,S220,86,16,80.0,80.0,15.30,3.33,3.43
+"Eldon, John",CSE 141,S220,85,11,72.7,63.6,7.41,3.09,3.19
+"Tseng, Hung-Wei",CSE 141,S220,52,52,76.9,65.4,10.31,3.48,3.57
+"Eldon, John",CSE 141L,S220,83,11,81.8,72.7,9.23,3.36,3.29
+"Tseng, Hung-Wei",CSE 141L,S220,49,43,88.4,65.1,13.15,3.58,3.49
+"Geumlek, Joseph Donald",CSE 150A,S220,93,40,97.4,97.4,11.42,3.74,3.64
+"Kumar, Rakesh",CSE 190,S220,23,4,100.0,75.0,8.00,3.25,3.53
+"Bach, Quang Tran",CSE 20,S220,62,14,84.6,84.6,7.88,3.50,3.15
+"Braun, Oliver",CSE 21,S220,38,14,92.9,92.3,10.36,3.07,3.32
+"Bach, Quang Tran",CSE 21,S220,77,25,76.0,88.0,9.06,3.36,3.11
+"Cao, Yingjun",CSE 30,S220,51,28,100.0,100.0,9.93,3.89,3.16
+"Cao, Yingjun",CSE 30,S220,52,35,97.1,94.1,11.62,3.79,3.40
+"Miranda, Gregory Joseph",CSE 5A,S220,33,14,46.2,83.3,12.19,3.25,3.28
+"Swan, Garrett Preston",CSS 2,S220,11,8,100.0,100.0,8.00,3.75,
+"Johnston, Emily Ronay",DOC 1,S220,40,16,75.0,87.5,8.88,3.56,3.36
+"Pass, Natalye Joann",DOC 100D,S220,21,5,80.0,80.0,12.10,3.75,3.66
+"Rill, Bryan",DSGN 100,S220,6,3,66.7,100.0,7.83,4.00,
+"Baghdadchi, Saharnaz",ECE 101,S220,60,44,97.7,100.0,10.82,3.49,3.03
+"Silberman, Jack",ECE 148,S220,10,9,100.0,100.0,11.25,3.88,
+"Abi Samra, Nicholas Camill",ECE 180,S220,32,8,100.0,100.0,6.25,3.88,3.80
+"Shevchenko, Valentin I",ECE 45,S220,35,8,71.4,42.9,8.79,3.00,2.78
+"Famulari, Melissa",ECON 1,S220,45,21,85.7,95.0,5.36,3.60,2.96
+"Famulari, Melissa",ECON 100A,S220,100,22,85.7,95.2,6.68,3.55,2.68
+"Noel, Michael",ECON 100B,S220,37,11,100.0,90.9,8.68,3.64,2.61
+"Tocoian, Oana",ECON 100C,S220,55,11,81.8,100.0,5.41,3.27,2.77
+"Noel, Michael",ECON 109,S220,30,3,66.7,66.7,9.17,2.67,2.57
+"Levkoff, Steven B.",ECON 110B,S220,55,13,100.0,92.3,6.19,3.38,3.07
+"Spini, Pietro Emilio",ECON 120A,S220,26,12,100.0,100.0,8.83,3.58,3.42
+"Sun, Yixiao",ECON 120B,S220,52,15,86.7,93.3,9.30,3.47,3.38
+"Sun, Yixiao",ECON 120C,S220,76,19,72.2,83.3,8.18,3.00,3.30
+"Nieto-Barthaburu, Augusto",ECON 131,S220,72,13,100.0,100.0,5.33,3.18,2.67
+"Squires, Dale E",ECON 144,S220,101,18,70.6,82.4,10.38,3.31,3.01
+"Levkoff, Steven B.",ECON 2,S220,50,13,81.8,90.9,3.77,3.63,3.27
+"Anderson, John Charles",ECON 4,S220,7,4,75.0,50.0,10.50,3.67,
+"Dean, Dallawrence Edward",EDS 25,S220,107,68,95.4,100.0,3.47,3.87,3.94
+"Huezo, Alexander D",ETHN 103,S220,30,12,100.0,100.0,4.68,3.55,3.64
+"Choi, Esther Min",ETHN 104,S220,24,14,100.0,100.0,4.36,3.50,3.81
+"Dorr, Kirstie A.",ETHN 118,S220,23,7,100.0,100.0,3.93,4.00,3.73
+"Suzuki, Erin M.",ETHN 124,S220,21,13,100.0,100.0,5.33,4.00,3.96
+"Abusneineh, Bayan Abdelmajid",ETHN 152,S220,19,7,100.0,100.0,7.64,3.43,
+"Man, Simeon S",ETHN 163J,S220,6,3,100.0,100.0,3.17,4.00,
+"Sloane, Julia Kathryn",GLBH 101,S220,13,4,75.0,100.0,4.00,3.33,
+"Saravia, Paula F",GLBH 105,S220,28,21,90.5,81.0,6.31,3.55,3.53
+"Kozelka, Ellen Elizabeth",GLBH 148,S220,35,29,100.0,100.0,4.64,3.86,3.93
+"Wood, Lauren Elizabeth",HIEU 111,S220,30,13,92.3,92.3,5.88,3.92,3.82
+"Kenny, Michael",HIEU 141,S220,26,10,100.0,100.0,6.94,3.75,3.50
+"Patterson, Patrick H.",HIEU 152,S220,13,7,85.7,100.0,7.64,3.57,
+"Aguilar, Kevan Antonio",HILA 113,S220,25,6,100.0,100.0,5.50,3.33,3.89
+"Vitz, Matthew",HILD 14,S220,23,8,87.5,100.0,6.75,3.75,3.65
+"Mylet, Jordan Lee",HILD 2C,S220,28,9,100.0,100.0,8.06,3.50,3.42
+"Edington, Claire Ellen",HISC 109,S220,22,8,100.0,100.0,6.75,3.71,3.38
+"Golan, Tal",HISC 119,S220,25,8,87.5,100.0,5.00,3.75,3.74
+"Djordjevski, Josef",HITO 156,S220,24,10,90.0,100.0,5.70,3.70,3.57
+"Man, Simeon S",HIUS 103,S220,18,4,100.0,100.0,6.00,4.00,
+"Kwak, Nancy",HIUS 117,S220,23,4,100.0,100.0,3.50,4.00,3.63
+"Man, Simeon S",HIUS 125,S220,20,6,100.0,100.0,3.83,3.83,3.96
+"Malone, Kevan Quinn",HIUS 148,S220,14,5,100.0,80.0,10.90,3.25,
+"Markman, Kristina",HUM 3,S220,77,25,72.0,96.0,8.98,3.12,3.02
+"Zroka, Amy Liane",HUM 4,S220,74,15,80.0,86.7,10.63,3.47,2.84
+"Boettcher, Carolin",HUM 4,S220,35,28,66.7,88.9,8.36,3.22,2.99
+"Thompson, Katherine Anne Merit",HUM 5,S220,76,27,74.1,100.0,7.76,3.07,2.69
+"Caldwell, Michael Alan",HUM 5,S220,38,9,66.7,88.9,7.61,3.33,2.94
+"Lettieri, Michael Joseph",INTL 190,S220,16,3,100.0,100.0,7.83,2.67,
+"Kokinis, Troy Andreas",LATI 10,S220,33,11,72.7,54.5,4.14,3.75,3.41
+"Golan, Tal",LAWS 101,S220,16,5,100.0,100.0,8.10,3.80,
+"Demir, Nese",LIGN 101,S220,24,9,100.0,100.0,4.75,3.63,3.51
+"Vlahakis, Marina Sotiria",LTAF 120,S220,14,9,100.0,100.0,4.28,3.67,
+"Nunez, Bernardo",LTAM 110,S220,19,6,100.0,100.0,6.17,3.50,
+"Wang, Xiaojiao",LTCS 102,S220,11,9,100.0,100.0,6.06,3.50,
+"Tan, Yanqin",LTEA 120A,S220,21,4,75.0,75.0,11.00,3.75,3.49
+"Lee, Sang Eun",LTEN 178,S220,14,4,100.0,100.0,4.50,4.00,
+"Suzuki, Erin M.",LTEN 181,S220,28,6,100.0,100.0,5.17,3.83,3.52
+"Doller, Ben",LTWR 126,S220,18,3,100.0,100.0,3.50,3.50,
+"Shukla, Isha",MAE 101B,S220,33,11,100.0,90.9,10.50,3.00,3.11
+"Ezunkpe, Yawo Semanu",MAE 107,S220,51,19,47.1,41.2,10.97,3.06,2.76
+"Zheng, Yue",MAE 131A,S220,20,5,100.0,80.0,6.50,3.00,3.44
+"Bahadori, Mohammad Yousef",MAE 143A,S220,26,20,75.0,85.0,10.90,2.84,2.79
+"Silberman, Jack",MAE 148,S220,9,9,100.0,100.0,14.50,3.44,
+"Evdokimenko, Ekaterina",MAE 160,S220,18,9,100.0,100.0,8.06,3.78,
+"Bahadori, Mohammad Yousef",MAE 180A,S220,17,12,100.0,100.0,9.50,3.58,
+"Qi, Huihui",MAE 30A,S220,11,9,88.9,100.0,8.50,3.63,
+"Lubarda, Marko",MAE 30B,S220,31,9,100.0,100.0,7.39,3.50,2.85
+"Bewley, Thomas R",MAE 40,S220,38,15,60.0,46.7,8.63,2.27,2.85
+"Lubarda, Marko",MAE 8,S220,52,16,100.0,100.0,6.50,3.79,3.12
+"Harel, Guershon",MATH 102,S220,65,11,40.0,22.2,13.30,3.56,2.95
+"Kitsela, Roman",MATH 103B,S220,74,7,40.0,40.0,12.90,2.20,3.15
+"Chow, Bennett",MATH 109,S220,71,13,75.0,75.0,13.73,3.38,3.07
+"Bowers, Adam R.",MATH 10A,S220,52,38,94.4,88.9,7.64,3.03,3.03
+"Jones, Miles E",MATH 10A,S220,58,33,93.8,93.8,5.19,3.29,3.22
+"Ceccherini-Silberstein, Tullio",MATH 10B,S220,121,33,90.0,75.9,6.90,3.26,2.79
+"Rotar, Vladimir",MATH 10C,S220,146,105,87.6,91.3,8.61,3.38,3.47
+"Bowers, Adam R.",MATH 110,S220,82,16,75.0,86.7,11.50,2.87,2.67
+"Eggers, John Dietrich",MATH 142B,S220,111,15,80.0,100.0,13.43,3.40,3.28
+"Harel, Guershon",MATH 18,S220,119,47,44.2,25.6,12.01,2.86,2.32
+"Rotar, Vladimir",MATH 193B,S220,59,38,100.0,97.4,9.13,3.59,3.56
+"Kroes, Daniel",MATH 20A,S220,48,36,91.4,85.3,8.11,3.00,3.24
+"Perkins, Rudolph Bronson",MATH 20A,S220,33,12,90.0,80.0,10.70,3.40,2.48
+"Um, Ko Woon",MATH 20B,S220,90,21,80.0,89.5,10.10,3.00,2.62
+"Ceccherini-Silberstein, Tullio",MATH 20C,S220,205,65,90.0,76.3,9.18,3.54,3.31
+"Um, Ko Woon",MATH 20D,S220,112,35,97.0,93.9,9.53,3.62,3.36
+"Zhong, Suhan",MATH 20D,S220,36,5,80.0,80.0,9.70,3.80,3.16
+"Kitsela, Roman",MATH 20E,S220,187,39,59.0,61.5,11.73,3.47,3.18
+"Tiefenbruck, Janine LoBue",MATH 4C,S220,38,28,92.6,85.2,7.46,3.30,3.17
+"Ehrich, Kristine R",MGT 103,S220,80,73,90.4,95.9,5.92,3.55,3.25
+"Ehrich, Kristine R",MGT 112,S220,72,64,89.1,85.9,7.25,3.58,3.36
+"Baltes, Guido H",MGT 119,S220,44,34,88.2,91.2,5.97,3.48,3.43
+"Lindenberger, Wade Douglas",MGT 12,S220,87,68,100.0,100.0,4.15,3.83,3.73
+"Maki, Kanetaka",MGT 121A,S220,59,29,89.3,82.1,7.07,3.68,3.44
+"Anderson, John Charles",MGT 131B,S220,80,69,91.3,88.2,6.93,3.27,3.12
+"Lindenberger, Wade Douglas",MGT 136,S220,48,45,97.8,93.3,7.97,3.73,3.75
+"McKay, Mary A",MGT 164,S220,67,27,80.0,84.0,7.78,3.29,3.05
+"Chamberlain, Travis Dean",MGT 18,S220,47,32,96.9,96.9,5.88,3.86,3.53
+"McKay, Mary A",MGT 18,S220,30,9,87.5,87.5,4.75,4.00,2.97
+"Anderson, John Charles",MGT 4,S220,46,40,92.5,95.0,7.45,3.46,3.27
+"Pecore, Joseph P.",MGT 45,S220,63,48,93.8,97.9,7.92,3.43,3.43
+"Rahimi, Babak",MMW 122,S220,110,24,52.6,83.3,10.00,3.25,3.36
+"Chang, Edmond Yi-Teh",MMW 15,S220,167,67,70.8,87.5,6.98,3.51,3.41
+"Chang, Edmond Yi-Teh",MMW 15,S220,171,56,67.3,87.3,6.94,3.64,3.49
+"Vine, Anthony Dominic",MUS 14,S220,15,6,100.0,100.0,2.83,4.00,
+"Digney, Fiona Ruth",MUS 15,S220,20,5,100.0,100.0,4.00,4.00,4.00
+"Nussman, Jonathan Banks",MUS 15,S220,23,5,100.0,100.0,3.70,4.00,3.66
+"Tiruviluamala, Nakul Venkat",MUS 173,S220,20,3,100.0,100.0,4.50,4.00,4.00
+"Oram, Celeste Alice",MUS 1A,S220,23,18,94.4,94.4,4.97,4.00,3.82
+"Matsuno, Michael Kento",MUS 20,S220,9,6,100.0,100.0,5.17,4.00,
+"Brindamour, Lydia Winsor",MUS 4,S220,22,11,100.0,100.0,3.59,3.90,3.84
+"Borgo, David Garcia",MUS 6,S220,19,9,100.0,100.0,4.50,4.00,
+"Zhou, Tiange",MUS 7,S220,15,14,100.0,100.0,3.93,3.93,
+"Mitsialis, Ioannis",MUS 80,S220,11,5,100.0,100.0,2.00,4.00,
+"Moauro, Leonardo",PHIL 1,S220,31,18,77.8,94.4,6.50,3.33,3.16
+"Grush, Rick Scott",PHIL 10,S220,72,30,100.0,100.0,5.05,3.70,3.31
+"Knutzen, Jonathan",PHIL 137,S220,35,4,75.0,100.0,4.50,3.50,3.37
+"Duncan, Emma Ruth",PHIL 163,S220,50,12,100.0,100.0,4.83,3.45,3.58
+"Thresher, Ann Caroline",PHIL 164,S220,38,8,100.0,100.0,5.25,3.71,3.57
+"Duncan, Emma Ruth",PHIL 173,S220,22,7,100.0,100.0,4.50,4.00,3.47
+"Bazargan-Forward, Saba",PHIL 27,S220,69,28,85.2,96.3,5.76,3.44,3.50
+"Chaplin, Rosalind Kay",PHIL 28,S220,65,31,86.7,100.0,6.17,3.33,3.26
+"Stringer, Ryan Matthew",PHIL 28,S220,74,16,60.0,100.0,5.43,3.60,3.48
+"Ruiz-Ramos, Ramon Alejandr",PHYS 1A,S220,102,33,87.1,76.7,9.85,3.55,3.72
+"Tsai, Philbert S",PHYS 1AL,S220,21,6,66.7,83.3,8.17,3.00,3.71
+"Tsai, Philbert S",PHYS 1AL,S220,18,5,80.0,80.0,6.90,4.00,
+"Tsai, Philbert S",PHYS 1AL,S220,21,5,100.0,100.0,4.90,3.40,3.50
+"Tsai, Philbert S",PHYS 1AL,S220,15,5,60.0,100.0,6.10,3.40,
+"Rappel, Wouter Jan",PHYS 1B,S220,109,33,75.0,68.8,8.94,3.44,3.32
+"Tsai, Philbert S",PHYS 1BL,S220,27,9,77.8,77.8,5.83,3.44,2.94
+"Tsai, Philbert S",PHYS 1BL,S220,26,5,80.0,100.0,7.70,3.20,3.63
+"Tsai, Philbert S",PHYS 1BL,S220,25,8,85.7,100.0,7.07,3.86,3.36
+"Tsai, Philbert S",PHYS 1BL,S220,24,6,83.3,100.0,6.17,3.50,3.12
+"Gilbert, Dylan Paul",PHYS 1C,S220,115,32,100.0,100.0,6.11,3.80,3.63
+"Tsai, Philbert S",PHYS 1CL,S220,24,6,83.3,100.0,6.83,3.50,3.65
+"Tsai, Philbert S",PHYS 1CL,S220,24,8,87.5,100.0,6.50,3.50,3.50
+"Tsai, Philbert S",PHYS 1CL,S220,21,6,75.0,75.0,9.00,3.40,3.60
+"Tsai, Philbert S",PHYS 1CL,S220,21,3,66.7,66.7,4.50,3.33,3.43
+"Meyertholen, Andrew D.",PHYS 2B,S220,146,67,98.5,100.0,6.89,3.58,3.38
+"Premkumar, Akhil",PHYS 2C,S220,157,39,63.2,47.4,9.92,3.19,3.18
+"Rappel, Wouter Jan",PHYS 2CL,S220,127,28,63.0,74.1,10.50,3.41,3.36
+"Shotwell, Brian",PHYS 2D,S220,41,7,100.0,85.7,13.36,3.86,3.77
+"Chivukula, Raja S",PHYS 4B,S220,12,5,100.0,100.0,18.50,3.40,
+"Tytler, David Robert",PHYS 9,S220,22,7,85.7,100.0,11.64,3.00,3.33
+"Seese, Michael Francis",POLI 10,S220,46,10,100.0,100.0,7.30,4.00,3.28
+"Liu, Huchen",POLI 100B,S220,37,6,100.0,83.3,4.17,3.80,3.12
+"Phillips, Gregoire Loren",POLI 100F,S220,26,5,75.0,100.0,10.50,4.00,3.60
+"Smith, Glenn Chatmas",POLI 104A,S220,39,10,100.0,100.0,5.25,3.75,3.48
+"Smith, Glenn Chatmas",POLI 104I,S220,28,4,100.0,100.0,9.00,3.50,3.50
+"Strom, Kaare",POLI 11,S220,27,7,66.7,100.0,5.36,3.43,3.06
+"Forman, Fonna",POLI 117R,S220,18,7,100.0,100.0,4.83,3.83,
+"Fisk, David Lee",POLI 126AB,S220,29,5,100.0,100.0,10.10,3.60,3.75
+"Seese, Michael Francis",POLI 127,S220,17,3,66.7,100.0,6.50,4.00,
+"Trinh, Duy Duc",POLI 130B,S220,54,15,100.0,93.3,6.63,3.57,3.59
+"Gartzke, Erik",POLI 142A,S220,49,13,100.0,100.0,6.96,4.00,3.88
+"Magagna, Victor Valentine",POLI 142K,S220,167,31,100.0,100.0,5.04,3.96,3.84
+"Gartzke, Erik",POLI 154,S220,26,7,85.7,100.0,7.07,3.86,3.92
+"Bergman, Matthew Edward",POLI 160AA,S220,24,8,87.5,100.0,7.00,3.25,3.57
+"Yuan, Yin",POLI 176,S220,21,6,100.0,100.0,4.90,3.60,3.90
+"Mackie, Gerald",POLI 27,S220,59,21,81.0,85.7,6.88,3.52,3.36
+"Desposato, Scott",POLI 30,S220,33,12,91.7,91.7,4.17,3.64,3.40
+"Xuan, Xinyang",POLI 5,S220,25,16,75.0,87.5,10.00,3.50,3.01
+"Ferreira, Victor",PSYC 1,S220,78,34,90.9,93.8,4.21,3.40,3.42
+"Lacefield, Katharine I",PSYC 100,S220,92,34,100.0,100.0,4.26,3.91,3.88
+"Kim, Min Ju",PSYC 101,S220,96,61,100.0,100.0,4.53,3.82,3.92
+"Wilson, Brent M",PSYC 104,S220,117,35,97.1,94.1,4.21,3.68,3.54
+"Lowe, Angela Beth",PSYC 105,S220,62,45,93.3,93.3,6.68,3.29,3.10
+"Dobkins, Karen R.",PSYC 106,S220,115,35,100.0,100.0,4.84,3.68,3.56
+"Winkielman, Piotr",PSYC 114,S220,31,8,100.0,100.0,4.00,3.57,3.72
+"Anagnostaras, Stephan",PSYC 131,S220,76,67,95.5,97.0,4.92,3.86,3.89
+"Lowe, Angela Beth",PSYC 136,S220,10,8,100.0,100.0,5.00,3.50,
+"Mc Kenzie, Craig R.M.",PSYC 148,S220,38,11,81.8,72.7,5.59,3.10,2.94
+"Chung, Min-gi",PSYC 153,S220,42,31,100.0,100.0,6.11,3.67,3.49
+"Lacefield, Katharine I",PSYC 154,S220,96,27,96.3,100.0,4.72,3.85,3.87
+"Willis, Jarryd Thomas",PSYC 158,S220,74,54,94.4,88.9,5.06,3.54,3.76
+"Wixted, John T",PSYC 162,S220,68,58,96.6,94.8,5.33,3.58,3.34
+"Gorman, Michael R.",PSYC 172,S220,45,18,100.0,100.0,5.94,3.83,3.67
+"Bondi, Taylor Ellyn",PSYC 175,S220,15,5,100.0,100.0,4.90,3.80,
+"Anagnostaras, Stephan",PSYC 181,S220,140,110,95.5,92.7,5.75,3.66,3.39
+"Hanes, Esther",PSYC 190,S220,95,37,97.1,100.0,5.39,3.77,3.74
+"Rickard, Timothy C.",PSYC 191,S220,30,11,80.0,88.9,4.50,3.10,2.82
+"Albright, Thomas D",PSYC 2,S220,92,27,84.0,96.0,6.66,3.30,2.81
+"Pilegard, Celeste Cristine",PSYC 3,S220,59,40,94.9,97.4,5.06,3.63,3.23
+"Steiner, Eric Tomas",PSYC 60,S220,45,37,91.7,97.2,6.56,3.35,2.84
+"Geller, Emma Harlan",PSYC 70,S220,48,39,94.9,100.0,6.14,3.29,3.33
+"Rahimi, Babak",RELI 149,S220,33,7,100.0,100.0,5.70,4.00,3.88
+"Chavez Morales, Rodrigo Enrique",SE 101B,S220,26,10,40.0,55.6,9.50,2.60,3.18
+"Lin, Kuanpo",SE 130B,S220,35,6,83.3,100.0,9.83,3.33,3.19
+"Li, Chaohsien",SE 150,S220,16,6,66.7,83.3,12.83,3.20,
+"Adams, Dave Kenneth",SE 154,S220,51,17,100.0,93.8,9.09,3.73,3.47
+"Forman, Fonna",SIO 109R,S220,17,7,100.0,100.0,5.93,4.00,
+"Pagniello, Camille",SIO 134,S220,25,24,87.5,91.7,8.08,3.36,3.19
+"French, Beverly Jeanne",SIO 187,S220,15,4,100.0,100.0,10.00,3.75,
+"Cook, Geoffrey W",SIO 45,S220,88,32,96.9,100.0,3.81,3.81,3.74
+"Kenworthy, Lane A.",SOCI 1,S220,40,12,100.0,100.0,5.05,3.36,3.32
+"Blair-Loy, Mary",SOCI 118,S220,22,3,100.0,100.0,2.50,4.00,3.70
+"Pardo Guerra, Juan Pablo",SOCI 121,S220,32,7,100.0,100.0,4.50,3.83,3.64
+"Thorpe, Charles Robert",SOCI 131,S220,17,3,100.0,100.0,7.17,4.00,
+"Blair-Loy, Mary",SOCI 132,S220,39,3,66.7,66.7,4.50,3.67,3.68
+"Ribeiro Fernandes Da Silva, Germano",SOCI 148,S220,27,5,100.0,100.0,6.10,3.60,3.58
+"Merritt, Seth Ray",SOCI 149,S220,20,5,100.0,100.0,4.50,3.60,3.99
+"Jules-Rosette, Bennetta W.",SOCI 157,S220,10,7,100.0,85.7,8.50,3.29,
+"Rogers, Julia Ellen",SOCI 2,S220,40,12,81.8,77.8,6.17,3.50,3.06
+"Pardo Guerra, Juan Pablo",SOCI 30,S220,20,7,100.0,100.0,5.17,3.50,3.43
+"Raudenbush, Danielle",SOCI 40,S220,45,15,100.0,100.0,4.63,3.69,3.57
+"Meyer, Ursula",TDAC 1,S220,15,8,100.0,100.0,2.25,4.00,
+"Walsh, Kim C.",TDAC 1,S220,12,11,100.0,100.0,3.59,4.00,
+"Fulton, Julia",TDAC 107,S220,9,3,100.0,100.0,4.50,4.00,
+"Guirguis, Mark C",TDDE 1,S220,15,3,66.7,33.3,3.83,3.50,
+"Havis, Allan",TDGE 10,S220,34,9,77.8,100.0,4.72,3.71,3.38
+"Jones, William Jadie",TDGE 11,S220,34,12,100.0,100.0,4.70,3.75,3.51
+"Castro, Robert Jess",TDGE 11,S220,20,5,100.0,100.0,5.00,3.75,4.00
+"Fulton, Julia",TDGE 124,S220,47,12,100.0,100.0,3.50,4.00,3.77
+"Tregar, Kristen Lauren",TDGE 125,S220,35,6,100.0,100.0,3.83,3.75,3.70
+"Meyer, Ursula",TDGE 125,S220,9,3,100.0,100.0,5.17,3.50,
+"Walsh, Kim C.",TDGE 25,S220,13,10,100.0,100.0,3.90,4.00,
+"Arcidiacono, Kristin",TDMV 1,S220,29,3,100.0,100.0,3.50,4.00,3.59
+"Sammartano, Tonnie",TDMV 2,S220,32,6,100.0,100.0,1.50,4.00,3.99
+"Geiger, Eric",TDMV 5,S220,20,4,100.0,100.0,5.83,4.00,3.96
+"Stein, Deborah Isobel",TDPW 1,S220,15,5,100.0,100.0,4.90,4.00,
+"Hajrasouliha, Amir Hossein",USP 124,S220,24,3,100.0,66.7,5.17,4.00,3.49
+"Hajrasouliha, Amir Hossein",USP 4,S220,11,5,100.0,80.0,6.10,3.80,
+"Shen, Kuiyi",VIS 127B,S220,87,22,81.0,85.0,5.86,3.67,3.57
+"Yoldas, Pinar",VIS 149,S220,20,4,75.0,75.0,5.50,2.25,3.67
+"Cartwright, Lisa",VIS 152D,S220,68,13,100.0,100.0,5.33,3.85,3.82
+"Trigilio, Michael",VIS 194S,S220,29,5,80.0,80.0,4.50,3.80,3.36
+"McCleary, Keith Long",WCWP 100,S220,11,9,100.0,100.0,10.28,3.22,
+"Gagnon, Jeffrey C",WCWP 100,S220,14,3,100.0,100.0,6.50,3.67,
+"Young, Mark T",WCWP 100,S220,15,3,66.7,66.7,9.17,3.33,
+"Kolodezh, Samuel",WCWP 10B,S220,13,5,80.0,100.0,8.10,4.00,
+"Iatarola, Briana Marie",WCWP 10B,S220,14,3,100.0,100.0,9.17,3.67,
 "Wilder, Linnea Lorene",ANBI 173,S120,33,3,66.7,66.7,4.50,3.67,3.78
 "Wu, Hua",ANSC 121,S120,26,9,100.0,100.0,4.06,4.00,3.83
 "Csordas, Thomas J.",ANSC 129,S120,6,6,100.0,100.0,5.83,3.33,
@@ -8,7 +337,7 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Arani, Alexia Alisabeth",ANTH 21,S120,49,10,100.0,100.0,3.30,4.00,3.76
 "Stewart, Alexander B",ANTH 23,S120,28,4,100.0,100.0,5.50,3.67,3.32
 "Rivera-Collazo, Isabel C",ANTH 3,S120,24,15,93.3,100.0,3.57,3.53,3.53
-"Non, Amy L",ANTH 43,S120,27,15,93.3,100.0,5.83,3.43,3.21
+"Non, Amy L",ANTH 43,S120,27,15,93.3,100.0,5.83,3.43,3.25
 "Coulter, Jane Elisabeth",AWP 1,S120,12,9,66.7,100.0,9.61,3.33,
 "Tiernan, Christa Michelle",AWP 1,S120,12,7,85.7,100.0,11.93,3.00,
 "Cook, Orna",BIBC 100,S120,115,25,84.0,83.3,8.82,3.40,3.42
@@ -18,22 +347,22 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Teodorof, Carmen",BICD 110,S120,63,52,96.2,94.2,7.46,3.63,3.84
 "Cleland, Elsa Eleanor",BIEB 121,S120,25,4,100.0,100.0,8.00,3.75,3.72
 "Alfonso, Stephanie Isabel",BILD 1,S120,133,44,86.0,81.0,6.45,3.18,2.75
-"Chun, Lauren Elizabeth",BILD 12,S120,45,14,92.9,92.9,5.36,3.40,3.49
-"Vijapurkar, Ulka",BILD 2,S120,81,29,78.6,71.4,8.57,3.07,2.86
+"Chun, Lauren Elizabeth",BILD 12,S120,45,14,92.9,92.9,5.36,3.40,3.45
+"Vijapurkar, Ulka",BILD 2,S120,81,29,78.6,71.4,8.57,3.07,2.88
 "McCulloch, Katherine Anne",BILD 2,S120,81,32,96.8,93.1,5.53,3.87,3.81
 "Lebeaupin, Cynthia D",BILD 2,S120,60,30,100.0,100.0,6.57,3.68,3.76
 "Rana, Brinda Kanti",BILD 20,S120,43,33,100.0,100.0,6.31,3.21,3.51
 "Hsu, Jeremy Lutan",BILD 3,S120,107,49,87.2,87.2,6.07,3.21,2.82
 "Miller, Steven W.",BIMM 100,S120,98,50,74.0,86.0,10.42,3.00,2.82
-"Bozinovic, Goran",BIMM 101,S120,60,16,80.0,66.7,10.25,3.36,3.76
-"Ita, Sergio",BIMM 114,S120,86,34,94.1,97.1,7.26,3.30,
-"Pirino, Giorgia",BIMM 120,S120,77,73,98.6,95.8,6.47,3.80,3.30
-"Armour, Jon Christopher",BIPN 100,S120,109,32,90.6,93.8,9.06,2.94,2.81
+"Bozinovic, Goran",BIMM 101,S120,60,16,80.0,66.7,10.25,3.36,3.77
+"Ita, Sergio",BIMM 114,S120,86,34,94.1,97.1,7.26,3.30,3.30
+"Pirino, Giorgia",BIMM 120,S120,77,73,98.6,95.8,6.47,3.80,3.31
+"Armour, Jon Christopher",BIPN 100,S120,109,32,90.6,93.8,9.06,2.94,2.76
 "Cooke, James Edward",BIPN 134,S120,158,45,100.0,97.7,7.99,3.43,3.36
 "Coley, Austin Avery",BIPN 140,S120,59,17,82.4,87.5,8.38,3.20,2.69
 "Juavinett, Ashley Lauren",BIPN 162,S120,26,8,100.0,100.0,9.07,4.00,3.82
 "Kurian, Amrita Achamma",CAT 124,S120,15,7,71.4,85.7,5.36,3.43,
-"Bronstein, Phoebe Malan",CAT 125R,S120,186,137,93.4,94.1,4.75,3.79,3.83
+"Bronstein, Phoebe Malan",CAT 125R,S120,186,137,93.4,94.1,4.75,3.79,3.82
 "Opatkiewicz, Justin Paul",CENG 100,S120,17,17,93.8,93.8,8.26,3.35,
 "Vazquez, Cynthia",CGS 112,S120,13,7,100.0,85.7,4.50,4.00,
 "Bui, Kevin Xuanduy",CGS 119,S120,18,10,90.0,100.0,6.30,3.60,
@@ -51,18 +380,18 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Leigh, Brian",CHEM 7L,S120,32,15,84.6,92.3,8.64,3.31,2.87
 "Leigh, Brian",CHEM 7L,S120,35,11,90.9,100.0,8.14,3.36,3.14
 "Allen, Michael Gordon",COGS 100,S120,106,100,65.0,72.0,7.44,3.36,3.77
-"Bristol, Rachel Elizabeth",COGS 101C,S120,37,27,88.9,88.9,9.61,3.67,3.46
+"Bristol, Rachel Elizabeth",COGS 101C,S120,37,27,88.9,88.9,9.61,3.67,3.45
 "Boyle, Mary E. T.",COGS 107A,S120,132,35,72.7,69.7,9.11,3.21,3.44
 "Gupta, Anjum",COGS 109,S120,75,14,76.9,61.5,5.42,3.62,3.56
 "Boyle, Mary E. T.",COGS 11,S120,40,9,100.0,88.9,4.50,3.71,3.92
 "Adrian, Julia Anna",COGS 115,S120,36,24,100.0,100.0,6.25,3.65,3.37
 "Trott, Sean Thomas",COGS 14B,S120,59,22,100.0,100.0,6.14,3.82,3.88
 "Davis, Joshua Daniel",COGS 153,S120,30,9,87.5,87.5,6.00,3.50,3.35
-"Lee, Brittany Alexandra",COGS 154,S120,30,10,100.0,100.0,7.70,3.90,3.42
-"Johnson, Christine M.",COGS 17,S120,130,30,96.6,96.6,7.47,3.62,3.60
+"Lee, Brittany Alexandra",COGS 154,S120,30,10,100.0,100.0,7.70,3.90,3.43
+"Johnson, Christine M.",COGS 17,S120,130,30,96.6,96.6,7.47,3.62,3.59
 "Nitz, Douglas A.",COGS 176,S120,27,7,71.4,57.1,4.50,3.57,3.37
 "Nitz, Douglas A.",COGS 177,S120,36,11,100.0,100.0,6.32,3.55,3.43
-"Ellis, Shannon Elizabeth",COGS 18,S120,88,58,100.0,100.0,7.98,3.78,3.58
+"Ellis, Shannon Elizabeth",COGS 18,S120,88,58,100.0,100.0,7.98,3.78,3.61
 "Dominguez Rubio, Fernando",COMM 10,S120,57,22,85.0,89.5,4.21,3.81,3.73
 "Guarrasi, Ivana",COMM 100A,S120,46,14,92.9,100.0,6.79,3.71,3.21
 "Lazitski Torres, Olga",COMM 109P,S120,22,5,100.0,100.0,7.70,3.20,3.35
@@ -73,7 +402,7 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Staschus, Sophie",COMM 163,S120,24,4,75.0,75.0,9.50,3.25,3.23
 "Anderson, Patrick W.",COMM 190,S120,23,3,100.0,100.0,7.50,4.00,3.99
 "Cordoba Azcarate, Matilde",COMM 190,S120,19,10,100.0,100.0,6.50,3.90,
-"Valstar, Andries",CSE 100,S120,87,58,93.1,87.9,13.78,3.41,3.06
+"Valstar, Andries",CSE 100,S120,87,58,93.1,87.9,13.78,3.41,3.10
 "Jaiswal, Ragesh",CSE 101,S120,72,11,90.9,90.9,9.70,3.60,3.75
 "Miranda, Gregory Joseph",CSE 11,S120,57,47,93.6,93.6,11.01,3.67,3.45
 "Cao, Yingjun",CSE 11,S120,28,23,100.0,100.0,10.59,3.61,3.29
@@ -90,29 +419,29 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Cao, Yingjun",CSE 30,S120,41,22,90.9,95.5,12.41,3.70,3.17
 "Muller, P Keith",CSE 30,S120,37,19,100.0,94.7,11.03,3.83,3.58
 "Miranda, Gregory Joseph",CSE 5A,S120,36,10,66.7,88.9,13.17,4.00,3.09
-"Abi Samra, Nicholas Camill",ECE 180,S120,29,8,100.0,100.0,4.25,3.50,3.75
-"Shevchenko, Valentin I",ECE 45,S120,34,13,90.9,72.7,9.23,3.42,3.50
+"Abi Samra, Nicholas Camill",ECE 180,S120,29,8,100.0,100.0,4.25,3.50,3.70
+"Shevchenko, Valentin I",ECE 45,S120,34,13,90.9,72.7,9.23,3.42,3.38
 "Raihan Miah, Mohammad Abu",ECE 65,S120,46,41,95.1,100.0,10.50,3.17,3.29
 "Titova, Mariia",ECON 1,S120,53,38,94.7,100.0,5.42,3.59,3.07
 "Sinitsyn, Maxim",ECON 100A,S120,48,8,100.0,100.0,8.75,3.43,2.54
-"Tocoian, Oana",ECON 100B,S120,57,10,100.0,100.0,6.90,3.56,2.78
+"Tocoian, Oana",ECON 100B,S120,57,10,100.0,100.0,6.90,3.56,2.76
 "Sinitsyn, Maxim",ECON 100C,S120,52,5,100.0,100.0,7.30,3.75,2.74
-"Nieto-Barthaburu, Augusto",ECON 100C,S120,35,3,100.0,100.0,6.50,3.33,2.68
+"Nieto-Barthaburu, Augusto",ECON 100C,S120,35,3,100.0,100.0,6.50,3.33,2.66
 "Noel, Michael",ECON 105,S120,21,6,83.3,100.0,9.83,3.00,2.89
-"Noel, Michael",ECON 109,S120,37,6,83.3,66.7,8.83,2.80,2.78
+"Noel, Michael",ECON 109,S120,37,6,83.3,66.7,8.83,2.80,2.67
 "Watson, Joel Christopher",ECON 109,S120,24,5,100.0,100.0,7.50,3.33,3.33
-"Rondina, Giacomo",ECON 110A,S120,58,16,93.8,87.5,7.38,3.00,2.74
+"Rondina, Giacomo",ECON 110A,S120,58,16,93.8,87.5,7.38,3.00,2.63
 "Levkoff, Steven B.",ECON 110B,S120,57,12,90.9,90.9,6.50,3.73,3.10
 "Bharadwaj, Prashant",ECON 116,S120,45,15,85.7,85.7,4.21,3.73,3.03
 "Spini, Pietro Emilio",ECON 120A,S120,43,14,92.9,85.7,7.79,3.85,3.47
 "Khachiyan, Arman Norair",ECON 120B,S120,44,12,100.0,91.7,8.17,3.58,3.09
-"Wuthrich, Kaspar",ECON 120C,S120,81,9,100.0,88.9,5.39,3.44,2.94
+"Wuthrich, Kaspar",ECON 120C,S120,81,9,100.0,88.9,5.39,3.44,2.95
 "Bharadwaj, Prashant",ECON 138,S120,74,15,73.3,86.7,5.30,3.09,2.95
 "O, Mun Pyung",ECON 173A,S120,38,10,88.9,88.9,9.30,4.00,2.89
 "Howden, Wesley Dixon",ECON 3,S120,27,20,95.0,100.0,7.30,3.16,2.86
 "Levkoff, Steven B.",ECON 4,S120,49,14,85.7,92.9,6.36,3.29,3.16
 "Gallagher-Geurtsen, Tricia Meghan",EDS 112,S120,21,6,100.0,100.0,5.50,3.80,3.69
-"Eguchi, Emi",EDS 124AR,S120,35,6,100.0,100.0,10.83,3.67,3.51
+"Eguchi, Emi",EDS 124AR,S120,35,6,100.0,100.0,10.83,3.67,3.50
 "Soosai Raj, Adalbert Geral",EDS 124BR,S120,47,7,100.0,100.0,9.93,3.86,3.51
 "Soosai Raj, Adalbert Geral",EDS 124BR,S120,22,5,80.0,100.0,7.70,4.00,3.89
 "Bintliff, Amy S.V.",EDS 133,S120,24,6,100.0,100.0,8.17,4.00,4.00
@@ -138,13 +467,13 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Hineline, Mark Lawrence",HISC 105,S120,33,14,100.0,100.0,4.07,3.85,4.00
 "Polic, Ivana",HITO 126,S120,28,17,100.0,100.0,4.38,3.85,3.93
 "Castaneda, Miguel Angel",HIUS 113,S120,21,6,100.0,100.0,4.50,3.67,3.98
-"Widener, Daniel",HIUS 114B,S120,27,15,100.0,100.0,7.30,3.87,3.70
-"Patterson, Patrick H.",HUM 3,S120,40,15,53.3,86.7,10.07,3.29,3.32
+"Widener, Daniel",HIUS 114B,S120,27,15,100.0,100.0,7.30,3.87,3.71
+"Patterson, Patrick H.",HUM 3,S120,40,15,53.3,86.7,10.07,3.29,3.22
 "Giordano, Kailey Nicole",HUM 3,S120,77,65,70.8,96.9,8.78,3.16,3.10
 "Tronzo, William",HUM 3,S120,27,11,100.0,100.0,3.41,3.82,4.00
 "Watkins, Eric",HUM 4,S120,37,8,62.5,87.5,10.21,2.14,2.89
 "Thompson, Katherine Anne Merit",HUM 5,S120,43,11,81.8,100.0,9.95,3.09,3.07
-"Caldwell, Michael Alan",HUM 5,S120,84,21,85.0,100.0,7.70,3.10,3.11
+"Caldwell, Michael Alan",HUM 5,S120,84,21,85.0,100.0,7.70,3.10,3.08
 "Lettieri, Michael Joseph",INTL 190,S120,16,3,66.7,100.0,11.17,3.33,
 "Segui, Alan S",INTL 190,S120,15,3,100.0,100.0,6.50,4.00,
 "Inada, Minori",JAPN 20A,S120,18,6,100.0,100.0,4.17,3.80,
@@ -155,29 +484,29 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Jed, Stephanie H",LTCS 165,S120,27,15,100.0,100.0,7.97,4.00,3.96
 "Chen, Jing",LTEA 120C,S120,36,32,90.6,84.4,5.63,3.84,3.72
 "Hyland, Tina Mae",LTEN 148,S120,19,4,100.0,100.0,4.50,3.67,
-"Springer, Anna Joy",LTEN 159,S120,24,3,66.7,66.7,7.17,3.67,3.88
+"Springer, Anna Joy",LTEN 159,S120,24,3,66.7,66.7,7.17,3.67,3.84
 "Rahimi, Babak",LTEN 185,S120,26,10,100.0,100.0,6.30,3.40,4.00
 "Springer, Anna Joy",LTWR 100,S120,21,3,100.0,100.0,4.50,4.00,4.00
 "Bahadori, Mohammad Yousef",MAE 101C,S120,60,53,92.5,94.3,9.50,3.10,2.91
 "Bahadori, Mohammad Yousef",MAE 104,S120,44,32,96.9,87.5,9.13,3.06,3.07
 "Bandaru, Prabhakar",MAE 105,S120,46,21,95.2,100.0,9.26,3.14,3.11
-"Carlson, Scott Leland",MAE 11,S120,51,19,88.9,88.9,12.18,3.05,
+"Carlson, Scott Leland",MAE 11,S120,51,19,88.9,88.9,12.18,3.05,2.59
 "Phan, Alex Minh Giang",MAE 150,S120,32,18,88.9,94.4,11.17,3.11,2.76
 "Evdokimenko, Ekaterina",MAE 20,S120,51,26,100.0,100.0,6.90,3.76,3.66
 "Lawrence, Jenna Joaquin",MAE 8,S120,53,38,97.4,97.4,5.87,3.84,3.36
-"Kitsela, Roman",MATH 103A,S120,132,20,68.4,57.9,12.30,2.89,2.51
+"Kitsela, Roman",MATH 103A,S120,132,20,68.4,57.9,12.30,2.89,3.08
 "Chow, Bennett",MATH 109,S120,112,22,94.7,94.7,10.30,3.60,3.22
 "Ceccherini-Silberstein, Tullio",MATH 10A,S120,97,20,68.4,68.4,8.92,2.35,3.09
 "Rotar, Vladimir",MATH 10B,S120,60,32,90.6,96.9,7.56,3.06,3.28
 "Gui, Toni Tong",MATH 10B,S120,48,11,72.7,54.5,7.95,3.20,3.13
-"Bowers, Adam R.",MATH 142A,S120,184,43,71.1,73.0,14.70,3.33,3.03
+"Bowers, Adam R.",MATH 142A,S120,184,43,71.1,73.0,14.70,3.33,3.00
 "Bach, Quang Tran",MATH 18,S120,248,62,91.4,87.9,10.12,3.45,3.22
 "Rotar, Vladimir",MATH 193A,S120,101,57,98.2,94.6,8.54,3.43,3.53
 "Mohanty, Sara",MATH 20A,S120,46,15,100.0,92.3,5.73,3.08,2.46
 "Ceccherini-Silberstein, Tullio",MATH 20B,S120,84,22,71.4,57.9,6.79,3.38,3.05
-"Bach, Quang Tran",MATH 20C,S120,156,37,57.6,56.3,10.22,2.39,2.81
-"Mohanty, Sara",MATH 20D,S120,99,18,77.8,66.7,8.61,3.56,2.68
-"Kitsela, Roman",MATH 20E,S120,168,47,65.2,61.4,12.24,3.40,3.17
+"Bach, Quang Tran",MATH 20C,S120,156,37,57.6,56.3,10.22,2.39,2.78
+"Mohanty, Sara",MATH 20D,S120,99,18,77.8,66.7,8.61,3.56,2.69
+"Kitsela, Roman",MATH 20E,S120,168,47,65.2,61.4,12.24,3.40,3.33
 "Kwan, Brian",MATH 4C,S120,16,9,77.8,88.9,6.28,3.63,
 "Eberhard, Craig A",MGT 103,S120,82,76,90.8,89.5,5.13,3.50,3.01
 "Henderson, Austin Mcmaster",MGT 112,S120,68,45,88.6,93.2,6.45,3.59,3.63
@@ -185,13 +514,13 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Anderson, John Charles",MGT 132,S120,36,35,94.3,94.3,6.44,3.49,3.27
 "Anderson, John Charles",MGT 135,S120,35,30,96.7,96.7,6.37,3.53,3.22
 "McKay, Michael J",MGT 16,S120,62,19,94.7,94.1,5.13,3.58,3.40
-"McKay, Mary A",MGT 164,S120,70,26,88.0,92.0,7.70,3.56,2.98
-"Moran, Cathleen L.",MGT 166,S120,58,49,79.6,83.7,7.44,3.25,3.05
+"McKay, Mary A",MGT 164,S120,70,26,88.0,92.0,7.70,3.56,2.99
+"Moran, Cathleen L.",MGT 166,S120,58,49,79.6,83.7,7.44,3.25,3.02
 "Hedges, Kathleen",MGT 172,S120,85,33,100.0,100.0,7.43,3.83,3.83
 "McKay, Michael J",MGT 18,S120,57,15,92.9,100.0,4.64,3.67,3.30
 "Dunn, Louis Jean",MGT 181,S120,73,22,90.9,95.5,6.95,3.62,3.72
 "Houskeeper, Robert",MGT 5,S120,95,57,94.7,91.2,5.90,3.58,3.35
-"Herbst, Matthew",MMW 121,S120,72,9,77.8,87.5,10.06,3.33,3.26
+"Herbst, Matthew",MMW 121,S120,72,9,77.8,87.5,10.06,3.33,3.21
 "Palhegyi, Joel David",MMW 14,S120,225,76,81.3,97.3,8.21,3.53,3.60
 "Adamiak, Patrick John",MMW 14,S120,204,67,80.0,98.5,8.38,3.53,3.51
 "Rubio Restrepo, Juan David",MUS 116,S120,15,10,88.9,77.8,4.70,3.90,
@@ -214,10 +543,10 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Wang, Tinghao",PHIL 162,S120,36,12,100.0,100.0,7.50,3.10,3.25
 "Rickless, Samuel Charles",PHIL 165,S120,29,7,85.7,85.7,9.36,3.40,3.07
 "Stratmann, Joseph Thomas",PHIL 173,S120,28,16,100.0,100.0,6.13,3.67,3.28
-"Argetsinger, Henry",PHIL 27,S120,72,12,91.7,83.3,7.00,3.55,3.30
+"Argetsinger, Henry",PHIL 27,S120,72,12,91.7,83.3,7.00,3.55,3.31
 "Nelkin, Dana Kay",PHIL 28,S120,37,9,66.7,66.7,8.50,2.89,3.15
 "Watkins, Eric",PHIL 32,S120,32,10,90.0,90.0,7.10,3.33,3.09
-"Burgasser, Adam Jonathan",PHYS 1A,S120,186,58,78.9,82.5,11.17,3.51,3.61
+"Burgasser, Adam Jonathan",PHYS 1A,S120,186,58,78.9,82.5,11.17,3.51,3.60
 "Tsai, Philbert S",PHYS 1AL,S120,27,8,75.0,87.5,5.75,3.63,3.34
 "Tsai, Philbert S",PHYS 1AL,S120,22,7,71.4,85.7,5.07,3.71,3.42
 "Tsai, Philbert S",PHYS 1AL,S120,24,8,50.0,62.5,7.00,3.29,3.33
@@ -247,28 +576,28 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Macmanus, Maureen Danielle",POLI 104J,S120,12,5,75.0,100.0,4.90,3.50,
 "Wiens, David Abram",POLI 110B,S120,18,4,100.0,100.0,8.50,3.75,
 "Magagna, Victor Valentine",POLI 113A,S120,258,42,100.0,100.0,4.14,3.84,3.90
-"Gotti, Isabel Ro",POLI 115A,S120,25,4,100.0,100.0,4.50,3.50,3.32
+"Gotti, Isabel Ro",POLI 115A,S120,25,4,100.0,100.0,4.50,3.50,3.35
 "Forman, Fonna",POLI 117R,S120,12,3,100.0,100.0,5.17,3.67,
 "Ingham, Sean",POLI 118,S120,24,5,60.0,80.0,6.90,3.60,2.91
 "Roeder, Philip G",POLI 12,S120,36,11,100.0,100.0,6.50,3.90,3.57
 "Forman, Fonna",POLI 13,S120,50,12,100.0,100.0,8.67,3.00,3.78
 "Timmins, Graham",POLI 130AA,S120,25,3,100.0,100.0,7.83,4.00,3.67
 "Timmins, Graham",POLI 142P,S120,38,7,100.0,100.0,6.79,3.86,3.83
-"Fisk, David Lee",POLI 145C,S120,28,6,83.3,83.3,6.83,3.83,3.43
+"Fisk, David Lee",POLI 145C,S120,28,6,83.3,83.3,6.83,3.83,3.41
 "Kousser, Thad",POLI 30,S120,37,11,100.0,100.0,5.23,3.90,3.70
-"Phillips, Gregoire Loren",POLI 5,S120,36,12,100.0,100.0,8.33,3.55,3.49
+"Phillips, Gregoire Loren",POLI 5,S120,36,12,100.0,100.0,8.33,3.55,3.50
 "Sousa, Margarette Pamela-Burd",PSYC 1,S120,79,32,90.0,86.7,6.63,3.81,3.46
 "Heyman, Gail D.",PSYC 101,S120,91,35,97.1,97.1,7.87,3.77,3.75
 "Sainburg, Timothy Jacob",PSYC 102,S120,63,51,95.9,95.9,7.48,3.82,3.80
-"Gorman, Michael R.",PSYC 106,S120,81,18,94.4,100.0,6.17,3.50,3.18
+"Gorman, Michael R.",PSYC 106,S120,81,18,94.4,100.0,6.17,3.50,3.19
 "Winkielman, Piotr",PSYC 114,S120,31,8,85.7,85.7,5.07,3.14,3.49
 "Moranton, Nirelia Melbina-",PSYC 122,S120,40,19,100.0,100.0,5.87,3.68,3.57
 "Lacefield, Katharine I",PSYC 124,S120,97,27,96.3,100.0,4.20,3.96,3.91
 "Anagnostaras, Stephan",PSYC 131,S120,40,30,96.7,96.7,4.97,3.93,3.96
-"Yazdi, Haleh",PSYC 137,S120,41,34,94.1,88.2,5.91,3.67,3.53
+"Yazdi, Haleh",PSYC 137,S120,41,34,94.1,88.2,5.91,3.67,3.07
 "McCullough, Michael E",PSYC 141,S120,9,9,100.0,100.0,6.50,3.67,
-"Wixted, John T",PSYC 144,S120,83,46,97.8,100.0,6.11,3.27,2.92
-"Willis, Jarryd Thomas",PSYC 155,S120,94,42,97.6,95.2,4.50,3.83,3.71
+"Wixted, John T",PSYC 144,S120,83,46,97.8,100.0,6.11,3.27,2.93
+"Willis, Jarryd Thomas",PSYC 155,S120,94,42,97.6,95.2,4.50,3.83,3.74
 "Geiss, Elisa G",PSYC 156,S120,16,5,100.0,100.0,12.10,3.60,
 "Lacefield, Katharine I",PSYC 168,S120,123,39,100.0,94.7,4.55,3.79,3.73
 "Ramachandran, Vilayanur S",PSYC 169,S120,18,5,100.0,50.0,4.50,3.33,
@@ -279,9 +608,9 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Barner, David A.",PSYC 190,S120,39,15,100.0,100.0,6.23,3.64,3.57
 "Winkielman, Piotr",PSYC 193L,S120,33,26,96.2,96.2,4.27,3.73,3.56
 "Anagnostaras, Stephan",PSYC 4,S120,99,79,92.4,97.5,4.55,3.69,3.64
-"Willis, Jarryd Thomas",PSYC 6,S120,82,26,100.0,96.2,5.35,3.54,3.40
+"Willis, Jarryd Thomas",PSYC 6,S120,82,26,100.0,96.2,5.35,3.54,3.60
 "Lowe, Angela Beth",PSYC 60,S120,46,30,80.0,96.7,6.43,3.33,2.80
-"Geller, Emma Harlan",PSYC 70,S120,44,33,97.0,100.0,6.14,3.58,3.32
+"Geller, Emma Harlan",PSYC 70,S120,44,33,97.0,100.0,6.14,3.58,3.33
 "Lowe, Angela Beth",PSYC 71,S120,31,25,84.0,84.0,7.54,3.48,3.24
 "Marquez, Joaquin Fabian",SE 101A,S120,21,6,83.3,83.3,8.17,3.20,3.20
 "GUPTA, SUMIT",SE 101C,S120,17,17,100.0,100.0,8.03,3.31,
@@ -290,16 +619,16 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Cook, Geoffrey W",SIO 10,S120,63,24,100.0,100.0,4.67,3.83,3.72
 "Forman, Fonna",SIO 109R,S120,14,5,100.0,100.0,5.00,4.00,
 "Zoumplis, Angela B",SIO 126,S120,32,28,100.0,100.0,5.71,3.68,3.63
-"McCormick, Lillian Ries",SIO 132,S120,37,11,100.0,100.0,5.23,3.73,2.99
+"McCormick, Lillian Ries",SIO 132,S120,37,11,100.0,100.0,5.23,3.73,2.97
 "Kacev, David",SIO 139,S120,22,7,100.0,100.0,3.36,,
 "Laske, Gabi",SIO 15,S120,24,8,100.0,100.0,8.50,3.83,4.00
 "White, Margot Elizabeth",SIO 40,S120,29,26,100.0,100.0,5.73,3.92,3.75
-"Thorpe, Charles Robert",SOCI 100,S120,25,5,100.0,100.0,8.90,4.00,
+"Thorpe, Charles Robert",SOCI 100,S120,25,5,100.0,100.0,8.90,4.00,3.02
 "Burke, Colin Maxwell",SOCI 102,S120,9,8,100.0,100.0,6.50,3.71,
 "Rogers, Julia Ellen",SOCI 113,S120,43,5,80.0,60.0,8.50,3.40,3.33
 "Valasek, Chad Justin",SOCI 135,S120,43,12,100.0,100.0,3.59,3.80,3.74
-"Zimmerman-Liu, Teresa Jean",SOCI 139,S120,47,32,100.0,100.0,7.31,3.94,3.67
-"Ng, Kwai",SOCI 160E,S120,51,14,85.7,92.9,6.64,3.43,3.29
+"Zimmerman-Liu, Teresa Jean",SOCI 139,S120,47,32,100.0,100.0,7.31,3.94,3.68
+"Ng, Kwai",SOCI 160E,S120,51,14,85.7,92.9,6.64,3.43,3.27
 "Ruiz, Jonathan Joseph",SOCI 171,S120,10,3,100.0,100.0,5.17,4.00,
 "Livingstone, Stacey Bryley",SOCI 184,S120,34,10,100.0,100.0,3.61,3.75,3.93
 "Salovey, Todd",TDAC 1,S120,20,10,100.0,100.0,2.50,4.00,3.97
@@ -327,11 +656,11 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Peerson, Susan",USP 177A,S120,13,3,100.0,100.0,8.50,4.00,
 "Hinds, Juli Beth",USP 2,S120,19,3,100.0,100.0,4.50,4.00,
 "Dewey, Matthew D",USP 3,S120,18,3,66.7,100.0,8.50,4.00,
-"Cruz, Edwin Teddy",VIS 103,S120,37,5,100.0,100.0,4.10,3.00,3.76
+"Cruz, Edwin Teddy",VIS 103,S120,37,5,100.0,100.0,4.10,3.00,3.79
 "Li, Huai",VIS 105D,S120,22,7,85.7,71.4,6.21,4.00,3.91
 "Tronzo, William",VIS 122AN,S120,27,11,100.0,100.0,3.23,3.70,3.99
 "Rose, Jordan M",VIS 125C,S120,19,3,100.0,100.0,2.50,3.33,
-"Itaya, Brianne Daryl",VIS 128D,S120,26,7,100.0,100.0,5.17,3.83,3.78
+"Itaya, Brianne Daryl",VIS 128D,S120,26,7,100.0,100.0,5.17,3.83,3.73
 "Mendelsohn, Asa Lipman",VIS 130,S120,21,5,100.0,100.0,8.10,3.80,3.99
 "Anderson, Shane Nicholas",VIS 164,S120,23,5,80.0,80.0,7.30,4.00,3.67
 "Chen, Ifan",VIS 21B,S120,47,19,88.9,72.2,6.72,3.73,3.70
@@ -31046,8 +31375,8 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Anderson, John Charles",MGT 131B,S212,61,15,93.3,80.0,7.03,3.71,3.16
 "Krivogorsky, Victoria",MGT 136,S212,60,49,72.9,56.3,9.15,2.98,2.90
 "Mahar, Jan",MGT 172,S212,57,22,95.5,100.0,8.68,3.77,3.66
-"Anderson, John Charles",MGT 4,S212,56,20,80.0,70.0,6.30,3.55,3.01
 "Anderson, John Charles",MGT 4,S212,10,4,100.0,75.0,5.50,3.50,
+"Anderson, John Charles",MGT 4,S212,56,20,80.0,70.0,6.30,3.55,3.01
 "Chang, Edmond Yi-Teh",MMW 15,S212,77,16,100.0,100.0,7.38,3.38,3.44
 "Bolar, Richard Allen",MMW 22,S212,54,11,63.6,90.9,13.41,3.09,2.50
 "Power, Benjamin",MUS 111,S212,26,11,81.8,90.9,4.86,3.56,3.84
@@ -34399,8 +34728,8 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Allen, Andrew Stewart",MUS 13AS,FA11,182,87,71.3,86.2,3.10,3.69,3.24
 "Curtis, Charles Rector",MUS 143,FA11,71,39,97.3,97.2,0.72,4.00,
 "Weinstein, Joshua Irving",MUS 15,FA11,372,179,87.1,86.5,3.56,3.58,3.64
-"Moore, F Richard",MUS 170,FA11,21,11,45.5,45.5,5.95,2.27,3.00
 "Moore, F Richard",MUS 170,FA11,60,29,66.7,55.6,6.28,2.96,3.00
+"Moore, F Richard",MUS 170,FA11,21,11,45.5,45.5,5.95,2.27,3.00
 "Erbe, Tom",MUS 174A,FA11,32,11,100.0,90.9,5.95,3.91,3.60
 "Otto, Peter G",MUS 176,FA11,12,5,60.0,60.0,5.30,3.75,
 "Turney, Kimberly A",MUS 1A,FA11,147,62,90.3,77.4,2.89,3.69,3.27
@@ -35272,8 +35601,8 @@ instr,course,term,enrolled,evals,recClass,recInstr,hours,gpaExp,gpaAvg
 "Gartzke, Erik",POLI 154,S111,10,3,100.0,100.0,6.50,3.67,
 "Timmins, Graham",POLI 154,S111,8,4,100.0,100.0,6.00,3.50,
 "Kogan, Vladimir",POLI 162,S111,37,34,91.2,91.2,6.09,3.24,3.37
-"Doppelt, Gerald D.",POLI 27,S111,90,52,76.5,96.1,7.44,3.17,
 "Doppelt, Gerald D.",POLI 27,S111,73,34,66.7,90.9,6.02,3.18,
+"Doppelt, Gerald D.",POLI 27,S111,90,52,76.5,96.1,7.44,3.17,
 "Desposato, Scott",POLI 30,S111,27,8,100.0,100.0,9.25,3.25,3.13
 "Heyser, Charles",PSYC 101,S111,45,18,94.4,100.0,5.61,3.44,2.94
 "Burd, Margarette Pamela",PSYC 104,S111,62,35,100.0,100.0,6.56,3.41,3.19
