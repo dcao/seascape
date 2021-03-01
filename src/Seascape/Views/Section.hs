@@ -50,7 +50,7 @@ topHero rnki rnko cnti cnto (sid, sinfo) =
 
 midNav :: Html ()
 midNav = do
-  div_ [class_ "bg-gray-800 py-3 px-2 sticky top-0"] $ do
+  div_ [class_ "bg-gray-800 py-3 px-2 lg:sticky top-0"] $ do
     div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
       link "#" "Overview"
       link "#difficulty" "Class Difficulty"
