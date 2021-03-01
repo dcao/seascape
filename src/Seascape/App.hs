@@ -81,7 +81,7 @@ app = do
                 let x = Map.filterWithKey (\k _ -> course k == course sid) sectionMap
                 let ranks = rankBy (\_ info -> negate $ recInstrRank info) x
                 let raw = filter (\(Section (SectionID _ crs, _)) -> crs == course sid) sections
-                sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (fromJust $ Map.lookup (course sid) prereqMap) (sid, sinfo)
+                sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (prereqMap, (fromJust $ Map.lookup (course sid) prereqMap)) (sid, sinfo)
               )
     lucid $ either (\a -> homeView (length sectionMap) (errAlert $ pack a)) f sec
 
