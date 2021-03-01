@@ -28,8 +28,9 @@ class PrereqsSpider(scrapy.Spider):
 
         for x in response.css("table")[1].css("tr")[1:]:
             raw_ors = x.css("span::text").getall()[::2]
+            raw_descs = [n.strip()[1:-2].strip() for n in x.xpath(".//span/following-sibling::text()")[::3].getall()]
 
-            ors = [re.sub(r"([0-9]+(\.[0-9]+)?)", r" \1", c.strip()) for c in raw_ors]
+            ors = [{"course": re.sub(r"([0-9]+(\.[0-9]+)?)", r" \1", c.strip()), "desc": n} for (c, n) in zip(raw_ors, raw_descs)]
 
             cs.append(ors)
 
