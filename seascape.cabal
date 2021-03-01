@@ -1,0 +1,107 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           seascape
+version:        0.1.0.0
+synopsis:       An improved interface for UCSD CAPE data
+category:       Web
+author:         David Cao
+maintainer:     david@cao.st
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    CHANGELOG.md
+
+library
+  exposed-modules:
+      Seascape.Actions.Search
+      Seascape.App
+      Seascape.Data.Prereqs
+      Seascape.Data.Sparse
+      Seascape.Utils
+      Seascape.Views.Home
+      Seascape.Views.Listing
+      Seascape.Views.Partials
+      Seascape.Views.Plan
+      Seascape.Views.Section
+  other-modules:
+      Paths_seascape
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      Spock >=0.13.0.0
+    , Spock-lucid
+    , aeson
+    , base >=4 && <5
+    , base-encoding
+    , bytestring
+    , cassava
+    , containers
+    , foldl
+    , full-text-search
+    , lucid
+    , monad-logger
+    , mtl
+    , text
+    , vector
+    , wai-extra
+    , wai-middleware-static
+  default-language: Haskell2010
+
+executable scrape-sparse
+  main-is: Main.hs
+  other-modules:
+      BS
+      Webdriver
+      Paths_seascape
+  hs-source-dirs:
+      app/scrape-sparse
+  ghc-options: -Wall -O2 -fprof-auto -fprof-cafs
+  build-depends:
+      aeson
+    , base >=4 && <5
+    , bytestring
+    , cassava
+    , fast-tagsoup
+    , http-client
+    , http-types
+    , scalpel
+    , streamly
+    , streamly-cassava
+    , text
+    , unordered-containers
+    , vector
+    , webdriver
+  default-language: Haskell2010
+
+executable seascape-app
+  main-is: Main.hs
+  other-modules:
+      Paths_seascape
+  hs-source-dirs:
+      app/server
+  ghc-options: -Wall
+  build-depends:
+      Spock >=0.13.0.0
+    , base >=4 && <5
+    , seascape
+  default-language: Haskell2010
+
+benchmark seascape-bench
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      Paths_seascape
+  hs-source-dirs:
+      bench
+  ghc-options: -Wall
+  build-depends:
+      base >=4 && <5
+    , criterion
+    , seascape
+  default-language: Haskell2010

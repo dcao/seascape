@@ -16,6 +16,7 @@ import Network.Wai.Middleware.RequestLogger
 
 import Seascape.Actions.Search
 import Seascape.Data.Sparse
+import Seascape.Data.Prereqs
 import Seascape.Views.Home
 import Seascape.Views.Listing
 import Seascape.Views.Partials
@@ -61,6 +62,7 @@ app = do
   middleware (staticPolicy (addBase "static"))
   middleware logStdout
   sections <- liftIO $ (fromRight undefined) <$> readSections "data/data.csv"
+  prereqMap <- liftIO $ readPrereqs "data/prereqs.json"
   let sectionMap = genSectionMap sections
   let sectionEng = sectionSearchEngine sectionMap
 
@@ -79,7 +81,7 @@ app = do
                 let x = Map.filterWithKey (\k _ -> course k == course sid) sectionMap
                 let ranks = rankBy (\_ info -> negate $ recInstrRank info) x
                 let raw = filter (\(Section (SectionID _ crs, _)) -> crs == course sid) sections
-                sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (sid, sinfo)
+                sectionView (fromJust $ Map.lookup sid ranks) (recInstrRank sinfo) (length ranks) (length sectionMap) raw (fromJust $ Map.lookup (course sid) prereqMap) (sid, sinfo)
               )
     lucid $ either (\a -> homeView (length sectionMap) (errAlert $ pack a)) f sec
 

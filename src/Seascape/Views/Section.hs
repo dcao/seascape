@@ -10,6 +10,7 @@ import Data.Text (Text, pack)
 import Data.Text.Encoding
 import Lucid hiding (term)
 import Seascape.Data.Sparse
+import Seascape.Data.Prereqs
 import Seascape.Views.Partials
 import Seascape.Utils
 
@@ -54,15 +55,17 @@ midNav = do
     div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
       link "#" "Overview"
       link "#difficulty" "Class Difficulty"
+      link "#prereqs" "Prerequisites"
       link "#raw-data" "Raw Data"
 
   where
     link href x = with (a_ x) [class_ "px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
 
-body :: [Section Int ()] -> SectionID -> Html ()
-body df sid =
+body :: [Section Int ()] -> [[CourseInfo]] -> SectionID -> Html ()
+body df ps sid =
   div_ [class_ "px-6 mt-6"] $ do
     classDiff df sid
+    prereqSec ps
     rawData $ filterDf df sid
 
 classDiff :: [Section Int ()] -> SectionID -> Html ()
@@ -128,6 +131,19 @@ classDiff df sid =
       | otherwise = "way easier"
     gpaStr Nothing = "of unknown difficulty"
 
+prereqSec :: [[CourseInfo]] -> Html ()
+prereqSec ps =
+  sectionSec "prereqs" "Prerequisites (Beta!)" $ do
+    p_ [class_ "tracking-tight text-lg mb-4"] "Each of the below requirements must be satisfied:"
+    forM_ ps $ \ors -> do
+      div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4"] $ do
+        p_ [class_ "text-sm text-gray-600 mb-2"] "One of:"
+        div_ [class_ "lg:grid lg:grid-cols-3"] $ do
+          forM_ ors $ \cs -> do
+            div_ [class_ "mb-2"] $ do
+              h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $ toHtml $ course_i cs
+              p_ [class_ "text-sm text-gray-600"] $ toHtml $ desc cs
+
 rawData :: [Section Int ()] -> Html ()
 rawData df =
   sectionSec "raw-data" "Raw Data" $ do
@@ -153,11 +169,11 @@ rawData df =
             with (gpaToHtml $ gpaAvg rinfo) [class_ " text-sm whitespace-no-wrap"]
             p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "avg. GPA"
 
-sectionView :: Int -> Int -> Int -> Int -> [Section Int ()] -> (SectionID, SectionInfo Int Int) -> Html ()
-sectionView rnki rnko cnti cnto df (sid, sinfo) = defaultPartial (instr sid <> " - " <> course sid <> " - Seascape") $ do
+sectionView :: Int -> Int -> Int -> Int -> [Section Int ()] -> [[CourseInfo]] -> (SectionID, SectionInfo Int Int) -> Html ()
+sectionView rnki rnko cnti cnto df ps (sid, sinfo) = defaultPartial (instr sid <> " - " <> course sid <> " - Seascape") $ do
   topHero rnki rnko cnti cnto (sid, sinfo)
   midNav
-  body df sid
+  body df ps sid
   js_ "/js/d3.v5.min.js"
   js_ "/js/section.js"
   script_ $
