@@ -141,7 +141,8 @@ prereqSec ps =
         div_ [class_ "lg:grid lg:grid-cols-3"] $ do
           forM_ ors $ \cs -> do
             div_ [class_ "mb-2"] $ do
-              h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $ toHtml $ course_i cs
+              h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $
+                a_ [href_ ("/listing?q=" <> (course_i cs)), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ course_i cs
               p_ [class_ "text-sm text-gray-600"] $ toHtml $ desc cs
 
 rawData :: [Section Int ()] -> Html ()
