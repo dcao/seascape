@@ -133,17 +133,21 @@ classDiff df sid =
 
 prereqSec :: [[CourseInfo]] -> Html ()
 prereqSec ps =
-  sectionSec "prereqs" "Prerequisites (Beta!)" $ do
-    p_ [class_ "tracking-tight text-lg mb-4"] "Each of the below requirements must be satisfied:"
-    forM_ ps $ \ors -> do
-      div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4"] $ do
-        p_ [class_ "text-sm text-gray-600 mb-2"] "One of:"
+  sectionSec "prereqs" "Prerequisites (Beta!)" $
+    if length ps > 0
+      then do
+        p_ [class_ "tracking-tight text-lg mb-4"] "Each of the below requirements must be satisfied:"
         div_ [class_ "lg:grid lg:grid-cols-3"] $ do
-          forM_ ors $ \cs -> do
-            div_ [class_ "mb-2"] $ do
-              h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $
-                a_ [href_ ("/listing?q=" <> (course_i cs)), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ course_i cs
-              p_ [class_ "text-sm text-gray-600"] $ toHtml $ desc cs
+          forM_ ps $ \ors -> do
+            div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4"] $ do
+              p_ [class_ "text-sm text-gray-600 mb-2"] "One of:"
+              forM_ ors $ \cs -> do
+                div_ [class_ "mb-2"] $ do
+                  h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $
+                    a_ [href_ ("/listing?q=" <> (course_i cs)), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ course_i cs
+                  p_ [class_ "text-sm text-gray-600"] $ toHtml $ desc cs
+      else do
+        p_ [class_ "tracking-tight text-lg mb-4"] "This class has no prerequisites."
 
 rawData :: [Section Int ()] -> Html ()
 rawData df =
