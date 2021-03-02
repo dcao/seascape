@@ -5,8 +5,6 @@ import Data.Aeson
 import Data.Maybe (fromJust)
 import qualified Data.Map.Strict as Map
 import Data.Text (Text)
-import Data.List
-import Control.Monad.State.Lazy
 
 data CourseInfo = CourseInfo
   { course_i :: Text
@@ -41,25 +39,3 @@ readPrereqs loc = do
 
 xformPrereqs :: [PrereqListing] -> PrereqMap
 xformPrereqs = Map.fromList . fmap (\x -> (course_p x, prereqs x))
-
--- buildGraph builds a graph of the dependencies of a course in
--- DOT format.
-buildGraph :: PrereqMap -> Text -> Text
-buildGraph ps c = head <> go 0 ps c <> foot
-  where
-    head = "digraph org {"
-    foot = "}"
-
-    go :: Int -> PrereqMap -> Text -> Text
-    go cc ps c = concat $ fmap createEdges prereqs
-      where
-        prereqs = Map.lookup ps c
-
-        createEdges :: [CourseInfo] -> Text
-        createEdges dis = if length dis >= 2
-          then ("subgraph cluster_" <> show cc <> " { style=filled; color=lightgrey; node [style=filled, color=white]; " <> (concat $ fmap (\ch -> course_i ch <> "; ") dis) <> "} "
-            <> (concat $ fmap (\ch -> "\"" <> course_i c <> "\" -> \"" <> course_i ch <> "\"; ") dis)
-            <> (concat $ fmap (\ch -> go (cc + 1) ps (course_i ch)) dis)
-          else (concat $ fmap (\ch -> "\"" <> course_i c <> "\" -> \"" <> course_i ch <> "\"; ") dis)
-            <> (concat $ fmap (\ch -> go cc ps (course_i ch)) dis)
-

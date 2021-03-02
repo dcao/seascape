@@ -144,7 +144,6 @@ prereqSec ps =
               h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $
                 a_ [href_ ("/listing?q=" <> (course_i cs)), class_ "text-teal-600 hover:bg-teal-200"] $ toHtml $ course_i cs
               p_ [class_ "text-sm text-gray-600"] $ toHtml $ desc cs
-    div_ [class_ "prereq-graph"] $ return ()
 
 rawData :: [Section Int ()] -> Html ()
 rawData df =
@@ -171,15 +170,13 @@ rawData df =
             with (gpaToHtml $ gpaAvg rinfo) [class_ " text-sm whitespace-no-wrap"]
             p_ [class_ "text-xs sm:text-sm text-gray-600"] $ "avg. GPA"
 
-sectionView :: Int -> Int -> Int -> Int -> [Section Int ()] -> (PrereqMap, [[CourseInfo]]) -> (SectionID, SectionInfo Int Int) -> Html ()
-sectionView rnki rnko cnti cnto df (pm, ps) (sid, sinfo) = defaultPartial (instr sid <> " - " <> course sid <> " - Seascape") $ do
+sectionView :: Int -> Int -> Int -> Int -> [Section Int ()] -> [[CourseInfo]] -> (SectionID, SectionInfo Int Int) -> Html ()
+sectionView rnki rnko cnti cnto df ps (sid, sinfo) = defaultPartial (instr sid <> " - " <> course sid <> " - Seascape") $ do
   topHero rnki rnko cnti cnto (sid, sinfo)
   midNav
   body df ps sid
   js_ "/js/d3.v5.min.js"
   js_ "/js/section.js"
-  js_ "/js/dagre-d3.min.js"
-  js_ "/js/graphlib-dot.min.js"
   script_ $
     "const allTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode df) <> ";" <>
     "const sectionTerms = " <> (decodeUtf8 $ LBS.toStrict $ encode $ filterDf df sid) <> ";"
@@ -188,8 +185,7 @@ sectionView rnki rnko cnti cnto df (pm, ps) (sid, sinfo) = defaultPartial (instr
     "sparkline('.time-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_hours }; }), " <> (pack $ show $ hours sinfo) <> ");" <>
     (if gpaExists (gpaAvg sinfo) then "sparkline('.gpa-spark', sectionTerms.map(function (r) { return { x: r.st_termIx, y: r.st_gpaAvg }; }), " <> (pack $ show $ lossyGpa $ gpaAvg sinfo) <> ");" else "") <>
     "boxnwhisk('.hours-bnw', allTerms.map(function(r) { return { x: r.st_hours, y: r.st_instr }; }), '" <> instr sid <> "', false, 'hours spent per week');" <>
-    "boxnwhisk('.gpa-bnw', allTerms.map(function(r) { return { x: r.st_gpaAvg, y: r.st_instr }; }), '" <> instr sid <> "', true, 'average GPA');" <>
-    "prereqs('.prereq-graph', \'" <> buildGraph pm (course sid) <> "\');"
+    "boxnwhisk('.gpa-bnw', allTerms.map(function(r) { return { x: r.st_gpaAvg, y: r.st_instr }; }), '" <> instr sid <> "', true, 'average GPA');"
 
 filterDf :: [Section a b] -> SectionID -> [Section a b]
 filterDf df sid = filter (\(Section (sid', _)) -> sid == sid') df

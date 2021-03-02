@@ -212,35 +212,3 @@ function boxnwhisk(elem, data, thisKey, rev, lbl) {
             .attr("y2", function(d) { return y(d.key) + BOX_INNER_HEIGHT / 2; })
             .attr("stroke", "gray");
 }
-
-function prereqs(elem, dot) {
-    const WIDTH        = 200;
-    const HEIGHT       = 60;
-
-    var g = graphlibDot.read(dot);
-
-    const svg = d3.select(elem).append('svg')
-          .attr('viewBox', [-WIDTH / 2, -HEIGHT / 2, WIDTH, HEIGHT]);
-
-    const inner = svg.append('g');
-
-    const zoom = d3.zoom().on("zoom", () => {
-        inner.attr('transform', d3.event.transform)
-    });
-
-    var render = new dagreD3.render();
-    render(inner, g);
-
-    // Center the graph
-    let initialScale = 0.75
-    svg.call(zoom.transform, d3.zoomIdentity.translate((svg.attr('width') - g.graph().width * initialScale) / 2, 20).scale(initialScale))
-    svg.attr('height', g.graph().height * initialScale + 40)
-
-    /*
-    // Optional - resize the SVG element based on the contents.
-    var svg = document.querySelector('#graphContainer');
-    var bbox = svg.getBBox();
-    svg.style.width = bbox.width + 40.0 + "px";
-    svg.style.height = bbox.height + 40.0 + "px";
-    */
-}
