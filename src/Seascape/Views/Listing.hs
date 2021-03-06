@@ -31,7 +31,7 @@ searchView query od sm = defaultPartial (maybe "Listing - Seascape" (\q -> q <> 
       div_ [class_ "mt-8"] $ do
         p_ [class_ "text-lg mb-3"] $ do
           let cs' = B64.encode $ encodeUtf8 c
-          a_ [href_ ("/course/" <> cs'), class_ "font-bold"] $ toHtml c
+          a_ [href_ ("/course/" <> cs'), class_ "text-teal-600 hover:bg-teal-200 font-bold"] $ toHtml c
           " instructors"
         forM_ rs $ \(_, Section (sid, sinfo)) -> do
           div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
