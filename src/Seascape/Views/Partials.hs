@@ -110,7 +110,7 @@ defaultPartial t body =
       navbarPartial
       body
       p_ [class_ "text-center text-gray-500 text-xs mt-8 mb-8"] $ do
-        toHtmlRaw ("&copy; 2020 David Cao, Tung Doan. Created at " :: Text)
+        toHtmlRaw ("&copy; 2021 David Cao, Tung Doan. Created at " :: Text)
         a_ [href_ "https://sites.google.com/a/eng.ucsd.edu/spis/", class_ "text-teal-600"] "SPIS 2019."
       script_ "(function() {var script = document.createElement('script'); window.counter = 'https://seascape.goatcounter.com/count'; script.async = 1; script.src = '//gc.zgo.at/count.js'; var ins = document.getElementsByTagName('script')[0]; ins.parentNode.insertBefore(script, ins);})();"
 
@@ -167,15 +167,18 @@ gpaToLetter x
   | x >= 1.0  = "D"
   | otherwise = "F"
 
+gpaNumToHtml :: Double -> Html ()
+gpaNumToHtml n = 
+  h1_ [class_ "font-medium sm:text-lg font-mono"] $ do
+    toHtml $ gpaToLetter n
+    span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 n <> ")"
+
 gpaToHtml :: Gpa -> Html ()
 gpaToHtml (Gpa Nothing) = h1_ [class_ "font-medium sm:text-lg font-mono text-gray-500"] "N/A"
-gpaToHtml (Gpa (Just (_, x))) =
-  h1_ [class_ "font-medium sm:text-lg font-mono"] $ do
-    toHtml $ gpaToLetter x
-    span_ [class_ "text-gray-700"] $ toHtml $ " (" <> roundToStr 2 x <> ")"
+gpaToHtml (Gpa (Just (_, x))) = gpaNumToHtml x
 
 sectionSec :: Text -> Html () -> Html () -> Html ()
 sectionSec tid title rest =
-  div_ [id_ tid, class_ "flex flex-col pb-6 mx-auto max-w-5xl"] $ do
+  div_ [id_ tid, class_ "flex flex-col pt-6 mx-auto max-w-5xl"] $ do
     span_ [class_ "text-sm tracking-widest uppercase px-2 py-1 bg-gray-300 mr-auto mb-4 rounded mb-3"] title
     rest

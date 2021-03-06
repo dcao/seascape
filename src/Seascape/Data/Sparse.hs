@@ -32,7 +32,7 @@ newtype Section ix rank = Section { unSection :: (SectionID, SectionInfo ix rank
   deriving (Show, Eq, Ord)
   
 newtype Gpa = Gpa (Maybe (Int, Double))
-  deriving (Eq, Ord)
+  deriving (Eq)
 
 gpaExists :: Gpa -> Bool
 gpaExists (Gpa x) = isJust x
@@ -53,6 +53,10 @@ instance Semigroup Gpa where
   Gpa (Just (ca, a)) <> Gpa Nothing        = Gpa $ Just (ca, a)
   Gpa Nothing        <> Gpa (Just (cb, b)) = Gpa $ Just (cb, b)
   Gpa Nothing        <> Gpa Nothing        = Gpa Nothing
+
+instance Ord Gpa where
+  compare (Gpa (Just (_, a))) (Gpa (Just (_, b))) = compare a b
+  compare (Gpa a) (Gpa b) = compare a b
 
 -- This Semigroup intance is used for aggregating classes with the same SectionID.
 instance Semigroup a => Semigroup (SectionInfo Int a) where
@@ -188,3 +192,6 @@ addSectionOrder :: SectionMap
                 -> (Int, Section Int Int)
 addSectionOrder sm orf (ord, x) =
   let sec = Section (x, fromJust $ Map.lookup x sm) in (orf (ord, sec), sec)
+
+getByCourse :: Text -> SectionMap -> SectionMap
+getByCourse c = Map.filterWithKey (\k _ -> course k == c)

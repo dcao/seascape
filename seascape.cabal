@@ -27,6 +27,7 @@ library
       Seascape.Views.Listing
       Seascape.Views.Partials
       Seascape.Views.Plan
+      Seascape.Views.Course
       Seascape.Views.Section
   other-modules:
       Paths_seascape
