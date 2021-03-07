@@ -21,7 +21,7 @@ topHero rnki rnko cnti cnto (sid, sinfo) =
         div_ [class_ "flex flex-col flex-grow text-left"] $ do
           h1_ [class_ "text-2xl sm:text-3xl font-semibold font-sans flex-grow sm:flex-grow-0"] $ toHtml $ instr sid
           let cs' = B64.encode $ encodeUtf8 (course sid)
-          a_ [href_ ("/course/" <> cs'), class_ "text-teal-600 hover:bg-teal-200 text-xl sm:text-2xl font-medium font-sans"] $ toHtml $ course sid
+          span_ $ a_ [href_ ("/course/" <> cs'), class_ "text-teal-600 hover:bg-teal-200 text-xl sm:text-2xl font-medium font-sans"] $ toHtml $ course sid
         div_ [class_ "flex flex-row mt-3 sm:mt-0"] $ do
           div_ [class_ "flex flex-col sm:text-right mr-2 py-3 px-4 sm:py-4 border flex-grow rounded border-gray-800"] $ do
             h1_ [class_ "text-lg sm:text-xl font-semibold sm:font-bold font-sans"] $ toHtml $ "#" <> show rnki <> " of " <> show cnti

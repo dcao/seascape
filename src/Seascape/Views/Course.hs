@@ -104,7 +104,7 @@ prereqSec ps =
 instrsSec :: SectionMap -> Html ()
 instrsSec im = do
   sectionSec "instrs" "Instructors" $
-    forM_ (reverse $ sortOn (recInstr . snd) $ Map.toList im) $ \(sid, sinfo) -> do
+    forM_ (sortOn (recInstrRank . snd) $ Map.toList im) $ \(sid, sinfo) -> do
       div_ [class_ "items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row"] $ do
         div_ [class_ "w-full sm:w-1/3 text-left flex flex-row sm:flex-col items-end sm:items-start"] $ do
           h1_ [class_ "sm:text-lg font-bold sm:mb-1 flex-grow"] $ do
