@@ -3,31 +3,58 @@
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Seascape · Phoenix Framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <title><%= @view_module.title(@view_template, assigns) %> - Seascape</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/losers.jpg") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <main role="main" class="container">
+  <body class="font-sans">
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 py-5 shadow-lg z-100 px-6 relative">
+      <div class="mx-auto container w-full justify-between flex-wrap flex items-center">
+        <div class="flex items-center flex-shrink-0 text-white">
+          <a href="/" class="font-semibold text-xl tracking-tight">Seascape</a>
+        </div>
+        <div class="block lg:hidden">
+          <button id="navbutt" class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z">
+            </svg>
+          </button>
+        </div>
+        <div id="navstuff" class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
+          <div class="text-md lg:mx-auto">  
+            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Home</a>
+            <a href="/listing" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Course Listing</a>
+          </div>
+          <div>
+            <a href="https://github.com/dcao/seascape" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Github</a>
+          </div>
+        </div>
+      </div>
+      <script>
+        var nb = document.getElementById('navbutt');
+        var ns = document.getElementById('navstuff');
+        nb.onclick = function() { ns.classList.toggle('block'); ns.classList.toggle('hidden'); }
+      </script>
+    </nav>
+    <main role="main">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>
     </main>
+    <p class="text-center text-gray-500 text-xs mt-8 mb-8">
+      &copy; 2021 David Cao, Tung Doan. Created at <a href="https://sites.google.com/a/eng.ucsd.edu/spis/" class="text-teal-600">SPIS 2019</a>.
+    </p>
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        window.counter = 'https://seascape.goatcounter.com/count';
+        script.async = 1;
+        script.src = '//gc.zgo.at/count.js';
+        var ins = document.getElementsByTagName('script')[0];
+        ins.parentNode.insertBefore(script, ins);
+      })();
+    </script>
   </body>
 </html>

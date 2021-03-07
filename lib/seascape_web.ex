@@ -24,6 +24,10 @@ defmodule SeascapeWeb do
       import Plug.Conn
       import SeascapeWeb.Gettext
       alias SeascapeWeb.Router.Helpers, as: Routes
+
+      def render_shared(template, assigns \\ []) do
+        render(SeascapeWeb.SharedView, template, assigns)
+      end
     end
   end
 
