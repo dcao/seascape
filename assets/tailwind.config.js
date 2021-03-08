@@ -28,6 +28,7 @@ module.exports = {
     ],
     variants: {},
     plugins: [
+        require('@tailwindcss/forms'),
         function({ addUtilities }) {
             const newUtilities = {
                 '.stroke-width-1': {

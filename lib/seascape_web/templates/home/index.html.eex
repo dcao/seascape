@@ -5,8 +5,64 @@
             Search for information and statistics on
             <strong><%= @ln %> different sections</strong>
             of courses at UCSD.
-
-            <p class="mt-2 text-teal-600">Tip! Search multiple professor names (separated by spaces) to quickly compare them.</p>
         </p>
+        
+        <form class="mt-12 text-md md:text-xl" action="/listing">
+            <input type="submit" style="display: none;">
+            <div class="flex items-center border shadow-lg rounded-lg w-full bg-white md:text-xl leading-tight">
+                <input
+                    type="text"
+                    name="q"
+                    class="text-md md:text-xl pl-6 outline-none appearance-none border-none w-full text-gray-700 placeholder-gray-300"
+                    id="username"
+                    placeholder="Type a class or instructor">
+                <button class="flex-shrink-0 text-teal-500 hover:text-teal-700 p-6" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="flex justify-center mt-4 md:text-lg leading-tight">
+                <select
+                    name="sortBy"
+                    class="appearance-none outline-none border-none bg-teal-50 block mx-2 text-lg text-teal-500 text-underline font-semibold">
+                    <option value="relevance" selected="selected">Sort by relevance</option>
+                </select>
+            </div>
+        </form>
+
+        <p class="mt-2 text-teal-600 font-serif mt-5 text-teal-600">Tip! Search multiple professor names (separated by spaces) to quickly compare them.</p>
     </div>
 </div>
+<div class="bg-teal-500 pt-16 pb-16 px-6">
+    <div class="flex flex-col justify-center max-w-2xl mx-auto text-center">
+        <h1 class="text-2xl md:text-3xl font-medium text-gray-200 font-sans">Why Seascape?</h1>
+        <p class="text-lg font-serif mt-4 text-teal-200">Seascape provides increased insights into classes and provides tools to make dealing with courses and course registration easier.</p>
+    </div>
+    <div class="flex flex-row justify-center text-center container mx-auto mt-12 flex-wrap">
+        <div class="md:w-4/12 w-full px-4">
+            <h1 class="text-teal-100 font-semibold text-xl tracking-tight">The smartest CAPE</h1>
+            <p class="text-teal-200 mt-3 mb-6 text-md">Seascape takes averages for course sections over all quarters and makes predictions for future quarters based on this data, making it easier to decide if a course is worth taking.</p>
+            <a href="/listing" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mb-8 ">Course listing</a>
+        </div>
+        <div class="md:w-4/12 w-full px-4">
+            <h1 class="text-teal-100 font-semibold text-xl tracking-tight">Automated course scheduling</h1>
+            <p class="text-teal-200 mt-3 mb-6 text-md">Seascape can use its database of courses to automatically build a quarter schedule based on your preferences.</p>
+            <a class="cursor-not-allowed inline-block text-sm px-4 py-2 leading-none border rounded text-gray-300 border-gray-300 cursor-not-allowed mb-8 ">Coming soon</a>
+        </div>
+        <div class="md:w-4/12 w-full px-4">
+            <h1 class="text-teal-100 font-semibold text-xl tracking-tight">Course plan generator</h1>
+            <p class="text-teal-200 mt-3 mb-6 text-md">Seascape understands UCSD course requirements, and can automatically generate a full college course plan based on your college, major, and fulfilled prerequisites.</p>
+            <a class="cursor-not-allowed inline-block text-sm px-4 py-2 leading-none border rounded text-gray-300 border-gray-300 cursor-not-allowed mb-8 ">Coming soon</a>
+        </div>
+    </div>
+</div>
+<div class="bg-teal-50 flex flex-row flex-wrap">
+    <div class="w-full md:w-1/2"><img style="height: 32rem;" src="<%= Routes.static_path(@conn, "/images/losers.jpg") %>" class="w-full object-cover"></div>
+    <div class="w-full md:w-1/2 flex flex-col justify-left text-left pt-16 pb-24 px-8 lg:pl-8 lg:pr-64">
+        <h1 class="text-2xl md:text-3xl font-medium text-gray-700 font-sans">Help us help you</h1>
+        <p class="text-lg font-serif mt-4 text-teal-600">Seascape is an open-source project created by a couple of undergrads here at UCSD. As a result, Seascape probably lacks useful features and contains lots of bugs. Feel free to file an issue with potential improvements or make a contribution yourself!</p>
+        <p class="mt-6">
+            <a href="https://github.com/dcao/seascape/issues/new" class="inline-block mr-2 text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black mb-2">File an issue</a>
+            <a href="https://github.com/dcao/seascape" class="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black">View Seascape on GitHub</a></p>
+    </div>
+</div>
+

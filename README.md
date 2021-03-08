@@ -1,29 +1,27 @@
 # seascape
 
-UCSD offers a tool called [CAPE](http://cape.ucsd.edu), which allows students to report
-feedback on their course at the end of each term. However, the site has some
-issues which make the data harder to understand. Most notably, there's no
-context for any of the numbers, so it's pretty hard to compare classes and
-professors.
+UCSD offers multiple tools for finding information about courses. Among these
+includes a tool for evaluating courses and instructors
+([CAPE](http://cape.ucsd.edu)), and other tools which report course
+prerequisites and registration info. This information is spread out across
+multiple disparate sources and is hard to use for enrollment purposes.
 
-Seascape (Super Extra Awesome Spicier CAPE) is a solution to this, providing
-visualizations and extra statistics to make CAPE data easier to understand
-and compare.
+Additionally, UCSD has internal APIs for accessing this information. However,
+despite the fact that all this info is publicly available for all UCSD students,
+getting programmatic access to this info is nontrivial at best.
 
-For more info, see [the blogpost](https://cao.st/posts/seascape).
+**Seascape** (Super Extra Awesome Spicier CAPE) is a solution to this, providing
+visualizations and extra statistics to make CAPE and course data easier to
+understand and compare. Seascape also aims to provide an API for public UCSD
+course info to allow other developers programmatic access to this information.
+
+For more info, see [the original blogpost](https://cao.sh/posts/seascape).
 
 ## Scraping data
 
-Seascape relies on scraping data from the CAPE website for its function; this
-can be accomplished with the `scrape-sparse` executable. There are two ways of
-running it:
-
-- Without an argument, during which it will use Selenium to navigate to the
-  correct page and scrape the data (you will need to log into your UCSD
-  account during the process).
-  
-- With a file argument pointing to the downloaded CAPE Results page, where
-  the data can be scraped without Selenium.
+Seascape scrapes data from multiple sources scattered around UCSD's websites.
+These scrapers are contained within the `seascrape` Scrapy project, and there
+exists two spiders for scraping CAPE data and course prerequisite info.
 
 ## Acknowledgments
 
