@@ -2,10 +2,11 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
   use Ecto.Migration
 
   def change do
-    create table(:cape_entries) do
-      add :instr, :string
-      add :course, :string
-      add :term, :string
+    create table(:cape_entries, primary_key: false) do
+      add :instr, :string, primary_key: true
+      add :course, :string, primary_key: true
+      add :section, :string, primary_key: true
+      add :term, :string, primary_key: true
       add :enrolled, :integer
       add :evals, :integer
       add :rec_class, :float
