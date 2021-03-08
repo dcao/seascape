@@ -7,18 +7,15 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
       add :course, :string, primary_key: true
       add :section, :string, primary_key: true
       add :term, :string, primary_key: true
+      add :title, :string
       add :enrolled, :integer
       add :evals, :integer
-      add :rec_class, :float
-      add :rec_instr, :float
+      add :rec_class, :integer
+      add :rec_instr, :integer
 
-      add :grade_exp_avg, :float
-      add :grade_exp_std, :float
-      add :grade_rcv_avg, :float
-      add :grade_rcv_std, :float
-
-      add :hours_avg, :float
-      add :hours_stdev, :float
+      add :grades_exp, {:array, :float}
+      add :grades_rcv, {:array, :float}
+      add :hours, {:array, :float}
 
       timestamps()
     end

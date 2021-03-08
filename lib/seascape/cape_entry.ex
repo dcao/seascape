@@ -8,18 +8,15 @@ defmodule Seascape.CapeEntry do
     field :course, :string, primary_key: true
     field :section, :string, primary_key: true
     field :term, :string, primary_key: true
+    field :title, :string
     field :enrolled, :integer
     field :evals, :integer
-    field :rec_class, :float
-    field :rec_instr, :float
+    field :rec_class, :integer
+    field :rec_instr, :integer
 
-    field :grade_exp_avg, :float
-    field :grade_exp_std, :float
-    field :grade_rcv_avg, :float
-    field :grade_rcv_std, :float
-
-    field :hours_avg, :float
-    field :hours_std, :float
+    field :grades_exp, {:array, :float}
+    field :grades_rcv, {:array, :float}
+    field :hours, {:array, :float}
 
     timestamps()
   end
@@ -27,7 +24,7 @@ defmodule Seascape.CapeEntry do
   @doc false
   def changeset(cape_entry, attrs) do
     cape_entry
-    |> cast(attrs, [:instr, :course, :section, :term, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp_avg, :grade_exp_std, :grade_rcv_avg, :grade_rcv_std, :hours_avg, :hours_std])
-    |> validate_required([:instr, :course, :section, :term, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp_avg, :grade_rcv_avg, :hours_avg])
+    |> cast(attrs, [:instr, :course, :section, :term, :title, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp, :grade_rcv, :hours])
+    |> validate_required([:instr, :course, :section, :term, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp, :grade_rcv, :hours])
   end
 end

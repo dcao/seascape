@@ -12,6 +12,12 @@ class CapesSpider(scrapy.Spider):
     name = "capes"
     cookies = {}
 
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'seascrape.pipelines.CapesPipeline': 400
+        }
+    }
+
     def start_requests(self):
         # CAPEs requires us to be logged in before scraping.
         # Thus, using Selenium, we log in, wait for the 2FA authentication,
@@ -21,7 +27,7 @@ class CapesSpider(scrapy.Spider):
         # options.set_headless()
         driver = webdriver.Firefox(firefox_options=options)
 
-        driver.get("https://cape.ucsd.edu/responses/Results.aspx?Name=%2C")
+        driver.get("https://cape.ucsd.edu/responses/Results.aspx?Name=asdasd")
         # driver.get("https://cape.ucsd.edu/responses/Results.aspx?Name=Gillespie")
         wait(driver, 10).until(EC.title_contains("SINGLE SIGN-ON"))
         username = driver.find_element_by_xpath('//*[@id="ssousername"]')
@@ -33,18 +39,82 @@ class CapesSpider(scrapy.Spider):
         driver.find_element_by_xpath("/html/body/main/div/section/div[2]/div/div[1]/div/div[2]/form/button").click()
 
         wait(driver, 300).until(EC.title_contains("CAPE"))
-        wait(driver, 20).until(
-            EC.presence_of_element_located((By.ID, "ContentPlaceHolder1_gvCAPEs_hlViewReport_0"))
-        )
-
-        links = driver.find_elements_by_xpath('//td/a[@href]')
 
         for v in driver.get_cookies():
             self.cookies[v['name']] = v['value']
 
-        for link in links:
-            url = link.get_attribute("href")
-            yield scrapy.Request(url=url, callback=self.parse, cookies=self.cookies)
+        yield scrapy.Request(url="https://cape.ucsd.edu/responses/Results.aspx?Name=%2C", callback=self.parse, cookies=self.cookies)
+
+        driver.quit()
 
     def parse(self, response):
-        pass
+        if response.request.url == "https://cape.ucsd.edu/responses/Results.aspx?Name=%2C":
+            # for now, since scraping each page is too slow, we just scrape the index.
+            # for url in response.xpath("//td/a/@href").extract():
+            #     yield scrapy.Request(url=f"https://cape.ucsd.edu/responses/{url}", callback=self.parse, cookies=self.cookies)
+
+            for row in response.css("tbody tr"):
+                instr = row.css("td::text")[0].get()
+                course, rest = row.css("td a::text").get().split(' - ', 1)
+                section = rest[-2]
+                term = row.css("td::text")[3].get()
+                title = rest[:-4]
+                enrolled = row.css("td::text")[4].get()
+                
+                others = row.css("td span::text").getall()
+
+                evals = int(others[0])
+                rec_class = int(evals * float(others[1][:-1]) / 100)
+                rec_instr = int(evals * float(others[2][:-1]) / 100)
+                hours = [float(others[3])] if others[3] != 'N/A' else []
+                grades_exp = [float(others[4][others[4].find('(')+1:others[4].find(')')])] if others[4] != 'N/A' else []
+                grades_rcv = [float(others[5][others[5].find('(')+1:others[5].find(')')])] if others[5] != 'N/A' else []
+                
+                yield {
+                    'instr': instr,
+                    'course': course,
+                    'section': section,
+                    'term': term,
+                    'title': title,
+                    'enrolled': enrolled,
+                    'evals': evals,
+                    'rec_class': rec_class,
+                    'rec_instr': rec_instr,
+                    'grades_exp': grades_exp,
+                    'grades_rcv': grades_rcv,
+                    'hours': hours,
+                }
+        elif "CAPEReport" in response.request.url:
+            # new-style cape report
+            instr, course, title = response.css("#ContentPlaceHolder1_lblReportTitle::text").get().split(' - ')
+            s = response.css("#ContentPlaceHolder1_lblCourseDescription::text").get()
+            section = s[s.find("(")+1:s.find(")")]
+            term = response.css("#ContentPlaceHolder1_lblTermCode::text").get()
+            enrolled = response.css("#ContentPlaceHolder1_lblEnrollment::text").get()
+            evals = response.css("#ContentPlaceHolder1_lblEvaluationsSubmitted::text").get()
+
+            rec_class = response.css("#ContentPlaceHolder1_lblRecommendCourse::text").get()
+            rec_instr = response.css("#ContentPlaceHolder1_lblRecommendInstructor::text").get()
+
+            grades_exp = response.css("table#ContentPlaceHolder1_tblExpectedGrades td::text").getall()[0:7]
+            grades_rcv = response.css("table#ContentPlaceHolder1_tblGradesReceived td::text").getall()[0:7]
+            hours = [response.css(f"#ContentPlaceHolder1_dlQuestionnaire_rptChoices_6_rbSelect_{x}::text").get() for x in range(0, 11)]
+
+            yield {
+                'instr': instr,
+                'course': course,
+                'section': section,
+                'term': term,
+                'title': title,
+                'enrolled': enrolled,
+                'evals': evals,
+                'rec_class': rec_class,
+                'rec_instr': rec_instr,
+                'grades_exp': grades_exp,
+                'grades_rcv': grades_rcv,
+                'hours': hours,
+            }
+        else:
+            # old-style cape report
+            # for now, ignore
+            pass
