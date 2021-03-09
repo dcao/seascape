@@ -2,11 +2,11 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
   use Ecto.Migration
 
   def change do
-    create table(:cape_entries, primary_key: false) do
-      add :instr, :string, primary_key: true
-      add :course, :string, primary_key: true
-      add :section, :string, primary_key: true
-      add :term, :string, primary_key: true
+    create table(:cape_entries) do
+      add :instr_id, references(:instructors)
+      add :course_code, references(:courses)
+      add :section, :string
+      add :term, :string
       add :title, :string
       add :enrolled, :integer
       add :evals, :integer
@@ -20,5 +20,6 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
       timestamps()
     end
 
+    create unique_index(:cape_entries, [:instr_id, :course_code, :section, :term])
   end
 end
