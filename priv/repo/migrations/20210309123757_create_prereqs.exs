@@ -3,8 +3,8 @@ defmodule Seascape.Repo.Migrations.CreatePrereqs do
 
   def change do
     create table(:prereqs) do
-      add :course_code, references(:courses)
-      add :requires_code, references(:courses)
+      add :course_code, references(:courses, column: :code, type: :string)
+      add :requires_code, references(:courses, column: :code, type: :string)
     end
 
     create unique_index(:prereqs, [:course_code, :requires_code])

@@ -3,8 +3,10 @@
         <h1 class="text-2xl md:text-5xl font-light font-sans tracking-tight">Your virtual counselor.</h1>
         <p class="text-md md:text-xl font-serif mt-5 text-teal-600">
             Search for information and statistics on
-            <strong><%= @ln %> different sections</strong>
-            of courses at UCSD.
+            <strong><%= @course_cnt %> courses</strong>
+            and
+            <strong><%= @instr_cnt %> instructors</strong>
+            at UCSD.
         </p>
         
         <form class="mt-12 text-md md:text-xl" action="/listing">
@@ -15,7 +17,7 @@
                     name="q"
                     class="text-md md:text-xl pl-6 outline-none appearance-none border-none w-full text-gray-700 placeholder-gray-300"
                     id="username"
-                    placeholder="Type a class or instructor">
+                    placeholder="Find a class or instructor">
                 <button class="flex-shrink-0 text-teal-500 hover:text-teal-700 p-6" type="submit">
                     <i class="fas fa-search"></i>
                 </button>

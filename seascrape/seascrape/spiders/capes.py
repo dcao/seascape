@@ -54,7 +54,9 @@ class CapesSpider(scrapy.Spider):
             #     yield scrapy.Request(url=f"https://cape.ucsd.edu/responses/{url}", callback=self.parse, cookies=self.cookies)
 
             for row in response.css("tbody tr"):
-                instr = row.css("td::text")[0].get()
+                instr = row.css("td::text")[0].get().split(',', 1)
+                first = instr[1].strip()
+                last = instr[0].strip()
                 course, rest = row.css("td a::text").get().split(' - ', 1)
                 section = rest[-2]
                 term = row.css("td::text")[3].get()
@@ -71,7 +73,8 @@ class CapesSpider(scrapy.Spider):
                 grades_rcv = [float(others[5][others[5].find('(')+1:others[5].find(')')])] if others[5] != 'N/A' else []
                 
                 yield {
-                    'instr': instr,
+                    'first': first,
+                    'last': last,
                     'course': course,
                     'section': section,
                     'term': term,

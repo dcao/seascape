@@ -17,6 +17,7 @@ defmodule SeascapeWeb.Router do
     pipe_through :browser
 
     get "/", HomeController, :index
+    get "/listing", ListingController, :index
   end
 
   # Other scopes may use custom stacks.

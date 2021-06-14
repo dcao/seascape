@@ -4,7 +4,7 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
   def change do
     create table(:cape_entries) do
       add :instr_id, references(:instructors)
-      add :course_code, references(:courses)
+      add :course_code, references(:courses, column: :code, type: :string)
       add :section, :string
       add :term, :string
       add :title, :string

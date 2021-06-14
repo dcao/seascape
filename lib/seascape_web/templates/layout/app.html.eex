@@ -31,8 +31,8 @@
                     <div class="flex-grow flex mt-4 lg:mt-0 lg:justify-end">
                         <input
                             type="text"
-                            class="block w-full rounded-md bg-teal-300 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 lg:max-w-sm"
-                            placeholder="Find a class">
+                            class="block w-full rounded-md bg-teal-300 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 lg:max-w-sm placeholder-teal-500 focus:placeholder-gray-400"
+                            placeholder="Find a class or instructor">
                     </div>
                 </div>
             </div>
