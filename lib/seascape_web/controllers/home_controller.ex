@@ -6,6 +6,8 @@ defmodule SeascapeWeb.HomeController do
     course_cnt = Repo.aggregate(Seascape.Course, :count, :code)
     instr_cnt = Repo.aggregate(Seascape.Instructor, :count, :first)
 
-    render(conn, "index.html", course_cnt: course_cnt, instr_cnt: instr_cnt)
+    tip = Enum.random(1..3)
+
+    render(conn, "index.html", course_cnt: course_cnt, instr_cnt: instr_cnt, tip: tip)
   end
 end

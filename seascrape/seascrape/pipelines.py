@@ -62,12 +62,13 @@ insert into instructors (first, last, inserted_at, updated_at)
 values %s
 on conflict (first, last) do nothing
 """, [(i[0], i[1], i[13], i[13]) for i in items])
+        # todo: on conflict overwrite - first scrape sparse, then overwrite with detailed scrape
         execute_values(self.cur, """
-insert into cape_entries (instr_id, course_code, section, term, title, enrolled, evals, rec_class, rec_instr, grades_exp, grades_rcv, hours, inserted_at, updated_at)
+insert into cape_entries (instr_id, course_code, section, term, enrolled, evals, rec_class, rec_instr, grades_exp, grades_rcv, hours, inserted_at, updated_at)
 values %s
 on conflict (instr_id, course_code, section, term) do nothing
-""", items, template="""
-((select id from instructors where first=%s and last=%s), (select code from courses where code=%s), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+""", [(i[0], i[1], i[2], i[3], i[4], i[6], i[7], i[8], i[9], i[10], i[11], i[12], i[13], i[14]) for i in items], template="""
+((select id from instructors where first=%s and last=%s), (select code from courses where code=%s), %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 """)
         self.connection.commit()
         # logging.info("finished 1000 item push")

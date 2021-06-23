@@ -5,10 +5,9 @@ defmodule Seascape.CapeEntry do
   schema "cape_entries" do
     belongs_to :instr, Seascape.Instructor
     belongs_to :course, Seascape.Course, references: :code, foreign_key: :course_code
-    
+
     field :section, :string
     field :term, :string
-    field :title, :string
     field :enrolled, :integer
     field :evals, :integer
     field :rec_class, :integer
@@ -24,7 +23,7 @@ defmodule Seascape.CapeEntry do
   @doc false
   def changeset(cape_entry, attrs) do
     cape_entry
-    |> cast(attrs, [:instr_id, :course_code, :section, :term, :title, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp, :grade_rcv, :hours])
+    |> cast(attrs, [:instr_id, :course_code, :section, :term, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp, :grade_rcv, :hours])
     |> validate_required([:instr_id, :course_code, :section, :term, :enrolled, :evals, :rec_class, :rec_instr, :grade_exp, :grade_rcv, :hours])
     |> assoc_constraint(:instr)
     |> assoc_constraint(:course)

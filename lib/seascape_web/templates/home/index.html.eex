@@ -8,7 +8,7 @@
             <strong><%= @instr_cnt %> instructors</strong>
             at UCSD.
         </p>
-        
+
         <form class="mt-12 text-md md:text-xl" action="/listing">
             <input type="submit" style="display: none;">
             <div class="flex items-center border shadow-lg rounded-lg w-full bg-white md:text-xl leading-tight">
@@ -31,7 +31,13 @@
             </div>
         </form>
 
-        <p class="mt-2 text-teal-600 font-serif mt-5 text-teal-600">Tip! Search multiple professor names (separated by spaces) to quickly compare them.</p>
+        <p class="mt-2 text-teal-600 font-serif mt-5 text-teal-600"><b>Tip!</b>
+            <%= case @tip do %>
+                <% 1 -> %>Search multiple professor names (separated by spaces) to quickly compare them.
+                <% 2 -> %>Seascape has been rewritten two times!
+                <% 3 -> %>We love Niema 😍
+            <% end %>
+        </p>
     </div>
 </div>
 <div class="bg-teal-500 pt-16 pb-16 px-6">
@@ -67,4 +73,3 @@
             <a href="https://github.com/dcao/seascape" class="inline-block text-sm px-4 py-2 leading-none border rounded text-black border-black hover:border-transparent hover:text-teal-100 hover:bg-black">View Seascape on GitHub</a></p>
     </div>
 </div>
-

@@ -7,7 +7,6 @@ defmodule Seascape.Repo.Migrations.CreateCapeEntries do
       add :course_code, references(:courses, column: :code, type: :string)
       add :section, :string
       add :term, :string
-      add :title, :string
       add :enrolled, :integer
       add :evals, :integer
       add :rec_class, :integer

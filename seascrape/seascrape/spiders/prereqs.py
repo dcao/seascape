@@ -13,7 +13,7 @@ def class_names():
     database = 'seascape_dev'
 
     connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
-    cursor = self.connection.cursor()
+    cursor = connection.cursor()
 
     cursor.execute("select code from courses")
     codes = cursor.fetchall()
