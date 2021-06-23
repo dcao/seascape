@@ -18,6 +18,7 @@ defmodule SeascapeWeb.Router do
 
     get "/", HomeController, :index
     get "/listing", ListingController, :index
+    get "/section", SectionController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -1,0 +1,20 @@
+<!--
+div_ [class_ "bg-gray-800 py-3 px-2 lg:sticky top-0"] $ do
+  div_ [class_ "flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto"] $ do
+    link "#" "Overview"
+    link "#difficulty" "Class Difficulty"
+    link "#raw-data" "Raw Data"
+
+where
+  link href x = with (a_ x) [class_ "px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded", href_ href]
+
+<a
+-->
+
+<div class="bg-gray-800 py-3 px-2 lg:sticky top-0">
+    <div class="flex flex-col sm:flex-row items-center justify-center text-center text-gray-200 mx-auto">
+        <a class="px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded" href="#">Overview</a>
+        <a class="px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded" href="#difficulty">Class difficulty</a>
+        <a class="px-2 my-1 py-1 font-medium hover:bg-gray-600 rounded" href="#raw-data">Raw data</a>
+    </div>
+</div>
