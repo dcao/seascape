@@ -1,0 +1,17 @@
+todos
+
+* TODO finish course database code
+write methods to get a course average etc.
+* TODO how to store dependencies in database
+dependency table:
+course id => jsonb (array of arrays for dependencies)
+* reference websites that may be useful for getting data:
+- https://collab.ucsd.edu/display/API/API+and+Integration+Portal+Home
+  ucsd api reference!
+  - https://collab.ucsd.edu/display/API/Invoking+API+using+OAuth
+    see also page tree on the side
+- https://github.com/UCSD
+  this org has all the code for the ucsd mobile apps!
+  - https://github.com/UCSD/campus-mobile
+  - https://github.com/UCSD/webreg-mobile
+    issues mention enrollment api, eligibility api, schedule of classes api
