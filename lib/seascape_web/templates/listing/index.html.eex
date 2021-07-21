@@ -1,31 +1,79 @@
-<!--
-<p><%= @q %></p>
-<p><%= @sortBy %></p>-->
+<style>
+.test-class {
+  width: 150%;
+}
 
-<!--default Partial-->
-<h1 class="text-3xl font-medium font-sans">Course listing
-    <p class="text-lg font-serif mt-3 text-teal-600">
-        <strong>1 results</strong>
-         total
-    </p>
-    <form action="/listing">
-        <input type="submit" style="display: none;">
-        <div class="flex items-center border shadow-lg rounded-lg w-full bg-white md:text-xl leading-tight">
-            <input type="text" name="q" class="pl-6 outline-none appearance-none border-none w-full text-gray-700" id="username" placeholder="Find a class or instructor">
-            <button class="flex-shrink-0 text-teal-500 hover:text-teal-700 p-6" type="submit">
-            <i class="fas fa-search">
-        </div>
+@media (min-width: 640px) {
+  .test-class {
+    max-width: 640px;
+  }
+}
 
-        <div class="flex justify-center mt-4 md:text-lg leading-tight">
-            <select name="sortBy" class="appearance-none block bg-teal-100 px-2 text-lg text-teal-500 focus:outline-none text-underline font-semibold">
-            <option value="relevance">Sort by relevance</option>
-            <option value="ranking">Sort by ranking</option>
-            <option value="time">Sort by time</option>
-            <option value="gpa">Sort by GPA</option>
-            <div class="pointer-events-none flex items-center text-teal-600"></div>
-            <svg class="fill-current h-4 w-4" viewBox ="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
-            </svg>
+@media (min-width: 768px) {
+  .test-class {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .test-class {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .test-class {
+    max-width: 1280px;
+  }
+
+}
+
+@media (min-width: 1536px) {
+  .test-class {
+    max-width: 1536px;
+  }
+}
+</style>
+
+<!-- Professor bar -->
+<div class="bg-teal-100">
+    <div class="mx-auto container mx-6">
+        <div class="pt-7">
+            <span class="text-sm tracking-widest uppercase px-2 py-1 bg-teal-300 mr-auto mb-2 rounded mb-3">
+                Professors
+            </span>
+
+            <p class="text-md font-serif pt-3 text-teal-600">4 professors found for "lmao"</p>
         </div>
-    </form>
-</h1>
+    </div>
+
+    <div class="flex flex-row overflow-x-scroll">
+        <div class="flex container mx-auto">
+            <div class="flex-shrink-0 border rounded-lg my-5 w-72 bg-white mr-2">
+                <img src="/images/losers.jpg" class="object-cover h-40 w-full rounded-t-lg" />
+                <div class="m-4">
+                    <p class="text-lg font-bold text-teal-600">Niema Moshiri</p>
+                    <div class="flex flex-row mt-3">
+                        <div class="flex-grow flex flex-col">
+                            <p class="font-mono flex-grow">#1</p>
+                            <p class="flex-grow text-sm text-gray-500">prof rank</p>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <p class="font-mono flex-grow">99.1%</p>
+                            <p class="flex-grow text-sm text-gray-500">prof approval</p>
+                        </div>
+                        <div class="flex-grow flex flex-col">
+                            <p class="font-mono flex-grow">15</p>
+                            <p class="flex-grow text-sm text-gray-500">classes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- section results area: -->
+<!-- - filter pane -->
+<!-- - section results -->
