@@ -26,7 +26,10 @@
                 <select
                     name="sortBy"
                     class="appearance-none outline-none border-none bg-teal-50 block mx-2 text-lg text-teal-500 text-underline font-semibold">
-                    <option value="relevance" selected="selected">Sort by relevance</option>
+                    <option value="relevance" selected>Sort by relevance</option>
+                    <option value="ranking">Sort by ranking</option>
+                    <option value="time">Sort by time</option>
+                    <option value="gpa">Sort by GPA</option>
                 </select>
             </div>
         </form>

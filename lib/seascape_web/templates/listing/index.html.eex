@@ -1,38 +1,29 @@
 <style>
-.test-class {
-  width: 150%;
-}
+    @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        input[type="range"].min::-webkit-slider-thumb {
+            width: 15px;
+            -webkit-appearance: none;
+  			appearance: none;
+            height: 15px;
+            cursor: ew-resize;
+            background: #FFF;
+            box-shadow: 405px 0 0 400px #0d9488;
+            border-radius: 50%;
 
-@media (min-width: 640px) {
-  .test-class {
-    max-width: 640px;
-  }
-}
+        }
 
-@media (min-width: 768px) {
-  .test-class {
-    max-width: 768px;
-  }
-}
+        input[type="range"].max::-webkit-slider-thumb {
+            width: 15px;
+            -webkit-appearance: none;
+  			appearance: none;
+            height: 15px;
+            cursor: ew-resize;
+            background: #FFF;
+            box-shadow: -405px 0 0 400px #0d9488;
+            border-radius: 50%;
 
-@media (min-width: 1024px) {
-  .test-class {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .test-class {
-    max-width: 1280px;
-  }
-
-}
-
-@media (min-width: 1536px) {
-  .test-class {
-    max-width: 1536px;
-  }
-}
+        }
+    }
 </style>
 
 <!-- Professor bar -->
@@ -43,7 +34,7 @@
                 Professors
             </span>
 
-            <p class="text-md font-serif pt-3 text-teal-600">4 professors found for "lmao"</p>
+            <p class="text-md font-serif pt-3 text-teal-600">4 professors found for "<%= @q %>"</p>
         </div>
     </div>
 
@@ -52,7 +43,7 @@
             <div class="flex-shrink-0 border rounded-lg my-5 w-72 bg-white mr-2">
                 <img src="/images/losers.jpg" class="object-cover h-40 w-full rounded-t-lg" />
                 <div class="m-4">
-                    <p class="text-lg font-bold text-teal-600">Niema Moshiri</p>
+                    <p class="text-lg font-bold text-teal-600">Moshiri, Alexander Niema</p>
                     <div class="flex flex-row mt-3">
                         <div class="flex-grow flex flex-col">
                             <p class="font-mono flex-grow">#1</p>
@@ -73,6 +64,116 @@
     </div>
 </div>
 
+<div class="mt-2 container mx-auto">
+    <!-- all content -->
+    <div class="pt-5 flex flex-row">
+        <!-- filter pane -->
+        <div class="w-64 border rounded-lg px-4 mr-8">
+
+            <!-- expand/collapse -->
+            <p class="text-xs tracking-widest uppercase text-gray-500 pt-6">Collapse sections</p>
+            <p class="text-md font-bold pt-3 text-teal-600 pb-6">- Collapse all sections</p>
+
+            <!-- sort by -->
+            <p class="text-xs tracking-widest uppercase text-gray-500 pt-6">Sort by</p>
+            <select class="w-full mt-3 mb-6 rounded-lg border-gray-200" name="sortBy" id="sortBy">
+                <option value="relevance" <%= if @sortBy == "relevance" do %>selected<% end %>>Sort by relevance</option>
+                <option value="ranking" <%= if @sortBy == "ranking" do %>selected<% end %>>Sort by ranking</option>
+                <option value="time" <%= if @sortBy == "time" do %>selected<% end %>>Sort by time</option>
+                <option value="gpa" <%= if @sortBy == "gpa" do %>selected<% end %>>Sort by GPA</option>
+            </select>
+
+            <!-- availability -->
+            <p class="text-xs tracking-widest uppercase text-gray-500 pt-6">Course availability</p>
+            <div class="text-md pt-3 pb-6">
+                <input class="relative align-middle bottom-0.5 form-checkbox text-teal-600" type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label class="text-md pl-1 text-gray-900" for="vehicle3">Hide unavailable FA21</label><br>
+            </div>
+
+            <p class="text-xs tracking-widest uppercase text-gray-500 pt-6">Filters</p>
+            <div class="text-md pt-3 pb-6">
+                <label class="text-sm text-gray-900" for="range1">Min rec. prof: 0%</label><br>
+                <input class="min w-full rounded-lg bg-gray-400 mt-2 mb-5 appearance-none overflow-hidden" type="range" min="1" max="100" value="0" id="range1">
+
+                <label class="text-sm text-gray-900" for="range1">Min avg GPA: 0%</label><br>
+                <input class="min w-full rounded-lg bg-gray-400 mt-2 mb-5 appearance-none overflow-hidden" type="range" min="0" max="400" value="0" id="range1">
+
+                <label class="text-sm text-gray-900" for="range1">Max time/wk: 20</label><br>
+                <input class="max w-full rounded-lg bg-gray-400 mt-2 mb-5 appearance-none overflow-hidden" type="range" min="0" max="20" value="20" id="range1">
+            </div>
+            <!-- sort by -->
+        </div>
+
+        <!-- results -->
+        <div class="flex-grow">
+            <span class="text-sm tracking-widest uppercase px-2 py-1 bg-teal-300 mr-auto mb-2 rounded mb-3">
+                Sections
+            </span>
+
+            <p class="text-md font-serif pt-3 text-teal-600">4 sections found for "<%= @q %>"</p>
+
+            <!-- each section -->
+            <div class="mt-5">
+                <p class="text-xl mb-3"><a href="#" class="text-teal-600 hover:bg-teal-200 font-bold">CSE 100</a> ▾</p>
+                <div class="items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row">
+                    <div class="w-full sm:w-1/3 text-left flex flex-row sm:flex-col items-end sm:items-start">
+                        <h1 class="sm:text-lg font-bold sm:mb-1 flex-grow"><a href="/section/Q1NFIDEwMA==/TW9zaGlyaSwgQWxleGFuZGVyIE5pZW1h" class="text-teal-600 hover:bg-teal-200">Moshiri, Alexander Niema</a></h1>
+                        <p class="text-sm sm:text-base text-gray-600 text-right sm:text-left"><strong>465</strong> evaluations</p>
+                    </div>
+                    <div class="w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0">
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">#133</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">overall rank</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">98.5%</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">rec. prof.</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">10:32</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">time/wk</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium sm:text-lg font-mono text-sm whitespace-no-wrap">B+<span class="text-gray-700"> (3.67)</span></h1>
+                            <p class="text-xs sm:text-sm text-gray-600">avg. GPA</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- each section -->
+            <div class="mt-5">
+                <p class="text-xl mb-3"><a href="#" class="text-teal-600 hover:bg-teal-200 font-bold">CSE 11</a> ▾</p>
+                <div class="items-center mb-2 sm:mb-1 border rounded-lg px-5 py-6 sm:p-4 flex flex-col sm:flex-row">
+                    <div class="w-full sm:w-1/3 text-left flex flex-row sm:flex-col items-end sm:items-start">
+                        <h1 class="sm:text-lg font-bold sm:mb-1 flex-grow"><a href="/section/Q1NFIDEwMA==/TW9zaGlyaSwgQWxleGFuZGVyIE5pZW1h" class="text-teal-600 hover:bg-teal-200">Moshiri, Alexander Niema</a></h1>
+                        <p class="text-sm sm:text-base text-gray-600 text-right sm:text-left"><strong>465</strong> evaluations</p>
+                    </div>
+                    <div class="w-full sm:w-2/3 flex flex-row text-left sm:text-right mt-3 sm:mt-0">
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">#133</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">overall rank</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">98.5%</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">rec. prof.</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium text-sm sm:text-lg font-mono">10:32</h1>
+                            <p class="text-xs sm:text-sm text-gray-600">time/wk</p>
+                        </div>
+                        <div class="w-1/3 flex flex-col">
+                            <h1 class="font-medium sm:text-lg font-mono text-sm whitespace-no-wrap">B+<span class="text-gray-700"> (3.67)</span></h1>
+                            <p class="text-xs sm:text-sm text-gray-600">avg. GPA</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- section results area: -->
 <!-- - filter pane -->
