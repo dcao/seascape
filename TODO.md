@@ -1,11 +1,13 @@
 todos
 
-* TODO finish course database code
+- [ ] finish course database code
 write methods to get a course average etc.
-* TODO how to store dependencies in database
+we need a context that interfaces with cape entry. get all sections and profs. get sections/profs filtered by a search term.
+- [ ] how to store dependencies in database
 dependency table:
 course id => jsonb (array of arrays for dependencies)
-* reference websites that may be useful for getting data:
+
+reference websites that may be useful for getting data:
 - https://collab.ucsd.edu/display/API/API+and+Integration+Portal+Home
   ucsd api reference!
   - https://collab.ucsd.edu/display/API/Invoking+API+using+OAuth
