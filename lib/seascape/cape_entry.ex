@@ -4,7 +4,7 @@ defmodule Seascape.CapeEntry do
 
   schema "cape_entries" do
     belongs_to :instr, Seascape.Instructor
-    belongs_to :course, Seascape.Course, references: :code, foreign_key: :course_code
+    belongs_to :course, Seascape.Course, references: :code, foreign_key: :course_code, type: :string
 
     field :section, :string
     field :term, :string

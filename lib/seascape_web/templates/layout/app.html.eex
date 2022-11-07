@@ -23,16 +23,20 @@
                     </button>
                 </div>
                 <div id="navstuff" class="w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-                    <div class="text-md lg:pl-8">  
+                    <div class="text-md lg:pl-8">
                         <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Home</a>
                         <a href="/listing" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Course Listing</a>
                         <a href="https://github.com/dcao/seascape" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Github</a>
                     </div>
                     <div class="flex-grow flex mt-4 lg:mt-0 lg:justify-end">
-                        <input
-                            type="text"
-                            class="block w-full rounded-md bg-teal-300 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 lg:max-w-sm placeholder-teal-500 focus:placeholder-gray-400"
-                            placeholder="Find a class or instructor">
+                        <form class="flex-grow flex mt-4 lg:mt-0 lg:justify-end" action="/listing">
+                            <input
+                                type="text"
+                                name="q"
+                                class="block w-full rounded-md bg-teal-300 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 lg:max-w-sm placeholder-teal-500 focus:placeholder-gray-400"
+                                placeholder="Find a class or instructor">
+
+                        </form>
                     </div>
                 </div>
             </div>

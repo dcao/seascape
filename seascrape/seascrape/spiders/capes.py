@@ -49,43 +49,50 @@ class CapesSpider(scrapy.Spider):
 
     def parse(self, response):
         if response.request.url == "https://cape.ucsd.edu/responses/Results.aspx?Name=%2C":
-            for url in response.xpath("//td/a/@href").extract():
-                yield scrapy.Request(url=f"https://cape.ucsd.edu/responses/{url}", callback=self.parse, cookies=self.cookies)
+            # uncomment for non-sparse scraping
+            # for url in response.xpath("//td/a/@href").extract():
+            #     yield scrapy.Request(url=f"https://cape.ucsd.edu/responses/{url}", callback=self.parse, cookies=self.cookies)
 
-            # for row in response.css("tbody tr"):
-            #     instr = row.css("td::text")[0].get().split(',', 1)
-            #     first = instr[1].strip()
-            #     last = instr[0].strip()
-            #     course, rest = row.css("td a::text").get().split(' - ', 1)
-            #     section = rest[-2]
-            #     term = row.css("td::text")[3].get()
-            #     title = rest[:-4]
-            #     enrolled = row.css("td::text")[4].get()
-            #     
-            #     others = row.css("td span::text").getall()
+            for row in response.css("tbody tr"):
+                instr = row.css("td::text")[0].get().split(',', 1)
+                first = instr[1].strip()
+                last = instr[0].strip()
+                course, rest = row.css("td a::text").get().split(' - ', 1)
+                section = rest[-2]
+                term = row.css("td::text")[3].get()
+                title = rest[:-4]
+                enrolled = row.css("td::text")[4].get()
+                
+                others = row.css("td span::text").getall()
 
-            #     evals = int(others[0])
-            #     rec_class = int(evals * float(others[1][:-1]) / 100)
-            #     rec_instr = int(evals * float(others[2][:-1]) / 100)
-            #     hours = [float(others[3])] if others[3] != 'N/A' else []
-            #     grades_exp = [float(others[4][others[4].find('(')+1:others[4].find(')')])] if others[4] != 'N/A' else []
-            #     grades_rcv = [float(others[5][others[5].find('(')+1:others[5].find(')')])] if others[5] != 'N/A' else []
-            #     
-            #     yield {
-            #         'first': first,
-            #         'last': last,
-            #         'course': course,
-            #         'section': section,
-            #         'term': term,
-            #         'title': title,
-            #         'enrolled': enrolled,
-            #         'evals': evals,
-            #         'rec_class': rec_class,
-            #         'rec_instr': rec_instr,
-            #         'grades_exp': grades_exp,
-            #         'grades_rcv': grades_rcv,
-            #         'hours': hours,
-            #     }
+                evals = int(others[0])
+                rec_class = int(evals * float(others[1][:-1]) / 100)
+                rec_instr = int(evals * float(others[2][:-1]) / 100)
+                hours = [float(others[3])] if others[3] != 'N/A' else []
+                grades_exp = [float(others[4][others[4].find('(')+1:others[4].find(')')])] if others[4] != 'N/A' else []
+                grades_rcv = [float(others[5][others[5].find('(')+1:others[5].find(')')])] if others[5] != 'N/A' else []
+                
+                yield {
+                    'first': first,
+                    'last': last,
+
+                    # course info - used to get a ref to a course id
+                    'course': course,
+                    'title': title,
+
+                    # course info attached to this entry
+                    'section': section,
+                    'term': term,
+                    'enrolled': enrolled,
+
+                    # eval info attached to this entry
+                    'evals': evals,
+                    'rec_class': rec_class,
+                    'rec_instr': rec_instr,
+                    'grades_exp': grades_exp,
+                    'grades_rcv': grades_rcv,
+                    'hours': hours,
+                }
         elif "CAPEReport" in response.request.url:
             # new-style cape report
             instr, course, title = response.css("#ContentPlaceHolder1_lblReportTitle::text").get().split(' - ')
