@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 
@@ -23,11 +23,11 @@ library
       Seascape.Data.Prereqs
       Seascape.Data.Sparse
       Seascape.Utils
+      Seascape.Views.Course
       Seascape.Views.Home
       Seascape.Views.Listing
       Seascape.Views.Partials
       Seascape.Views.Plan
-      Seascape.Views.Course
       Seascape.Views.Section
   other-modules:
       Paths_seascape
@@ -38,7 +38,7 @@ library
       Spock >=0.13.0.0
     , Spock-lucid
     , aeson
-    , base >=4 && <5
+    , base ==4.*
     , base-encoding
     , bytestring
     , cassava
@@ -65,7 +65,7 @@ executable scrape-sparse
   ghc-options: -Wall -O2 -fprof-auto -fprof-cafs
   build-depends:
       aeson
-    , base >=4 && <5
+    , base ==4.*
     , bytestring
     , cassava
     , fast-tagsoup
@@ -89,7 +89,7 @@ executable seascape-app
   ghc-options: -Wall
   build-depends:
       Spock >=0.13.0.0
-    , base >=4 && <5
+    , base ==4.*
     , seascape
   default-language: Haskell2010
 
@@ -102,7 +102,7 @@ benchmark seascape-bench
       bench
   ghc-options: -Wall
   build-depends:
-      base >=4 && <5
+      base ==4.*
     , criterion
     , seascape
   default-language: Haskell2010
